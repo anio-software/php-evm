@@ -9,3 +9,5 @@ require_once __DIR__."/selector/TagSelector.php";
 require_once __DIR__."/VisitAction.php";
 require_once __DIR__."/VisitChildrenContext.php";
 require_once __DIR__."/VisitContext.php";
+
+require_once __DIR__."/loadDocument.php";
