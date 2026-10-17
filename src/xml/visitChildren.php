@@ -1,0 +1,37 @@
+<?php
+
+namespace AnioSoftware\X2J\XML;
+
+function visitChildrenImpl(
+	\DOMNode $node,
+	VisitChildrenContext $context,
+	string $path,
+	int $depth
+): ?VisitAction {
+	foreach ($node->childNodes as $child) {
+		if (!$child instanceof \DOMElement) continue;
+
+		$localName = $child->localName ?? "?";
+		$newPath = \strlen($path) ? "$path/".$localName : $localName;
+
+		$action = ($context->visitor)($child, new VisitContext($newPath, $depth));
+
+		if ($action === VisitAction::Stop) {
+			return $action;
+		}
+
+		if ($action === VisitAction::SkipChildren) {
+			continue;
+		}
+
+		if (visitChildrenImpl($child, $context, $newPath, $depth + 1) === VisitAction::Stop) {
+			return VisitAction::Stop;
+		}
+	}
+
+	return NULL;
+}
+
+function visitChildren(\DOMNode $node, callable $visitor): void {
+	visitChildrenImpl($node, new VisitChildrenContext($visitor), "", 0);
+}
