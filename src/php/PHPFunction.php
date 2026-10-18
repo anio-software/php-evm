@@ -7,6 +7,7 @@ final readonly class PHPFunction extends PHPReference {
 		string $referenceId,
 		public string $name,
 		private array $parameters,
+		public bool $variadic,
 		public PHPType $returnType
 	) {
 		parent::__construct($referenceId);
@@ -19,6 +20,17 @@ final readonly class PHPFunction extends PHPReference {
 			$this->referenceId,
 			$this->name,
 			[...$this->parameters, $param],
+			$this->variadic,
+			$this->returnType
+		);
+	}
+
+	public function withVariadic(bool $variadic): self {
+		return new self(
+			$this->referenceId,
+			$this->name,
+			$this->parameters,
+			$variadic,
 			$this->returnType
 		);
 	}
@@ -32,6 +44,6 @@ final readonly class PHPFunction extends PHPReference {
 		string $name,
 		PHPType $returnType
 	): self {
-		return new self($referenceId, $name, [], $returnType);
+		return new self($referenceId, $name, [], false, $returnType);
 	}
 }
