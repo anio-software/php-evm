@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\XML;
 
-function visitChildrenImpl(
+function visitImpl(
 	\DOMNode $node,
 	VisitChildrenContext $context,
 	string $path,
@@ -24,7 +24,7 @@ function visitChildrenImpl(
 			continue;
 		}
 
-		if (visitChildrenImpl($child, $context, $newPath, $depth + 1) === VisitAction::Stop) {
+		if (visitImpl($child, $context, $newPath, $depth + 1) === VisitAction::Stop) {
 			return VisitAction::Stop;
 		}
 	}
@@ -32,6 +32,6 @@ function visitChildrenImpl(
 	return NULL;
 }
 
-function visitChildren(\DOMNode $node, callable $visitor): void {
-	visitChildrenImpl($node, new VisitChildrenContext($visitor), "", 0);
+function visit(\DOMNode $node, callable $visitor): void {
+	visitImpl($node, new VisitChildrenContext($visitor), "", 0);
 }
