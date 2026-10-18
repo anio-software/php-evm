@@ -10,6 +10,7 @@ require_once __DIR__."/PHPIntersectionType.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
 require_once __DIR__."/PHPFunction.php";
+require_once __DIR__."/PHPFunctionAlias.php";
 
 require_once __DIR__."/PHPClass.php";
 require_once __DIR__."/PHPInterface.php";
