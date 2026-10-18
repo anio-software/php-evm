@@ -23,7 +23,7 @@ function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 		return new PHP\PHPNamedType($typeName);
 	}
 
-	return PHP\PHPBuiltinType::Void;
+	return new PHP\PHPUnknownType;
 }
 
 function createPHPTypeFromDOMElement(
