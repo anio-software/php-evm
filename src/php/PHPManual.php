@@ -7,6 +7,7 @@ final class PHPManual {
 	private array $interfaces = [];
 	private array $enums = [];
 	private array $constants = [];
+	private array $functions = [];
 
 	public function addClass(PHPClass $class) {
 		$this->classes[$class->name] = $class;
@@ -24,6 +25,10 @@ final class PHPManual {
 		$this->constants[$const->name] = $const;
 	}
 
+	public function addFunction(PHPFunction $func) {
+		$this->functions[$func->name] = $func;
+	}
+
 	public function getClasses(): array {
 		return $this->classes;
 	}
@@ -38,5 +43,9 @@ final class PHPManual {
 
 	public function getConstants(): array {
 		return $this->constants;
+	}
+
+	public function getFunctions(): array {
+		return $this->functions;
 	}
 }
