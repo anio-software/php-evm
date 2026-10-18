@@ -51,6 +51,22 @@ final class PHPManual {
 		return $this->functions;
 	}
 
+	public function addReference(PHPReference $ref) {
+		if ($ref instanceof PHPClass) {
+			$this->addClass($ref);
+		} else if ($ref instanceof PHPInterface) {
+			$this->addInterface($ref);
+		} else if ($ref instanceof PHPEnum) {
+			$this->addEnum($ref);
+		} else if ($ref instanceof PHPConstant) {
+			$this->addConstant($ref);
+		} else if ($ref instanceof PHPFunction) {
+			$this->addFunction($ref);
+		} else {
+			throw new \RuntimeException("Unknown PHPReference instance.");
+		}
+	}
+
 	public const DOCBOOK_NS = "http://docbook.org/ns/docbook";
 	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
 
