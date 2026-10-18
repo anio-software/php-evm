@@ -34,7 +34,12 @@ function getFunctionParameterInt(
 
 	return PHP\PHPFunctionParameter::create(
 		$parameterName,
-		PHP\PHPBuiltinType::Void,
+		createPHPTypeFromDOMElement(
+			XML\selectFirstMatchingChild(
+				$methodparam,
+				PHP\PHPManual::tagSelectorFactory("type")
+			)
+		),
 		$isReference,
 		$initializer
 	);
@@ -92,7 +97,12 @@ function getFunctionInt(
 	\DOMElement $methodsynopsis
 ): PHP\PHPFunction {
 	$isVariadic = false;
-	$func   = PHP\PHPFunction::create($refId, $functionName, PHP\PHPBuiltinType::Void);
+	$returnType = createPHPTypeFromDOMElement(
+		XML\selectFirstMatchingChild(
+			$methodsynopsis, PHP\PHPManual::tagSelectorFactory("type")
+		)
+	);
+	$func   = PHP\PHPFunction::create($refId, $functionName, $returnType);
 	$params = getFunctionParametersInt($diagnostics, $refId, $methodsynopsis, $isVariadic);
 
 	foreach ($params as $param) {
