@@ -11,3 +11,5 @@ require_once __DIR__."/VisitContext.php";
 
 require_once __DIR__."/loadDocument.php";
 require_once __DIR__."/visit.php";
+
+require_once __DIR__."/select.php";
