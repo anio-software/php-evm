@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\XML;
 
-final class VisitChildrenContext {
+final class InternalVisitContext {
 	readonly public \Closure $visitor;
 
 	public function __construct(callable $visitor) {

@@ -4,7 +4,7 @@ namespace AnioSoftware\X2J\XML;
 
 function visitImpl(
 	\DOMNode $node,
-	VisitChildrenContext $context,
+	InternalVisitContext $context,
 	string $path,
 	int $depth
 ): ?VisitAction {
@@ -33,5 +33,5 @@ function visitImpl(
 }
 
 function visit(\DOMNode $node, callable $visitor): void {
-	visitImpl($node, new VisitChildrenContext($visitor), "", 0);
+	visitImpl($node, new InternalVisitContext($visitor), "", 0);
 }
