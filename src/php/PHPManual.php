@@ -10,6 +10,7 @@ final class PHPManual {
 	private array $enums = [];
 	private array $constants = [];
 	private array $functions = [];
+	private array $functionAliases = [];
 
 	public function addClass(PHPClass $class) {
 		$this->classes[$class->name] = $class;
@@ -29,6 +30,10 @@ final class PHPManual {
 
 	public function addFunction(PHPFunction $func) {
 		$this->functions[$func->name] = $func;
+	}
+
+	public function addFunctionAlias(PHPFunctionAlias $alias) {
+		$this->functionAliases[$alias->name] = $alias;
 	}
 
 	public function getClasses(): array {
@@ -51,6 +56,10 @@ final class PHPManual {
 		return $this->functions;
 	}
 
+	public function getFunctionAliases(): array {
+		return $this->functionAliases;
+	}
+
 	public function addReference(PHPReference $ref) {
 		if ($ref instanceof PHPClass) {
 			$this->addClass($ref);
@@ -62,6 +71,8 @@ final class PHPManual {
 			$this->addConstant($ref);
 		} else if ($ref instanceof PHPFunction) {
 			$this->addFunction($ref);
+		} else if ($ref instanceof PHPFunctionAlias) {
+			$this->addFunctionAlias($ref);
 		} else {
 			throw new \RuntimeException("Unknown PHPReference instance.");
 		}
