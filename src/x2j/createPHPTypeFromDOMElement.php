@@ -2,6 +2,9 @@
 
 namespace AnioSoftware\X2J;
 
-function createPHPTypeFromDOMElement(\DOMElement $element): PHP\PHPType {
+function createPHPTypeFromDOMElement(
+	X2JContext $ctx,
+	\DOMElement $element
+): PHP\PHPType {
 	return PHP\PHPBuiltinType::Void;
 }

@@ -4,6 +4,7 @@ namespace AnioSoftware\X2J;
 
 function getFunctionParameterInt(
 	X2JDiagnostics $diagnostics,
+	X2JContext $ctx,
 	string $refId,
 	\DOMElement $methodparam,
 	\DOMElement $parameter,
@@ -35,6 +36,7 @@ function getFunctionParameterInt(
 	return PHP\PHPFunctionParameter::create(
 		$parameterName,
 		createPHPTypeFromDOMElement(
+			$ctx,
 			XML\selectFirstMatchingChild(
 				$methodparam,
 				PHP\PHPManual::tagSelectorFactory("type")
@@ -47,6 +49,7 @@ function getFunctionParameterInt(
 
 function getFunctionParametersInt(
 	X2JDiagnostics $diagnostics,
+	X2JContext $ctx,
 	string $refId,
 	\DOMElement $methodsynopsis,
 	bool &$isVariadic
@@ -76,6 +79,7 @@ function getFunctionParametersInt(
 
 		$ret[] = getFunctionParameterInt(
 			$diagnostics,
+			$ctx,
 			$refId,
 			$methodparam,
 			$parameter,
@@ -92,18 +96,20 @@ function getFunctionParametersInt(
 
 function getFunctionInt(
 	X2JDiagnostics $diagnostics,
+	X2JContext $ctx,
 	string $refId,
 	string $functionName,
 	\DOMElement $methodsynopsis
 ): PHP\PHPFunction {
 	$isVariadic = false;
 	$returnType = createPHPTypeFromDOMElement(
+		$ctx,
 		XML\selectFirstMatchingChild(
 			$methodsynopsis, PHP\PHPManual::tagSelectorFactory("type")
 		)
 	);
 	$func   = PHP\PHPFunction::create($refId, $functionName, $returnType);
-	$params = getFunctionParametersInt($diagnostics, $refId, $methodsynopsis, $isVariadic);
+	$params = getFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis, $isVariadic);
 
 	foreach ($params as $param) {
 		$func = $func->withFunctionParameter($param);
@@ -191,7 +197,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 		}
 
 		$ctx->manual->addFunction(
-			getFunctionInt($diagnostics, $refId, $functionName, $methodsynopsis)
+			getFunctionInt($diagnostics, $ctx, $refId, $functionName, $methodsynopsis)
 		);
 	}
 }
