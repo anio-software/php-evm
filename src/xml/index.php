@@ -13,3 +13,5 @@ require_once __DIR__."/loadDocument.php";
 require_once __DIR__."/visit.php";
 
 require_once __DIR__."/select.php";
+require_once __DIR__."/selectFirstMatchingChild.php";
+require_once __DIR__."/selectFirstMatchingDescendant.php";
