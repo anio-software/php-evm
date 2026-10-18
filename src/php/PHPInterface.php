@@ -5,15 +5,15 @@ namespace AnioSoftware\X2J\PHP;
 final readonly class PHPInterface extends PHPReference {
 	private function __construct(
 		string $referenceId,
-		public string $interfaceName
+		public string $name
 	) {
 		parent::__construct($referenceId);
 	}
 
 	static public function create(
 		string $referenceId,
-		string $interfaceName
+		string $name
 	): self {
-		return new self($referenceId, $interfaceName);
+		return new self($referenceId, $name);
 	}
 }
