@@ -60,7 +60,6 @@ function getFunctionParametersInt(
 	);
 
 	$ret = [];
-	$isVariadic = false;
 
 	foreach ($methodparams as $methodparam) {
 		$parameter = XML\selectFirstMatchingChild(
@@ -74,8 +73,6 @@ function getFunctionParametersInt(
 			continue;
 		}
 
-		$isVariadicParameter = false;
-
 		$ret[] = getFunctionParameterInt(
 			$diagnostics,
 			$ctx,
@@ -83,10 +80,6 @@ function getFunctionParametersInt(
 			$methodparam,
 			$parameter
 		);
-
-		if ($isVariadicParameter) {
-			$isVariadic = true;
-		}
 	}
 
 	return $ret;
