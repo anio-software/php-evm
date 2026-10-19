@@ -4,7 +4,7 @@ namespace AnioSoftware\X2J\PHP;
 
 use AnioSoftware\X2J\XML as XML;
 
-final class PHPManual {
+final class PHPManual implements \JsonSerializable {
 	private array $classes = [];
 	private array $interfaces = [];
 	private array $enums = [];
@@ -91,5 +91,16 @@ final class PHPManual {
 
 	static public function getRefIdAttribute(\DOMElement $el): string {
 		return $el->getAttributeNS(self::XMLID_NS, "id");
+	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"classes" => $this->classes,
+			"interfaces" =>  $this->interfaces,
+			"enums" => $this->enums,
+			"constants" => $this->constants,
+			"functions" => $this->functions,
+			"functionAliases" => $this->functionAliases
+		];
 	}
 }
