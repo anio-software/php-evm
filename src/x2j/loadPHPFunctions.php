@@ -43,7 +43,8 @@ function getFunctionParameterInt(
 			)
 		),
 		$isReference,
-		$initializer
+		$initializer,
+		$isVariadic
 	);
 }
 

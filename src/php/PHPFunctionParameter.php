@@ -8,14 +8,16 @@ final readonly class PHPFunctionParameter {
 		public PHPType $type,
 		public bool $isReference,
 		public bool $isOptional,
-		public string|null $initializer
+		public string|null $initializer,
+		public bool $isVariadic
 	) {}
 
 	static public function create(
 		string $name,
 		PHPType $type,
 		bool $isReference,
-		string|null $initializer = NULL
+		string|null $initializer = NULL,
+		bool $isVariadic = false
 	): self {
 		$isOptional = $initializer !== NULL;
 
@@ -23,6 +25,6 @@ final readonly class PHPFunctionParameter {
 			$type = makePHPTypeNullable($type);
 		}
 
-		return new self($name, $type, $isReference, $isOptional, $initializer);
+		return new self($name, $type, $isReference, $isOptional, $initializer, $isVariadic);
 	}
 }
