@@ -82,8 +82,7 @@ function getFunctionParametersInt(
 			$ctx,
 			$refId,
 			$methodparam,
-			$parameter,
-			$isVariadicParameter
+			$parameter
 		);
 
 		if ($isVariadicParameter) {
