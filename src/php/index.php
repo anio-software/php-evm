@@ -14,6 +14,7 @@ require_once __DIR__."/collapsePHPType.php";
 require_once __DIR__."/renderPHPType.php";
 require_once __DIR__."/Renderability.php";
 require_once __DIR__."/getFunctionRenderability.php";
+require_once __DIR__."/getRenderability.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
 require_once __DIR__."/PHPFunction.php";
