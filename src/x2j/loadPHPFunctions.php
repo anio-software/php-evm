@@ -7,8 +7,7 @@ function getFunctionParameterInt(
 	X2JContext $ctx,
 	string $refId,
 	\DOMElement $methodparam,
-	\DOMElement $parameter,
-	bool &$isVariadic
+	\DOMElement $parameter
 ): PHP\PHPFunctionParameter {
 	$parameterName = \trim($parameter->textContent);
 	$isReference   = $parameter->attributes->getNamedItem("role")?->value === "reference";
