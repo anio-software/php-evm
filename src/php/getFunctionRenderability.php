@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-function getRenderability(PHPFunction $func): Renderability {
+function getFunctionRenderability(PHPFunction $func): Renderability {
 	if ($func->returnType instanceof PHPUnknownType) {
 		return Renderability::FunctionUnknownReturnType;
 	}
