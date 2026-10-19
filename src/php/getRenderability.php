@@ -25,7 +25,7 @@ function getRenderability(PHPFunction $func): Renderability {
 			$optionalParametersBegun = true;
 		}
 
-		if ($optionalParametersBegun && !$param->isOptional) {
+		if ($optionalParametersBegun && !$param->isOptional && !$param->isVariadic) {
 			return Renderability::RequiredParameterAfterOptional;
 		}
 
