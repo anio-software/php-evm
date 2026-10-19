@@ -30,7 +30,7 @@ function renderPHPType(PHPType $type): string {
 	if ($type instanceof PHPBuiltinType) {
 		return $type->value;
 	} else if ($type instanceof PHPNamedType) {
-		return $type->name;
+		return "\\".$type->name;
 	} else if ($type instanceof PHPUnionType) {
 		$nullableType = unionToNullableTypeStringInt($type);
 
