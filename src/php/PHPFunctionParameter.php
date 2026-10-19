@@ -25,6 +25,13 @@ final readonly class PHPFunctionParameter {
 			$type = makePHPTypeNullable($type);
 		}
 
-		return new self($name, $type, $isReference, $isOptional, $initializer, $isVariadic);
+		return new self(
+			$name,
+			$type,
+			$isReference,
+			$isOptional,
+			$initializer,
+			$isVariadic
+		);
 	}
 }
