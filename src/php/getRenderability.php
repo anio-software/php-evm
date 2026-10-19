@@ -2,9 +2,9 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-function getRenderability(PHPFunction $func): bool {
+function getRenderability(PHPFunction $func): Renderability {
 	if ($func->returnType instanceof PHPUnknownType) {
-		return false;
+		return Renderability::UnknownReturnType;
 	}
 
 	$params = $func->getParameters();
@@ -14,7 +14,7 @@ function getRenderability(PHPFunction $func): bool {
 		$lastParam = $params[$nParams - 1];
 
 		if ($func->isVariadic && !$lastParam->isVariadic) {
-			return false;
+			return Renderability::VariadicParameterMismatch;
 		}
 	}
 
@@ -26,25 +26,25 @@ function getRenderability(PHPFunction $func): bool {
 		}
 
 		if ($optionalParametersBegun && !$param->isOptional) {
-			return false;
+			return Renderability::RequiredParameterAfterOptional;
 		}
 
 		if ($param->type instanceof PHPUnknownType) {
-			return false;
+			return Renderability::UnknownParameterType;
 		} else if ($param->initializer === "?") {
-			return false;
+			return Renderability::UnsupportedParameterInitializer;
 		}
 
 		if ($param->initializer !== NULL && \str_starts_with($param->initializer, "ini_get(")) {
-			return false;
+			return Renderability::IniGetParameterInitializer;
 		}
 	}
 
 	if ($func->name === "__halt_compiler") {
-		return false;
+		return Renderability::HaltCompiler;
 	} else if (\str_contains($func->name, "\\")) {
-		return false;
+		return Renderability::NamespacedFunction;
 	}
 
-	return true;
+	return Renderability::Renderable;
 }
