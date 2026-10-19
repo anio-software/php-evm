@@ -107,7 +107,7 @@ function getFunctionInt(
 		)
 	);
 	$func   = PHP\PHPFunction::create($refId, $functionName, $returnType);
-	$params = getFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis, $isVariadic);
+	$params = getFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis);
 
 	foreach ($params as $param) {
 		$func = $func->withFunctionParameter($param);
