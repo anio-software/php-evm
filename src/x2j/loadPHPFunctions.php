@@ -92,7 +92,6 @@ function getFunctionInt(
 	string $functionName,
 	\DOMElement $methodsynopsis
 ): PHP\PHPFunction {
-	$isVariadic = false;
 	$returnType = createPHPTypeFromDOMElement(
 		$ctx,
 		XML\selectFirstMatchingChild(
@@ -102,6 +101,7 @@ function getFunctionInt(
 	$func   = PHP\PHPFunction::create($refId, $functionName, $returnType);
 	$params = getFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis);
 
+	$isVariadic = false;
 	foreach ($params as $param) {
 		$func = $func->withFunctionParameter($param);
 	}
