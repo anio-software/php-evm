@@ -8,6 +8,8 @@ require_once __DIR__."/PHPNamedType.php";
 require_once __DIR__."/PHPUnionType.php";
 require_once __DIR__."/PHPIntersectionType.php";
 require_once __DIR__."/PHPUnknownType.php";
+require_once __DIR__."/isNullablePHPType.php";
+require_once __DIR__."/makePHPTypeNullable.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
 require_once __DIR__."/PHPFunction.php";
