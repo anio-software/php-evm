@@ -10,7 +10,12 @@ require_once __DIR__."/x2j/index.php";
 $options = new X2J\X2JOptions("./manual.xml");
 $context = new X2J\X2JContext($options);
 
-X2J\loadPHPManual($context);
+$elapsed = (int)X2J\loadPHPManual($context);
+
+\fwrite(\STDERR, "Took {$elapsed}ms to fully load PHP manual:\n");
+\fwrite(\STDERR, \str_repeat("-", 60)."\n");
+$context->printStatistics(\STDERR);
+\fwrite(\STDERR, \str_repeat("-", 60)."\n");
 
 foreach ($context->manual->getFunctions() as $fn) {
 	$renderability = PHP\getRenderability($fn);
