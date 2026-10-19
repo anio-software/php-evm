@@ -21,7 +21,8 @@ final readonly class PHPFunctionParameter {
 	): self {
 		$isOptional = $initializer !== NULL;
 
-		if ($isOptional) {
+		// only make type nullable when initializer is NULL
+		if ($isOptional && \strtolower($initializer) === "null") {
 			$type = makePHPTypeNullable($type);
 		}
 
