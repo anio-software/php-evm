@@ -7,6 +7,7 @@ final readonly class PHPFunctionParameter {
 		public string $name,
 		public PHPType $type,
 		public bool $isReference,
+		public bool $isOptional,
 		public string|null $initializer
 	) {}
 
@@ -16,6 +17,8 @@ final readonly class PHPFunctionParameter {
 		bool $isReference,
 		string|null $initializer = NULL
 	): self {
-		return new self($name, $type, $isReference, $initializer);
+		$isOptional = $initializer !== NULL;
+
+		return new self($name, $type, $isReference, $isOptional, $initializer);
 	}
 }
