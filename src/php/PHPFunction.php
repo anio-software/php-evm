@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPFunction extends PHPReference {
+final readonly class PHPFunction extends PHPReference implements \JsonSerializable {
 	private function __construct(
 		string $referenceId,
 		public string $name,
@@ -45,5 +45,14 @@ final readonly class PHPFunction extends PHPReference {
 		PHPType $returnType
 	): self {
 		return new self($referenceId, $name, [], false, $returnType);
+	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"name" => $this->name,
+			"parameters" => $this->parameters,
+			"isVariadic" => $this->isVariadic,
+			"returnType" => $this->returnType
+		];
 	}
 }
