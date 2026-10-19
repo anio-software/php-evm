@@ -10,4 +10,11 @@ final readonly class PHPUnionType implements PHPType {
 	) {
 		$this->members = [$type, ...$types];
 	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"typeKind" => "UnionType",
+			"members"  => $this->members
+		];
+	}
 }

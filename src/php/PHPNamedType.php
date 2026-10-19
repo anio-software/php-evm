@@ -6,5 +6,12 @@ final readonly class PHPNamedType implements PHPType {
 	public function __construct(
 		public string $name
 	) {}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"typeKind" => "NamedType",
+			"name"     => $this->name
+		];
+	}
 }
 

@@ -20,4 +20,11 @@ enum PHPBuiltinType: string implements PHPType {
 	case True     = "true";
 	case False    = "false";
 	case Null     = "null";
+
+	public function jsonSerialize(): mixed {
+		return [
+			"typeKind" => "BuiltinType",
+			"value"    => $this->value
+		];
+	}
 }

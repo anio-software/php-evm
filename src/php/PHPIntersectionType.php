@@ -10,4 +10,11 @@ final readonly class PHPIntersectionType implements PHPType {
 	) {
 		$this->members = [$type, ...$types];
 	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"typeKind" => "IntersectionType",
+			"members"  => $this->members
+		];
+	}
 }
