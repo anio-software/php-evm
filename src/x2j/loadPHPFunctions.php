@@ -51,8 +51,7 @@ function getFunctionParametersInt(
 	X2JDiagnostics $diagnostics,
 	X2JContext $ctx,
 	string $refId,
-	\DOMElement $methodsynopsis,
-	bool &$isVariadic
+	\DOMElement $methodsynopsis
 ) {
 	$methodparams = XML\select(
 		$methodsynopsis,
