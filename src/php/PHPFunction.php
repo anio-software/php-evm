@@ -7,7 +7,7 @@ final readonly class PHPFunction extends PHPReference {
 		string $referenceId,
 		public string $name,
 		private array $parameters,
-		public bool $variadic,
+		public bool $isVariadic,
 		public PHPType $returnType
 	) {
 		parent::__construct($referenceId);
@@ -20,7 +20,7 @@ final readonly class PHPFunction extends PHPReference {
 			$this->referenceId,
 			$this->name,
 			[...$this->parameters, $param],
-			$this->variadic,
+			$this->isVariadic,
 			$this->returnType
 		);
 	}
