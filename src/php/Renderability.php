@@ -3,16 +3,16 @@
 namespace AnioSoftware\X2J\PHP;
 
 enum Renderability: string {
-	case Renderable                      = "renderable";
+	case Renderable                              = "renderable";
 
-	case UnknownReturnType               = "unknown_return_type";
+	case FunctionUnknownReturnType               = "function_unknown_return_type";
 
-	case VariadicParameterMismatch       = "variadic_parameter_mismatch";
-	case RequiredParameterAfterOptional  = "required_parameter_after_optional";
-	case UnknownParameterType            = "unknown_parameter_type";
-	case UnsupportedParameterInitializer = "unsupported_parameter_initializer";
-	case IniGetParameterInitializer      = "ini_get_parameter_initializer";
+	case FunctionVariadicParameterMismatch       = "function_variadic_parameter_mismatch";
+	case FunctionRequiredParameterAfterOptional  = "function_required_parameter_after_optional";
+	case FunctionUnknownParameterType            = "function_unknown_parameter_type";
+	case FunctionUnsupportedParameterInitializer = "function_unsupported_parameter_initializer";
+	case FunctionIniGetParameterInitializer      = "function_ini_get_parameter_initializer";
 
-	case HaltCompiler                    = "halt_compiler";
-	case NamespacedFunction              = "namespaced_function";
+	case FunctionHaltCompiler                    = "function_halt_compiler";
+	case FunctionNamespacedFunction              = "function_namespaced_function";
 }
