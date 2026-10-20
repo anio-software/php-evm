@@ -17,6 +17,18 @@ final readonly class PHPFunctionParameter {
 		public int $flags
 	) {}
 
+	public function isReference(): bool {
+		return ($this->flags & self::FLAG_REFERENCE) !== 0;
+	}
+
+	public function isOptional(): bool {
+		return ($this->flags & self::FLAG_OPTIONAL) !== 0;
+	}
+
+	public function isVariadic(): bool {
+		return ($this->flags & self::FLAG_VARIADIC) !== 0;
+	}
+
 	static public function create(
 		string $name,
 		PHPType $type,
