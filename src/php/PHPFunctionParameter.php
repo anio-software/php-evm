@@ -6,6 +6,7 @@ final readonly class PHPFunctionParameter {
 	public const int FLAG_OPTIONAL  = 1 << 0;
 	public const int FLAG_VARIADIC  = 1 << 1;
 	public const int FLAG_REFERENCE = 1 << 2;
+	public const int FLAG_LAST      = 1 << 7;
 
 	private function __construct(
 		public string $name,
