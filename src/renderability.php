@@ -7,7 +7,7 @@ require_once __DIR__."/php/index.php";
 require_once __DIR__."/xml/index.php";
 require_once __DIR__."/x2j/index.php";
 
-$options = new X2J\X2JOptions("./manual.xml");
+$options = new X2J\X2JOptions("./example/manual.xml");
 $context = new X2J\X2JContext($options);
 
 $elapsed = (int)X2J\loadPHPManual($context);
