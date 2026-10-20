@@ -3,14 +3,9 @@
 namespace AnioSoftware\X2J\PHP;
 
 function renderPHPFunctionParameters(PHPFunction $func, bool $references = false, bool $types = false, bool $initializer = false): string {
-	$params = $func->getParameters();
-	$nParams = \count($params);
-
 	$ret  = "(";
 
-	for ($i = 0; $i < $nParams; ++$i) {
-		$param = $params[$i];
-
+	foreach ($func->getParameters() as $param) {
 		$ret .= ($types ? renderPHPType($param->type)." " : "");
 		$ret .= ($param->isVariadic() ? "..." : "");
 		$ret .= ($references && $param->isReference() ? "&" : "");
@@ -20,7 +15,7 @@ function renderPHPFunctionParameters(PHPFunction $func, bool $references = false
 			$ret .= " = ".$param->initializer;
 		}
 
-		$ret .= (($i + 1) !== $nParams ? ", " : "");
+		$ret .= (!$param->isLast() ? ", " : "");
 	}
 
 	$ret .= ")";
