@@ -108,7 +108,9 @@ function getFunctionInt(
 		if ($param->isVariadic()) $isVariadic = true;
 	}
 
-	return $isVariadic ? $func->withVariadic(true) : $func;
+	return $isVariadic ? $func->withFlags(
+		PHP\PHPFunction::FLAG_VARIADIC
+	) : $func;
 }
 
 function loadPHPFunctions(X2JContext $ctx): void {
