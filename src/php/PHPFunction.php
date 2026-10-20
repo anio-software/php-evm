@@ -62,10 +62,10 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 	public function jsonSerialize(): mixed {
 		return [
 			"referenceId" => $this->referenceId,
-			"name" => $this->name,
-			"parameters" => $this->parameters,
-			"isVariadic" => $this->isVariadic,
-			"returnType" => $this->returnType
+			"name"        => $this->name,
+			"parameters"  => $this->parameters,
+			"isVariadic"  => $this->isVariadic,
+			"returnType"  => $this->returnType
 		];
 	}
 }
