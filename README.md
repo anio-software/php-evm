@@ -40,10 +40,8 @@ Example output:
                 "typeKind": "BuiltinType",
                 "value": "string"
             },
-            "isReference": false,
-            "isOptional": false,
             "initializer": null,
-            "isVariadic": false
+            "flags": 0
         },
         {
             "name": "length",
@@ -51,10 +49,8 @@ Example output:
                 "typeKind": "BuiltinType",
                 "value": "int"
             },
-            "isReference": false,
-            "isOptional": false,
             "initializer": null,
-            "isVariadic": false
+            "flags": 0
         },
         {
             "name": "pad_string",
@@ -62,10 +58,8 @@ Example output:
                 "typeKind": "BuiltinType",
                 "value": "string"
             },
-            "isReference": false,
-            "isOptional": true,
             "initializer": "\" \"",
-            "isVariadic": false
+            "flags": 1
         },
         {
             "name": "pad_type",
@@ -73,10 +67,8 @@ Example output:
                 "typeKind": "BuiltinType",
                 "value": "int"
             },
-            "isReference": false,
-            "isOptional": true,
             "initializer": "STR_PAD_RIGHT",
-            "isVariadic": false
+            "flags": 129
         }
     ],
     "isVariadic": false,
