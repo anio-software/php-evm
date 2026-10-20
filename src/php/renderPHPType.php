@@ -42,7 +42,7 @@ function renderPHPType(PHPType $type): string {
 			return renderPHPType($t);
 		}, $type->members);
 
-		return \implode(" | ", $types);
+		return \implode("|", $types);
 	} else if ($type instanceof PHPUnknownType) {
 		return "mixed /* unknown type */";
 	}
