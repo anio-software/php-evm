@@ -26,6 +26,15 @@ final readonly class PHPFunctionParameter {
 		return ($this->flags & self::FLAG_VARIADIC) !== 0;
 	}
 
+	public function withFlags(int $flags): self {
+		return new self(
+			$this->name,
+			$this->type,
+			$this->initializer,
+			$flags
+		);
+	}
+
 	static public function create(
 		string $name,
 		PHPType $type,
