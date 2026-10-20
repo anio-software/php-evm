@@ -10,10 +10,7 @@ final readonly class PHPFunctionParameter {
 	private function __construct(
 		public string $name,
 		public PHPType $type,
-		public bool $isReference,
-		public bool $isOptional,
 		public string|null $initializer,
-		public bool $isVariadic,
 		public int $flags
 	) {}
 
@@ -43,14 +40,17 @@ final readonly class PHPFunctionParameter {
 			$type = makePHPTypeNullable($type);
 		}
 
+		$flags = 0;
+
+		if ($isReference) $flags |= self::FLAG_REFERENCE;
+		if ($isVariadic)  $flags |= self::FLAG_VARIADIC;
+		if ($isOptional)  $flags |= self::FLAG_OPTIONAL;
+
 		return new self(
 			$name,
 			$type,
-			$isReference,
-			$isOptional,
 			$initializer,
-			$isVariadic,
-			0
+			$flags
 		);
 	}
 }
