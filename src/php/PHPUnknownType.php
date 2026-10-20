@@ -9,4 +9,3 @@ final readonly class PHPUnknownType implements PHPType {
 		];
 	}
 }
-
