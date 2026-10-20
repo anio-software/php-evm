@@ -31,6 +31,7 @@ Example output:
 
 ```json
 "str_pad": {
+    "referenceId": "function.str-pad",
     "name": "str_pad",
     "parameters": [
         {
@@ -58,17 +59,8 @@ Example output:
         {
             "name": "pad_string",
             "type": {
-                "typeKind": "UnionType",
-                "members": [
-                    {
-                        "typeKind": "BuiltinType",
-                        "value": "null"
-                    },
-                    {
-                        "typeKind": "BuiltinType",
-                        "value": "string"
-                    }
-                ]
+                "typeKind": "BuiltinType",
+                "value": "string"
             },
             "isReference": false,
             "isOptional": true,
@@ -78,17 +70,8 @@ Example output:
         {
             "name": "pad_type",
             "type": {
-                "typeKind": "UnionType",
-                "members": [
-                    {
-                        "typeKind": "BuiltinType",
-                        "value": "null"
-                    },
-                    {
-                        "typeKind": "BuiltinType",
-                        "value": "int"
-                    }
-                ]
+                "typeKind": "BuiltinType",
+                "value": "int"
             },
             "isReference": false,
             "isOptional": true,
