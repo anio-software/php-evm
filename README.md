@@ -71,7 +71,7 @@ Example output:
             "flags": 129
         }
     ],
-    "isVariadic": false,
+    "flags": 0,
     "returnType": {
         "typeKind": "BuiltinType",
         "value": "string"
