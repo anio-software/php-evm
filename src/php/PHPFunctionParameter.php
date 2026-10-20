@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPFunctionParameter {
+final readonly class PHPFunctionParameter implements \JsonSerializable {
 	public const int FLAG_OPTIONAL  = 1 << 0;
 	public const int FLAG_VARIADIC  = 1 << 1;
 	public const int FLAG_REFERENCE = 1 << 2;
@@ -66,5 +66,14 @@ final readonly class PHPFunctionParameter {
 			$initializer,
 			$flags
 		);
+	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"name"        => $this->name,
+			"type"        => $this->type,
+			"initializer" => $this->initializer,
+			"flags"       => $this->flags
+		];
 	}
 }
