@@ -13,7 +13,8 @@ final readonly class PHPFunctionParameter {
 		public bool $isReference,
 		public bool $isOptional,
 		public string|null $initializer,
-		public bool $isVariadic
+		public bool $isVariadic,
+		public int $flags
 	) {}
 
 	static public function create(
@@ -36,7 +37,8 @@ final readonly class PHPFunctionParameter {
 			$isReference,
 			$isOptional,
 			$initializer,
-			$isVariadic
+			$isVariadic,
+			0
 		);
 	}
 }
