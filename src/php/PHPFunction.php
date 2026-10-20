@@ -16,10 +16,22 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 	public function withFunctionParameter(
 		PHPFunctionParameter $param
 	): self {
+		$newParameters = [];
+
+		foreach ($this->parameters as $p) {
+			$newParameters[] = $p->withFlags(
+				$p->flags & ~(PHPFunctionParameter::FLAG_LAST)
+			);
+		}
+
+		$newParameters[] = $param->withFlags(
+			$param->flags | PHPFunctionParameter::FLAG_LAST
+		);
+
 		return new self(
 			$this->referenceId,
 			$this->name,
-			[...$this->parameters, $param],
+			$newParameters,
 			$this->isVariadic,
 			$this->returnType
 		);
