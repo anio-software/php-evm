@@ -3,6 +3,8 @@
 namespace AnioSoftware\X2J\PHP;
 
 final readonly class PHPFunction extends PHPReference implements \JsonSerializable {
+	public const int FLAG_VARIADIC = 1 << 0;
+
 	private function __construct(
 		string $referenceId,
 		public string $name,
