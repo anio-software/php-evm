@@ -105,7 +105,7 @@ function getFunctionInt(
 	foreach ($params as $param) {
 		$func = $func->withFunctionParameter($param);
 
-		if ($param->isVariadic) $isVariadic = true;
+		if ($param->isVariadic()) $isVariadic = true;
 	}
 
 	return $isVariadic ? $func->withVariadic(true) : $func;

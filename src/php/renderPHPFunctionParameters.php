@@ -12,8 +12,8 @@ function renderPHPFunctionParameters(PHPFunction $func, bool $references = false
 		$param = $params[$i];
 
 		$ret .= ($types ? renderPHPType($param->type)." " : "");
-		$ret .= ($param->isVariadic ? "..." : "");
-		$ret .= ($references && $param->isReference ? "&" : "");
+		$ret .= ($param->isVariadic() ? "..." : "");
+		$ret .= ($references && $param->isReference() ? "&" : "");
 		$ret .= "\$".$param->name;
 
 		if ($initializer && $param->initializer !== NULL) {
