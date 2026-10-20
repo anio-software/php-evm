@@ -13,7 +13,7 @@ function getFunctionRenderability(PHPFunction $func): Renderability {
 	if ($nParams) {
 		$lastParam = $params[$nParams - 1];
 
-		if ($func->isVariadic && !$lastParam->isVariadic()) {
+		if ($func->isVariadic() && !$lastParam->isVariadic()) {
 			return Renderability::FunctionVariadicParameterMismatch;
 		}
 	}
