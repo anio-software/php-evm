@@ -3,6 +3,10 @@
 namespace AnioSoftware\X2J\PHP;
 
 final readonly class PHPFunctionParameter {
+	public const int FLAG_OPTIONAL  = 1 << 0;
+	public const int FLAG_VARIADIC  = 1 << 1;
+	public const int FLAG_REFERENCE = 1 << 2;
+
 	private function __construct(
 		public string $name,
 		public PHPType $type,
