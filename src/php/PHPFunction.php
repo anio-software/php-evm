@@ -9,7 +9,7 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 		string $referenceId,
 		public string $name,
 		private array $parameters,
-		public bool $isVariadic,
+		public int $flags,
 		public PHPType $returnType
 	) {
 		parent::__construct($referenceId);
@@ -34,7 +34,7 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 			$this->referenceId,
 			$this->name,
 			$newParameters,
-			$this->isVariadic,
+			$this->flags,
 			$this->returnType
 		);
 	}
@@ -52,7 +52,7 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 		string $name,
 		PHPType $returnType
 	): self {
-		return new self($referenceId, $name, [], false, $returnType);
+		return new self($referenceId, $name, [], 0, $returnType);
 	}
 
 	public function jsonSerialize(): mixed {
@@ -60,7 +60,7 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 			"referenceId" => $this->referenceId,
 			"name"        => $this->name,
 			"parameters"  => $this->parameters,
-			"isVariadic"  => $this->isVariadic,
+			"flags"       => $this->flags,
 			"returnType"  => $this->returnType
 		];
 	}
