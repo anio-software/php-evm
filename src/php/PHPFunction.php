@@ -43,16 +43,6 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 		return ($this->flags & self::FLAG_VARIADIC) !== 0;
 	}
 
-	public function withVariadic(bool $variadic): self {
-		return new self(
-			$this->referenceId,
-			$this->name,
-			$this->parameters,
-			$variadic,
-			$this->returnType
-		);
-	}
-
 	public function getParameters(): array {
 		return $this->parameters;
 	}
