@@ -27,6 +27,10 @@ final readonly class PHPFunctionParameter {
 		return ($this->flags & self::FLAG_VARIADIC) !== 0;
 	}
 
+	public function isLast(): bool {
+		return ($this->flags & self::FLAG_LAST) !== 0;
+	}
+
 	public function withFlags(int $flags): self {
 		return new self(
 			$this->name,
