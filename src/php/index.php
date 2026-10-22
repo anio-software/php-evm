@@ -3,6 +3,8 @@
 require_once __DIR__."/PHPReference.php";
 
 require_once __DIR__."/PHPType.php";
+require_once __DIR__."/PHPTypeOperator.php";
+require_once __DIR__."/PHPTypeCollection.php";
 require_once __DIR__."/PHPBuiltinType.php";
 require_once __DIR__."/PHPNamedType.php";
 require_once __DIR__."/PHPUnionType.php";
