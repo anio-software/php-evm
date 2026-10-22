@@ -9,7 +9,7 @@ final readonly class PHPUnknownType implements PHPType {
 		];
 	}
 
-	public function getTypeKey(): string {
+	public function getTypeId(): string {
 		return "unknown";
 	}
 }

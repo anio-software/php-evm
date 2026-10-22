@@ -18,7 +18,7 @@ final readonly class PHPUnionType implements PHPTypeCollection {
 		];
 	}
 
-	public function getTypeKey(): string {
+	public function getTypeId(): string {
 		return getTypeCollectionKey($this);
 	}
 
