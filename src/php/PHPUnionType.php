@@ -17,4 +17,8 @@ final readonly class PHPUnionType implements PHPType {
 			"members"  => $this->members
 		];
 	}
+
+	public function key(): string {
+		return "union:tbd";
+	}
 }

@@ -17,4 +17,8 @@ final readonly class PHPIntersectionType implements PHPType {
 			"members"  => $this->members
 		];
 	}
+
+	public function key(): string {
+		return "intersection:tbd";
+	}
 }

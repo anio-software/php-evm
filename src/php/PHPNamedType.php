@@ -13,4 +13,8 @@ final readonly class PHPNamedType implements PHPType {
 			"name"     => $this->name
 		];
 	}
+
+	public function key(): string {
+		return "named:".$this->name;
+	}
 }

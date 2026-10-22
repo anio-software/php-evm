@@ -8,4 +8,8 @@ final readonly class PHPUnknownType implements PHPType {
 			"typeKind" => "UnknownType"
 		];
 	}
+
+	public function key(): string {
+		return "unknown";
+	}
 }
