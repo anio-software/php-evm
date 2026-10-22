@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPIntersectionType implements PHPType {
+final readonly class PHPIntersectionType implements PHPTypeCollection {
 	public array $members;
 
 	public function __construct(
@@ -26,5 +26,13 @@ final readonly class PHPIntersectionType implements PHPType {
 		\sort($types);
 
 		return "intersection:(".\implode("&", $types).")";
+	}
+
+	public function getTypeMembers(): array {
+		return $this->members;
+	}
+
+	public function getTypeOperator(): PHPTypeOperator {
+		return PHPTypeOperator::Ampersand;
 	}
 }
