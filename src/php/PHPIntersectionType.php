@@ -19,6 +19,12 @@ final readonly class PHPIntersectionType implements PHPType {
 	}
 
 	public function key(): string {
-		return "intersection:tbd";
+		$types = \array_map(static function(PHPType $type) {
+			return $type->key();
+		}, $this->members);
+
+		\sort($types);
+
+		return "intersection:(".\implode("&", $types).")";
 	}
 }

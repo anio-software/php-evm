@@ -19,6 +19,12 @@ final readonly class PHPUnionType implements PHPType {
 	}
 
 	public function key(): string {
-		return "union:tbd";
+		$types = \array_map(static function(PHPType $type) {
+			return $type->key();
+		}, $this->members);
+
+		\sort($types);
+
+		return "union:(".\implode("|", $types).")";
 	}
 }
