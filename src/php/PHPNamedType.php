@@ -14,7 +14,7 @@ final readonly class PHPNamedType implements PHPType {
 		];
 	}
 
-	public function key(): string {
+	public function getTypeKey(): string {
 		return "named:".$this->name;
 	}
 }

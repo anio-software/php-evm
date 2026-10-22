@@ -28,7 +28,7 @@ enum PHPBuiltinType: string implements PHPType {
 		];
 	}
 
-	public function key(): string {
+	public function getTypeKey(): string {
 		return "builtin:".$this->name;
 	}
 }

@@ -3,5 +3,5 @@
 namespace AnioSoftware\X2J\PHP;
 
 interface PHPType extends \JsonSerializable {
-	public function key(): string;
+	public function getTypeKey(): string;
 }
