@@ -28,6 +28,10 @@ final readonly class PHPUnionType implements PHPTypeCollection {
 		return "union:(".\implode("|", $types).")";
 	}
 
+	public function getTypeCollectionKind(): PHPTypeCollectionKind {
+		return PHPTypeCollectionKind::Union;
+	}
+
 	public function getTypeMembers(): array {
 		return $this->members;
 	}

@@ -28,6 +28,10 @@ final readonly class PHPIntersectionType implements PHPTypeCollection {
 		return "intersection:(".\implode("&", $types).")";
 	}
 
+	public function getTypeCollectionKind(): PHPTypeCollectionKind {
+		return PHPTypeCollectionKind::Intersection;
+	}
+
 	public function getTypeMembers(): array {
 		return $this->members;
 	}
