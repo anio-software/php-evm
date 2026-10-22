@@ -19,13 +19,7 @@ final readonly class PHPUnionType implements PHPTypeCollection {
 	}
 
 	public function getTypeKey(): string {
-		$types = \array_map(static function(PHPType $type) {
-			return $type->getTypeKey();
-		}, $this->members);
-
-		\sort($types);
-
-		return "union:(".\implode("|", $types).")";
+		return getTypeCollectionKey($this);
 	}
 
 	public function getTypeCollectionKind(): PHPTypeCollectionKind {
