@@ -3,7 +3,7 @@
 namespace AnioSoftware\X2J\PHP;
 
 function makeTypeNullable(PHPType $type): PHPType {
-	if (isNullablePHPType($type)) {
+	if (isNullableType($type)) {
 		return $type;
 	}
 

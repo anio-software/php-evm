@@ -12,7 +12,7 @@ require_once __DIR__."/PHPNamedType.php";
 require_once __DIR__."/PHPUnionType.php";
 require_once __DIR__."/PHPIntersectionType.php";
 require_once __DIR__."/PHPUnknownType.php";
-require_once __DIR__."/isNullablePHPType.php";
+require_once __DIR__."/isNullableType.php";
 require_once __DIR__."/makeTypeNullable.php";
 require_once __DIR__."/collapsePHPType.php";
 require_once __DIR__."/renderType.php";
