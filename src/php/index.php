@@ -15,7 +15,7 @@ require_once __DIR__."/PHPUnknownType.php";
 require_once __DIR__."/isNullablePHPType.php";
 require_once __DIR__."/makePHPTypeNullable.php";
 require_once __DIR__."/collapsePHPType.php";
-require_once __DIR__."/renderPHPType.php";
+require_once __DIR__."/renderType.php";
 require_once __DIR__."/Renderability.php";
 require_once __DIR__."/getFunctionRenderability.php";
 require_once __DIR__."/getRenderability.php";
