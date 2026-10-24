@@ -28,9 +28,9 @@ foreach ($context->manual->getFunctions() as $fn) {
 
 	echo "\tpublic function ";
 	echo $fn->name;
-	echo X2J\PHP\renderPHPFunctionParameters($fn, true, true, true);
+	echo X2J\PHP\renderFunctionParameters($fn, true, true, true);
 	echo ": ";
-	echo X2J\PHP\renderPHPType($fn->returnType);
+	echo X2J\PHP\renderType($fn->returnType);
 	echo ($kind === "iface" ? ";" : " {");
 	echo "\n";
 
@@ -42,7 +42,7 @@ foreach ($context->manual->getFunctions() as $fn) {
 		}
 
 		echo "\\".$fn->name;
-		echo X2J\PHP\renderPHPFunctionParameters($fn);
+		echo X2J\PHP\renderFunctionParameters($fn);
 		echo ";\n";
 
 		echo "\t}\n";
