@@ -51,7 +51,7 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 
 		// only make type nullable when initializer is NULL
 		if ($isOptional && \strtolower($initializer) === "null") {
-			$type = makePHPTypeNullable($type);
+			$type = makeTypeNullable($type);
 		}
 
 		$flags = 0;
