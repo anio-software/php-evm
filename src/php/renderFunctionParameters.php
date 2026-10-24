@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-function renderPHPFunctionParameters(PHPFunction $func, bool $references = false, bool $types = false, bool $initializer = false): string {
+function renderFunctionParameters(PHPFunction $func, bool $references = false, bool $types = false, bool $initializer = false): string {
 	$ret  = "(";
 
 	foreach ($func->getParameters() as $param) {
