@@ -25,8 +25,6 @@ function unionToNullableTypeStringInt(PHPUnionType $type): string|false {
 }
 
 function renderType(PHPType $type): string {
-	$type = collapseType($type);
-
 	if ($type instanceof PHPBuiltinType) {
 		return $type->value;
 	} else if ($type instanceof PHPNamedType) {
