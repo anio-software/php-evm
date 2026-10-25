@@ -6,7 +6,7 @@ function renderFunctionParameters(PHPFunction $func, bool $references = false, b
 	$ret  = "(";
 
 	foreach ($func->getParameters() as $param) {
-		$ret .= ($types ? renderType($param->type)." " : "");
+		$ret .= ($types ? typeToCode($param->type)." " : "");
 		$ret .= ($param->isVariadic() ? "..." : "");
 		$ret .= ($references && $param->isReference() ? "&" : "");
 		$ret .= "\$".$param->name;

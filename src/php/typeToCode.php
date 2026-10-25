@@ -16,15 +16,15 @@ function unionToNullableTypeStringInt(PHPUnionType $type): string|false {
 	$otherType = $type->members[$nullIndex === 0 ? 1 : 0];
 
 	if ($otherType instanceof PHPBuiltinType) {
-		return "?".renderType($otherType);
+		return "?".typeToCode($otherType);
 	} else if ($otherType instanceof PHPNamedType) {
-		return "?".renderType($otherType);
+		return "?".typeToCode($otherType);
 	}
 
 	return false;
 }
 
-function renderType(PHPType $type): string {
+function typeToCode(PHPType $type): string {
 	if ($type instanceof PHPBuiltinType) {
 		return $type->value;
 	} else if ($type instanceof PHPNamedType) {
@@ -37,7 +37,7 @@ function renderType(PHPType $type): string {
 		}
 
 		$types = \array_map(static function(PHPType $t) {
-			return renderType($t);
+			return typeToCode($t);
 		}, $type->members);
 
 		return \implode("|", $types);
