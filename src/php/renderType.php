@@ -43,6 +43,8 @@ function renderType(PHPType $type): string {
 		}, $type->members);
 
 		return \implode("|", $types);
+	} else if ($type instanceof PHPUnspecifiedType) {
+		return "";
 	} else if ($type instanceof PHPUnknownType) {
 		return "mixed /* unknown type */";
 	}
