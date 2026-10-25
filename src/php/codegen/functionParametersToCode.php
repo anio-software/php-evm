@@ -1,8 +1,10 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\X2J\PHP\CodeGen;
 
-function functionParametersToCode(PHPFunction $func, bool $references = false, bool $types = false, bool $initializer = false): string {
+use AnioSoftware\X2J\PHP as PHP;
+
+function functionParametersToCode(PHP\PHPFunction $func, bool $references = false, bool $types = false, bool $initializer = false): string {
 	$ret  = "(";
 
 	foreach ($func->getParameters() as $param) {
