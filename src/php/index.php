@@ -22,7 +22,7 @@ require_once __DIR__."/typeToCode.php";
 require_once __DIR__."/Renderability.php";
 require_once __DIR__."/getFunctionRenderability.php";
 require_once __DIR__."/getRenderability.php";
-require_once __DIR__."/renderFunctionParameters.php";
+require_once __DIR__."/functionParametersToCode.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
 require_once __DIR__."/PHPFunction.php";
