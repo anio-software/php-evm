@@ -12,4 +12,8 @@ final readonly class PHPUnspecifiedType implements PHPType {
 	public function getTypeId(): string {
 		return "unspecified";
 	}
+
+	public function render(): string {
+		return "";
+	}
 }

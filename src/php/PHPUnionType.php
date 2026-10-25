@@ -33,4 +33,8 @@ final readonly class PHPUnionType implements PHPTypeCollection {
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Pipe;
 	}
+
+	public function render(): string {
+		return "tbd";
+	}
 }

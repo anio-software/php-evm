@@ -12,4 +12,8 @@ final readonly class PHPUnknownType implements PHPType {
 	public function getTypeId(): string {
 		return "unknown";
 	}
+
+	public function render(): string {
+		return "unknown";
+	}
 }
