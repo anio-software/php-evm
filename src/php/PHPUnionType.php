@@ -35,6 +35,6 @@ final readonly class PHPUnionType implements PHPTypeCollection {
 	}
 
 	public function render(): string {
-		return "tbd";
+		return renderTypeCollection($this);
 	}
 }

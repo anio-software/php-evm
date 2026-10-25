@@ -35,6 +35,6 @@ final readonly class PHPIntersectionType implements PHPTypeCollection {
 	}
 
 	public function render(): string {
-		return "tbd";
+		return renderTypeCollection($this);
 	}
 }
