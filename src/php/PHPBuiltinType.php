@@ -45,6 +45,6 @@ enum PHPBuiltinType: string implements PHPType {
 	}
 
 	public function isRepresentableInCode(): bool {
-		return $this->value !== self::Resource;
+		return $this->value !== self::Resource->value;
 	}
 }
