@@ -27,14 +27,7 @@ foreach ($context->manual->getFunctions() as $fn) {
 	if (!$filter($fn)) continue;
 
 	echo "\tpublic function ";
-	echo $fn->name;
-	echo X2J\PHP\CodeGen\functionParametersToCode($fn, true, true, true);
-
-	$returnTypeCode = $fn->returnType->toCode() ?? "";
-
-	if (\strlen($returnTypeCode)) {
-		echo ": $returnTypeCode";
-	}
+	echo $fn->renderSignature();
 
 	echo ($kind === "iface" ? ";" : " {");
 	echo "\n";
@@ -47,7 +40,7 @@ foreach ($context->manual->getFunctions() as $fn) {
 		}
 
 		echo "\\".$fn->name;
-		echo X2J\PHP\CodeGen\functionParametersToCode($fn);
+		echo $fn->renderParameters();
 		echo ";\n";
 
 		echo "\t}\n";
