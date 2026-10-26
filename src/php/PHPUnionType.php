@@ -12,8 +12,8 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	public function collapse(): PHPType {
 		if ($this->containsType(PHPUnspecifiedType::instance())) {
 			return PHPUnspecifiedType::instance();
-		} else if ($this->containsType(PHPBuiltinType::Mixed)) {
-			return PHPBuiltinType::Mixed;
+		} else if ($this->containsType(PHPBuiltinTypeKind::Mixed->toType())) {
+			return PHPBuiltinTypeKind::Mixed->toType();
 		}
 
 		return \count($this->members) === 1 ? $this->members[0] : $this;
@@ -32,7 +32,7 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 			return NULL;
 		}
 
-		$nullIndex = $this->indexOf(PHPBuiltinType::Null);
+		$nullIndex = $this->indexOf(PHPBuiltinTypeKind::Null->toType());
 
 		if ($nullIndex === -1) {
 			return NULL;
@@ -54,13 +54,13 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 
 		$nMembers = \count($this->members);
 
-		if ($this->containsType(PHPBuiltinType::Mixed) && $nMembers > 1) {
+		if ($this->containsType(PHPBuiltinTypeKind::Mixed->toType()) && $nMembers > 1) {
 			// "mixed" cannot be combined with other types in a union
 			return false;
 		} else if ($this->containsType(PHPUnspecifiedType::instance()) && $nMembers > 1) {
 			// "unspecified" cannot be combined with other types in a union
 			return false;
-		} else if ($this->containsType(PHPBuiltinType::Void) && $nMembers > 1) {
+		} else if ($this->containsType(PHPBuiltinTypeKind::Void->toType()) && $nMembers > 1) {
 			// "void" cannot be combined with other types in a union
 			return false;
 		}
