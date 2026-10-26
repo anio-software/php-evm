@@ -67,4 +67,22 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 
 		return true;
 	}
+
+	public function toCode(): string|false {
+		$type = $this->collapse();
+
+		if (!$type->isRepresentableInCode()) {
+			return false;
+		}
+
+		if ($type instanceof self) {
+			$member = $type->getNullableMemberType();
+
+			if ($member !== NULL) {
+				return "?".$member->render();
+			}
+		}
+
+		return $type->render();
+	}
 }
