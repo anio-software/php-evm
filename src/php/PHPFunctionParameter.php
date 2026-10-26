@@ -91,8 +91,8 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 			}
 		}
 
-		$ret .= ($this->isVariadic() ? "..." : "");
 		$ret .= ($references && $this->isReference() ? "&" : "");
+		$ret .= ($this->isVariadic() ? "..." : "");
 		$ret .= "\$".$this->name;
 
 		if ($initializer && $this->initializer !== NULL) {
