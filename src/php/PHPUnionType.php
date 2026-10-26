@@ -16,7 +16,7 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 			return PHPBuiltinType::Mixed;
 		}
 
-		return $this;
+		return \count($this->members) === 1 ? $this->members[0] : $this;
 	}
 
 	public function getTypeCollectionKind(): PHPTypeCollectionKind {
