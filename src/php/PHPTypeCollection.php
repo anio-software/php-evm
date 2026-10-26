@@ -2,8 +2,8 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-interface PHPTypeCollection extends PHPType {
-	public function getTypeCollectionKind(): PHPTypeCollectionKind;
-	public function getTypeMembers(): array;
-	public function getTypeOperator(): PHPTypeOperator;
+abstract readonly class PHPTypeCollection implements PHPType {
+	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
+	abstract public function getTypeMembers(): array;
+	abstract public function getTypeOperator(): PHPTypeOperator;
 }

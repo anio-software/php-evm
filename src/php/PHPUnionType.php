@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPUnionType implements PHPTypeCollection {
+final readonly class PHPUnionType extends PHPTypeCollection {
 	public array $members;
 
 	public function __construct(
