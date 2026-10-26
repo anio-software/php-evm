@@ -56,6 +56,16 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		return true;
 	}
 
+	final public function containsType(PHPType $t): bool {
+		foreach ($this->getTypeMembers() as $member) {
+			if ($member->isEqualTo($t)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeMembers(): array;
 	abstract public function getTypeOperator(): PHPTypeOperator;
