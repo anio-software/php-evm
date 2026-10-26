@@ -86,6 +86,15 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		return renderTypeCollection($this);
 	}
 
+	final public function jsonSerialize(): mixed {
+		$kind = \ucfirst($this->getTypeCollectionKind()->value);
+
+		return [
+			"typeKind" => "{$kind}Type",
+			"members"  => $this->members
+		];
+	}
+
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeOperator(): PHPTypeOperator;
 }

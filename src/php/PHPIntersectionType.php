@@ -9,13 +9,6 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 		parent::__construct($type, ...$types);
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"typeKind" => "IntersectionType",
-			"members"  => $this->members
-		];
-	}
-
 	public function getTypeCollectionKind(): PHPTypeCollectionKind {
 		return PHPTypeCollectionKind::Intersection;
 	}

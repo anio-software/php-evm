@@ -9,13 +9,6 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		parent::__construct($type, ...$types);
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"typeKind" => "UnionType",
-			"members"  => $this->members
-		];
-	}
-
 	public function getTypeCollectionKind(): PHPTypeCollectionKind {
 		return PHPTypeCollectionKind::Union;
 	}
