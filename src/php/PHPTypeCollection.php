@@ -5,7 +5,9 @@ namespace AnioSoftware\X2J\PHP;
 abstract readonly class PHPTypeCollection implements PHPType {
 	final protected array $members;
 
-	public function __construct(PHPType $type, PHPType ...$types) {
+	static private function flatten(
+		PHPTypeCollectionKind $kind, PHPType $type, PHPType ...$types
+	): array {
 		$unique = [];
 
 		foreach ([$type, ...$types] as $member) {
@@ -14,7 +16,15 @@ abstract readonly class PHPTypeCollection implements PHPType {
 
 		\ksort($unique, \SORT_STRING);
 
-		$this->members = \array_values($unique);
+		return \array_values($unique);
+	}
+
+	public function __construct(PHPType $type, PHPType ...$types) {
+		$this->members = self::flatten(
+			$this->getTypeCollectionKind(),
+			$type,
+			...$types
+		);
 	}
 
 	final public function getTypeId(): string {
