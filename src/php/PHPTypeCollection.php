@@ -106,27 +106,6 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		];
 	}
 
-	final public function flattened(): static {
-		$unique = [];
-
-		foreach ($this->getTypeMembers() as $member) {
-			// only flatten the same kinds of type collections
-			if (!($member instanceof static)) {
-				$unique[$member->getTypeId()] = $member;
-
-				continue;
-			}
-
-			foreach ($member->flattened()->getTypeMembers() as $nested) {
-				$unique[$nested->getTypeId()] = $nested;
-			}
-		}
-
-		return new static(
-			...\array_values($unique)
-		);
-	}
-
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeOperator(): PHPTypeOperator;
 
