@@ -27,20 +27,24 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		return PHPTypeOperator::Pipe;
 	}
 
-	public function representsNullableType(): bool {
+	public function getNullableMemberType(): ?PHPType {
 		if (\count($this->members) !== 2) {
-			return false;
+			return NULL;
 		}
 
 		$nullIndex = $this->indexOf(PHPBuiltinType::Null);
 
 		if ($nullIndex === -1) {
-			return false;
+			return NULL;
 		}
 
 		$otherIndex = $nullIndex === 0 ? 1 : 0;
 
-		return !$this->members[$otherIndex]->isCompoundType();
+		if ($this->members[$otherIndex]->isCompoundType()) {
+			return NULL;
+		}
+
+		return $this->members[$otherIndex];
 	}
 
 	public function isRepresentableInCode(): bool {
