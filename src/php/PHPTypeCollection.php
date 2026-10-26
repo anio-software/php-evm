@@ -45,22 +45,11 @@ abstract readonly class PHPTypeCollection implements PHPType {
 			return false;
 		}
 
-		$matched = [];
+		for ($i = 0; $i < \count($members1); ++$i) {
+			$member1 = $members1[$i];
+			$member2 = $members2[$i];
 
-		foreach ($members1 as $member1) {
-			$found = false;
-
-			foreach ($members2 as $i => $member2) {
-				if (!\array_key_exists($i, $matched) && $member1->isEqualTo($member2)) {
-					$matched[$i] = true;
-
-					$found = true;
-
-					break;
-				}
-			}
-
-			if (!$found) {
+			if (!$member1->isEqualTo($member2)) {
 				return false;
 			}
 		}
