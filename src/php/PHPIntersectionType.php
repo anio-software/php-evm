@@ -18,6 +18,10 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 	}
 
 	public function isRepresentableInCode(): bool {
+		if (!parent::isRepresentableInCode()) {
+			return false;
+		}
+
 		return true; // tbd
 	}
 }
