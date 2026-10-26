@@ -2,34 +2,28 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-enum PHPBuiltinType: string implements PHPType {
-	case Mixed    = "mixed";
-	case Never    = "never";
-	case Void     = "void";
+final readonly class PHPBuiltinType implements PHPType {
+	private function __construct(
+		private PHPBuiltinTypeKind $kind
+	) {}
 
-	case Object   = "object";
-	case Resource = "resource";
-	case Array    = "array";
-	case String   = "string";
-	case Float    = "float";
-	case Int      = "int";
-	case Bool     = "bool";
-	case Callable = "callable";
-	case Iterable = "iterable";
+	static public function fromKind(PHPBuiltinTypeKind $kind): self {
+		static $instances = [];
 
-	case True     = "true";
-	case False    = "false";
-	case Null     = "null";
+		$instances[$kind->name] ??= new self($kind);
+
+		return $instances[$kind->name];
+	}
 
 	public function jsonSerialize(): mixed {
 		return [
 			"typeKind" => "BuiltinType",
-			"value"    => $this->value
+			"value"    => $this->kind->value
 		];
 	}
 
 	public function getTypeId(): string {
-		return "builtin:".$this->name;
+		return "builtin:".$this->kind->name;
 	}
 
 	public function isEqualTo(PHPType $t): bool {
@@ -37,15 +31,15 @@ enum PHPBuiltinType: string implements PHPType {
 			return false;
 		}
 
-		return $t->value === $this->value;
+		return $t->kind === $this->kind;
 	}
 
 	public function render(): string {
-		return $this->value;
+		return $this->kind->value;
 	}
 
 	public function isRepresentableInCode(): bool {
-		return $this->value !== self::Resource->value;
+		return $this->kind !== PHPBuiltinTypeKind::Resource;
 	}
 
 	public function isCompoundType(): bool {
