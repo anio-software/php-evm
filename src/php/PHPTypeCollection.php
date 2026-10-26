@@ -89,6 +89,16 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		return false;
 	}
 
+	final public function indexOf(PHPType $t): int {
+		foreach ($this->getTypeMembers() as $i => $member) {
+			if ($member->isEqualTo($t)) {
+				return $i;
+			}
+		}
+
+		return -1;
+	}
+
 	final public function getTypeMembers(): array {
 		return $this->members;
 	}
