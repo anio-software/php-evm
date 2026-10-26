@@ -68,6 +68,44 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 		);
 	}
 
+	public function render(
+		bool $references = false,
+		bool $types = false,
+		bool $initializer = false
+	): string {
+		$ret = "";
+
+		if ($types) {
+			$paramTypeCode = $this->type->toCode();
+
+			if ($paramTypeCode !== NULL) {
+				if (\strlen($paramTypeCode)) {
+					$ret .= "$paramTypeCode ";
+				}
+			} else {
+				$rendered = $this->type->render();
+
+				if (\strlen($rendered)) {
+					$ret .= "/* $rendered */ ";
+				}
+			}
+		}
+
+		$ret .= ($this->isVariadic() ? "..." : "");
+		$ret .= ($references && $this->isReference() ? "&" : "");
+		$ret .= "\$".$this->name;
+
+		if ($initializer && $this->initializer !== NULL) {
+			if ($this->initializer !== "?") {
+				$ret .= " = ".$this->initializer;
+			} else {
+				$ret .= "/* = ".$this->initializer." */";
+			}
+		}
+
+		return $ret;
+	}
+
 	public function jsonSerialize(): mixed {
 		return [
 			"name"        => $this->name,
