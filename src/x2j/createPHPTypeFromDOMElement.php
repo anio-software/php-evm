@@ -3,9 +3,9 @@
 namespace AnioSoftware\X2J;
 
 function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
-	foreach (PHP\PHPBuiltinType::cases() as $case) {
+	foreach (PHP\PHPBuiltinTypeKind::cases() as $case) {
 		if (\strtolower($case->value) === \strtolower($typeName)) {
-			return $case;
+			return $case->toType();
 		}
 	}
 
