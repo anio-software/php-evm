@@ -8,7 +8,7 @@ function functionParametersToCode(PHP\PHPFunction $func, bool $references = fals
 	$ret  = "(";
 
 	foreach ($func->getParameters() as $param) {
-		$paramTypeCode = typeToCode($param->type);
+		$paramTypeCode = $param->type->toCode() ?? "";
 		$ret .= ($types && \strlen($paramTypeCode)) ? $paramTypeCode." " : "";
 		$ret .= ($param->isVariadic() ? "..." : "");
 		$ret .= ($references && $param->isReference() ? "&" : "");
