@@ -80,13 +80,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	}
 
 	final public function containsType(PHPType $t): bool {
-		foreach ($this->getTypeMembers() as $member) {
-			if ($member->isEqualTo($t)) {
-				return true;
-			}
-		}
-
-		return false;
+		return $this->indexOf($t) !== -1;
 	}
 
 	final public function indexOf(PHPType $t): int {
