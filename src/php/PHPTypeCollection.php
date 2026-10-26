@@ -83,7 +83,7 @@ abstract readonly class PHPTypeCollection implements PHPType {
 	}
 
 	final public function render(): string {
-		return renderTypeCollection($this);
+		return self::renderTypeCollection($this);
 	}
 
 	final public function jsonSerialize(): mixed {
@@ -97,4 +97,18 @@ abstract readonly class PHPTypeCollection implements PHPType {
 
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeOperator(): PHPTypeOperator;
+
+	static private function renderTypeCollection(self $col, bool $nested = false): string {
+		$members = \array_map(static function(PHPType $type) {
+			if ($type instanceof self) {
+				return self::renderTypeCollection($type, true);
+			}
+
+			return $type->render();
+		}, $col->getTypeMembers());
+
+		$ret = \implode($col->getTypeOperator()->value, $members);
+
+		return $nested ? "($ret)" : $ret;
+	}
 }
