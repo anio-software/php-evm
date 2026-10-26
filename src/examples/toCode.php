@@ -42,7 +42,7 @@ foreach ($context->manual->getFunctions() as $fn) {
 	if ($kind === "base") {
 		echo "\t\t";
 
-		if ($fn->returnType !== X2J\PHP\PHPBuiltinType::Void) {
+		if (!$fn->returnType->isEqualTo(X2J\PHP\PHPBuiltinTypeKind::Void->toType())) {
 			echo "return ";
 		}
 
