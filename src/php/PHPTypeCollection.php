@@ -93,6 +93,16 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		return $this->members;
 	}
 
+	final public function containsTypeCollection(): bool {
+		foreach ($this->getTypeMembers() as $member) {
+			if ($member instanceof self) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	final public function render(): string {
 		return self::renderTypeCollection($this);
 	}
