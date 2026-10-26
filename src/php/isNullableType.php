@@ -3,9 +3,9 @@
 namespace AnioSoftware\X2J\PHP;
 
 function isNullableType(PHPType $type): bool {
-	if ($type->isEqualTo(PHPBuiltinTypeKind::Mixed->toType())) {
+	if ($type->isBuiltinType(PHPBuiltinTypeKind::Mixed)) {
 		return true;
-	} else if ($type->isEqualTo(PHPBuiltinTypeKind::Null->toType())) {
+	} else if ($type->isBuiltinType(PHPBuiltinTypeKind::Null)) {
 		return true;
 	}
 
