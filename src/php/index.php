@@ -14,7 +14,6 @@ require_once __DIR__."/PHPUnknownType.php";
 require_once __DIR__."/PHPUnspecifiedType.php";
 require_once __DIR__."/isNullableType.php";
 require_once __DIR__."/makeTypeNullable.php";
-require_once __DIR__."/normalizeType.php";
 require_once __DIR__."/Renderability.php";
 require_once __DIR__."/getFunctionRenderability.php";
 require_once __DIR__."/getRenderability.php";
