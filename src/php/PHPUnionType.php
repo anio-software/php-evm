@@ -23,8 +23,4 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Pipe;
 	}
-
-	public function render(): string {
-		return renderTypeCollection($this);
-	}
 }

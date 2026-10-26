@@ -23,8 +23,4 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Ampersand;
 	}
-
-	public function render(): string {
-		return renderTypeCollection($this);
-	}
 }

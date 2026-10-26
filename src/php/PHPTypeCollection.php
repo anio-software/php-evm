@@ -82,6 +82,10 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		return $this->members;
 	}
 
+	final public function render(): string {
+		return renderTypeCollection($this);
+	}
+
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeOperator(): PHPTypeOperator;
 }
