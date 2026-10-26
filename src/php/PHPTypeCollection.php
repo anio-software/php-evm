@@ -4,7 +4,16 @@ namespace AnioSoftware\X2J\PHP;
 
 abstract readonly class PHPTypeCollection implements PHPType {
 	final public function getTypeId(): string {
-		return getTypeCollectionId($this);
+		$types = \array_map(static function(PHPType $type) {
+			return $type->getTypeId();
+		}, $this->getTypeMembers());
+
+		\sort($types);
+
+		$key  = $this->getTypeCollectionKind()->value.":";
+		$key .= "(".\implode($this->getTypeOperator()->value, $types).")";
+
+		return $key;
 	}
 
 	final public function isEqualTo(PHPType $t): bool {
