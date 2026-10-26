@@ -20,4 +20,8 @@ enum PHPBuiltinTypeKind: string {
 	case True     = "true";
 	case False    = "false";
 	case Null     = "null";
+
+	public function toType(): PHPType {
+		return PHPBuiltinType::fromKind($this);
+	}
 }
