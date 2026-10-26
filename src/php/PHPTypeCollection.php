@@ -119,6 +119,16 @@ abstract readonly class PHPTypeCollection implements PHPType {
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeOperator(): PHPTypeOperator;
 
+	public function isRepresentableInCode(): bool {
+		foreach ($this->getTypeMembers() as $member) {
+			if (!$member->isRepresentableInCode()) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 	static private function renderTypeCollection(self $col, bool $nested = false): string {
 		$members = \array_map(static function(PHPType $type) {
 			if ($type instanceof self) {
