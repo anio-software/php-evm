@@ -10,15 +10,13 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	}
 
 	public function collapse(): PHPType {
-		$flattened = $this->flattened();
-
-		if ($flattened->containsType(PHPUnspecifiedType::instance())) {
+		if ($this->containsType(PHPUnspecifiedType::instance())) {
 			return PHPUnspecifiedType::instance();
-		} else if ($flattened->containsType(PHPBuiltinType::Mixed)) {
+		} else if ($this->containsType(PHPBuiltinType::Mixed)) {
 			return PHPBuiltinType::Mixed;
 		}
 
-		return $flattened;
+		return $this;
 	}
 
 	public function getTypeCollectionKind(): PHPTypeCollectionKind {
