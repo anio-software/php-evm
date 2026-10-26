@@ -9,9 +9,9 @@ abstract readonly class PHPType implements \JsonSerializable {
 	abstract public function isCompoundType(): bool;
 	abstract public function isRepresentableInCode(): bool;
 
-	public function toCode(): string|false {
+	public function toCode(): ?string {
 		if (!$this->isRepresentableInCode()) {
-			return false;
+			return NULL;
 		}
 
 		return $this->render();

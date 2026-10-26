@@ -68,11 +68,11 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		return true;
 	}
 
-	public function toCode(): string|false {
+	public function toCode(): ?string {
 		$type = $this->collapse();
 
 		if (!$type->isRepresentableInCode()) {
-			return false;
+			return NULL;
 		}
 
 		if ($type instanceof self) {
