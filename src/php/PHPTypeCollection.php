@@ -8,7 +8,43 @@ abstract readonly class PHPTypeCollection implements PHPType {
 	}
 
 	final public function isEqualTo(PHPType $t): bool {
-		return false; // tbd
+		if (!($t instanceof self)) {
+			// not a type collection
+			return false;
+		} else if ($t->getTypeCollectionKind() !== $this->getTypeCollectionKind()) {
+			// not the same kind of type collection
+			return false;
+		}
+
+		$members1 = $t->getTypeMembers();
+		$members2 = $this->getTypeMembers();
+
+		if (\count($members1) !== \count($members2)) {
+			// not the same count of members
+			return false;
+		}
+
+		$matched = [];
+
+		foreach ($members1 as $member1) {
+			$found = false;
+
+			foreach ($members2 as $i => $member2) {
+				if (!\array_key_exists($i, $matched) && $member1->isEqualTo($member2)) {
+					$matched[$i] = true;
+
+					$found = true;
+
+					break;
+				}
+			}
+
+			if (!$found) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
