@@ -30,8 +30,11 @@ foreach ($context->manual->getFunctions() as $fn) {
 	echo $fn->name;
 	echo X2J\PHP\CodeGen\functionParametersToCode($fn, true, true, true);
 
-	echo ": ";
-	echo X2J\PHP\CodeGen\typeToCode($fn->returnType);
+	$returnTypeCode = X2J\PHP\CodeGen\typeToCode($fn->returnType);
+
+	if (\strlen($returnTypeCode)) {
+		echo ": $returnTypeCode";
+	}
 
 	echo ($kind === "iface" ? ";" : " {");
 	echo "\n";
