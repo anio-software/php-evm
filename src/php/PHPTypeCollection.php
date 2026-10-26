@@ -22,8 +22,6 @@ abstract readonly class PHPTypeCollection implements PHPType {
 			return $type->getTypeId();
 		}, $this->getTypeMembers());
 
-		\sort($types);
-
 		$key  = $this->getTypeCollectionKind()->value.":";
 		$key .= "(".\implode($this->getTypeOperator()->value, $types).")";
 
