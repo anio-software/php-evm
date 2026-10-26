@@ -13,6 +13,10 @@ final readonly class PHPUnspecifiedType implements PHPType {
 		return "unspecified";
 	}
 
+	public function isEqualTo(PHPType $t): bool {
+		return $t instanceof self;
+	}
+
 	public function render(): string {
 		return "";
 	}

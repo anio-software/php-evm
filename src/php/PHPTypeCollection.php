@@ -7,6 +7,10 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		return getTypeCollectionId($this);
 	}
 
+	final public function isEqualTo(PHPType $t): bool {
+		return false; // tbd
+	}
+
 	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeMembers(): array;
 	abstract public function getTypeOperator(): PHPTypeOperator;

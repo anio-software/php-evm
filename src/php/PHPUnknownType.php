@@ -13,6 +13,10 @@ final readonly class PHPUnknownType implements PHPType {
 		return "unknown";
 	}
 
+	public function isEqualTo(PHPType $t): bool {
+		return $t instanceof self;
+	}
+
 	public function render(): string {
 		return "unknown";
 	}

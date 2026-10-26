@@ -32,6 +32,14 @@ enum PHPBuiltinType: string implements PHPType {
 		return "builtin:".$this->name;
 	}
 
+	public function isEqualTo(PHPType $t): bool {
+		if (!($t instanceof self)) {
+			return false;
+		}
+
+		return $t->value === $this->value;
+	}
+
 	public function render(): string {
 		return $this->value;
 	}

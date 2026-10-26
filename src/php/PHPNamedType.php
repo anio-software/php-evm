@@ -18,6 +18,14 @@ final readonly class PHPNamedType implements PHPType {
 		return "named:".$this->name;
 	}
 
+	public function isEqualTo(PHPType $t): bool {
+		if (!($t instanceof self)) {
+			return false;
+		}
+
+		return $t->name === $this->name;
+	}
+
 	public function render(): string {
 		return "\\".$this->name;
 	}
