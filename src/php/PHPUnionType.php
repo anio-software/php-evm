@@ -22,6 +22,16 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 			return false;
 		}
 
-		return true; // tbd
+		$nMembers = \count($this->members);
+
+		if ($this->containsType(PHPBuiltinType::Mixed) && $nMembers > 1) {
+			// "mixed" cannot be combined with other types in a union
+			return false;
+		} else if ($this->containsType(PHPUnspecifiedType::instance()) && $nMembers > 1) {
+			// "unspecified" cannot be combined with other types in a union
+			return false;
+		}
+
+		return true;
 	}
 }
