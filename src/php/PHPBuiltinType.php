@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPBuiltinType implements PHPType {
+final readonly class PHPBuiltinType extends PHPType {
 	private function __construct(
 		private PHPBuiltinTypeKind $kind
 	) {}

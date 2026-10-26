@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPNamedType implements PHPType {
+final readonly class PHPNamedType extends PHPType {
 	public function __construct(
 		public string $name
 	) {}

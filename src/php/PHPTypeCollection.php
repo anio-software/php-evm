@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-abstract readonly class PHPTypeCollection implements PHPType {
+abstract readonly class PHPTypeCollection extends PHPType {
 	final protected array $members;
 
 	static private function flatten(

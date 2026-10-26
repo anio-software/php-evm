@@ -2,10 +2,10 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-interface PHPType extends \JsonSerializable {
-	public function getTypeId(): string;
-	public function isEqualTo(PHPType $t): bool;
-	public function render(): string;
-	public function isCompoundType(): bool;
-	public function isRepresentableInCode(): bool;
+abstract readonly class PHPType implements \JsonSerializable {
+	abstract public function getTypeId(): string;
+	abstract public function isEqualTo(PHPType $t): bool;
+	abstract public function render(): string;
+	abstract public function isCompoundType(): bool;
+	abstract public function isRepresentableInCode(): bool;
 }
