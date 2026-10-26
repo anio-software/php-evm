@@ -25,6 +25,10 @@ final readonly class PHPUnknownType implements PHPType {
 		return false;
 	}
 
+	public function isCompoundType(): bool {
+		return false;
+	}
+
 	static public function instance(): self {
 		static $instance = NULL;
 

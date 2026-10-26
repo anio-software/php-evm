@@ -33,4 +33,8 @@ final readonly class PHPNamedType implements PHPType {
 	public function isRepresentableInCode(): bool {
 		return true;
 	}
+
+	public function isCompoundType(): bool {
+		return false;
+	}
 }

@@ -129,6 +129,10 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		return true;
 	}
 
+	final public function isCompoundType(): bool {
+		return true;
+	}
+
 	static private function renderTypeCollection(self $col, bool $nested = false): string {
 		$members = \array_map(static function(PHPType $type) {
 			if ($type instanceof self) {
