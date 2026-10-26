@@ -9,6 +9,18 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		parent::__construct($type, ...$types);
 	}
 
+	public function collapse(): PHPType {
+		$flattened = $this->flattened();
+
+		if ($flattened->containsType(PHPUnspecifiedType::instance())) {
+			return PHPUnspecifiedType::instance();
+		} else if ($flattened->containsType(PHPBuiltinType::Mixed)) {
+			return PHPBuiltinType::Mixed;
+		}
+
+		return $flattened;
+	}
+
 	public function getTypeCollectionKind(): PHPTypeCollectionKind {
 		return PHPTypeCollectionKind::Union;
 	}
