@@ -16,4 +16,8 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Pipe;
 	}
+
+	public function isRepresentableInCode(): bool {
+		return true; // tbd
+	}
 }

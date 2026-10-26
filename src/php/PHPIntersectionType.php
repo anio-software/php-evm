@@ -16,4 +16,8 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Ampersand;
 	}
+
+	public function isRepresentableInCode(): bool {
+		return true; // tbd
+	}
 }

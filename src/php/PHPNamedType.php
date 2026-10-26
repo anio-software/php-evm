@@ -29,4 +29,8 @@ final readonly class PHPNamedType implements PHPType {
 	public function render(): string {
 		return "\\".$this->name;
 	}
+
+	public function isRepresentableInCode(): bool {
+		return true;
+	}
 }

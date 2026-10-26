@@ -43,4 +43,8 @@ enum PHPBuiltinType: string implements PHPType {
 	public function render(): string {
 		return $this->value;
 	}
+
+	public function isRepresentableInCode(): bool {
+		return $this->value !== self::Resource;
+	}
 }

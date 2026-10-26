@@ -21,6 +21,10 @@ final readonly class PHPUnknownType implements PHPType {
 		return "unknown";
 	}
 
+	public function isRepresentableInCode(): bool {
+		return false;
+	}
+
 	static public function instance(): self {
 		static $instance = NULL;
 
