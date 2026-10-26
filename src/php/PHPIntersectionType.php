@@ -3,8 +3,6 @@
 namespace AnioSoftware\X2J\PHP;
 
 final readonly class PHPIntersectionType extends PHPTypeCollection {
-	public array $members;
-
 	public function __construct(
 		PHPType $type, PHPType ...$types
 	) {

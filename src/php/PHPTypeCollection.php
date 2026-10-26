@@ -3,6 +3,8 @@
 namespace AnioSoftware\X2J\PHP;
 
 abstract readonly class PHPTypeCollection implements PHPType {
+	final protected array $members;
+
 	final public function getTypeId(): string {
 		$types = \array_map(static function(PHPType $type) {
 			return $type->getTypeId();
