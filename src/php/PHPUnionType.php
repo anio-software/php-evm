@@ -20,10 +20,6 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		return PHPTypeCollectionKind::Union;
 	}
 
-	public function getTypeMembers(): array {
-		return $this->members;
-	}
-
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Pipe;
 	}

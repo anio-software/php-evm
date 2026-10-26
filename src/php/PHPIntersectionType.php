@@ -20,10 +20,6 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 		return PHPTypeCollectionKind::Intersection;
 	}
 
-	public function getTypeMembers(): array {
-		return $this->members;
-	}
-
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Ampersand;
 	}
