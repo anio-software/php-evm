@@ -8,7 +8,7 @@ function isNullableType(PHPType $type): bool {
 	}
 
 	if ($type instanceof PHPUnionType) {
-		foreach ($type->members as $member) {
+		foreach ($type->getTypeMembers() as $member) {
 			if (isNullableType($member)) {
 				return true;
 			}

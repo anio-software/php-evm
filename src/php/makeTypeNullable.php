@@ -9,7 +9,7 @@ function makeTypeNullable(PHPType $type): PHPType {
 
 	if ($type instanceof PHPUnionType) {
 		return new PHPUnionType(
-			PHPBuiltinType::Null, ...$type->members
+			PHPBuiltinType::Null, ...$type->getTypeMembers()
 		);
 	}
 
