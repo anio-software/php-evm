@@ -22,6 +22,10 @@ final readonly class PHPBuiltinType extends PHPType {
 		];
 	}
 
+	public function getKind(): PHPBuiltinTypeKind {
+		return $this->kind;
+	}
+
 	public function getTypeId(): string {
 		return "builtin:".$this->kind->name;
 	}
