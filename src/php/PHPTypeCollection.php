@@ -6,7 +6,15 @@ abstract readonly class PHPTypeCollection implements PHPType {
 	final protected array $members;
 
 	public function __construct(PHPType $type, PHPType ...$types) {
-		$this->members = [$type, ...$types];
+		$unique = [];
+
+		foreach ([$type, ...$types] as $member) {
+			$unique[$member->getTypeId()] = $member;
+		}
+
+		\ksort($unique, \SORT_STRING);
+
+		$this->members = \array_values($unique);
 	}
 
 	final public function getTypeId(): string {
