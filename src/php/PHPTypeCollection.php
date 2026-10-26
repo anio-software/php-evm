@@ -11,7 +11,19 @@ abstract readonly class PHPTypeCollection implements PHPType {
 		$unique = [];
 
 		foreach ([$type, ...$types] as $member) {
-			$unique[$member->getTypeId()] = $member;
+			if (!($member instanceof self)) {
+				$unique[$member->getTypeId()] = $member;
+
+				continue;
+			} else if ($member->getTypeCollectionKind() !== $kind) {
+				$unique[$member->getTypeId()] = $member;
+
+				continue;
+			}
+
+			foreach ($member->getTypeMembers() as $nested) {
+				$unique[$nested->getTypeId()] = $nested;
+			}
 		}
 
 		\ksort($unique, \SORT_STRING);
