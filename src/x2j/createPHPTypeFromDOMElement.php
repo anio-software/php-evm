@@ -27,7 +27,7 @@ function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 		X2JDiagnosticMessageOrigin::Unspecified
 	)->addWarning("don't know how to map string '$typeName' to a type.");
 
-	return new PHP\PHPUnknownType;
+	return PHP\PHPUnknownType::instance();
 }
 
 function createPHPTypeFromDOMElement(
