@@ -20,4 +20,12 @@ final readonly class PHPUnspecifiedType implements PHPType {
 	public function render(): string {
 		return "";
 	}
+
+	static public function instance(): self {
+		static $instance = NULL;
+
+		$instance ??= new self;
+
+		return $instance;
+	}
 }
