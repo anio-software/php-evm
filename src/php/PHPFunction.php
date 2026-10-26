@@ -57,6 +57,46 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 		return $this->parameters;
 	}
 
+	public function renderParameters(
+		bool $references = false,
+		bool $types = false,
+		bool $initializer = false
+	): string {
+		$ret = "(";
+
+		foreach ($this->getParameters() as $param) {
+			$ret .= $param->render($references, $types, $initializer);
+			$ret .= (!$param->isLast() ? ", " : "");
+		}
+
+		$ret .= ")";
+
+		return $ret;
+	}
+
+	public function renderSignature(?string $newName = NULL): string {
+		$ret = "";
+
+		$ret .= $newName !== NULL ? $newName : $this->name;
+		$ret .= $this->renderParameters(true, true, true);
+
+		$returnTypeCode = $this->returnType->toCode();
+
+		if ($returnTypeCode !== NULL) {
+			if (\strlen($returnTypeCode)) {
+				$ret .= ": $returnTypeCode";
+			}
+		} else {
+			$rendered = $this->returnType->render();
+
+			if (\strlen($rendered)) {
+				$ret .= "/* : $rendered */";
+			}
+		}
+
+		return $ret;
+	}
+
 	static public function create(
 		string $referenceId,
 		string $name,
