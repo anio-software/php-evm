@@ -18,7 +18,6 @@ require_once __DIR__."/makeTypeNullable.php";
 require_once __DIR__."/Renderability.php";
 require_once __DIR__."/getFunctionRenderability.php";
 require_once __DIR__."/getRenderability.php";
-require_once __DIR__."/codegen/typeToCode.php";
 require_once __DIR__."/codegen/functionParametersToCode.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
