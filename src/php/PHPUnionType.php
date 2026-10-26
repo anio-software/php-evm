@@ -18,10 +18,6 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		];
 	}
 
-	public function getTypeId(): string {
-		return getTypeCollectionId($this);
-	}
-
 	public function getTypeCollectionKind(): PHPTypeCollectionKind {
 		return PHPTypeCollectionKind::Union;
 	}
