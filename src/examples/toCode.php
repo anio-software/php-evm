@@ -29,8 +29,10 @@ foreach ($context->manual->getFunctions() as $fn) {
 	echo "\tpublic function ";
 	echo $fn->name;
 	echo X2J\PHP\CodeGen\functionParametersToCode($fn, true, true, true);
+
 	echo ": ";
 	echo X2J\PHP\CodeGen\typeToCode($fn->returnType);
+
 	echo ($kind === "iface" ? ";" : " {");
 	echo "\n";
 
