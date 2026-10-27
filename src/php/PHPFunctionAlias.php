@@ -2,21 +2,23 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPFunctionAlias extends PHPReference implements \JsonSerializable {
+final readonly class PHPFunctionAlias extends PHPDefinition implements \JsonSerializable {
 	private function __construct(
+		PHPNamespace $namespace,
 		string $referenceId,
 		public string $name,
 		public string $originalName
 	) {
-		parent::__construct($referenceId);
+		parent::__construct($namespace, $referenceId);
 	}
 
 	static public function create(
+		PHPNamespace $namespace,
 		string $referenceId,
 		string $name,
 		string $originalName
 	): self {
-		return new self($referenceId, $name, $originalName);
+		return new self($namespace, $referenceId, $name, $originalName);
 	}
 
 	public function jsonSerialize(): mixed {

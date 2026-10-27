@@ -2,17 +2,18 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPFunction extends PHPReference implements \JsonSerializable {
+final readonly class PHPFunction extends PHPDefinition implements \JsonSerializable {
 	public const int FLAG_VARIADIC = 1 << 0;
 
 	private function __construct(
+		PHPNamespace $namespace,
 		string $referenceId,
 		public string $name,
 		private array $parameters,
 		public int $flags,
 		public PHPType $returnType
 	) {
-		parent::__construct($referenceId);
+		parent::__construct($namespace, $referenceId);
 	}
 
 	public function returnsValue(): bool {
@@ -41,6 +42,7 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 		);
 
 		return new self(
+			$this->namespace,
 			$this->referenceId,
 			$this->name,
 			$newParameters,
@@ -55,6 +57,7 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 
 	public function withFlags(int $flags): self {
 		return new self(
+			$this->namespace,
 			$this->referenceId,
 			$this->name,
 			$this->parameters,
@@ -108,11 +111,12 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 	}
 
 	static public function create(
+		PHPNamespace $namespace,
 		string $referenceId,
 		string $name,
 		PHPType $returnType
 	): self {
-		return new self($referenceId, $name, [], 0, $returnType);
+		return new self($namespace, $referenceId, $name, [], 0, $returnType);
 	}
 
 	public function jsonSerialize(): mixed {
