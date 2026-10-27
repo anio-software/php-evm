@@ -121,8 +121,7 @@ final readonly class PHPFunction extends PHPDefinition {
 
 	public function jsonSerialize(): mixed {
 		return [
-			"referenceId" => $this->referenceId,
-			"name"        => $this->name,
+			...parent::jsonSerialize(),
 			"parameters"  => $this->parameters,
 			"flags"       => $this->flags,
 			"returnType"  => $this->returnType

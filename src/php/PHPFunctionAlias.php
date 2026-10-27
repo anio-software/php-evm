@@ -23,8 +23,7 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 
 	public function jsonSerialize(): mixed {
 		return [
-			"referenceId"  => $this->referenceId,
-			"name"         => $this->name,
+			...parent::jsonSerialize(),
 			"originalName" => $this->originalName
 		];
 	}

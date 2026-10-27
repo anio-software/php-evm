@@ -18,11 +18,4 @@ final readonly class PHPConstant extends PHPDefinition {
 	): self {
 		return new self($namespace, $referenceId, $name);
 	}
-
-	public function jsonSerialize(): mixed {
-		return [
-			"referenceId" => $this->referenceId,
-			"name"        => $this->name
-		];
-	}
 }
