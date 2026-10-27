@@ -3,10 +3,9 @@
 namespace AnioSoftware\X2J\PHP;
 
 final class PHPNamespace implements \JsonSerializable {
-	private array $definitions     = [];
+	private array $definitions       = [];
 	private array $definitionsByKind = [];
-
-	private array $namespaces      = [];
+	private array $namespaces        = [];
 
 	public function __construct(
 		private string $name,
