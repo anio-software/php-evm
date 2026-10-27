@@ -24,7 +24,7 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	}
 
 	public function getTypeOperator(): PHPTypeOperator {
-		return PHPTypeOperator::Pipe;
+		return PHPTypeOperator::kPipe;
 	}
 
 	public function getNullableMemberType(): ?PHPType {
