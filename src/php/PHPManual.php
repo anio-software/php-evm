@@ -59,7 +59,7 @@ final class PHPManual implements \JsonSerializable {
 		return new XML\TagSelector(self::DOCBOOK_NS, $tagName);
 	}
 
-	static public function refIdSelectorFactory(): XML\DOMSelector {
+	public function refIdSelectorFactory(): XML\DOMSelector {
 		return new XML\AttributeSelector(self::XMLID_NS, "id");
 	}
 

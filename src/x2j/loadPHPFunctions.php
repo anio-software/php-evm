@@ -121,7 +121,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 		$ctx->doc->documentElement,
 		new XML\AndSelector(
 			$ctx->manual->tagSelectorFactory("refentry"),
-			PHP\PHPManual::refIdSelectorFactory()
+			$ctx->manual->refIdSelectorFactory()
 		)
 	);
 

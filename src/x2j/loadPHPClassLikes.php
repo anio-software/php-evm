@@ -9,7 +9,7 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 		$ctx->doc->documentElement,
 		new XML\AndSelector(
 			$ctx->manual->tagSelectorFactory("reference"),
-			PHP\PHPManual::refIdSelectorFactory()
+			$ctx->manual->refIdSelectorFactory()
 		)
 	);
 
