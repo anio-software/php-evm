@@ -21,7 +21,7 @@ final class X2JDiagnostics {
 	public function addWarning(string $message): void {
 		$this->add(
 			new X2JDiagnosticMessage(
-				X2JDiagnosticMessageSeverity::Warning, $message
+				X2JDiagnosticMessageSeverity::kWarning, $message
 			)
 		);
 	}

@@ -3,7 +3,7 @@
 namespace AnioSoftware\X2J;
 
 enum X2JDiagnosticMessageSeverity {
-	case Notice;
-	case Info;
-	case Warning;
+	case kNotice;
+	case kInfo;
+	case kWarning;
 }
