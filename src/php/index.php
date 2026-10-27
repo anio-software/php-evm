@@ -4,6 +4,7 @@ require_once __DIR__."/PHPReference.php";
 require_once __DIR__."/PHPDefinitionKind.php";
 require_once __DIR__."/PHPDefinition.php";
 
+require_once __DIR__."/PHPTypeKind.php";
 require_once __DIR__."/PHPType.php";
 require_once __DIR__."/PHPTypeCollectionKind.php";
 require_once __DIR__."/PHPTypeOperator.php";
