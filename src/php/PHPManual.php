@@ -64,6 +64,19 @@ final class PHPManual implements \JsonSerializable {
 		return $el->getAttributeNS($this->xmlIdNamespace, "id");
 	}
 
+	public function getElementsWithReferenceIdAttribute(
+		\DOMDocument $doc,
+		string $docBookTagName
+	): array {
+		return XML\select(
+			$doc->documentElement,
+			new XML\AndSelector(
+				$this->tagSelectorFactory($docBookTagName),
+				$this->refIdSelectorFactory()
+			)
+		);
+	}
+
 	public function jsonSerialize(): mixed {
 		return [
 			"globalNamespace" => $this->globalNamespace
