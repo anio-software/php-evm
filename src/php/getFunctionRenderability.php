@@ -4,7 +4,7 @@ namespace AnioSoftware\X2J\PHP;
 
 function getFunctionRenderability(PHPFunction $func): Renderability {
 	if ($func->returnType instanceof PHPUnknownType) {
-		return Renderability::FunctionUnknownReturnType;
+		return Renderability::kFunctionUnknownReturnType;
 	}
 
 	$params = $func->getParameters();
@@ -14,7 +14,7 @@ function getFunctionRenderability(PHPFunction $func): Renderability {
 		$lastParam = $params[$nParams - 1];
 
 		if ($func->isVariadic() && !$lastParam->isVariadic()) {
-			return Renderability::FunctionVariadicParameterMismatch;
+			return Renderability::kFunctionVariadicParameterMismatch;
 		}
 	}
 
@@ -26,23 +26,23 @@ function getFunctionRenderability(PHPFunction $func): Renderability {
 		}
 
 		if ($optionalParametersBegun && !$param->isOptional() && !$param->isVariadic()) {
-			return Renderability::FunctionRequiredParameterAfterOptional;
+			return Renderability::kFunctionRequiredParameterAfterOptional;
 		}
 
 		if ($param->type instanceof PHPUnknownType) {
-			return Renderability::FunctionUnknownParameterType;
+			return Renderability::kFunctionUnknownParameterType;
 		} else if ($param->initializer === "?") {
-			return Renderability::FunctionUnsupportedParameterInitializer;
+			return Renderability::kFunctionUnsupportedParameterInitializer;
 		}
 
 		if ($param->initializer !== NULL && \str_starts_with($param->initializer, "ini_get(")) {
-			return Renderability::FunctionIniGetParameterInitializer;
+			return Renderability::kFunctionIniGetParameterInitializer;
 		}
 	}
 
 	if ($func->name === "__halt_compiler") {
-		return Renderability::FunctionHaltCompiler;
+		return Renderability::kFunctionHaltCompiler;
 	}
 
-	return Renderability::Renderable;
+	return Renderability::kRenderable;
 }
