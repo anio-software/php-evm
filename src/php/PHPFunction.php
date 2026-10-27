@@ -15,6 +15,16 @@ final readonly class PHPFunction extends PHPReference implements \JsonSerializab
 		parent::__construct($referenceId);
 	}
 
+	public function returnsValue(): bool {
+		if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::Void)) {
+			return false;
+		} else if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::Never)) {
+			return false;
+		}
+
+		return true;
+	}
+
 	public function withFunctionParameter(
 		PHPFunctionParameter $param
 	): self {
