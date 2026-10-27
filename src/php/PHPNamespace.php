@@ -100,21 +100,21 @@ final class PHPNamespace {
 		return $this->functionAliases;
 	}
 
-	public function addReference(PHPReference $ref): void {
-		if ($ref instanceof PHPClass) {
-			$this->addClass($ref);
-		} else if ($ref instanceof PHPInterface) {
-			$this->addInterface($ref);
-		} else if ($ref instanceof PHPEnum) {
-			$this->addEnum($ref);
-		} else if ($ref instanceof PHPConstant) {
-			$this->addConstant($ref);
-		} else if ($ref instanceof PHPFunction) {
-			$this->addFunction($ref);
-		} else if ($ref instanceof PHPFunctionAlias) {
-			$this->addFunctionAlias($ref);
+	public function addDefinition(PHPDefinition $def): void {
+		if ($def instanceof PHPClass) {
+			$this->addClass($def);
+		} else if ($def instanceof PHPInterface) {
+			$this->addInterface($def);
+		} else if ($def instanceof PHPEnum) {
+			$this->addEnum($def);
+		} else if ($def instanceof PHPConstant) {
+			$this->addConstant($def);
+		} else if ($def instanceof PHPFunction) {
+			$this->addFunction($def);
+		} else if ($def instanceof PHPFunctionAlias) {
+			$this->addFunctionAlias($def);
 		} else {
-			throw new \RuntimeException("Unknown PHPReference instance.");
+			throw new \RuntimeException("Unknown PHPDefinition instance.");
 		}
 	}
 
