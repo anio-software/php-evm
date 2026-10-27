@@ -115,7 +115,7 @@ function getFunctionInt(
 }
 
 function loadPHPFunctions(X2JContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::loadPHPFunctions);
+	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::LoadPHPFunctions);
 	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "refentry"
 	);

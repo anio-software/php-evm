@@ -3,7 +3,7 @@
 namespace AnioSoftware\X2J;
 
 function loadPHPClassLikes(X2JContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::loadPHPClassLikes);
+	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::LoadPHPClassLikes);
 	$references = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "reference"
 	);
