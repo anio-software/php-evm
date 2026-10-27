@@ -7,12 +7,6 @@ final class PHPNamespace implements \JsonSerializable {
 	private array $definitionByKind = [];
 
 	private array $namespaces      = [];
-	private array $classes         = [];
-	private array $interfaces      = [];
-	private array $enums           = [];
-	private array $constants       = [];
-	private array $functions       = [];
-	private array $functionAliases = [];
 
 	public function __construct(
 		private string $name,
@@ -60,27 +54,27 @@ final class PHPNamespace implements \JsonSerializable {
 	}
 
 	public function getClasses(): array {
-		return $this->classes;
+		return [];
 	}
 
 	public function getInterfaces(): array {
-		return $this->interfaces;
+		return [];
 	}
 
 	public function getEnums(): array {
-		return $this->enums;
+		return [];
 	}
 
 	public function getConstants(): array {
-		return $this->constants;
+		return [];
 	}
 
 	public function getFunctions(): array {
-		return $this->functions;
+		return [];
 	}
 
 	public function getFunctionAliases(): array {
-		return $this->functionAliases;
+		return [];
 	}
 
 	public function addDefinition(PHPDefinition $def): void {
@@ -96,13 +90,13 @@ final class PHPNamespace implements \JsonSerializable {
 		return [
 			"name"               => $this->name,
 			"fullyQualifiedName" => $this->getFullyQualifiedName(),
-			"namespaces"         => $this->namespaces,
-			"classes"            => $this->classes,
-			"interfaces"         => $this->interfaces,
-			"enums"              => $this->enums,
-			"constants"          => $this->constants,
-			"functions"          => $this->functions,
-			"functionAliases"    => $this->functionAliases
+			"namespaces"         => $this->getNamespaces(),
+			"classes"            => $this->getClasses(),
+			"interfaces"         => $this->getInterfaces(),
+			"enums"              => $this->getEnums(),
+			"constants"          => $this->getConstants(),
+			"functions"          => $this->getFunctions(),
+			"functionAliases"    => $this->getFunctionAliases()
 		];
 	}
 }
