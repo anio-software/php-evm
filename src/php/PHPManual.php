@@ -11,6 +11,10 @@ final class PHPManual implements \JsonSerializable {
 		$this->globalNamespace = PHPNamespace::globalNamespace();
 	}
 
+	public function getGlobalNamespace(): PHPNamespace {
+		return $this->globalNamespace;
+	}
+
 	public function getOrCreateNamespace(string $path): PHPNamespace {
 		if ($path === "") {
 			return $this->globalNamespace;
