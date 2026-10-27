@@ -35,6 +35,10 @@ final class PHPManual implements \JsonSerializable {
 			return PHPNamespace::globalNamespace()->getName();
 		}
 
+		if (\str_starts_with($name, "\\")) {
+			$name = \substr($name, 1);
+		}
+
 		$parts = \explode("\\", $name);
 		\array_pop($parts);
 
