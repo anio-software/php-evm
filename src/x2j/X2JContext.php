@@ -16,7 +16,7 @@ final class X2JContext {
 	) {
 		$this->doc = XML\loadDocument($options->manualPath);
 		$this->manual = new PHP\PHPManual(
-			new PHP\PHPNamespace("", NULL),
+			$options->globalNamespace ?? new PHP\PHPNamespace("", NULL),
 			self::XMLID_NS,
 			self::DOCBOOK_NS
 		);
