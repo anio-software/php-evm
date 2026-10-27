@@ -5,12 +5,6 @@ namespace AnioSoftware\X2J\PHP;
 final readonly class PHPUnspecifiedType extends PHPType {
 	private function __construct() {}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"typeKind" => "UnspecifiedType"
-		];
-	}
-
 	public function getTypeKind(): PHPTypeKind {
 		return PHPTypeKind::kUnspecified;
 	}

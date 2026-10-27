@@ -112,10 +112,8 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	}
 
 	final public function jsonSerialize(): mixed {
-		$kind = \ucfirst($this->getTypeKind()->value);
-
 		return [
-			"typeKind" => "{$kind}Type",
+			...parent::jsonSerialize(),
 			"members"  => $this->members
 		];
 	}
