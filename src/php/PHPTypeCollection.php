@@ -6,7 +6,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	final protected array $members;
 
 	static private function flatten(
-		PHPTypeCollectionKind $kind, PHPType $type, PHPType ...$types
+		PHPTypeKind $kind, PHPType $type, PHPType ...$types
 	): array {
 		$unique = [];
 
@@ -15,7 +15,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 				$unique[$member->getTypeId()] = $member;
 
 				continue;
-			} else if ($member->getTypeCollectionKind() !== $kind) {
+			} else if ($member->getTypeKind() !== $kind) {
 				$unique[$member->getTypeId()] = $member;
 
 				continue;
@@ -33,7 +33,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 
 	public function __construct(PHPType $type, PHPType ...$types) {
 		$this->members = self::flatten(
-			$this->getTypeCollectionKind(),
+			$this->getTypeKind(),
 			$type,
 			...$types
 		);
@@ -44,7 +44,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 			return $type->getTypeId();
 		}, $this->getTypeMembers());
 
-		$key  = $this->getTypeCollectionKind()->value.":";
+		$key  = $this->getTypeKind()->value.":";
 		$key .= "(".\implode($this->getTypeOperator()->value, $types).")";
 
 		return $key;
@@ -54,7 +54,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		if (!($t instanceof self)) {
 			// not a type collection
 			return false;
-		} else if ($t->getTypeCollectionKind() !== $this->getTypeCollectionKind()) {
+		} else if ($t->getTypeKind() !== $this->getTypeKind()) {
 			// not the same kind of type collection
 			return false;
 		}
@@ -112,7 +112,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	}
 
 	final public function jsonSerialize(): mixed {
-		$kind = \ucfirst($this->getTypeCollectionKind()->value);
+		$kind = \ucfirst($this->getTypeKind()->value);
 
 		return [
 			"typeKind" => "{$kind}Type",
