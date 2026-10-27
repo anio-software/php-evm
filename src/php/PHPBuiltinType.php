@@ -22,11 +22,11 @@ final readonly class PHPBuiltinType extends PHPType {
 	public function jsonSerialize(): mixed {
 		return [
 			...parent::jsonSerialize(),
-			"kind" => $this->getKind()->value
+			"kind" => $this->getBuiltinKind()->value
 		];
 	}
 
-	public function getKind(): PHPBuiltinTypeKind {
+	public function getBuiltinKind(): PHPBuiltinTypeKind {
 		return $this->kind;
 	}
 

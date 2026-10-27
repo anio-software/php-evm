@@ -17,7 +17,7 @@ abstract readonly class PHPType implements \JsonSerializable {
 			return false;
 		}
 
-		return $this->getKind() === $kind;
+		return $this->getBuiltinKind() === $kind;
 	}
 
 	public function toCode(): ?string {
