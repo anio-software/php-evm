@@ -5,6 +5,31 @@ namespace AnioSoftware\X2J\PHP;
 use AnioSoftware\X2J\XML as XML;
 
 final class PHPManual implements \JsonSerializable {
+	readonly private PHPNamespace $globalNamespace;
+
+	public function __construct() {
+		$this->globalNamespace = PHPNamespace::globalNamespace();
+	}
+
+	public function getOrCreateNamespace(string $path): PHPNamespace {
+		$currentNamespace = $this->globalNamespace;
+
+		foreach (\explode("\\", $path) as $piece) {
+			$namespaces = $currentNamespace->getNamespaces();
+
+			if (\array_key_exists($piece, $namespaces)) {
+				$currentNamespace = $namespaces[$piece];
+			} else {
+				$newNamespace = new PHPNamespace($piece, $currentNamespace);
+
+				$currentNamespace->addNamespace($newNamespace);
+				$currentNamespace = $newNamespace;
+			}
+		}
+
+		return $currentNamespace;
+	}
+
 	public const DOCBOOK_NS = "http://docbook.org/ns/docbook";
 	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
 
