@@ -8,12 +8,12 @@ final readonly class PHPFunction extends PHPDefinition implements \JsonSerializa
 	private function __construct(
 		PHPNamespace $namespace,
 		string $referenceId,
-		public string $name,
+		string $name,
 		private array $parameters,
 		public int $flags,
 		public PHPType $returnType
 	) {
-		parent::__construct($namespace, $referenceId);
+		parent::__construct($namespace, $referenceId, $name);
 	}
 
 	public function returnsValue(): bool {

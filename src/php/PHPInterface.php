@@ -6,9 +6,9 @@ final readonly class PHPInterface extends PHPDefinition {
 	private function __construct(
 		PHPNamespace $namespace,
 		string $referenceId,
-		public string $name
+		string $name
 	) {
-		parent::__construct($namespace, $referenceId);
+		parent::__construct($namespace, $referenceId, $name);
 	}
 
 	static public function create(
