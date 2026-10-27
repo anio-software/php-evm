@@ -10,4 +10,8 @@ readonly abstract class PHPDefinition extends PHPReference {
 	) {
 		parent::__construct($referenceId);
 	}
+
+	final public function getFullyQualifiedName(): string {
+		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
+	}
 }
