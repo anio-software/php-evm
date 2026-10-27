@@ -49,7 +49,7 @@ final readonly class PHPNamedType extends PHPType {
 	}
 
 	public function toNullable(): PHPType {
-		return new PHPUnionType($this, PHPBuiltinTypeKind::Null->toType());
+		return new PHPUnionType($this, PHPBuiltinTypeKind::kNull->toType());
 	}
 
 	public function getNamespace(): ?PHPNamespace {

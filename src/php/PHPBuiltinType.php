@@ -47,7 +47,7 @@ final readonly class PHPBuiltinType extends PHPType {
 	}
 
 	public function isRepresentableInCode(): bool {
-		return $this->kind !== PHPBuiltinTypeKind::Resource;
+		return $this->kind !== PHPBuiltinTypeKind::kResource;
 	}
 
 	public function isCompoundType(): bool {
@@ -56,15 +56,15 @@ final readonly class PHPBuiltinType extends PHPType {
 
 	public function toNullable(): PHPType {
 		if (
-			$this->kind === PHPBuiltinTypeKind::Mixed ||
-			$this->kind === PHPBuiltinTypeKind::Null  ||
-			$this->kind === PHPBuiltinTypeKind::Never
+			$this->kind === PHPBuiltinTypeKind::kMixed ||
+			$this->kind === PHPBuiltinTypeKind::kNull  ||
+			$this->kind === PHPBuiltinTypeKind::kNever
 		) {
 			return $this;
 		}
 
 		return new PHPUnionType(
-			PHPBuiltinTypeKind::Null->toType(),
+			PHPBuiltinTypeKind::kNull->toType(),
 			$this
 		);
 	}

@@ -21,9 +21,9 @@ final readonly class PHPFunction extends PHPDefinition {
 	}
 
 	public function returnsValue(): bool {
-		if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::Void)) {
+		if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::kVoid)) {
 			return false;
-		} else if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::Never)) {
+		} else if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::kNever)) {
 			return false;
 		}
 

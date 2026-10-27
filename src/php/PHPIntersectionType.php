@@ -27,7 +27,7 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 
 	public function toNullable(): PHPType {
 		return new PHPUnionType(
-			$this, PHPBuiltinTypeKind::Null->toType()
+			$this, PHPBuiltinTypeKind::kNull->toType()
 		);
 	}
 }
