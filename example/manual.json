@@ -27803,12 +27803,6 @@
                 "name": "CURLINFO_HEADER_IN",
                 "fullyQualifiedName": "\\CURLINFO_HEADER_IN"
             },
-            "CURLINFO_HEADER_OUT": {
-                "namespace": "",
-                "referenceId": "constant.curlinfo-header-out",
-                "name": "CURLINFO_HEADER_OUT",
-                "fullyQualifiedName": "\\CURLINFO_HEADER_OUT"
-            },
             "CURLINFO_DATA_IN": {
                 "namespace": "",
                 "referenceId": "constant.curlinfo-data-in",
@@ -28000,6 +27994,12 @@
                 "referenceId": "constant.curlinfo-ftp-entry-path",
                 "name": "CURLINFO_FTP_ENTRY_PATH",
                 "fullyQualifiedName": "\\CURLINFO_FTP_ENTRY_PATH"
+            },
+            "CURLINFO_HEADER_OUT": {
+                "namespace": "",
+                "referenceId": "constant.curlinfo-header-out",
+                "name": "CURLINFO_HEADER_OUT",
+                "fullyQualifiedName": "\\CURLINFO_HEADER_OUT"
             },
             "CURLINFO_HEADER_SIZE": {
                 "namespace": "",
