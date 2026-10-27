@@ -6,7 +6,6 @@ require_once __DIR__."/PHPDefinition.php";
 
 require_once __DIR__."/PHPTypeKind.php";
 require_once __DIR__."/PHPType.php";
-require_once __DIR__."/PHPTypeCollectionKind.php";
 require_once __DIR__."/PHPTypeOperator.php";
 require_once __DIR__."/PHPTypeCollection.php";
 require_once __DIR__."/PHPBuiltinTypeKind.php";
