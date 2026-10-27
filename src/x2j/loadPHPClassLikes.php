@@ -86,13 +86,12 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 		}
 
 		$class = $map[$kind]["class"];
-		$name  = \strlen($namespace) ? "$namespace\\$name" : $name;
-		$inst  = $class::create($refId, $name);
+		$name = \strlen($namespace) ? "$namespace\\$name" : $name;
+		$qualifier = PHP\PHPManual::parseQualifiedName($name);
+		$inst = $class::create($refId, $qualifier["localName"]);
 
-		$namespace = $ctx->manual->getOrCreateNamespace(
-			PHP\PHPManual::getNamespaceNameFromDeclarationName($name)
-		);
-
-		$namespace->addReference($inst);
+		$ctx->manual
+			->getOrCreateNamespace($qualifier["namespace"])
+			->addReference($inst);
 	}
 }
