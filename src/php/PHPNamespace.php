@@ -53,28 +53,32 @@ final class PHPNamespace implements \JsonSerializable {
 		return $this->namespaces;
 	}
 
+	public function getDefinitions(?PHPDefinitionKind $kind = NULL): array {
+		return []; // tbd
+	}
+
 	public function getClasses(): array {
-		return [];
+		return $this->getDefinitions(PHPDefinitionKind::kClass);
 	}
 
 	public function getInterfaces(): array {
-		return [];
+		return $this->getDefinitions(PHPDefinitionKind::kInterface);
 	}
 
 	public function getEnums(): array {
-		return [];
+		return $this->getDefinitions(PHPDefinitionKind::kEnum);
 	}
 
 	public function getConstants(): array {
-		return [];
+		return $this->getDefinitions(PHPDefinitionKind::kConstant);
 	}
 
 	public function getFunctions(): array {
-		return [];
+		return $this->getDefinitions(PHPDefinitionKind::kFunction);
 	}
 
 	public function getFunctionAliases(): array {
-		return [];
+		return $this->getDefinitions(PHPDefinitionKind::kFunctionAlias);
 	}
 
 	public function addDefinition(PHPDefinition $def): void {
