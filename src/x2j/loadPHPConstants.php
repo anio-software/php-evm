@@ -4,13 +4,8 @@ namespace AnioSoftware\X2J;
 
 function loadPHPConstants(X2JContext $ctx): void {
 	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::loadPHPConstants);
-
-	$constants = XML\select(
-		$ctx->doc->documentElement,
-		new XML\AndSelector(
-			$ctx->manual->tagSelectorFactory("varlistentry"),
-			$ctx->manual->refIdSelectorFactory()
-		)
+	$constants = $ctx->manual->getElementsWithReferenceIdAttribute(
+		$ctx->doc, "varlistentry"
 	);
 
 	foreach ($constants as $constant) {

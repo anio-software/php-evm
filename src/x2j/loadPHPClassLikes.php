@@ -4,13 +4,8 @@ namespace AnioSoftware\X2J;
 
 function loadPHPClassLikes(X2JContext $ctx): void {
 	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::loadPHPClassLikes);
-
-	$references = XML\select(
-		$ctx->doc->documentElement,
-		new XML\AndSelector(
-			$ctx->manual->tagSelectorFactory("reference"),
-			$ctx->manual->refIdSelectorFactory()
-		)
+	$references = $ctx->manual->getElementsWithReferenceIdAttribute(
+		$ctx->doc, "reference"
 	);
 
 	foreach ($references as $reference) {

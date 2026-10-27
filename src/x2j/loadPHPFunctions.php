@@ -116,13 +116,8 @@ function getFunctionInt(
 
 function loadPHPFunctions(X2JContext $ctx): void {
 	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::loadPHPFunctions);
-
-	$refentries = XML\select(
-		$ctx->doc->documentElement,
-		new XML\AndSelector(
-			$ctx->manual->tagSelectorFactory("refentry"),
-			$ctx->manual->refIdSelectorFactory()
-		)
+	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
+		$ctx->doc, "refentry"
 	);
 
 	foreach ($refentries as $refentry) {
