@@ -7,8 +7,8 @@ use AnioSoftware\X2J\XML as XML;
 final class PHPManual implements \JsonSerializable {
 	public function __construct(
 		readonly private PHPNamespace $globalNamespace,
-		private string $xmlIdNamespace,
-		private string $docbookNamespace
+		readonly private string $xmlIdNamespace,
+		readonly private string $docbookNamespace
 	) {}
 
 	public function getGlobalNamespace(): PHPNamespace {
