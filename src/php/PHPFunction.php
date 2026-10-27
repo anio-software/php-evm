@@ -16,7 +16,7 @@ final readonly class PHPFunction extends PHPDefinition {
 		parent::__construct($namespace, $referenceId, $name);
 	}
 
-	public function getKind(): PHPDefinitionKind {
+	public function getDefinitionKind(): PHPDefinitionKind {
 		return PHPDefinitionKind::kFunction;
 	}
 

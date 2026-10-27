@@ -97,7 +97,7 @@ final class PHPNamespace implements \JsonSerializable {
 
 	public function addDefinition(PHPDefinition $def): void {
 		$id   = $def->getId();
-		$kind = $def->getKind()->value;
+		$kind = $def->getDefinitionKind()->value;
 
 		if (\array_key_exists($id, $this->definitions)) {
 			throw new \RuntimeException(

@@ -12,7 +12,7 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		parent::__construct($namespace, $referenceId, $name);
 	}
 
-	public function getKind(): PHPDefinitionKind {
+	public function getDefinitionKind(): PHPDefinitionKind {
 		return PHPDefinitionKind::kFunctionAlias;
 	}
 

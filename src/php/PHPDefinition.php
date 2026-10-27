@@ -11,7 +11,7 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 		parent::__construct($referenceId);
 	}
 
-	abstract public function getKind(): PHPDefinitionKind;
+	abstract public function getDefinitionKind(): PHPDefinitionKind;
 
 	final public function getId(): string {
 		return static::class.":".$this->getFullyQualifiedName();
@@ -23,7 +23,7 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 
 	public function jsonSerialize(): mixed {
 		return [
-			"definitionKind"     => $this->getKind(),
+			"definitionKind"     => $this->getDefinitionKind(),
 			"namespace"          => $this->namespace->getFullyQualifiedName(),
 			"referenceId"        => $this->referenceId,
 			"name"               => $this->name,
