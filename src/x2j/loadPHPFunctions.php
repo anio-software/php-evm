@@ -88,6 +88,7 @@ function getFunctionParametersInt(
 function getFunctionInt(
 	X2JDiagnostics $diagnostics,
 	X2JContext $ctx,
+	PHP\PHPNamespace $ns,
 	string $refId,
 	string $functionName,
 	\DOMElement $methodsynopsis
@@ -98,7 +99,7 @@ function getFunctionInt(
 			$methodsynopsis, PHP\PHPManual::tagSelectorFactory("type")
 		)
 	);
-	$func   = PHP\PHPFunction::create($refId, $functionName, $returnType);
+	$func   = PHP\PHPFunction::create($ns, $refId, $functionName, $returnType);
 	$params = getFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis);
 
 	$isVariadic = false;
@@ -144,6 +145,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 
 		$functionName = \trim($refname->textContent);
 		$qualifier    = PHP\PHPManual::parseQualifiedName($functionName);
+		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 
 		$refpurpose = XMl\selectFirstMatchingDescendant(
 			$refentry,
@@ -171,15 +173,14 @@ function loadPHPFunctions(X2JContext $ctx): void {
 				continue;
 			}
 
-			$ctx->manual
-				->getOrCreateNamespace($qualifier["namespace"])
-				->addFunctionAlias(
-					PHP\PHPFunctionAlias::create(
-						$refId,
-						$qualifier["localName"],
-						\trim($el->textContent)
-					)
-				);
+			$ns->addFunctionAlias(
+				PHP\PHPFunctionAlias::create(
+					$ns,
+					$refId,
+					$qualifier["localName"],
+					\trim($el->textContent)
+				)
+			);
 
 			continue;
 		}
@@ -197,15 +198,12 @@ function loadPHPFunctions(X2JContext $ctx): void {
 		$inst = getFunctionInt(
 			$diagnostics,
 			$ctx,
+			$ns,
 			$refId,
 			$qualifier["localName"],
 			$methodsynopsis
 		);
 
-		$ctx->manual
-			->getOrCreateNamespace($qualifier["namespace"])
-			->addFunction(
-				$inst
-			);
+		$ns->addFunction($inst);
 	}
 }
