@@ -13,7 +13,7 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 
 	abstract public function getDefinitionKind(): PHPDefinitionKind;
 
-	final public function getId(): string {
+	final public function getDefinitionId(): string {
 		return static::class.":".$this->getFullyQualifiedName();
 	}
 
