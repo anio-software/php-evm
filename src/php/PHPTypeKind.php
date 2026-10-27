@@ -3,10 +3,10 @@
 namespace AnioSoftware\X2J\PHP;
 
 enum PHPTypeKind: string {
-	case kBuiltin      = "builtinType";
-	case kNamed        = "namedType";
-	case kUnion        = "unionType";
-	case kIntersection = "intersectionType";
+	case kBuiltin      = "builtin";
+	case kNamed        = "named";
+	case kUnion        = "union";
+	case kIntersection = "intersection";
 	case kUnspecified  = "unspecified";
 	case kUnknown      = "unknown";
 }
