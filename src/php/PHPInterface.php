@@ -11,6 +11,13 @@ final readonly class PHPInterface extends PHPDefinition {
 		parent::__construct($namespace, $referenceId, $name);
 	}
 
+	public function jsonSerialize(): mixed {
+		return [
+			"referenceId" => $this->referenceId,
+			"name"        => $this->name
+		];
+	}
+
 	static public function create(
 		PHPNamespace $namespace,
 		string $referenceId,
