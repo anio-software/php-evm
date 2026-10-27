@@ -143,6 +143,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 		}
 
 		$functionName = \trim($refname->textContent);
+		$qualifier    = PHP\PHPManual::parseQualifiedName($functionName);
 
 		$refpurpose = XMl\selectFirstMatchingDescendant(
 			$refentry,
@@ -170,13 +171,15 @@ function loadPHPFunctions(X2JContext $ctx): void {
 				continue;
 			}
 
-			$ctx->manual->addFunctionAlias(
-				PHP\PHPFunctionAlias::create(
-					$refId,
-					$functionName,
-					\trim($el->textContent)
-				)
-			);
+			$ctx->manual
+				->getOrCreateNamespace($qualifier["namespace"])
+				->addFunctionAlias(
+					PHP\PHPFunctionAlias::create(
+						$refId,
+						$qualifier["localName"],
+						\trim($el->textContent)
+					)
+				);
 
 			continue;
 		}
