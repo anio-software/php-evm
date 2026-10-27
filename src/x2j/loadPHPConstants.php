@@ -3,7 +3,7 @@
 namespace AnioSoftware\X2J;
 
 function loadPHPConstants(X2JContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::LoadPHPConstants);
+	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::kLoadPHPConstants);
 	$constants = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "varlistentry"
 	);

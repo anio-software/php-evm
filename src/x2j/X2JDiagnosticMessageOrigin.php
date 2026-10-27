@@ -3,8 +3,8 @@
 namespace AnioSoftware\X2J;
 
 enum X2JDiagnosticMessageOrigin {
-	case LoadPHPClassLikes;
-	case LoadPHPConstants;
-	case LoadPHPFunctions;
-	case Unspecified;
+	case kLoadPHPClassLikes;
+	case kLoadPHPConstants;
+	case kLoadPHPFunctions;
+	case kUnspecified;
 }
