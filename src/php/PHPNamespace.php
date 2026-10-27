@@ -131,10 +131,4 @@ final class PHPNamespace implements \JsonSerializable {
 			"functionAliases"    => $this->functionAliases
 		];
 	}
-
-	static public function globalNamespace(): self {
-		static $instance = NULL;
-
-		return $instance ??= new self("", NULL);
-	}
 }

@@ -11,7 +11,7 @@ final class PHPManual implements \JsonSerializable {
 		private string $xmlIdNamespace,
 		private string $docbookNamespace
 	) {
-		$this->globalNamespace = PHPNamespace::globalNamespace();
+		$this->globalNamespace = new PHPNamespace("", NULL);
 	}
 
 	public function getGlobalNamespace(): PHPNamespace {
