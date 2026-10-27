@@ -31,8 +31,10 @@ Example output:
 
 ```json
 "str_pad": {
+    "namespace": "",
     "referenceId": "function.str-pad",
     "name": "str_pad",
+    "fullyQualifiedName": "\\str_pad",
     "parameters": [
         {
             "name": "string",
