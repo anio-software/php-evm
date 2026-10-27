@@ -23,6 +23,10 @@ function loadPHPConstants(X2JContext $ctx): void {
 			$diagnostics->addWarning("no <constant> tag for $refId");
 
 			continue;
+		} else if ($const->hasAttribute("linkend")) {
+			$diagnostics->addWarning("constant with refId $refId is marked as linkend, ignoring");
+
+			continue;
 		}
 
 		$qualifier = $ctx->manual->parseQualifiedName(
