@@ -8,7 +8,7 @@ function loadPHPConstants(X2JContext $ctx): void {
 	$constants = XML\select(
 		$ctx->doc->documentElement,
 		new XML\AndSelector(
-			PHP\PHPManual::tagSelectorFactory("varlistentry"),
+			$ctx->manual->tagSelectorFactory("varlistentry"),
 			PHP\PHPManual::refIdSelectorFactory()
 		)
 	);
@@ -21,7 +21,7 @@ function loadPHPConstants(X2JContext $ctx): void {
 		}
 
 		$const = XML\selectFirstMatchingDescendant(
-			$constant, PHP\PHPManual::tagSelectorFactory("constant")
+			$constant, $ctx->manual->tagSelectorFactory("constant")
 		);
 
 		if (!$const) {

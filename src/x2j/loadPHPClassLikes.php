@@ -8,7 +8,7 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 	$references = XML\select(
 		$ctx->doc->documentElement,
 		new XML\AndSelector(
-			PHP\PHPManual::tagSelectorFactory("reference"),
+			$ctx->manual->tagSelectorFactory("reference"),
 			PHP\PHPManual::refIdSelectorFactory()
 		)
 	);
@@ -24,14 +24,14 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 		}
 
 		$packagesynopsis = XML\selectFirstMatchingDescendant(
-			$reference, PHP\PHPManual::tagSelectorFactory("packagesynopsis")
+			$reference, $ctx->manual->tagSelectorFactory("packagesynopsis")
 		);
 
 		$namespace = "";
 
 		if ($packagesynopsis) {
 			$package = XML\selectFirstMatchingChild(
-				$packagesynopsis, PHP\PHPManual::tagSelectorFactory("package")
+				$packagesynopsis, $ctx->manual->tagSelectorFactory("package")
 			);
 
 			$namespace = $package->textContent;
@@ -40,8 +40,8 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 		$synopsis = XML\selectFirstMatchingDescendant(
 			$reference,
 			new XML\OrSelector(
-				PHP\PHPManual::tagSelectorFactory("classsynopsis"),
-				PHP\PHPManual::tagSelectorFactory("enumsynopsis"),
+				$ctx->manual->tagSelectorFactory("classsynopsis"),
+				$ctx->manual->tagSelectorFactory("enumsynopsis"),
 			)
 		);
 
@@ -80,7 +80,7 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 			$name = \trim(
 				XML\selectFirstMatchingDescendant(
 					$firstChild,
-					PHP\PHPManual::tagSelectorFactory($map[$kind]["tag"])
+					$ctx->manual->tagSelectorFactory($map[$kind]["tag"])
 				)->textContent
 			);
 		}

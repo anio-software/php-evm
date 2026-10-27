@@ -18,7 +18,7 @@ function getFunctionParameterInt(
 	if ($isOptional) {
 		$el = XML\selectFirstMatchingChild(
 			$methodparam,
-			PHP\PHPManual::tagSelectorFactory("initializer")
+			$ctx->manual->tagSelectorFactory("initializer")
 		);
 
 		if ($el) {
@@ -38,7 +38,7 @@ function getFunctionParameterInt(
 			$ctx,
 			XML\selectFirstMatchingChild(
 				$methodparam,
-				PHP\PHPManual::tagSelectorFactory("type")
+				$ctx->manual->tagSelectorFactory("type")
 			)
 		),
 		$isReference,
@@ -55,7 +55,7 @@ function getFunctionParametersInt(
 ) {
 	$methodparams = XML\select(
 		$methodsynopsis,
-		PHP\PHPManual::tagSelectorFactory("methodparam"),
+		$ctx->manual->tagSelectorFactory("methodparam"),
 		0
 	);
 
@@ -64,7 +64,7 @@ function getFunctionParametersInt(
 	foreach ($methodparams as $methodparam) {
 		$parameter = XML\selectFirstMatchingChild(
 			$methodparam,
-			PHP\PHPManual::tagSelectorFactory("parameter")
+			$ctx->manual->tagSelectorFactory("parameter")
 		);
 
 		if (!$parameter) {
@@ -96,7 +96,7 @@ function getFunctionInt(
 	$returnType = createPHPTypeFromDOMElement(
 		$ctx,
 		XML\selectFirstMatchingChild(
-			$methodsynopsis, PHP\PHPManual::tagSelectorFactory("type")
+			$methodsynopsis, $ctx->manual->tagSelectorFactory("type")
 		)
 	);
 	$func   = PHP\PHPFunction::create($ns, $refId, $functionName, $returnType);
@@ -120,7 +120,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 	$refentries = XML\select(
 		$ctx->doc->documentElement,
 		new XML\AndSelector(
-			PHP\PHPManual::tagSelectorFactory("refentry"),
+			$ctx->manual->tagSelectorFactory("refentry"),
 			PHP\PHPManual::refIdSelectorFactory()
 		)
 	);
@@ -134,7 +134,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 
 		$refname = XML\selectFirstMatchingDescendant(
 			$refentry,
-			PHP\PHPManual::tagSelectorFactory("refname")
+			$ctx->manual->tagSelectorFactory("refname")
 		);
 
 		if (!$refname) {
@@ -149,7 +149,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
 			$refentry,
-			PHP\PHPManual::tagSelectorFactory("refpurpose")
+			$ctx->manual->tagSelectorFactory("refpurpose")
 		);
 
 		if (!$refpurpose) {
@@ -162,8 +162,8 @@ function loadPHPFunctions(X2JContext $ctx): void {
 			$el = XML\selectFirstMatchingChild(
 				$refpurpose,
 				new XML\OrSelector(
-					PHP\PHPManual::tagSelectorFactory("function"),
-					PHP\PHPManual::tagSelectorFactory("methodname")
+					$ctx->manual->tagSelectorFactory("function"),
+					$ctx->manual->tagSelectorFactory("methodname")
 				)
 			);
 
@@ -186,7 +186,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 		}
 
 		$methodsynopsis = XML\selectFirstMatchingDescendant(
-			$refentry, PHP\PHPManual::tagSelectorFactory("methodsynopsis")
+			$refentry, $ctx->manual->tagSelectorFactory("methodsynopsis")
 		);
 
 		if (!$methodsynopsis) {
