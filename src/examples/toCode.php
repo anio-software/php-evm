@@ -55,7 +55,7 @@ echo "<?php\n";
 echo ($kind === "iface" ? "interface X" : "class X")." {\n";
 
 X2J\PHP\visitNamespace(
-	$context->manual->getOrCreateNamespace(""),
+	$context->manual->getGlobalNamespace(),
 
 	static function($node): void {
 		if (!($node instanceof X2J\PHP\PHPFunction)) {
