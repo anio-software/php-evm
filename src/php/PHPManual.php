@@ -64,6 +64,8 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	public function jsonSerialize(): mixed {
-		return [];
+		return [
+			"globalNamespace" => $this->globalNamespace
+		];
 	}
 }
