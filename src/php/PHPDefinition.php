@@ -23,6 +23,7 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 
 	public function jsonSerialize(): mixed {
 		return [
+			"definitionKind"     => $this->getKind(),
 			"namespace"          => $this->namespace->getFullyQualifiedName(),
 			"referenceId"        => $this->referenceId,
 			"name"               => $this->name,
