@@ -14,4 +14,13 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 	final public function getFullyQualifiedName(): string {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"namespace"          => $this->namespace->getFullyQualifiedName(),
+			"referenceId"        => $this->referenceId,
+			"name"               => $this->name,
+			"fullyQualifiedName" => $this->getFullyQualifiedName()
+		];
+	}
 }
