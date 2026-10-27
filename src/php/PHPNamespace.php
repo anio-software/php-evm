@@ -4,6 +4,7 @@ namespace AnioSoftware\X2J\PHP;
 
 final class PHPNamespace implements \JsonSerializable {
 	private array $definitions     = [];
+	private array $definitionByKind = [];
 
 	private array $namespaces      = [];
 	private array $classes         = [];
@@ -16,7 +17,11 @@ final class PHPNamespace implements \JsonSerializable {
 	public function __construct(
 		private string $name,
 		private ?self $parent = NULL
-	) {}
+	) {
+		foreach (PHPDefinitionKind::cases() as $case) {
+			$this->definitionByKind[$case->value] = [];
+		}
+	}
 
 	public function getName(): string {
 		return $this->name;
@@ -79,7 +84,12 @@ final class PHPNamespace implements \JsonSerializable {
 	}
 
 	public function addDefinition(PHPDefinition $def): void {
-		$this->definitions[$def->getId()] = $def;
+		$id   = $def->getId();
+		$kind = $def->getKind()->value;
+		$fqn  = $def->getFullyQualifiedName();
+
+		$this->definitions[$id] = $def;
+		$this->definitionByKind[$kind][$fqn] = $id;
 	}
 
 	public function jsonSerialize(): mixed {
