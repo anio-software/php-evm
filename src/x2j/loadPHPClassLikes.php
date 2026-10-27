@@ -87,7 +87,7 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 
 		$class = $map[$kind]["class"];
 		$name = \strlen($namespace) ? "$namespace\\$name" : $name;
-		$qualifier = PHP\PHPManual::parseQualifiedName($name);
+		$qualifier = $ctx->manual->parseQualifiedName($name);
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$inst = $class::create($ns, $refId, $qualifier["localName"]);
 

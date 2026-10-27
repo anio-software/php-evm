@@ -38,7 +38,7 @@ final class PHPManual implements \JsonSerializable {
 		return $currentNamespace;
 	}
 
-	static public function parseQualifiedName(string $name): array {
+	public function parseQualifiedName(string $name): array {
 		if (\str_starts_with($name, "\\")) {
 			$name = \substr($name, 1);
 		}

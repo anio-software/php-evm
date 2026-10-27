@@ -30,7 +30,7 @@ function loadPHPConstants(X2JContext $ctx): void {
 			continue;
 		}
 
-		$qualifier = PHP\PHPManual::parseQualifiedName(
+		$qualifier = $ctx->manual->parseQualifiedName(
 			\trim($const->textContent)
 		);
 

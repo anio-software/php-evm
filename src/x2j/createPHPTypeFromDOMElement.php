@@ -9,7 +9,7 @@ function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 		}
 	}
 
-	$qualifier = PHP\PHPManual::parseQualifiedName($typeName);
+	$qualifier = $ctx->manual->parseQualifiedName($typeName);
 	$typeName = $qualifier["localName"];
 	$namespace = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 

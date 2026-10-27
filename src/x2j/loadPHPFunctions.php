@@ -144,7 +144,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 		}
 
 		$functionName = \trim($refname->textContent);
-		$qualifier    = PHP\PHPManual::parseQualifiedName($functionName);
+		$qualifier    = $ctx->manual->parseQualifiedName($functionName);
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
