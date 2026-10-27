@@ -14,7 +14,7 @@ function loadPHPClassLikes(X2JContext $ctx): void {
 	);
 
 	foreach ($references as $reference) {
-		$refId = PHP\PHPManual::getRefIdAttribute($reference);
+		$refId = $ctx->manual->getRefIdAttribute($reference);
 
 		if (
 			!\str_starts_with($refId, "class.") &&

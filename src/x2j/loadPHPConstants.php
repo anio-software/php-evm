@@ -14,7 +14,7 @@ function loadPHPConstants(X2JContext $ctx): void {
 	);
 
 	foreach ($constants as $constant) {
-		$refId = PHP\PHPManual::getRefIdAttribute($constant);
+		$refId = $ctx->manual->getRefIdAttribute($constant);
 
 		if (!\str_starts_with($refId, "constant.")) {
 			continue;

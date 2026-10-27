@@ -126,7 +126,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 	);
 
 	foreach ($refentries as $refentry) {
-		$refId = PHP\PHPManual::getRefIdAttribute($refentry);
+		$refId = $ctx->manual->getRefIdAttribute($refentry);
 
 		if (!\str_starts_with($refId, "function.")) {
 			continue;

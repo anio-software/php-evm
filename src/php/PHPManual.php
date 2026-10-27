@@ -63,7 +63,7 @@ final class PHPManual implements \JsonSerializable {
 		return new XML\AttributeSelector(self::XMLID_NS, "id");
 	}
 
-	static public function getRefIdAttribute(\DOMElement $el): string {
+	public function getRefIdAttribute(\DOMElement $el): string {
 		return $el->getAttributeNS(self::XMLID_NS, "id");
 	}
 
