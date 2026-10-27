@@ -14,17 +14,13 @@ if (\sizeof($argv) !== 4) {
 
 $kind    = $argv[2] === "iface" ? "iface" : "base";
 $filter  = require $argv[3];
-$options = new X2J\X2JOptions($argv[1]);
-$context = new X2J\X2JContext($options);
 
-X2J\loadPHPManual($context);
+function handlePHPFunction(X2J\PHP\PHPFunction $fn): void {
+	global $kind, $filter;
 
-echo "<?php\n";
-
-echo ($kind === "iface" ? "interface X" : "class X")." {\n";
-
-foreach ($context->manual->getFunctions() as $fn) {
-	if (!$filter($fn)) continue;
+	if (!$filter($fn)) {
+		return;
+	}
 
 	echo "\tpublic function ";
 	echo $fn->renderSignature();
@@ -48,5 +44,29 @@ foreach ($context->manual->getFunctions() as $fn) {
 
 	if ($kind === "base") echo "\n";
 }
+
+$options = new X2J\X2JOptions($argv[1]);
+$context = new X2J\X2JContext($options);
+
+X2J\loadPHPManual($context);
+
+echo "<?php\n";
+
+echo ($kind === "iface" ? "interface X" : "class X")." {\n";
+
+X2J\PHP\visitNamespace(
+	$context->manual->getOrCreateNamespace(""),
+
+	static function($node): void {
+		if (!($node instanceof X2J\PHP\PHPFunction)) {
+			return;
+		}
+
+		handlePHPFunction($node);
+	},
+
+	X2J\PHP\PHPNamespaceVisitFlags::VisitFunctions |
+	X2J\PHP\PHPNamespaceVisitFlags::VisitNamespaces
+);
 
 echo "}\n";
