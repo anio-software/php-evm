@@ -31,10 +31,6 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	static public function getNamespaceNameFromDeclarationName(string $name): string {
-		if (!\str_contains($name, "\\")) {
-			return PHPNamespace::globalNamespace()->getName();
-		}
-
 		if (\str_starts_with($name, "\\")) {
 			$name = \substr($name, 1);
 		}
