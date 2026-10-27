@@ -5,14 +5,11 @@ namespace AnioSoftware\X2J\PHP;
 use AnioSoftware\X2J\XML as XML;
 
 final class PHPManual implements \JsonSerializable {
-	readonly private PHPNamespace $globalNamespace;
-
 	public function __construct(
+		readonly private PHPNamespace $globalNamespace,
 		private string $xmlIdNamespace,
 		private string $docbookNamespace
-	) {
-		$this->globalNamespace = new PHPNamespace("", NULL);
-	}
+	) {}
 
 	public function getGlobalNamespace(): PHPNamespace {
 		return $this->globalNamespace;
