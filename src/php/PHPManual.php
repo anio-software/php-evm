@@ -52,9 +52,6 @@ final class PHPManual implements \JsonSerializable {
 		];
 	}
 
-	public const DOCBOOK_NS = "http://docbook.org/ns/docbook";
-	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
-
 	public function tagSelectorFactory(string $tagName): XML\DOMSelector {
 		return new XML\TagSelector(self::DOCBOOK_NS, $tagName);
 	}

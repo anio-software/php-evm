@@ -8,6 +8,9 @@ final class X2JContext {
 	private array $diagnosticsObjects = [];
 	private array $diagnostics = [];
 
+	public const DOCBOOK_NS = "http://docbook.org/ns/docbook";
+	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
+
 	public function __construct(
 		readonly public X2JOptions $options
 	) {
