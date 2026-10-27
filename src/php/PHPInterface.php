@@ -11,6 +11,10 @@ final readonly class PHPInterface extends PHPDefinition {
 		parent::__construct($namespace, $referenceId, $name);
 	}
 
+	public function getKind(): PHPDefinitionKind {
+		return PHPDefinitionKind::kInterface;
+	}
+
 	static public function create(
 		PHPNamespace $namespace,
 		string $referenceId,

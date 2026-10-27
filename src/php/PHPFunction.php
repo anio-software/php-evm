@@ -16,6 +16,10 @@ final readonly class PHPFunction extends PHPDefinition {
 		parent::__construct($namespace, $referenceId, $name);
 	}
 
+	public function getKind(): PHPDefinitionKind {
+		return PHPDefinitionKind::kFunction;
+	}
+
 	public function returnsValue(): bool {
 		if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::Void)) {
 			return false;
