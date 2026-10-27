@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final readonly class PHPClass extends PHPDefinition implements \JsonSerializable {
+final readonly class PHPClass extends PHPDefinition {
 	private function __construct(
 		PHPNamespace $namespace,
 		string $referenceId,

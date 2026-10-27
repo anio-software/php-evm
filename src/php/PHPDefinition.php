@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-readonly abstract class PHPDefinition extends PHPReference {
+readonly abstract class PHPDefinition extends PHPReference implements \JsonSerializable {
 	public function __construct(
 		public PHPNamespace $namespace,
 		string $referenceId,
