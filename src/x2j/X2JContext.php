@@ -15,7 +15,7 @@ final class X2JContext {
 		readonly public X2JOptions $options
 	) {
 		$this->doc = XML\loadDocument($options->manualPath);
-		$this->manual = new PHP\PHPManual;
+		$this->manual = new PHP\PHPManual(self::XMLID_NS, self::DOCBOOK_NS);
 	}
 
 	public function diagnosticsFor(X2JDiagnosticMessageOrigin $origin): X2JDiagnostics {

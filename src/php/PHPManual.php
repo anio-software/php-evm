@@ -7,7 +7,10 @@ use AnioSoftware\X2J\XML as XML;
 final class PHPManual implements \JsonSerializable {
 	readonly private PHPNamespace $globalNamespace;
 
-	public function __construct() {
+	public function __construct(
+		private string $xmlIdNamespace,
+		private string $docbookNamespace
+	) {
 		$this->globalNamespace = PHPNamespace::globalNamespace();
 	}
 
@@ -53,15 +56,15 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	public function tagSelectorFactory(string $tagName): XML\DOMSelector {
-		return new XML\TagSelector(self::DOCBOOK_NS, $tagName);
+		return new XML\TagSelector($this->docbookNamespace, $tagName);
 	}
 
 	public function refIdSelectorFactory(): XML\DOMSelector {
-		return new XML\AttributeSelector(self::XMLID_NS, "id");
+		return new XML\AttributeSelector($this->xmlIdNamespace, "id");
 	}
 
 	public function getRefIdAttribute(\DOMElement $el): string {
-		return $el->getAttributeNS(self::XMLID_NS, "id");
+		return $el->getAttributeNS($this->xmlIdNamespace, "id");
 	}
 
 	public function jsonSerialize(): mixed {
