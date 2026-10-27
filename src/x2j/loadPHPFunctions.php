@@ -168,7 +168,7 @@ function loadPHPFunctions(X2JContext $ctx): void {
 				continue;
 			}
 
-			$ns->addFunctionAlias(
+			$ns->addDefinition(
 				PHP\PHPFunctionAlias::create(
 					$ns,
 					$refId,
@@ -199,6 +199,6 @@ function loadPHPFunctions(X2JContext $ctx): void {
 			$methodsynopsis
 		);
 
-		$ns->addFunction($inst);
+		$ns->addDefinition($inst);
 	}
 }

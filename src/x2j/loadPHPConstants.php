@@ -31,6 +31,6 @@ function loadPHPConstants(X2JContext $ctx): void {
 
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$inst = PHP\PHPConstant::create($ns, $refId, $qualifier["localName"]);
-		$ns->addConstant($inst);
+		$ns->addDefinition($inst);
 	}
 }
