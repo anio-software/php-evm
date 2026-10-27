@@ -9,6 +9,10 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		parent::__construct($type, ...$types);
 	}
 
+	public function getTypeKind(): PHPTypeKind {
+		return PHPTypeKind::kUnion;
+	}
+
 	public function collapse(): PHPType {
 		if ($this->containsType(PHPUnspecifiedType::instance())) {
 			return PHPUnspecifiedType::instance();

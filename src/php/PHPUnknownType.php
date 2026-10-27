@@ -11,6 +11,10 @@ final readonly class PHPUnknownType extends PHPType {
 		];
 	}
 
+	public function getTypeKind(): PHPTypeKind {
+		return PHPTypeKind::kUnknown;
+	}
+
 	public function getTypeId(): string {
 		return "unknown";
 	}

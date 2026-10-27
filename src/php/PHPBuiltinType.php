@@ -15,6 +15,10 @@ final readonly class PHPBuiltinType extends PHPType {
 		return $instances[$kind->name];
 	}
 
+	public function getTypeKind(): PHPTypeKind {
+		return PHPTypeKind::kBuiltin;
+	}
+
 	public function jsonSerialize(): mixed {
 		return [
 			"typeKind" => "BuiltinType",
