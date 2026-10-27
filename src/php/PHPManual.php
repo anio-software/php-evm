@@ -8,7 +8,7 @@ final class PHPManual implements \JsonSerializable {
 	public function __construct(
 		readonly private PHPNamespace $globalNamespace,
 		readonly private string $xmlIdNamespace,
-		readonly private string $docbookNamespace
+		readonly private string $docBookNamespace
 	) {}
 
 	public function getGlobalNamespace(): PHPNamespace {
@@ -53,7 +53,7 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	public function tagSelectorFactory(string $tagName): XML\DOMSelector {
-		return new XML\TagSelector($this->docbookNamespace, $tagName);
+		return new XML\TagSelector($this->docBookNamespace, $tagName);
 	}
 
 	public function refIdSelectorFactory(): XML\DOMSelector {
