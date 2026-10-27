@@ -194,8 +194,18 @@ function loadPHPFunctions(X2JContext $ctx): void {
 			continue;
 		}
 
-		$ctx->manual->addFunction(
-			getFunctionInt($diagnostics, $ctx, $refId, $functionName, $methodsynopsis)
+		$inst = getFunctionInt(
+			$diagnostics,
+			$ctx,
+			$refId,
+			$qualifier["localName"],
+			$methodsynopsis
 		);
+
+		$ctx->manual
+			->getOrCreateNamespace($qualifier["namespace"])
+			->addFunction(
+				$inst
+			);
 	}
 }
