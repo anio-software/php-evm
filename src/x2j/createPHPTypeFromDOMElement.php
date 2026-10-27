@@ -14,15 +14,15 @@ function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 	$namespace = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 
 	if (\array_key_exists($typeName, $namespace->getClasses())) {
-		return new PHP\PHPNamedType($typeName);
+		return new PHP\PHPNamedType($namespace, $typeName);
 	}
 
 	if (\array_key_exists($typeName, $namespace->getInterfaces())) {
-		return new PHP\PHPNamedType($typeName);
+		return new PHP\PHPNamedType($namespace, $typeName);
 	}
 
 	if (\array_key_exists($typeName, $namespace->getEnums())) {
-		return new PHP\PHPNamedType($typeName);
+		return new PHP\PHPNamedType($namespace, $typeName);
 	}
 
 	$ctx->diagnosticsFor(

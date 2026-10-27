@@ -4,6 +4,7 @@ namespace AnioSoftware\X2J\PHP;
 
 final readonly class PHPNamedType extends PHPType {
 	public function __construct(
+		public PHPNamespace $namespace,
 		public string $name
 	) {}
 
@@ -43,6 +44,6 @@ final readonly class PHPNamedType extends PHPType {
 	}
 
 	public function getNamespace(): ?PHPNamespace {
-		return NULL;
+		return $this->namespace;
 	}
 }
