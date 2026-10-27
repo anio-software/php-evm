@@ -8,6 +8,7 @@ abstract readonly class PHPType implements \JsonSerializable {
 	abstract public function render(): string;
 	abstract public function isCompoundType(): bool;
 	abstract public function isRepresentableInCode(): bool;
+	abstract public function toNullable(): PHPType;
 
 	final public function isBuiltinType(PHPBuiltinTypeKind $kind): bool {
 		if (!($this instanceof PHPBuiltinType)) {

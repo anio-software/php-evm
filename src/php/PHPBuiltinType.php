@@ -49,4 +49,19 @@ final readonly class PHPBuiltinType extends PHPType {
 	public function isCompoundType(): bool {
 		return false;
 	}
+
+	public function toNullable(): PHPType {
+		if (
+			$this->kind === PHPBuiltinTypeKind::Mixed ||
+			$this->kind === PHPBuiltinTypeKind::Null  ||
+			$this->kind === PHPBuiltinTypeKind::Never
+		) {
+			return $this;
+		}
+
+		return new PHPUnionType(
+			PHPBuiltinTypeKind::Null->toType(),
+			$this
+		);
+	}
 }

@@ -85,4 +85,14 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 
 		return $type->render();
 	}
+
+	public function toNullable(): PHPType {
+		$nullType = PHPBuiltinTypeKind::Null->toType();
+
+		if ($this->containsType($nullType)) {
+			return $this;
+		}
+
+		return new self($this, $nullType);
+	}
 }

@@ -37,4 +37,8 @@ final readonly class PHPNamedType extends PHPType {
 	public function isCompoundType(): bool {
 		return false;
 	}
+
+	public function toNullable(): PHPType {
+		return new PHPUnionType($this, PHPBuiltinTypeKind::Null->toType());
+	}
 }

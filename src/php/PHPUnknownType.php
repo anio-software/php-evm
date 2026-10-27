@@ -31,6 +31,10 @@ final readonly class PHPUnknownType extends PHPType {
 		return false;
 	}
 
+	public function toNullable(): PHPType {
+		return $this;
+	}
+
 	static public function instance(): self {
 		static $instance = NULL;
 
