@@ -8,6 +8,10 @@ final readonly class PHPNamedType extends PHPType {
 		public string $name
 	) {}
 
+	public function getFullyQualifiedName(): string {
+		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
+	}
+
 	public function jsonSerialize(): mixed {
 		return [
 			"typeKind" => "NamedType",
