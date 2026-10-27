@@ -31,6 +31,7 @@ Example output:
 
 ```json
 "str_pad": {
+    "definitionKind": "function",
     "namespace": "",
     "referenceId": "function.str-pad",
     "name": "str_pad",
@@ -39,8 +40,8 @@ Example output:
         {
             "name": "string",
             "type": {
-                "typeKind": "BuiltinType",
-                "value": "string"
+                "typeKind": "builtin",
+                "kind": "string"
             },
             "initializer": null,
             "flags": 0
@@ -48,8 +49,8 @@ Example output:
         {
             "name": "length",
             "type": {
-                "typeKind": "BuiltinType",
-                "value": "int"
+                "typeKind": "builtin",
+                "kind": "int"
             },
             "initializer": null,
             "flags": 0
@@ -57,8 +58,8 @@ Example output:
         {
             "name": "pad_string",
             "type": {
-                "typeKind": "BuiltinType",
-                "value": "string"
+                "typeKind": "builtin",
+                "kind": "string"
             },
             "initializer": "\" \"",
             "flags": 1
@@ -66,8 +67,8 @@ Example output:
         {
             "name": "pad_type",
             "type": {
-                "typeKind": "BuiltinType",
-                "value": "int"
+                "typeKind": "builtin",
+                "kind": "int"
             },
             "initializer": "STR_PAD_RIGHT",
             "flags": 129
@@ -75,8 +76,8 @@ Example output:
     ],
     "flags": 0,
     "returnType": {
-        "typeKind": "BuiltinType",
-        "value": "string"
+        "typeKind": "builtin",
+        "kind": "string"
     }
 }
 ```
