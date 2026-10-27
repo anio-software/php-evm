@@ -20,7 +20,7 @@ final readonly class PHPNamedType extends PHPType {
 	}
 
 	public function getTypeId(): string {
-		return "named:".$this->name;
+		return "named:".$this->getFullyQualifiedName();
 	}
 
 	public function isEqualTo(PHPType $t): bool {
@@ -28,11 +28,11 @@ final readonly class PHPNamedType extends PHPType {
 			return false;
 		}
 
-		return $t->name === $this->name;
+		return $t->getFullyQualifiedName() === $this->getFullyQualifiedName();
 	}
 
 	public function render(): string {
-		return "\\".$this->name;
+		return $this->getFullyQualifiedName();
 	}
 
 	public function isRepresentableInCode(): bool {
