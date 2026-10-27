@@ -48,30 +48,6 @@ final class PHPNamespace implements \JsonSerializable {
 		$this->namespaces[$namespace->getName()] = $namespace;
 	}
 
-	public function addClass(PHPClass $class): void {
-		$this->classes[$class->name] = $class;
-	}
-
-	public function addInterface(PHPInterface $interface): void {
-		$this->interfaces[$interface->name] = $interface;
-	}
-
-	public function addEnum(PHPEnum $enum): void {
-		$this->enums[$enum->name] = $enum;
-	}
-
-	public function addConstant(PHPConstant $const): void {
-		$this->constants[$const->name] = $const;
-	}
-
-	public function addFunction(PHPFunction $func): void {
-		$this->functions[$func->name] = $func;
-	}
-
-	public function addFunctionAlias(PHPFunctionAlias $alias): void {
-		$this->functionAliases[$alias->name] = $alias;
-	}
-
 	public function getNamespaces(): array {
 		return $this->namespaces;
 	}
