@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\X2J\PHP;
 
-final class PHPNamespace {
+final class PHPNamespace implements \JsonSerializable {
 	private array $namespaces      = [];
 	private array $classes         = [];
 	private array $interfaces      = [];
@@ -116,6 +116,20 @@ final class PHPNamespace {
 		} else {
 			throw new \RuntimeException("Unknown PHPDefinition instance.");
 		}
+	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			"name"               => $this->name,
+			"fullyQualifiedName" => $this->getFullyQualifiedName(),
+			"namespaces"         => $this->namespaces,
+			"classes"            => $this->classes,
+			"interfaces"         => $this->interfaces,
+			"enums"              => $this->enums,
+			"constants"          => $this->constants,
+			"functions"          => $this->functions,
+			"functionAliases"    => $this->functionAliases
+		];
 	}
 
 	static public function globalNamespace(): self {
