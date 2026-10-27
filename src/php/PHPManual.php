@@ -30,6 +30,20 @@ final class PHPManual implements \JsonSerializable {
 		return $currentNamespace;
 	}
 
+	static public function parseQualifiedName(string $name): array {
+		if (\str_starts_with($name, "\\")) {
+			$name = \substr($name, 1);
+		}
+
+		$parts = \explode("\\", $name);
+		$localName = \array_pop($parts);
+
+		return [
+			"localName" => $localName,
+			"namespace" => \implode("\\", $parts)
+		];
+	}
+
 	public const DOCBOOK_NS = "http://docbook.org/ns/docbook";
 	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
 
