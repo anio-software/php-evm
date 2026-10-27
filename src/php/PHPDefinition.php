@@ -11,6 +11,10 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 		parent::__construct($referenceId);
 	}
 
+	final public function getId(): string {
+		return static::class.":".$this->getFullyQualifiedName();
+	}
+
 	final public function getFullyQualifiedName(): string {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}

@@ -3,6 +3,8 @@
 namespace AnioSoftware\X2J\PHP;
 
 final class PHPNamespace implements \JsonSerializable {
+	private array $definitions     = [];
+
 	private array $namespaces      = [];
 	private array $classes         = [];
 	private array $interfaces      = [];
@@ -77,21 +79,7 @@ final class PHPNamespace implements \JsonSerializable {
 	}
 
 	public function addDefinition(PHPDefinition $def): void {
-		if ($def instanceof PHPClass) {
-			$this->addClass($def);
-		} else if ($def instanceof PHPInterface) {
-			$this->addInterface($def);
-		} else if ($def instanceof PHPEnum) {
-			$this->addEnum($def);
-		} else if ($def instanceof PHPConstant) {
-			$this->addConstant($def);
-		} else if ($def instanceof PHPFunction) {
-			$this->addFunction($def);
-		} else if ($def instanceof PHPFunctionAlias) {
-			$this->addFunctionAlias($def);
-		} else {
-			throw new \RuntimeException("Unknown PHPDefinition instance.");
-		}
+		$this->definitions[$def->getId()] = $def;
 	}
 
 	public function jsonSerialize(): mixed {
