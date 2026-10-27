@@ -13,10 +13,6 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 		return PHPTypeKind::kIntersection;
 	}
 
-	public function getTypeCollectionKind(): PHPTypeCollectionKind {
-		return PHPTypeCollectionKind::Intersection;
-	}
-
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Ampersand;
 	}

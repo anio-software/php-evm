@@ -120,7 +120,6 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		];
 	}
 
-	abstract public function getTypeCollectionKind(): PHPTypeCollectionKind;
 	abstract public function getTypeOperator(): PHPTypeOperator;
 
 	public function isRepresentableInCode(): bool {

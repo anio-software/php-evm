@@ -23,10 +23,6 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		return \count($this->members) === 1 ? $this->members[0] : $this;
 	}
 
-	public function getTypeCollectionKind(): PHPTypeCollectionKind {
-		return PHPTypeCollectionKind::Union;
-	}
-
 	public function getTypeOperator(): PHPTypeOperator {
 		return PHPTypeOperator::Pipe;
 	}
