@@ -14,5 +14,4 @@ enum Renderability: string {
 	case FunctionIniGetParameterInitializer      = "function_ini_get_parameter_initializer";
 
 	case FunctionHaltCompiler                    = "function_halt_compiler";
-	case FunctionNamespacedFunction              = "function_namespaced_function";
 }

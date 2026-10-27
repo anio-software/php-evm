@@ -42,8 +42,6 @@ function getFunctionRenderability(PHPFunction $func): Renderability {
 
 	if ($func->name === "__halt_compiler") {
 		return Renderability::FunctionHaltCompiler;
-	} else if (\str_contains($func->name, "\\")) {
-		return Renderability::FunctionNamespacedFunction;
 	}
 
 	return Renderability::Renderable;
