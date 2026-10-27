@@ -9,17 +9,19 @@ function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 		}
 	}
 
-	$manual = $ctx->manual;
+	$qualifier = PHP\PHPManual::parseQualifiedName($typeName);
+	$typeName = $qualifier["localName"];
+	$namespace = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 
-	if (\array_key_exists($typeName, $manual->getClasses())) {
+	if (\array_key_exists($typeName, $namespace->getClasses())) {
 		return new PHP\PHPNamedType($typeName);
 	}
 
-	if (\array_key_exists($typeName, $manual->getInterfaces())) {
+	if (\array_key_exists($typeName, $namespace->getInterfaces())) {
 		return new PHP\PHPNamedType($typeName);
 	}
 
-	if (\array_key_exists($typeName, $manual->getEnums())) {
+	if (\array_key_exists($typeName, $namespace->getEnums())) {
 		return new PHP\PHPNamedType($typeName);
 	}
 
