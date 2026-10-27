@@ -84,10 +84,9 @@ final class PHPNamespace implements \JsonSerializable {
 	public function addDefinition(PHPDefinition $def): void {
 		$id   = $def->getId();
 		$kind = $def->getKind()->value;
-		$fqn  = $def->getFullyQualifiedName();
 
 		$this->definitions[$id] = $def;
-		$this->definitionByKind[$kind][$fqn] = $id;
+		$this->definitionByKind[$kind][$id] = $def;
 	}
 
 	public function jsonSerialize(): mixed {
