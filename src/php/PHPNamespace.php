@@ -99,6 +99,12 @@ final class PHPNamespace implements \JsonSerializable {
 		$id   = $def->getId();
 		$kind = $def->getKind()->value;
 
+		if (\array_key_exists($id, $this->definitions)) {
+			throw new \RuntimeException(
+				"A definition with this id ($id) was already added to this namespace."
+			);
+		}
+
 		$this->definitions[$id] = $def;
 		$this->definitionsByKind[$kind][$id] = $def;
 	}
