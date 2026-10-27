@@ -53,8 +53,23 @@ final class PHPNamespace implements \JsonSerializable {
 		return $this->namespaces;
 	}
 
+	private function indexByName(array $definitions): array {
+		$ret = [];
+
+		foreach ($definitions as $id => $definition) {
+			$ret[$definition->name] = $definition;
+		}
+
+		return $ret;
+	}
+
 	public function getDefinitions(?PHPDefinitionKind $kind = NULL): array {
-		return []; // tbd
+		if (!$kind) {
+			// no re-index because of potential naming collisions
+			return $this->definitions;
+		}
+
+		return $this->indexByName($this->definitionByKind[$kind->value]);
 	}
 
 	public function getClasses(): array {
