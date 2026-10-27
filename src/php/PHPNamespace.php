@@ -20,6 +20,20 @@ final class PHPNamespace {
 		return $this->name;
 	}
 
+	public function getFullyQualifiedName(): string {
+		$pieces = [];
+		$current = $this;
+
+		while ($current && $current->getName() !== "") {
+			$pieces[] = $current->getName();
+			$current = $current->getParent();
+		}
+
+		$pieces = \array_reverse($pieces);
+
+		return \implode("\\", $pieces);
+	}
+
 	public function getParent(): ?self {
 		return $this->parent;
 	}
