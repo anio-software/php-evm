@@ -137,6 +137,10 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return true;
 	}
 
+	final public function getNamespace(): ?PHPNamespace {
+		return NULL;
+	}
+
 	static private function renderTypeCollection(self $col, bool $nested = false): string {
 		$members = \array_map(static function(PHPType $type) {
 			if ($type instanceof self) {

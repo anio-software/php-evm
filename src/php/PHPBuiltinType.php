@@ -64,4 +64,8 @@ final readonly class PHPBuiltinType extends PHPType {
 			$this
 		);
 	}
+
+	public function getNamespace(): ?PHPNamespace {
+		return NULL;
+	}
 }

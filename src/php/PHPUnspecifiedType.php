@@ -35,6 +35,10 @@ final readonly class PHPUnspecifiedType extends PHPType {
 		return $this;
 	}
 
+	public function getNamespace(): ?PHPNamespace {
+		return NULL;
+	}
+
 	static public function instance(): self {
 		static $instance = NULL;
 
