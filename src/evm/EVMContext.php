@@ -5,6 +5,7 @@ namespace AnioSoftware\EVM;
 final class EVMContext {
 	readonly public \DOMDocument $doc;
 	readonly public PHP\PHPManual $manual;
+	private ?EVMStatistics $statistics = NULL;
 	private array $diagnosticsObjects = [];
 	private array $diagnostics = [];
 
@@ -23,6 +24,10 @@ final class EVMContext {
 	}
 
 	public function loadPHPManual(): EVMStatistics {
+		if ($this->statistics) {
+			return $this->statistics;
+		}
+
 		$man = $this->manual;
 
 		$start = \hrtime(true);
@@ -33,7 +38,7 @@ final class EVMContext {
 
 		$elapsedTimeMs = (\hrtime(true) - $start) / 1E6;
 
-		return new EVMStatistics(
+		$this->statistics = new EVMStatistics(
 			elapsedTimeMs          : $elapsedTimeMs,
 			nLoadedNamespaces      : \count($man->getNamespaces()),
 			nLoadedClasses         : \count($man->getClasses()),
@@ -43,6 +48,8 @@ final class EVMContext {
 			nLoadedFunctionAliases : \count($man->getFunctionAliases()),
 			nLoadedConstants       : \count($man->getConstants())
 		);
+
+		return $this->statistics;
 	}
 
 	public function diagnosticsFor(EVMDiagnosticMessageOrigin $origin): EVMDiagnostics {
