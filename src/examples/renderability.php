@@ -20,13 +20,11 @@ $context->printStatistics(\STDERR);
 foreach ($context->manual->getFunctions() as $fn) {
 	$renderability = PHP\getRenderability($fn);
 
-	if ($renderability === PHP\Renderability::Renderable) {
+	if ($renderability === PHP\Renderability::kRenderable) {
 		continue;
-	} else if ($renderability === PHP\Renderability::FunctionNamespacedFunction) {
+	} else if ($renderability === PHP\Renderability::kFunctionHaltCompiler) {
 		continue;
-	} else if ($renderability === PHP\Renderability::FunctionHaltCompiler) {
-		continue;
-	} else if ($renderability === PHP\Renderability::FunctionIniGetParameterInitializer) {
+	} else if ($renderability === PHP\Renderability::kFunctionIniGetParameterInitializer) {
 		continue;
 	}
 
