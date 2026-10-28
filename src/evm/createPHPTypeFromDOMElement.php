@@ -26,7 +26,7 @@ function mapTypeStringInt(EVMContext $ctx, string $typeName): PHP\PHPType {
 	}
 
 	$ctx->diagnosticsFor(
-		X2JDiagnosticMessageOrigin::kUnspecified
+		EVMDiagnosticMessageOrigin::kUnspecified
 	)->addWarning("don't know how to map string '$typeName' to a type.");
 
 	return PHP\PHPUnknownType::instance();

@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM;
 
-enum X2JDiagnosticMessageOrigin {
+enum EVMDiagnosticMessageOrigin {
 	case kLoadPHPClassLikes;
 	case kLoadPHPConstants;
 	case kLoadPHPFunctions;

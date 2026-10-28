@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM;
 
 function loadPHPClassLikes(EVMContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::kLoadPHPClassLikes);
+	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPClassLikes);
 	$references = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "reference"
 	);

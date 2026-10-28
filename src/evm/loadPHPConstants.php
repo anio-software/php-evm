@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM;
 
 function loadPHPConstants(EVMContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::kLoadPHPConstants);
+	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPConstants);
 	$constants = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "varlistentry"
 	);

@@ -22,7 +22,7 @@ final class EVMContext {
 		);
 	}
 
-	public function diagnosticsFor(X2JDiagnosticMessageOrigin $origin): EVMDiagnostics {
+	public function diagnosticsFor(EVMDiagnosticMessageOrigin $origin): EVMDiagnostics {
 		if (\array_key_exists($origin->name, $this->diagnosticsObjects)) {
 			return $this->diagnosticsObjects[$origin->name];
 		}

@@ -115,7 +115,7 @@ function getFunctionInt(
 }
 
 function loadPHPFunctions(EVMContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::kLoadPHPFunctions);
+	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
 	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "refentry"
 	);
