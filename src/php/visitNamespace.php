@@ -29,6 +29,8 @@ function visitNamespace(
 	}
 
 	if (($flags & PHPNamespaceVisitFlags::VisitNamespaces) !== 0) {
+		$cb($ns);
+
 		foreach ($ns->getNamespaces() as $nested) {
 			visitNamespace($nested, $cb, $flags);
 		}
