@@ -4,7 +4,7 @@ use AnioSoftware\X2J as X2J;
 
 require_once __DIR__."/../php/index.php";
 require_once __DIR__."/../xml/index.php";
-require_once __DIR__."/../x2j/index.php";
+require_once __DIR__."/../evm/index.php";
 
 $options = new X2J\X2JOptions("./example/manual.xml");
 $context = new X2J\X2JContext($options);
