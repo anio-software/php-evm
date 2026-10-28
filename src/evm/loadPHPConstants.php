@@ -1,9 +1,9 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
-function loadPHPConstants(X2JContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::kLoadPHPConstants);
+function loadPHPConstants(EVMContext $ctx): void {
+	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPConstants);
 	$constants = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "varlistentry"
 	);

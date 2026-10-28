@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 return function(PHP\PHPFunction $fn): bool {
 	static $ignored = [

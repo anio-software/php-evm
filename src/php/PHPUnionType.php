@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPUnionType extends PHPTypeCollection {
 	public function __construct(

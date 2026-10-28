@@ -1,8 +1,8 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
-final class X2JContext {
+final class EVMContext {
 	readonly public \DOMDocument $doc;
 	readonly public PHP\PHPManual $manual;
 	private array $diagnosticsObjects = [];
@@ -12,7 +12,7 @@ final class X2JContext {
 	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
 
 	public function __construct(
-		readonly public X2JOptions $options
+		readonly public EVMOptions $options
 	) {
 		$this->doc = XML\loadDocument($options->manualPath);
 		$this->manual = new PHP\PHPManual(
@@ -22,12 +22,12 @@ final class X2JContext {
 		);
 	}
 
-	public function diagnosticsFor(X2JDiagnosticMessageOrigin $origin): X2JDiagnostics {
+	public function diagnosticsFor(EVMDiagnosticMessageOrigin $origin): EVMDiagnostics {
 		if (\array_key_exists($origin->name, $this->diagnosticsObjects)) {
 			return $this->diagnosticsObjects[$origin->name];
 		}
 
-		$inst = new X2JDiagnostics(function(X2JDiagnosticMessage $msg) {
+		$inst = new EVMDiagnostics(function(EVMDiagnosticMessage $msg) {
 			$this->diagnostics[] = $msg;
 		}, $origin);
 

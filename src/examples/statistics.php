@@ -1,15 +1,15 @@
 <?php
 
-use AnioSoftware\X2J as X2J;
+use AnioSoftware\EVM as EVM;
 
 require_once __DIR__."/../php/index.php";
 require_once __DIR__."/../xml/index.php";
-require_once __DIR__."/../x2j/index.php";
+require_once __DIR__."/../evm/index.php";
 
-$options = new X2J\X2JOptions("./example/manual.xml");
-$context = new X2J\X2JContext($options);
+$options = new EVM\EVMOptions("./example/manual.xml");
+$context = new EVM\EVMContext($options);
 
-$elapsed = (int)X2J\loadPHPManual($context);
+$elapsed = (int)EVM\loadPHPManual($context);
 
 \fwrite(\STDERR, "Took {$elapsed}ms to fully load PHP manual:\n");
 \fwrite(\STDERR, \str_repeat("-", 60)."\n");

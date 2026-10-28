@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\XML;
+namespace AnioSoftware\EVM\XML;
 
 function selectFirstMatchingChild(\DOMNode $node, DOMSelector $sel): ?\DOMElement {
 	$ret = select($node, $sel, 0, true);

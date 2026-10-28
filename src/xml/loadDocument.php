@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\XML;
+namespace AnioSoftware\EVM\XML;
 
 function loadDocument(string $filePath): \DOMDocument {
 	$doc = new \DOMDocument;

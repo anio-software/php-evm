@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\XML;
+namespace AnioSoftware\EVM\XML;
 
 function selectFirstMatchingDescendant(\DOMNode $node, DOMSelector $sel): ?\DOMElement {
 	$ret = select($node, $sel, -1, true);

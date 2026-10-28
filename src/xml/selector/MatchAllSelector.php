@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\XML;
+namespace AnioSoftware\EVM\XML;
 
 readonly class MatchAllSelector implements DOMSelector {
 	public function __construct() {}

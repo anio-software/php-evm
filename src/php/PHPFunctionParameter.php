@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunctionParameter implements \JsonSerializable {
 	public const int FLAG_OPTIONAL  = 1 << 0;

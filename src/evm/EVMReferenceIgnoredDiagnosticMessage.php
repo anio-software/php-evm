@@ -1,13 +1,13 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
-readonly class X2JReferenceIgnoredDiagnosticMessage extends X2JDiagnosticMessage {
+readonly class EVMReferenceIgnoredDiagnosticMessage extends EVMDiagnosticMessage {
 	public function __construct(
 		readonly public string $referenceId
 	) {
 		parent::__construct(
-			X2JDiagnosticMessageSeverity::kNotice,
+			EVMDiagnosticMessageSeverity::kNotice,
 			"Ignoring reference '$referenceId'."
 		);
 	}

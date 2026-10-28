@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunction extends PHPDefinition {
 	public const int FLAG_VARIADIC = 1 << 0;

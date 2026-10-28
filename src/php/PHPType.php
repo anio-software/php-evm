@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPType implements \JsonSerializable {
 	abstract public function getNamespace(): ?PHPNamespace;

@@ -1,8 +1,8 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
-function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
+function mapTypeStringInt(EVMContext $ctx, string $typeName): PHP\PHPType {
 	foreach (PHP\PHPBuiltinTypeKind::cases() as $case) {
 		if (\strtolower($case->value) === \strtolower($typeName)) {
 			return $case->toType();
@@ -26,14 +26,14 @@ function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 	}
 
 	$ctx->diagnosticsFor(
-		X2JDiagnosticMessageOrigin::kUnspecified
+		EVMDiagnosticMessageOrigin::kUnspecified
 	)->addWarning("don't know how to map string '$typeName' to a type.");
 
 	return PHP\PHPUnknownType::instance();
 }
 
 function createPHPTypeFromDOMElement(
-	X2JContext $ctx,
+	EVMContext $ctx,
 	\DOMElement $element
 ): PHP\PHPType {
 	if ($element->attributes->getNamedItem("class")?->value === "union") {

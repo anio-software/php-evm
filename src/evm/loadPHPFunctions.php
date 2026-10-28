@@ -1,10 +1,10 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 function getFunctionParameterInt(
-	X2JDiagnostics $diagnostics,
-	X2JContext $ctx,
+	EVMDiagnostics $diagnostics,
+	EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodparam,
 	\DOMElement $parameter
@@ -48,8 +48,8 @@ function getFunctionParameterInt(
 }
 
 function getFunctionParametersInt(
-	X2JDiagnostics $diagnostics,
-	X2JContext $ctx,
+	EVMDiagnostics $diagnostics,
+	EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodsynopsis
 ) {
@@ -86,8 +86,8 @@ function getFunctionParametersInt(
 }
 
 function getFunctionInt(
-	X2JDiagnostics $diagnostics,
-	X2JContext $ctx,
+	EVMDiagnostics $diagnostics,
+	EVMContext $ctx,
 	PHP\PHPNamespace $ns,
 	string $refId,
 	string $functionName,
@@ -114,8 +114,8 @@ function getFunctionInt(
 	) : $func;
 }
 
-function loadPHPFunctions(X2JContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::kLoadPHPFunctions);
+function loadPHPFunctions(EVMContext $ctx): void {
+	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
 	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "refentry"
 	);

@@ -1,8 +1,8 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
-final readonly class X2JOptions {
+final readonly class EVMOptions {
 	public function __construct(
 		public string $manualPath,
 		public ?PHP\PHPNamespace $globalNamespace = NULL
