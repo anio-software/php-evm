@@ -12,7 +12,7 @@ if (\sizeof($argv) !== 2) {
 	\exit(2);
 }
 
-$options = new X2J\X2JOptions($argv[1]);
+$options = new X2J\EVMOptions($argv[1]);
 $context = new X2J\EVMContext($options);
 
 X2J\loadPHPManual($context);

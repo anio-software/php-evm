@@ -45,7 +45,7 @@ function handlePHPFunction(X2J\PHP\PHPFunction $fn): void {
 	if ($kind === "base") echo "\n";
 }
 
-$options = new X2J\X2JOptions($argv[1]);
+$options = new X2J\EVMOptions($argv[1]);
 $context = new X2J\EVMContext($options);
 
 X2J\loadPHPManual($context);

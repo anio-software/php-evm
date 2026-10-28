@@ -12,7 +12,7 @@ final class EVMContext {
 	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
 
 	public function __construct(
-		readonly public X2JOptions $options
+		readonly public EVMOptions $options
 	) {
 		$this->doc = XML\loadDocument($options->manualPath);
 		$this->manual = new PHP\PHPManual(
