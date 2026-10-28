@@ -1,6 +1,6 @@
 <?php
 
-use AnioSoftware\X2J as X2J;
+use AnioSoftware\EVM as X2J;
 
 require_once __DIR__."/../php/index.php";
 require_once __DIR__."/../xml/index.php";
