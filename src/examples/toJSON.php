@@ -15,6 +15,8 @@ if (\sizeof($argv) !== 2) {
 $options = new EVM\EVMOptions($argv[1]);
 $context = new EVM\EVMContext($options);
 
-$context->loadPHPManual();
+$statistics = $context->loadPHPManual();
+
+\fwrite(\STDERR, $statistics->toString());
 
 echo \json_encode($context->manual, JSON_PRETTY_PRINT)."\n";
