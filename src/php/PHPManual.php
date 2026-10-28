@@ -35,6 +35,20 @@ final class PHPManual implements \JsonSerializable {
 		return $arr;
 	}
 
+	public function getNamespaces(): array {
+		$arr = [];
+
+		visitNamespace(
+			$this->globalNamespace,
+			static function(PHPNamespace $ns) use (&$arr): void {
+				$arr[] = $ns;
+			},
+			PHPNamespaceVisitFlags::VisitNamespaces
+		);
+
+		return $arr;
+	}
+
 	public function getClasses(): array {
 		return $this->getDefinitionsOfKind(PHPDefinitionKind::kClass);
 	}
