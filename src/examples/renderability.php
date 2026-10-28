@@ -10,7 +10,7 @@ require_once __DIR__."/../evm/index.php";
 $options = new EVM\EVMOptions("./example/manual.xml");
 $context = new EVM\EVMContext($options);
 
-$elapsed = (int)EVM\loadPHPManual($context);
+$elapsed = (int)$context->loadPHPManual();
 
 \fwrite(\STDERR, "Took {$elapsed}ms to fully load PHP manual:\n");
 \fwrite(\STDERR, \str_repeat("-", 60)."\n");

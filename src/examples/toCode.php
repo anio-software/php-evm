@@ -48,7 +48,7 @@ function handlePHPFunction(EVM\PHP\PHPFunction $fn): void {
 $options = new EVM\EVMOptions($argv[1]);
 $context = new EVM\EVMContext($options);
 
-EVM\loadPHPManual($context);
+$context->loadPHPManual();
 
 echo "<?php\n";
 

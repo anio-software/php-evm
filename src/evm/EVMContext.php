@@ -22,6 +22,16 @@ final class EVMContext {
 		);
 	}
 
+	public function loadPHPManual(): int|float {
+		$start = \hrtime(true);
+
+		loadPHPClassLikes($this);
+		loadPHPConstants($this);
+		loadPHPFunctions($this);
+
+		return (\hrtime(true) - $start) / 1E6;
+	}
+
 	public function diagnosticsFor(EVMDiagnosticMessageOrigin $origin): EVMDiagnostics {
 		if (\array_key_exists($origin->name, $this->diagnosticsObjects)) {
 			return $this->diagnosticsObjects[$origin->name];

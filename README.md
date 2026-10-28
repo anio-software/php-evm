@@ -22,7 +22,7 @@ if (\sizeof($argv) !== 2) {
 $options = new EVM\EVMOptions($argv[1]);
 $context = new EVM\EVMContext($options);
 
-EVM\loadPHPManual($context);
+$context->loadPHPManual();
 
 echo \json_encode($context->manual, JSON_PRETTY_PRINT)."\n";
 ```
