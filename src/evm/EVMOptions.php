@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 final readonly class X2JOptions {
 	public function __construct(

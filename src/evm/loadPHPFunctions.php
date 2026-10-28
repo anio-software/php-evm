@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 function getFunctionParameterInt(
 	X2JDiagnostics $diagnostics,

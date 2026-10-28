@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 readonly class X2JDiagnosticMessage {
 	public function __construct(

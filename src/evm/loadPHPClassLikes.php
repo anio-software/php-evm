@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 function loadPHPClassLikes(X2JContext $ctx): void {
 	$diagnostics = $ctx->diagnosticsFor(X2JDiagnosticMessageOrigin::kLoadPHPClassLikes);

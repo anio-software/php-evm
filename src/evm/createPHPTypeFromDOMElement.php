@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 	foreach (PHP\PHPBuiltinTypeKind::cases() as $case) {

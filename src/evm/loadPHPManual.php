@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J;
+namespace AnioSoftware\EVM;
 
 function loadPHPManual(X2JContext $ctx): int|float {
 	$start = \hrtime(true);
