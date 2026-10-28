@@ -62,22 +62,4 @@ final class EVMContext {
 	public function getDiagnosticMessages(): array {
 		return $this->diagnostics;
 	}
-
-	public function getStatisticsAsString(): string {
-		$m = $this->manual;
-
-		$str  = "Loaded ".\count($m->getNamespaces())." namespaces\n";
-		$str .= "Loaded ".\count($m->getClasses())." classes\n";
-		$str .= "Loaded ".\count($m->getInterfaces())." interfaces\n";
-		$str .= "Loaded ".\count($m->getEnums())." enums\n";
-		$str .= "Loaded ".\count($m->getFunctions())." functions\n";
-		$str .= "Loaded ".\count($m->getFunctionAliases())." function aliases\n";
-		$str .= "Loaded ".\count($m->getConstants())." constants\n";
-
-		return $str;
-	}
-
-	public function printStatistics(mixed $stream): void {
-		\fwrite($stream, $this->getStatisticsAsString());
-	}
 }
