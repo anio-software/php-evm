@@ -1,8 +1,8 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
-use AnioSoftware\X2J\XML as XML;
+use AnioSoftware\EVM\XML as XML;
 
 final class PHPManual implements \JsonSerializable {
 	public function __construct(

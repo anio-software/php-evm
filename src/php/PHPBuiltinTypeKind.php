@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 enum PHPBuiltinTypeKind: string {
 	case kMixed    = "mixed";

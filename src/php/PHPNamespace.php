@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 final class PHPNamespace implements \JsonSerializable {
 	private array $definitions       = [];

@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPIntersectionType extends PHPTypeCollection {
 	public function __construct(

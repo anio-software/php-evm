@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\PHP;
+namespace AnioSoftware\EVM\PHP;
 
 function getFunctionRenderability(PHPFunction $func): Renderability {
 	if ($func->returnType instanceof PHPUnknownType) {
