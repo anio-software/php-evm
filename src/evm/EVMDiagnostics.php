@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM;
 
-final class X2JDiagnostics {
+final class EVMDiagnostics {
 	public function __construct(
 		private \Closure $addDiagnosticMessage,
 		readonly public X2JDiagnosticMessageOrigin $origin

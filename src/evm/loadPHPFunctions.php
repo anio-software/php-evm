@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM;
 
 function getFunctionParameterInt(
-	X2JDiagnostics $diagnostics,
+	EVMDiagnostics $diagnostics,
 	EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodparam,
@@ -48,7 +48,7 @@ function getFunctionParameterInt(
 }
 
 function getFunctionParametersInt(
-	X2JDiagnostics $diagnostics,
+	EVMDiagnostics $diagnostics,
 	EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodsynopsis
@@ -86,7 +86,7 @@ function getFunctionParametersInt(
 }
 
 function getFunctionInt(
-	X2JDiagnostics $diagnostics,
+	EVMDiagnostics $diagnostics,
 	EVMContext $ctx,
 	PHP\PHPNamespace $ns,
 	string $refId,
