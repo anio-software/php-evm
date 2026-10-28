@@ -14,7 +14,7 @@ final class EVMDiagnostics {
 
 	public function addReferenceIgnored(string $referenceId): void {
 		$this->add(
-			new X2JReferenceIgnoredDiagnosticMessage($referenceId)
+			new EVMReferenceIgnoredDiagnosticMessage($referenceId)
 		);
 	}
 

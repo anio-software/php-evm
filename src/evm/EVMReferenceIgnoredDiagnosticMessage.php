@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM;
 
-readonly class X2JReferenceIgnoredDiagnosticMessage extends EVMDiagnosticMessage {
+readonly class EVMReferenceIgnoredDiagnosticMessage extends EVMDiagnosticMessage {
 	public function __construct(
 		readonly public string $referenceId
 	) {
