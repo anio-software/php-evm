@@ -25,7 +25,7 @@ final class EVMContext {
 	}
 
 	public function loadPHPManual(): EVMStatistics {
-		if ($this->statistics) {
+		if ($this->statistics !== NULL) {
 			return $this->statistics;
 		}
 
