@@ -3,11 +3,12 @@
 namespace AnioSoftware\EVM;
 
 final class EVMContext {
-	readonly public \DOMDocument $doc;
+	readonly public \DOMDocument  $doc;
 	readonly public PHP\PHPManual $manual;
+
 	private ?EVMStatistics $statistics = NULL;
-	private array $diagnosticsObjects = [];
-	private array $diagnostics = [];
+	private array $diagnosticsObjects  = [];
+	private array $diagnostics         = [];
 
 	public const DOCBOOK_NS = "http://docbook.org/ns/docbook";
 	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
