@@ -1,13 +1,13 @@
 <?php
 
-require_once __DIR__."/X2JDiagnosticMessageSeverity.php";
-require_once __DIR__."/X2JDiagnosticMessageOrigin.php";
-require_once __DIR__."/X2JDiagnosticMessage.php";
-require_once __DIR__."/X2JReferenceIgnoredDiagnosticMessage.php";
-require_once __DIR__."/X2JDiagnostics.php";
+require_once __DIR__."/EVMDiagnosticMessageSeverity.php";
+require_once __DIR__."/EVMDiagnosticMessageOrigin.php";
+require_once __DIR__."/EVMDiagnosticMessage.php";
+require_once __DIR__."/EVMReferenceIgnoredDiagnosticMessage.php";
+require_once __DIR__."/EVMDiagnostics.php";
 
-require_once __DIR__."/X2JOptions.php";
-require_once __DIR__."/X2JContext.php";
+require_once __DIR__."/EVMOptions.php";
+require_once __DIR__."/EVMContext.php";
 
 require_once __DIR__."/createPHPTypeFromDOMElement.php";
 require_once __DIR__."/loadPHPClassLikes.php";
