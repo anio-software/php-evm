@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM;
 
-function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
+function mapTypeStringInt(EVMContext $ctx, string $typeName): PHP\PHPType {
 	foreach (PHP\PHPBuiltinTypeKind::cases() as $case) {
 		if (\strtolower($case->value) === \strtolower($typeName)) {
 			return $case->toType();
@@ -33,7 +33,7 @@ function mapTypeStringInt(X2JContext $ctx, string $typeName): PHP\PHPType {
 }
 
 function createPHPTypeFromDOMElement(
-	X2JContext $ctx,
+	EVMContext $ctx,
 	\DOMElement $element
 ): PHP\PHPType {
 	if ($element->attributes->getNamedItem("class")?->value === "union") {

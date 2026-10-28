@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM;
 
-function loadPHPManual(X2JContext $ctx): int|float {
+function loadPHPManual(EVMContext $ctx): int|float {
 	$start = \hrtime(true);
 
 	loadPHPClassLikes($ctx);

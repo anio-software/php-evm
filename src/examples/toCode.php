@@ -46,7 +46,7 @@ function handlePHPFunction(X2J\PHP\PHPFunction $fn): void {
 }
 
 $options = new X2J\X2JOptions($argv[1]);
-$context = new X2J\X2JContext($options);
+$context = new X2J\EVMContext($options);
 
 X2J\loadPHPManual($context);
 

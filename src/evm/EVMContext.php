@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM;
 
-final class X2JContext {
+final class EVMContext {
 	readonly public \DOMDocument $doc;
 	readonly public PHP\PHPManual $manual;
 	private array $diagnosticsObjects = [];
