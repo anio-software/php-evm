@@ -29,8 +29,6 @@ final class EVMContext {
 			return $this->statistics;
 		}
 
-		$man = $this->manual;
-
 		$start = \hrtime(true);
 
 		loadPHPClassLikes($this);
@@ -41,13 +39,13 @@ final class EVMContext {
 
 		$this->statistics = new EVMStatistics(
 			elapsedTimeMs          : $elapsedTimeMs,
-			nLoadedNamespaces      : \count($man->getNamespaces()),
-			nLoadedClasses         : \count($man->getClasses()),
-			nLoadedInterfaces      : \count($man->getInterfaces()),
-			nLoadedEnums           : \count($man->getEnums()),
-			nLoadedFunctions       : \count($man->getFunctions()),
-			nLoadedFunctionAliases : \count($man->getFunctionAliases()),
-			nLoadedConstants       : \count($man->getConstants())
+			nLoadedNamespaces      : \count($this->manual->getNamespaces()),
+			nLoadedClasses         : \count($this->manual->getClasses()),
+			nLoadedInterfaces      : \count($this->manual->getInterfaces()),
+			nLoadedEnums           : \count($this->manual->getEnums()),
+			nLoadedFunctions       : \count($this->manual->getFunctions()),
+			nLoadedFunctionAliases : \count($this->manual->getFunctionAliases()),
+			nLoadedConstants       : \count($this->manual->getConstants())
 		);
 
 		return $this->statistics;
