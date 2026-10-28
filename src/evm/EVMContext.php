@@ -22,14 +22,27 @@ final class EVMContext {
 		);
 	}
 
-	public function loadPHPManual(): int|float {
+	public function loadPHPManual(): EVMStatistics {
+		$man = $this->manual;
+
 		$start = \hrtime(true);
 
 		loadPHPClassLikes($this);
 		loadPHPConstants($this);
 		loadPHPFunctions($this);
 
-		return (\hrtime(true) - $start) / 1E6;
+		$elapsedTimeMs = (\hrtime(true) - $start) / 1E6;
+
+		return new EVMStatistics(
+			elapsedTimeMs          : $elapsedTimeMs,
+			nLoadedNamespaces      : \count($man->getNamespaces()),
+			nLoadedClasses         : \count($man->getClasses()),
+			nLoadedInterfaces      : \count($man->getInterfaces()),
+			nLoadedEnums           : \count($man->getEnums()),
+			nLoadedFunctions       : \count($man->getFunctions()),
+			nLoadedFunctionAliases : \count($man->getFunctionAliases()),
+			nLoadedConstants       : \count($man->getConstants())
+		);
 	}
 
 	public function diagnosticsFor(EVMDiagnosticMessageOrigin $origin): EVMDiagnostics {
