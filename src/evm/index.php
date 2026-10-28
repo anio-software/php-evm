@@ -10,6 +10,7 @@ require_once __DIR__."/EVMOptions.php";
 require_once __DIR__."/EVMStatistics.php";
 require_once __DIR__."/EVMContext.php";
 
+require_once __DIR__."/getPHPDocAttribute.php";
 require_once __DIR__."/createPHPTypeFromDOMElement.php";
 require_once __DIR__."/loadPHPClassLikes.php";
 require_once __DIR__."/loadPHPConstants.php";
