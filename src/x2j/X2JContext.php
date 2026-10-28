@@ -43,7 +43,8 @@ final class X2JContext {
 	public function getStatisticsAsString(): string {
 		$m = $this->manual;
 
-		$str  = "Loaded ".\count($m->getClasses())." classes\n";
+		$str  = "Loaded ".\count($m->getNamespaces())." namespaces\n";
+		$str .= "Loaded ".\count($m->getClasses())." classes\n";
 		$str .= "Loaded ".\count($m->getInterfaces())." interfaces\n";
 		$str .= "Loaded ".\count($m->getEnums())." enums\n";
 		$str .= "Loaded ".\count($m->getFunctions())." functions\n";
