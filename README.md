@@ -1,6 +1,6 @@
-# X2J
+# EVM
 
-A small program that makes it easy for a program to consume the information inside PHP's XML handbook.
+EVM (**E**asy **V**irtual **M**anual) is a small library that makes it easy to access the official PHP manual programmatically.
 
 ### Example: convert to JSON
 
