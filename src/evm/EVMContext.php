@@ -27,7 +27,7 @@ final class EVMContext {
 			return $this->diagnosticsObjects[$origin->name];
 		}
 
-		$inst = new EVMDiagnostics(function(X2JDiagnosticMessage $msg) {
+		$inst = new EVMDiagnostics(function(EVMDiagnosticMessage $msg) {
 			$this->diagnostics[] = $msg;
 		}, $origin);
 

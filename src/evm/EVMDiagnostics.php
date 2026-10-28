@@ -8,7 +8,7 @@ final class EVMDiagnostics {
 		readonly public EVMDiagnosticMessageOrigin $origin
 	) {}
 
-	public function add(X2JDiagnosticMessage $msg): void {
+	public function add(EVMDiagnosticMessage $msg): void {
 		($this->addDiagnosticMessage)($msg);
 	}
 
@@ -20,7 +20,7 @@ final class EVMDiagnostics {
 
 	public function addWarning(string $message): void {
 		$this->add(
-			new X2JDiagnosticMessage(
+			new EVMDiagnosticMessage(
 				EVMDiagnosticMessageSeverity::kWarning, $message
 			)
 		);
