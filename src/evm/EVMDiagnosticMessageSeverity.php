@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM;
 
-enum X2JDiagnosticMessageSeverity {
+enum EVMDiagnosticMessageSeverity {
 	case kNotice;
 	case kInfo;
 	case kWarning;

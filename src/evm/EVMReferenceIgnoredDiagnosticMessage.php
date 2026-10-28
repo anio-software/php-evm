@@ -7,7 +7,7 @@ readonly class X2JReferenceIgnoredDiagnosticMessage extends X2JDiagnosticMessage
 		readonly public string $referenceId
 	) {
 		parent::__construct(
-			X2JDiagnosticMessageSeverity::kNotice,
+			EVMDiagnosticMessageSeverity::kNotice,
 			"Ignoring reference '$referenceId'."
 		);
 	}

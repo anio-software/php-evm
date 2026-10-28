@@ -21,7 +21,7 @@ final class EVMDiagnostics {
 	public function addWarning(string $message): void {
 		$this->add(
 			new X2JDiagnosticMessage(
-				X2JDiagnosticMessageSeverity::kWarning, $message
+				EVMDiagnosticMessageSeverity::kWarning, $message
 			)
 		);
 	}
