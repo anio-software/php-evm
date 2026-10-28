@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\XML;
+namespace AnioSoftware\EVM\XML;
 
 // This DOMSelector selects a specific attribute like the id attribute in <div id="something">
 readonly class AttributeSelector implements DOMSelector {

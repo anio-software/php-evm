@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\X2J\XML;
+namespace AnioSoftware\EVM\XML;
 
 readonly class AndSelector implements DOMSelector {
 	private array $selectors;
