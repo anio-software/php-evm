@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use AnioSoftware\EVM as X2J;
+use AnioSoftware\EVM as EVM;
 
 require_once __DIR__."/../php/index.php";
 require_once __DIR__."/../xml/index.php";
@@ -15,7 +15,7 @@ if (\sizeof($argv) !== 4) {
 $kind    = $argv[2] === "iface" ? "iface" : "base";
 $filter  = require $argv[3];
 
-function handlePHPFunction(X2J\PHP\PHPFunction $fn): void {
+function handlePHPFunction(EVM\PHP\PHPFunction $fn): void {
 	global $kind, $filter;
 
 	if (!$filter($fn)) {
@@ -45,28 +45,28 @@ function handlePHPFunction(X2J\PHP\PHPFunction $fn): void {
 	if ($kind === "base") echo "\n";
 }
 
-$options = new X2J\EVMOptions($argv[1]);
-$context = new X2J\EVMContext($options);
+$options = new EVM\EVMOptions($argv[1]);
+$context = new EVM\EVMContext($options);
 
-X2J\loadPHPManual($context);
+EVM\loadPHPManual($context);
 
 echo "<?php\n";
 
 echo ($kind === "iface" ? "interface X" : "class X")." {\n";
 
-X2J\PHP\visitNamespace(
+EVM\PHP\visitNamespace(
 	$context->manual->getGlobalNamespace(),
 
 	static function($node): void {
-		if (!($node instanceof X2J\PHP\PHPFunction)) {
+		if (!($node instanceof EVM\PHP\PHPFunction)) {
 			return;
 		}
 
 		handlePHPFunction($node);
 	},
 
-	X2J\PHP\PHPNamespaceVisitFlags::VisitFunctions |
-	X2J\PHP\PHPNamespaceVisitFlags::VisitNamespaces
+	EVM\PHP\PHPNamespaceVisitFlags::VisitFunctions |
+	EVM\PHP\PHPNamespaceVisitFlags::VisitNamespaces
 );
 
 echo "}\n";

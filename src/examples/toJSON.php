@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use AnioSoftware\EVM as X2J;
+use AnioSoftware\EVM as EVM;
 
 require_once __DIR__."/../php/index.php";
 require_once __DIR__."/../xml/index.php";
@@ -12,9 +12,9 @@ if (\sizeof($argv) !== 2) {
 	\exit(2);
 }
 
-$options = new X2J\EVMOptions($argv[1]);
-$context = new X2J\EVMContext($options);
+$options = new EVM\EVMOptions($argv[1]);
+$context = new EVM\EVMContext($options);
 
-X2J\loadPHPManual($context);
+EVM\loadPHPManual($context);
 
 echo \json_encode($context->manual, JSON_PRETTY_PRINT)."\n";
