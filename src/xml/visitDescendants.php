@@ -21,8 +21,9 @@ function visitDescendantsImpl(
 
 		$localName = $child->localName ?? "?";
 		$newPath = \strlen($path) ? "$path/".$localName : $localName;
+		$visitContext = new VisitContext($newPath, $depth);
 
-		$action = ($context->visitor)($child, new VisitContext($newPath, $depth));
+		$action = ($context->visitor)($child, $visitContext);
 
 		if ($action === VisitAction::Stop) {
 			return $action;
