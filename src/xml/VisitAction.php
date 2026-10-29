@@ -3,6 +3,6 @@
 namespace AnioSoftware\EVM\XML;
 
 enum VisitAction {
-	case StopRecursion;
+	case StopDescending;
 	case Stop;
 }

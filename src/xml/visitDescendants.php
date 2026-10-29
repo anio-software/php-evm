@@ -29,7 +29,7 @@ function visitDescendantsImpl(
 			return $action;
 		}
 
-		if ($action === VisitAction::StopRecursion) {
+		if ($action === VisitAction::StopDescending) {
 			continue;
 		}
 

@@ -23,7 +23,7 @@ function select(
 			}
 
 			if ($maxDepth >= 0 && $ctx->depth >= $maxDepth) {
-				return VisitAction::StopRecursion;
+				return VisitAction::StopDescending;
 			}
 		}
 	);
