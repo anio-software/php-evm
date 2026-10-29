@@ -28,7 +28,7 @@ function visitImpl(
 			return $action;
 		}
 
-		if ($action === VisitAction::SkipChildren) {
+		if ($action === VisitAction::StopRecursion) {
 			continue;
 		}
 
