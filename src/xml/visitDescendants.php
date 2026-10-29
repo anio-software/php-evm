@@ -10,7 +10,7 @@ final class InternalVisitContext {
 	}
 }
 
-function visitImpl(
+function visitDescendantsImpl(
 	\DOMNode $node,
 	InternalVisitContext $context,
 	string $path,
@@ -32,7 +32,7 @@ function visitImpl(
 			continue;
 		}
 
-		if (visitImpl($child, $context, $newPath, $depth + 1) === VisitAction::Stop) {
+		if (visitDescendantsImpl($child, $context, $newPath, $depth + 1) === VisitAction::Stop) {
 			return VisitAction::Stop;
 		}
 	}
@@ -40,6 +40,6 @@ function visitImpl(
 	return NULL;
 }
 
-function visit(\DOMNode $node, callable $visitor): void {
-	visitImpl($node, new InternalVisitContext($visitor), "", 0);
+function visitDescendants(\DOMNode $node, callable $visitor): void {
+	visitDescendantsImpl($node, new InternalVisitContext($visitor), "", 0);
 }

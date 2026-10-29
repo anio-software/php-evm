@@ -10,7 +10,7 @@ function select(
 ): array {
 	$ret = [];
 
-	visit(
+	visitDescendants(
 		$node,
 		static function(\DOMElement $child, VisitContext $ctx)
 		use ($maxDepth, $sel, &$ret, $stopOnMatch) {
