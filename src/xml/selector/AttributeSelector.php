@@ -22,15 +22,22 @@ readonly class AttributeSelector implements DOMSelector {
 				continue;
 			}
 
-			if ($attribute->localName !== $this->name) {
-				continue;
+			// match name
+			if ($this->name !== NULL) {
+				if ($attribute->localName !== $this->name) {
+					continue;
+				}
 			}
 
-			if ($this->value === NULL) {
-				return true;
+			// match value
+			if ($this->value !== NULL) {
+				if ($attribute->value !== $this->value) {
+					continue;
+				}
 			}
 
-			return $this->value === $attribute->value;
+			// it's a match
+			return true;
 		}
 
 		return false;
