@@ -30,10 +30,12 @@ function visitDescendantsImpl(
 	return NULL;
 }
 
-function visitDescendants(\DOMNode $node, callable $visitor): void {
-	visitDescendantsImpl(
+function visitDescendants(\DOMNode $node, callable $visitor): bool {
+	$action = visitDescendantsImpl(
 		$node,
 		\Closure::fromCallable($visitor),
 		new VisitContext(0, "")
 	);
+
+	return $action !== NULL;
 }
