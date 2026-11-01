@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\XML;
 
 // This DOMSelector selects a specific dom tag like <body>
-readonly class TagSelector implements DOMSelector {
+readonly class ElementSelector implements DOMSelector {
 	public function __construct(
 		public string|null $ns,
 		public string $tagName
