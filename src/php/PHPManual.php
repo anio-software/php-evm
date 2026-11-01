@@ -110,14 +110,14 @@ final class PHPManual implements \JsonSerializable {
 		];
 	}
 
-	public function elementSelectorFactory(string $tagName): XML\DOMSelector {
+	public function elementSelectorFactory(string $tagName): XML\ElementSelector {
 		return new XML\ElementSelector(
 			XML\NamespaceMatcher::specific($this->docBookNamespace),
 			$tagName
 		);
 	}
 
-	public function refIdSelectorFactory(): XML\DOMSelector {
+	public function refIdSelectorFactory(): XML\AttributeSelector {
 		return new XML\AttributeSelector(
 			XML\NamespaceMatcher::specific($this->xmlIdNamespace),
 			"id"
