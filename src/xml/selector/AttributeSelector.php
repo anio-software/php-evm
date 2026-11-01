@@ -7,8 +7,8 @@ readonly class AttributeSelector implements DOMSelector {
 	private NamespaceMatcher $nsMatcher;
 
 	public function __construct(
-		?NamespaceMatcher $nsMatcher,
-		public string $name,
+		?NamespaceMatcher $nsMatcher = NULL,
+		public ?string $name = NULL,
 		public ?string $value = NULL
 	) {
 		$this->nsMatcher = $nsMatcher ?? NamespaceMatcher::any();
