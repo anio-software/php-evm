@@ -4,6 +4,7 @@ namespace AnioSoftware\EVM\PHP;
 
 readonly abstract class PHPDefinition extends PHPReference implements \JsonSerializable {
 	public function __construct(
+		public PHPDefinitionMetadata $metadata,
 		public PHPNamespace $namespace,
 		string $referenceId,
 		public string $name
@@ -23,6 +24,7 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 
 	public function jsonSerialize(): mixed {
 		return [
+			"metadata"           => $this->metadata,
 			"definitionKind"     => $this->getDefinitionKind(),
 			"namespace"          => $this->namespace->getFullyQualifiedName(),
 			"referenceId"        => $this->referenceId,
