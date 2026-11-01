@@ -111,7 +111,10 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	public function tagSelectorFactory(string $tagName): XML\DOMSelector {
-		return new XML\ElementSelector($this->docBookNamespace, $tagName);
+		return new XML\ElementSelector(
+			XML\NamespaceMatcher::specific($this->docBookNamespace),
+			$tagName
+		);
 	}
 
 	public function refIdSelectorFactory(): XML\DOMSelector {
