@@ -15,6 +15,8 @@ require_once __DIR__."/VisitContext.php";
 
 require_once __DIR__."/loadDocument.php";
 require_once __DIR__."/visitDescendants.php";
+require_once __DIR__."/visitParents.php";
+require_once __DIR__."/visitSiblings.php";
 
 require_once __DIR__."/select.php";
 require_once __DIR__."/selectFirstMatchingChild.php";
