@@ -118,7 +118,10 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	public function refIdSelectorFactory(): XML\DOMSelector {
-		return new XML\AttributeSelector($this->xmlIdNamespace, "id");
+		return new XML\AttributeSelector(
+			XML\NamespaceMatcher::specific($this->xmlIdNamespace),
+			"id"
+		);
 	}
 
 	public function getRefIdAttribute(\DOMElement $el): string {
