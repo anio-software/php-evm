@@ -19,14 +19,14 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 		}
 
 		$packagesynopsis = XML\selectFirstMatchingDescendant(
-			$reference, $ctx->manual->tagSelectorFactory("packagesynopsis")
+			$reference, $ctx->manual->elementSelectorFactory("packagesynopsis")
 		);
 
 		$namespace = "";
 
 		if ($packagesynopsis) {
 			$package = XML\selectFirstMatchingChild(
-				$packagesynopsis, $ctx->manual->tagSelectorFactory("package")
+				$packagesynopsis, $ctx->manual->elementSelectorFactory("package")
 			);
 
 			$namespace = $package->textContent;
@@ -35,8 +35,8 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 		$synopsis = XML\selectFirstMatchingDescendant(
 			$reference,
 			new XML\OrSelector(
-				$ctx->manual->tagSelectorFactory("classsynopsis"),
-				$ctx->manual->tagSelectorFactory("enumsynopsis"),
+				$ctx->manual->elementSelectorFactory("classsynopsis"),
+				$ctx->manual->elementSelectorFactory("enumsynopsis"),
 			)
 		);
 
@@ -75,7 +75,7 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 			$name = \trim(
 				XML\selectFirstMatchingDescendant(
 					$firstChild,
-					$ctx->manual->tagSelectorFactory($map[$kind]["tag"])
+					$ctx->manual->elementSelectorFactory($map[$kind]["tag"])
 				)->textContent
 			);
 		}

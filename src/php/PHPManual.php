@@ -110,7 +110,7 @@ final class PHPManual implements \JsonSerializable {
 		];
 	}
 
-	public function tagSelectorFactory(string $tagName): XML\DOMSelector {
+	public function elementSelectorFactory(string $tagName): XML\DOMSelector {
 		return new XML\ElementSelector(
 			XML\NamespaceMatcher::specific($this->docBookNamespace),
 			$tagName
@@ -132,7 +132,7 @@ final class PHPManual implements \JsonSerializable {
 		return XML\select(
 			$doc->documentElement,
 			new XML\AndSelector(
-				$this->tagSelectorFactory($docBookTagName),
+				$this->elementSelectorFactory($docBookTagName),
 				$this->refIdSelectorFactory()
 			)
 		);
