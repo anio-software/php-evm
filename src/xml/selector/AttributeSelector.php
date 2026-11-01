@@ -12,12 +12,23 @@ readonly class AttributeSelector implements DOMSelector {
 
 	public function matches(\DOMNode $node): bool {
 		if (!$node instanceof \DOMElement) return false;
-		if (!$node->hasAttributeNS($this->ns, $this->name)) return false;
 
-		if ($this->value === NULL) {
-			return true;
+		foreach ($node->attributes as $attribute) {
+			if ($attribute->localName !== $this->name) {
+				continue;
+			}
+
+			if ($attribute->namespaceURI !== $this->ns) {
+				continue;
+			}
+
+			if ($this->value === NULL) {
+				return true;
+			}
+
+			return $this->value === $attribute->value;
 		}
 
-		return $node->getAttributeNS($this->ns, $this->name) === $this->value;
+		return false;
 	}
 }
