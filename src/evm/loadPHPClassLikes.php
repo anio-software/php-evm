@@ -46,10 +46,10 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 			continue;
 		}
 
-		$firstChild = XML\selectFirstMatchingChild($synopsis, new XML\MatchAllSelector());
+		$firstElement = XML\selectFirstMatchingChild($synopsis, new XML\MatchAllSelector());
 
-		if (!$firstChild) {
-			$diagnostics->addWarning("no firstChild for $refId");
+		if (!$firstElement) {
+			$diagnostics->addWarning("no firstElement for $refId");
 
 			continue;
 		}
@@ -61,7 +61,7 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 			"enumname"    => ["tag" => "enumname"     , "class" => PHP\PHPEnum::class]
 		];
 
-		$kind = $firstChild->localName;
+		$kind = $firstElement->localName;
 
 		if (!\array_key_exists($kind, $map)) {
 			$diagnostics->addWarning("unmapped localName $kind for $refId");
@@ -70,11 +70,11 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 		}
 
 		if ($kind === "enumname") {
-			$name = \trim($firstChild->textContent);
+			$name = \trim($firstElement->textContent);
 		} else {
 			$name = \trim(
 				XML\selectFirstMatchingDescendant(
-					$firstChild,
+					$firstElement,
 					$ctx->manual->elementSelectorFactory($map[$kind]["tag"])
 				)->textContent
 			);
