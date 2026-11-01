@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\XML;
 
-function visitSiblings(\DOMNode $node, callable $visitor, bool $forwards = true): void {
+function visitSiblings(\DOMNode $node, callable $visitor, bool $forwards = true): bool {
 	$getNextSibling = static function(\DOMNode $theNode) use ($forwards) {
 		return $forwards ? $theNode->nextSibling : $theNode->previousSibling;
 	};
@@ -13,9 +13,11 @@ function visitSiblings(\DOMNode $node, callable $visitor, bool $forwards = true)
 		$action = ($visitor)($current);
 
 		if ($action === VisitAction::Stop) {
-			return;
+			return true;
 		}
 
 		$current = $getNextSibling($current);
 	}
+
+	return false;
 }

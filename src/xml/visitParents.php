@@ -2,16 +2,18 @@
 
 namespace AnioSoftware\EVM\XML;
 
-function visitParents(\DOMNode $node, callable $visitor): void {
+function visitParents(\DOMNode $node, callable $visitor): bool {
 	$current = $node->parentNode;
 
 	while ($current) {
 		$action = ($visitor)($current);
 
 		if ($action === VisitAction::Stop) {
-			return;
+			return true;
 		}
 
 		$current = $current->parentNode;
 	}
+
+	return false;
 }
