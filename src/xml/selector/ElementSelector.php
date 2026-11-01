@@ -8,7 +8,7 @@ readonly class ElementSelector implements DOMSelector {
 
 	public function __construct(
 		?NamespaceMatcher $nsMatcher,
-		public string $tagName
+		public ?string $tagName
 	) {
 		$this->nsMatcher = $nsMatcher ?? NamespaceMatcher::any();
 	}
@@ -16,6 +16,10 @@ readonly class ElementSelector implements DOMSelector {
 	public function matches(\DOMNode $node): bool {
 		if (!$node instanceof \DOMElement) return false;
 		if (!$this->nsMatcher->matchesDOMElement($node)) return false;
+
+		if ($this->tagName === NULL) {
+			return true;
+		}
 
 		return $node->localName === $this->tagName;
 	}
