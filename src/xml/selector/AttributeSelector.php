@@ -4,11 +4,15 @@ namespace AnioSoftware\EVM\XML;
 
 // This DOMSelector selects a specific attribute like the id attribute in <div id="something">
 readonly class AttributeSelector implements DOMSelector {
+	private NamespaceMatcher $nsMatcher;
+
 	public function __construct(
-		public string|null $ns,
+		?NamespaceMatcher $nsMatcher,
 		public string $name,
 		public ?string $value = NULL
-	) {}
+	) {
+		$this->nsMatcher = $nsMatcher ?? NamespaceMatcher::any();
+	}
 
 	public function matches(\DOMNode $node): bool {
 		if (!$node instanceof \DOMElement) return false;
@@ -18,7 +22,7 @@ readonly class AttributeSelector implements DOMSelector {
 				continue;
 			}
 
-			if ($attribute->namespaceURI !== $this->ns) {
+			if (!$this->nsMatcher->matchesDOMAttr($attribute)) {
 				continue;
 			}
 
