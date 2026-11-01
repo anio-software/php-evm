@@ -7,8 +7,8 @@ readonly class ElementSelector implements DOMSelector {
 	private NamespaceMatcher $nsMatcher;
 
 	public function __construct(
-		?NamespaceMatcher $nsMatcher,
-		public ?string $tagName
+		?NamespaceMatcher $nsMatcher = NULL,
+		public ?string $tagName = NULL
 	) {
 		$this->nsMatcher = $nsMatcher ?? NamespaceMatcher::any();
 	}
