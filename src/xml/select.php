@@ -12,7 +12,7 @@ function select(
 
 	visitDescendants(
 		$node,
-		static function(\DOMElement $child, VisitContext $ctx)
+		static function(\DOMNode $child, VisitContext $ctx)
 		use ($maxDepth, $sel, &$ret, $stopOnMatch) {
 			if ($sel->matches($child)) {
 				$ret[] = $child;

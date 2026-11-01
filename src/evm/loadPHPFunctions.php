@@ -18,7 +18,7 @@ function getFunctionParameterInt(
 	if ($isOptional) {
 		$el = XML\selectFirstMatchingChild(
 			$methodparam,
-			$ctx->manual->tagSelectorFactory("initializer")
+			$ctx->manual->elementSelectorFactory("initializer")
 		);
 
 		if ($el) {
@@ -38,7 +38,7 @@ function getFunctionParameterInt(
 			$ctx,
 			XML\selectFirstMatchingChild(
 				$methodparam,
-				$ctx->manual->tagSelectorFactory("type")
+				$ctx->manual->elementSelectorFactory("type")
 			)
 		),
 		$isReference,
@@ -55,7 +55,7 @@ function getFunctionParametersInt(
 ) {
 	$methodparams = XML\select(
 		$methodsynopsis,
-		$ctx->manual->tagSelectorFactory("methodparam"),
+		$ctx->manual->elementSelectorFactory("methodparam"),
 		0
 	);
 
@@ -64,7 +64,7 @@ function getFunctionParametersInt(
 	foreach ($methodparams as $methodparam) {
 		$parameter = XML\selectFirstMatchingChild(
 			$methodparam,
-			$ctx->manual->tagSelectorFactory("parameter")
+			$ctx->manual->elementSelectorFactory("parameter")
 		);
 
 		if (!$parameter) {
@@ -96,7 +96,7 @@ function getFunctionInt(
 	$returnType = createPHPTypeFromDOMElement(
 		$ctx,
 		XML\selectFirstMatchingChild(
-			$methodsynopsis, $ctx->manual->tagSelectorFactory("type")
+			$methodsynopsis, $ctx->manual->elementSelectorFactory("type")
 		)
 	);
 	$func   = PHP\PHPFunction::create($ns, $refId, $functionName, $returnType);
@@ -129,7 +129,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 
 		$refname = XML\selectFirstMatchingDescendant(
 			$refentry,
-			$ctx->manual->tagSelectorFactory("refname")
+			$ctx->manual->elementSelectorFactory("refname")
 		);
 
 		if (!$refname) {
@@ -144,7 +144,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
 			$refentry,
-			$ctx->manual->tagSelectorFactory("refpurpose")
+			$ctx->manual->elementSelectorFactory("refpurpose")
 		);
 
 		if (!$refpurpose) {
@@ -157,8 +157,8 @@ function loadPHPFunctions(EVMContext $ctx): void {
 			$el = XML\selectFirstMatchingChild(
 				$refpurpose,
 				new XML\OrSelector(
-					$ctx->manual->tagSelectorFactory("function"),
-					$ctx->manual->tagSelectorFactory("methodname")
+					$ctx->manual->elementSelectorFactory("function"),
+					$ctx->manual->elementSelectorFactory("methodname")
 				)
 			);
 
@@ -181,7 +181,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 		}
 
 		$methodsynopsis = XML\selectFirstMatchingDescendant(
-			$refentry, $ctx->manual->tagSelectorFactory("methodsynopsis")
+			$refentry, $ctx->manual->elementSelectorFactory("methodsynopsis")
 		);
 
 		if (!$methodsynopsis) {

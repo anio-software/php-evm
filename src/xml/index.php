@@ -1,10 +1,13 @@
 <?php
 
+require_once __DIR__."/NamespaceMatcherPolicy.php";
+require_once __DIR__."/NamespaceMatcher.php";
+
 require_once __DIR__."/DOMSelector.php";
 require_once __DIR__."/selector/OrSelector.php";
 require_once __DIR__."/selector/AndSelector.php";
 require_once __DIR__."/selector/AttributeSelector.php";
-require_once __DIR__."/selector/TagSelector.php";
+require_once __DIR__."/selector/ElementSelector.php";
 require_once __DIR__."/selector/MatchAllSelector.php";
 
 require_once __DIR__."/VisitAction.php";

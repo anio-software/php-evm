@@ -16,7 +16,7 @@ function loadPHPConstants(EVMContext $ctx): void {
 		}
 
 		$const = XML\selectFirstMatchingDescendant(
-			$constant, $ctx->manual->tagSelectorFactory("constant")
+			$constant, $ctx->manual->elementSelectorFactory("constant")
 		);
 
 		if (!$const) {

@@ -110,12 +110,18 @@ final class PHPManual implements \JsonSerializable {
 		];
 	}
 
-	public function tagSelectorFactory(string $tagName): XML\DOMSelector {
-		return new XML\TagSelector($this->docBookNamespace, $tagName);
+	public function elementSelectorFactory(string $tagName): XML\ElementSelector {
+		return new XML\ElementSelector(
+			XML\NamespaceMatcher::specific($this->docBookNamespace),
+			$tagName
+		);
 	}
 
-	public function refIdSelectorFactory(): XML\DOMSelector {
-		return new XML\AttributeSelector($this->xmlIdNamespace, "id");
+	public function refIdSelectorFactory(): XML\AttributeSelector {
+		return new XML\AttributeSelector(
+			XML\NamespaceMatcher::specific($this->xmlIdNamespace),
+			"id"
+		);
 	}
 
 	public function getRefIdAttribute(\DOMElement $el): string {
@@ -129,7 +135,7 @@ final class PHPManual implements \JsonSerializable {
 		return XML\select(
 			$doc->documentElement,
 			new XML\AndSelector(
-				$this->tagSelectorFactory($docBookTagName),
+				$this->elementSelectorFactory($docBookTagName),
 				$this->refIdSelectorFactory()
 			)
 		);

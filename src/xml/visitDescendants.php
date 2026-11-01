@@ -2,38 +2,27 @@
 
 namespace AnioSoftware\EVM\XML;
 
-final class InternalVisitContext {
-	readonly public \Closure $visitor;
-
-	public function __construct(callable $visitor) {
-		$this->visitor = \Closure::fromCallable($visitor);
-	}
-}
-
 function visitDescendantsImpl(
-	\DOMNode $node,
-	InternalVisitContext $context,
-	string $path,
-	int $depth
+	\DOMNode $parent,
+	\Closure $visitor,
+	VisitContext $context
 ): ?VisitAction {
-	foreach ($node->childNodes as $child) {
-		if (!$child instanceof \DOMElement) continue;
+	if ($parent instanceof \DOMElement) {
+		$context = $context->descend($parent);
+	}
 
-		$localName = $child->localName ?? "?";
-		$newPath = \strlen($path) ? "$path/".$localName : $localName;
-		$visitContext = new VisitContext($newPath, $depth);
-
-		$action = ($context->visitor)($child, $visitContext);
+	foreach ($parent->childNodes as $child) {
+		$action = ($visitor)($child, $context);
 
 		if ($action === VisitAction::Stop) {
-			return $action;
+			return VisitAction::Stop;
 		}
 
 		if ($action === VisitAction::StopDescending) {
 			continue;
 		}
 
-		if (visitDescendantsImpl($child, $context, $newPath, $depth + 1) === VisitAction::Stop) {
+		if (visitDescendantsImpl($child, $visitor, $context) === VisitAction::Stop) {
 			return VisitAction::Stop;
 		}
 	}
@@ -42,5 +31,9 @@ function visitDescendantsImpl(
 }
 
 function visitDescendants(\DOMNode $node, callable $visitor): void {
-	visitDescendantsImpl($node, new InternalVisitContext($visitor), "", 0);
+	visitDescendantsImpl(
+		$node,
+		\Closure::fromCallable($visitor),
+		new VisitContext(0, "")
+	);
 }
