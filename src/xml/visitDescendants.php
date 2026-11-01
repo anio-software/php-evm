@@ -2,14 +2,6 @@
 
 namespace AnioSoftware\EVM\XML;
 
-final class InternalVisitContext {
-	readonly public \Closure $visitor;
-
-	public function __construct(callable $visitor) {
-		$this->visitor = \Closure::fromCallable($visitor);
-	}
-}
-
 function visitDescendantsImpl(
 	\DOMNode $node,
 	InternalVisitContext $context,
