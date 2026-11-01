@@ -46,7 +46,7 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 			continue;
 		}
 
-		$firstElement = XML\selectFirstMatchingChild($synopsis, new XML\MatchAllSelector());
+		$firstElement = XML\selectFirstMatchingChild($synopsis, new XML\ElementSelector);
 
 		if (!$firstElement) {
 			$diagnostics->addWarning("no firstElement for $refId");
