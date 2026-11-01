@@ -18,11 +18,11 @@ readonly class AttributeSelector implements DOMSelector {
 		if (!$node instanceof \DOMElement) return false;
 
 		foreach ($node->attributes as $attribute) {
-			if ($attribute->localName !== $this->name) {
+			if (!$this->nsMatcher->matchesDOMAttr($attribute)) {
 				continue;
 			}
 
-			if (!$this->nsMatcher->matchesDOMAttr($attribute)) {
+			if ($attribute->localName !== $this->name) {
 				continue;
 			}
 
