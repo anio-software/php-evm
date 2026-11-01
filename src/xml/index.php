@@ -1,5 +1,8 @@
 <?php
 
+require_once __DIR__."/NamespaceMatcherPolicy.php";
+require_once __DIR__."/NamespaceMatcher.php";
+
 require_once __DIR__."/DOMSelector.php";
 require_once __DIR__."/selector/OrSelector.php";
 require_once __DIR__."/selector/AndSelector.php";
