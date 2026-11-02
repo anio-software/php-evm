@@ -3,8 +3,6 @@
 
 use AnioSoftware\EVM as EVM;
 
-require_once __DIR__."/../php/index.php";
-require_once __DIR__."/../xml/index.php";
 require_once __DIR__."/../evm/index.php";
 
 if (\sizeof($argv) !== 4) {
