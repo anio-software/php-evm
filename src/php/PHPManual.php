@@ -5,6 +5,8 @@ namespace AnioSoftware\EVM\PHP;
 use AnioSoftware\EVM\XML as XML;
 
 final class PHPManual implements \JsonSerializable {
+	private array $elementSelectorFactoryCache = [];
+
 	public function __construct(
 		readonly private PHPNamespace $globalNamespace,
 		readonly private string $xmlIdNamespace,
@@ -111,10 +113,14 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	public function elementSelectorFactory(string $tagName): XML\ElementSelector {
-		return new XML\ElementSelector(
-			XML\NamespaceMatcher::specific($this->docBookNamespace),
-			$tagName
-		);
+		if (!\array_key_exists($tagName, $this->elementSelectorFactoryCache)) {
+			$this->elementSelectorFactoryCache[$tagName] = new XML\ElementSelector(
+				XML\NamespaceMatcher::specific($this->docBookNamespace),
+				$tagName
+			);
+		}
+
+		return $this->elementSelectorFactoryCache[$tagName];
 	}
 
 	public function refIdSelectorFactory(): XML\AttributeSelector {
