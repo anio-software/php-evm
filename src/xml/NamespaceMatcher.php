@@ -4,6 +4,7 @@ namespace AnioSoftware\EVM\XML;
 
 final class NamespaceMatcher {
 	static private ?self $nullMatcher = NULL;
+	static private array $cache = [];
 
 	private function __construct(
 		private NamespaceMatcherPolicy $policy,
@@ -43,6 +44,10 @@ final class NamespaceMatcher {
 			return self::$nullMatcher;
 		}
 
-		return new self(NamespaceMatcherPolicy::kSpecific, $ns);
+		if (!\array_key_exists($ns, self::$cache)) {
+			self::$cache[$ns] = new self(NamespaceMatcherPolicy::kSpecific, $ns);
+		}
+
+		return self::$cache[$ns];
 	}
 }
