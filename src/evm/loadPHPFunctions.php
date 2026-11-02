@@ -121,6 +121,11 @@ function loadPHPFunctions(EVMContext $ctx): void {
 		$ctx->doc, "refentry"
 	);
 
+	$orSelector = new XML\OrSelector(
+		$ctx->manual->elementSelectorFactory("function"),
+		$ctx->manual->elementSelectorFactory("methodname")
+	);
+
 	foreach ($refentries as $refentry) {
 		$refId = $ctx->manual->getRefIdAttribute($refentry);
 
@@ -158,10 +163,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 		if (\str_starts_with(\strtolower(\trim($refpurpose->textContent)), "alias of")) {
 			$el = XML\selectFirstMatchingChild(
 				$refpurpose,
-				new XML\OrSelector(
-					$ctx->manual->elementSelectorFactory("function"),
-					$ctx->manual->elementSelectorFactory("methodname")
-				)
+				$orSelector
 			);
 
 			if (!$el) {
