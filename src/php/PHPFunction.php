@@ -6,6 +6,7 @@ final readonly class PHPFunction extends PHPDefinition {
 	public const int FLAG_VARIADIC = 1 << 0;
 
 	private function __construct(
+		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
 		string $referenceId,
 		string $name,
@@ -13,7 +14,7 @@ final readonly class PHPFunction extends PHPDefinition {
 		public int $flags,
 		public PHPType $returnType
 	) {
-		parent::__construct($namespace, $referenceId, $name);
+		parent::__construct($metadata, $namespace, $referenceId, $name);
 	}
 
 	public function getDefinitionKind(): PHPDefinitionKind {
@@ -46,6 +47,7 @@ final readonly class PHPFunction extends PHPDefinition {
 		);
 
 		return new self(
+			$this->metadata,
 			$this->namespace,
 			$this->referenceId,
 			$this->name,
@@ -61,6 +63,7 @@ final readonly class PHPFunction extends PHPDefinition {
 
 	public function withFlags(int $flags): self {
 		return new self(
+			$this->metadata,
 			$this->namespace,
 			$this->referenceId,
 			$this->name,
@@ -115,12 +118,13 @@ final readonly class PHPFunction extends PHPDefinition {
 	}
 
 	static public function create(
+		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
 		string $referenceId,
 		string $name,
 		PHPType $returnType
 	): self {
-		return new self($namespace, $referenceId, $name, [], 0, $returnType);
+		return new self($metadata, $namespace, $referenceId, $name, [], 0, $returnType);
 	}
 
 	public function jsonSerialize(): mixed {
