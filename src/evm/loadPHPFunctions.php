@@ -86,6 +86,7 @@ function getFunctionParametersInt(
 }
 
 function getFunctionInt(
+	PHP\PHPDefinitionMetadata $metadata,
 	EVMDiagnostics $diagnostics,
 	EVMContext $ctx,
 	PHP\PHPNamespace $ns,
@@ -99,7 +100,7 @@ function getFunctionInt(
 			$methodsynopsis, $ctx->manual->elementSelectorFactory("type")
 		)
 	);
-	$func   = PHP\PHPFunction::create($ns, $refId, $functionName, $returnType);
+	$func   = PHP\PHPFunction::create($metadata, $ns, $refId, $functionName, $returnType);
 	$params = getFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis);
 
 	$isVariadic = false;
@@ -141,6 +142,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 		$functionName = \trim($refname->textContent);
 		$qualifier    = $ctx->manual->parseQualifiedName($functionName);
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
+		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
 			$refentry,
@@ -170,6 +172,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 
 			$ns->addDefinition(
 				PHP\PHPFunctionAlias::create(
+					$metadata,
 					$ns,
 					$refId,
 					$qualifier["localName"],
@@ -191,6 +194,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 		}
 
 		$inst = getFunctionInt(
+			$metadata,
 			$diagnostics,
 			$ctx,
 			$ns,
