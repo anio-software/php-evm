@@ -7,7 +7,7 @@ final readonly class EVMTimingStatistics {
 		public int|float $elapsedTimeMsClassLikes,
 		public int|float $elapsedTimeMsConstants,
 		public int|float $elapsedTimeMsFunctions,
-		public int|float $elapsedTimeMs,
+		public int|float $elapsedTimeMs
 	) {}
 
 	static public function measure(callable $fn): float {
