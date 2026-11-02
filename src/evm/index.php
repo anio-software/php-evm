@@ -10,6 +10,7 @@ require_once __DIR__."/EVMReferenceIgnoredDiagnosticMessage.php";
 require_once __DIR__."/EVMDiagnostics.php";
 
 require_once __DIR__."/EVMOptions.php";
+require_once __DIR__."/EVMTimingStatistics.php";
 require_once __DIR__."/EVMStatistics.php";
 require_once __DIR__."/EVMContext.php";
 
