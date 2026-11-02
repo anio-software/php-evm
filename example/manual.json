@@ -1,4 +1,46 @@
 {
+    "enums": {
+        "typeKind": [
+            "builtin",
+            "named",
+            "union",
+            "intersection",
+            "unspecified",
+            "unknown"
+        ],
+        "builtinTypeKind": [
+            "mixed",
+            "never",
+            "void",
+            "object",
+            "resource",
+            "array",
+            "string",
+            "float",
+            "int",
+            "bool",
+            "callable",
+            "iterable",
+            "true",
+            "false",
+            "null"
+        ],
+        "definitionKind": [
+            "class",
+            "interface",
+            "enum",
+            "constant",
+            "function",
+            "functionAlias"
+        ],
+        "extensionMembership": [
+            "core",
+            "bundled",
+            "bundledexternal",
+            "pecl",
+            "unspecified"
+        ]
+    },
     "globalNamespace": {
         "name": "",
         "fullyQualifiedName": "",
