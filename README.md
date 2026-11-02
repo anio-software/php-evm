@@ -30,6 +30,78 @@ EVM (**E**asy **V**irtual **M**anual) is a small library that makes it easy to a
 
 The examples below assume you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).
 
+### Example: inspect PHP functions
+
+EVM provides an object-oriented API for navigating the PHP manual and inspecting definitions, parameters, and types.
+The following example demonstrates how to retrieve a function and inspect its signature and parameters:
+
+```php
+<?php
+
+use AnioSoftware\EVM as EVM;
+
+require_once __DIR__."/src/evm/index.php";
+
+// Load the PHP manual.
+$options = new EVM\EVMOptions(__DIR__."/example/manual.xml");
+$context = new EVM\EVMContext($options);
+
+$context->loadPHPManual();
+
+// Retrieve a function from the manual.
+$function = $context->manual->getGlobalNamespace()->getFunctions()["strpos"];
+
+// Print the function signature.
+echo "Signature: ".$function->renderSignature()."\n\n";
+
+// Inspect its parameters.
+foreach ($function->getParameters() as $parameter) {
+	echo "Parameter: \$".$parameter->name;
+
+	if ($parameter->isOptional()) {
+		echo " (optional)";
+	}
+
+	echo " of type '".$parameter->type->render()."'";
+
+	if ($parameter->initializer !== NULL) {
+		echo " with initializer = ".$parameter->initializer;
+	}
+
+	echo "\n";
+}
+
+// Inspect the return type.
+$returnType = $function->returnType;
+
+echo "\nReturns: ".$returnType->render()."\n";
+
+if ($returnType instanceof EVM\PHP\PHPUnionType) {
+	echo "\n";
+
+	foreach ($returnType->getTypeMembers() as $member) {
+		echo "Union type member: ".$member->render()."\n";
+	}
+}
+```
+
+Example output:
+
+```
+Signature: strpos(string $haystack, string $needle, int $offset = 0): false|int
+
+Parameter: $haystack of type 'string'
+Parameter: $needle of type 'string'
+Parameter: $offset (optional) of type 'int' with initializer = 0
+
+Returns: false|int
+
+Union type member: false
+Union type member: int
+```
+
+This example illustrates how EVM exposes PHP manual definitions as objects, allowing applications to inspect function signatures, parameter types, default values, and return types without having to parse the XML documentation themselves.
+
 ### Example: convert to JSON
 
 > [!NOTE]
