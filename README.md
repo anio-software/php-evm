@@ -3,11 +3,6 @@
 EVM is a small library that makes it easy to access the official PHP manual programmatically.
 EVM provides an object-oriented API for navigating the PHP manual and inspecting definitions, parameters, and types.
 
-> [!WARNING]
-> This project and its API are a work in progress. The API is currently **NOT stable** and may change at any time without notice.
->
-> Do not rely on it in production environments.
-
 ## Examples
 
 The examples below assume you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).
@@ -185,6 +180,11 @@ Loaded 4853 constants
 ```
 
 ## API
+
+> [!WARNING]
+> This project and its API are a work in progress. The API is currently **NOT stable** and may change at any time without notice.
+>
+> Do not rely on it in production environments.
 
 ### Type Hierarchy
 
