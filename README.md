@@ -208,3 +208,10 @@ Loaded 4853 constants
     ├── PHPUnknownType
     └── PHPUnspecifiedType
 ```
+
+## Todo
+
+- Formalize JSON format.
+- Formalize PHP api.
+- Add the ability to create the same object structure from the json file:
+For example: `$manualFromXml = new PHPManual("manual.xml"); $manualFromJson = new PHPManual("manual.json")`
