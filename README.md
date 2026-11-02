@@ -1,8 +1,8 @@
-# EVM
+# 🐘 EVM
 
-🐘 EVM (**E**asy **V**irtual **M**anual) is a small library that makes it easy to access the official PHP manual programmatically.
+EVM (**E**asy **V**irtual **M**anual) is a small library that makes it easy to access the official PHP manual programmatically.
 
-### Example: convert to JSON
+## Example: convert to JSON
 
 (This example assumes you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).)
 
