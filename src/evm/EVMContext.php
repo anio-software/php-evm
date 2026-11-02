@@ -29,16 +29,38 @@ final class EVMContext {
 			return $this->statistics;
 		}
 
-		$start = \hrtime(true);
+		$elapsedTimeMsClassLikes =
+		$elapsedTimeMsConstants  =
+		$elapsedTimeMsFunctions  = 0;
 
-		loadPHPClassLikes($this);
-		loadPHPConstants($this);
-		loadPHPFunctions($this);
+		$elapsedTimeMs = EVMTimingStatistics::measure(
+			function() use (
+				&$elapsedTimeMsClassLikes,
+				&$elapsedTimeMsConstants,
+				&$elapsedTimeMsFunctions
+			) : void {
+				$elapsedTimeMsClassLikes = EVMTimingStatistics::measure(
+					fn () => loadPHPClassLikes($this)
+				);
 
-		$elapsedTimeMs = (\hrtime(true) - $start) / 1E6;
+				$elapsedTimeMsConstants = EVMTimingStatistics::measure(
+					fn () => loadPHPConstants($this)
+				);
+
+				$elapsedTimeMsFunctions = EVMTimingStatistics::measure(
+					fn () => loadPHPFunctions($this)
+				);
+			}
+		);
 
 		$this->statistics = new EVMStatistics(
-			elapsedTimeMs          : $elapsedTimeMs,
+			timing: new EVMTimingStatistics(
+				elapsedTimeMsClassLikes: $elapsedTimeMsClassLikes,
+				elapsedTimeMsConstants : $elapsedTimeMsConstants,
+				elapsedTimeMsFunctions : $elapsedTimeMsFunctions,
+				elapsedTimeMs          : $elapsedTimeMs
+			),
+
 			nLoadedNamespaces      : \count($this->manual->getNamespaces()),
 			nLoadedClasses         : \count($this->manual->getClasses()),
 			nLoadedInterfaces      : \count($this->manual->getInterfaces()),

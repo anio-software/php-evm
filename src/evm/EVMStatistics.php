@@ -4,7 +4,7 @@ namespace AnioSoftware\EVM;
 
 final readonly class EVMStatistics {
 	public function __construct(
-		public int|float $elapsedTimeMs,
+		public EVMTimingStatistics $timing,
 		public int $nLoadedNamespaces,
 		public int $nLoadedClasses,
 		public int $nLoadedInterfaces,
@@ -15,9 +15,16 @@ final readonly class EVMStatistics {
 	) {}
 
 	public function toString(): string {
-		$elapsed = (int)$this->elapsedTimeMs;
+		$elapsed    = (int)$this->timing->elapsedTimeMs;
+		$classLikes = (int)$this->timing->elapsedTimeMsClassLikes;
+		$constants  = (int)$this->timing->elapsedTimeMsConstants;
+		$functions  = (int)$this->timing->elapsedTimeMsFunctions;
 
 		$str  = "Took {$elapsed}ms to fully load PHP manual:\n";
+
+		$str .= "Spent {$classLikes}ms for class likes\n";
+		$str .= "Spent {$constants}ms for constants\n";
+		$str .= "Spent {$functions}ms for functions\n";
 
 		$str .= "Loaded ".$this->nLoadedNamespaces." namespaces\n";
 		$str .= "Loaded ".$this->nLoadedClasses." classes\n";
