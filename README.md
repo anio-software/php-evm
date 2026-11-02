@@ -183,7 +183,6 @@ Loaded 4853 constants
 
 > [!WARNING]
 > This project and its API are a work in progress. The API is currently **NOT stable** and may change at any time without notice.
->
 > Do not rely on it in production environments.
 
 ### Type Hierarchy
