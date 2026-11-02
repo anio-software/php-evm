@@ -4,11 +4,12 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPConstant extends PHPDefinition {
 	private function __construct(
+		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
 		string $referenceId,
 		string $name
 	) {
-		parent::__construct($namespace, $referenceId, $name);
+		parent::__construct($metadata, $namespace, $referenceId, $name);
 	}
 
 	public function getDefinitionKind(): PHPDefinitionKind {
@@ -16,10 +17,11 @@ final readonly class PHPConstant extends PHPDefinition {
 	}
 
 	static public function create(
+		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
 		string $referenceId,
 		string $name
 	): self {
-		return new self($namespace, $referenceId, $name);
+		return new self($metadata, $namespace, $referenceId, $name);
 	}
 }
