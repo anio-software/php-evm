@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\XML;
 
 final class NamespaceMatcher {
+	static private ?self $nullMatcher = NULL;
+
 	private function __construct(
 		private NamespaceMatcherPolicy $policy,
 		private string|null $ns = NULL
@@ -33,6 +35,14 @@ final class NamespaceMatcher {
 	}
 
 	static public function specific(string|null $ns): self {
+		if ($ns === NULL) {
+			if (self::$nullMatcher === NULL) {
+				self::$nullMatcher = new self(NamespaceMatcherPolicy::kSpecific, NULL);
+			}
+
+			return self::$nullMatcher;
+		}
+
 		return new self(NamespaceMatcherPolicy::kSpecific, $ns);
 	}
 }
