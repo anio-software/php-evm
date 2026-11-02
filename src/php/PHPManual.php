@@ -132,13 +132,34 @@ final class PHPManual implements \JsonSerializable {
 		\DOMDocument $doc,
 		string $docBookTagName
 	): array {
-		return XML\select(
-			$doc->documentElement,
-			new XML\AndSelector(
-				$this->elementSelectorFactory($docBookTagName),
-				$this->refIdSelectorFactory()
-			)
+//		// this is the initial implementation of this method
+//		// however, testing has shown this is a major bottleneck
+//		// so it's implemented differently.
+//
+//		return XML\select(
+//			$doc->documentElement,
+//			new XML\AndSelector(
+//				$this->elementSelectorFactory($docBookTagName),
+//				$this->refIdSelectorFactory()
+//			)
+//		);
+
+		// this is ~4.5 times faster
+		$elements = $doc->getElementsByTagNameNS(
+			$this->docBookNamespace, $docBookTagName
 		);
+
+		$arr = [];
+
+		foreach ($elements as $element) {
+			if (!$element->hasAttributeNS($this->xmlIdNamespace, "id")) {
+				continue;
+			}
+
+			$arr[] = $element;
+		}
+
+		return $arr;
 	}
 
 	public function jsonSerialize(): mixed {
