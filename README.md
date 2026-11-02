@@ -1,6 +1,7 @@
 # 🐘 EVM - Easy Virtual Manual
 
 EVM is a small library that makes it easy to access the official PHP manual programmatically.
+EVM provides an object-oriented API for navigating the PHP manual and inspecting definitions, parameters, and types.
 
 > [!WARNING]
 > This project and its API are a work in progress. The API is currently **NOT stable** and may change at any time without notice.
@@ -13,7 +14,6 @@ The examples below assume you already have the [PHP's documentation in XML forma
 
 ### ⚙️ Example: inspect PHP functions
 
-EVM provides an object-oriented API for navigating the PHP manual and inspecting definitions, parameters, and types.
 The following example demonstrates how to retrieve a function and inspect its signature and parameters:
 
 ```php
