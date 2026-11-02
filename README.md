@@ -7,30 +7,6 @@ EVM is a small library that makes it easy to access the official PHP manual prog
 >
 > Do not rely on it in production environments.
 
-## Type Hierarchy
-
-```
-├── PHPFunctionParameter
-├── PHPManual
-├── PHPNamespace
-├── PHPReference
-│   └── PHPDefinition
-│       ├── PHPClass
-│       ├── PHPConstant
-│       ├── PHPEnum
-│       ├── PHPFunction
-│       ├── PHPFunctionAlias
-│       └── PHPInterface
-└── PHPType
-    ├── PHPBuiltinType
-    ├── PHPNamedType
-    ├── PHPTypeCollection
-    │   ├── PHPIntersectionType
-    │   └── PHPUnionType
-    ├── PHPUnknownType
-    └── PHPUnspecifiedType
-```
-
 ## Examples
 
 The examples below assume you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).
@@ -206,4 +182,30 @@ Loaded 4853 constants
         "kind": "string"
     }
 }
+```
+
+## API
+
+### Type Hierarchy
+
+```
+├── PHPFunctionParameter
+├── PHPManual
+├── PHPNamespace
+├── PHPReference
+│   └── PHPDefinition
+│       ├── PHPClass
+│       ├── PHPConstant
+│       ├── PHPEnum
+│       ├── PHPFunction
+│       ├── PHPFunctionAlias
+│       └── PHPInterface
+└── PHPType
+    ├── PHPBuiltinType
+    ├── PHPNamedType
+    ├── PHPTypeCollection
+    │   ├── PHPIntersectionType
+    │   └── PHPUnionType
+    ├── PHPUnknownType
+    └── PHPUnspecifiedType
 ```
