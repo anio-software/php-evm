@@ -30,8 +30,9 @@ final class PHPNamespace implements \JsonSerializable {
 		}
 
 		$pieces = \array_reverse($pieces);
+		$str = \implode("\\", $pieces);
 
-		return \implode("\\", $pieces);
+		return \count($pieces) ? "\\$str" : $str;
 	}
 
 	public function getParent(): ?self {
