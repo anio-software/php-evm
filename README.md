@@ -32,6 +32,18 @@ The examples below assume you already have the [PHP's documentation in XML forma
 
 ### Example: convert to JSON
 
+> [!NOTE]
+> At the moment, the JSON representation does not include all information from the PHP manual.
+> Some elements, such as class methods, are still missing or not completely represented.
+
+The PHP manual is easier for machines to consume in JSON format than XML because JSON offers a simpler, more lightweight, and predictable data structure.
+Its key-value format makes it straightforward to process and extract information.
+JSON is also natively supported by most modern programming languages, making it easier to integrate with scripts, developer tools, and automated systems.
+
+**Unfortunately, the PHP reference manual is not distributed in JSON format.**
+
+The following example demonstrates how to convert the existing XML manual into JSON:
+
 ```php
 <?php
 
