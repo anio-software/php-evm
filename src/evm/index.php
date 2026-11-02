@@ -12,6 +12,7 @@ require_once __DIR__."/EVMContext.php";
 
 require_once __DIR__."/getPHPDocAttribute.php";
 require_once __DIR__."/getPHPExtensionMembershipFromDOMElement.php";
+require_once __DIR__."/getBookIdFromDOMElement.php";
 require_once __DIR__."/createPHPDefinitionMetadataFromDOMElement.php";
 require_once __DIR__."/createPHPTypeFromDOMElement.php";
 require_once __DIR__."/loadPHPClassLikes.php";
