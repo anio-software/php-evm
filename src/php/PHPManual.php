@@ -143,6 +143,12 @@ final class PHPManual implements \JsonSerializable {
 
 	public function jsonSerialize(): mixed {
 		return [
+			"enums" => [
+				"typeKind"            => PHPTypeKind::cases(),
+				"builtinTypeKind"     => PHPBuiltinTypeKind::cases(),
+				"definitionKind"      => PHPDefinitionKind::cases(),
+				"extensionMembership" => PHPExtensionMembership::cases()
+			],
 			"globalNamespace" => $this->globalNamespace
 		];
 	}
