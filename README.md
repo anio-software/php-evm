@@ -2,6 +2,30 @@
 
 EVM (**E**asy **V**irtual **M**anual) is a small library that makes it easy to access the official PHP manual programmatically.
 
+## Type Hierarchy
+
+```
+├── PHPFunctionParameter
+├── PHPManual
+├── PHPNamespace
+├── PHPReference
+│   └── PHPDefinition
+│       ├── PHPClass
+│       ├── PHPConstant
+│       ├── PHPEnum
+│       ├── PHPFunction
+│       ├── PHPFunctionAlias
+│       └── PHPInterface
+└── PHPType
+    ├── PHPBuiltinType
+    ├── PHPNamedType
+    ├── PHPTypeCollection
+    │   ├── PHPIntersectionType
+    │   └── PHPUnionType
+    ├── PHPUnknownType
+    └── PHPUnspecifiedType
+```
+
 ## Example: convert to JSON
 
 (This example assumes you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).)
