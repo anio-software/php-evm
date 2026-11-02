@@ -107,7 +107,7 @@ Union type member: int
 
 This example illustrates how EVM exposes PHP manual definitions as objects, allowing applications to inspect function signatures, parameter types, default values, and return types without having to parse the XML documentation themselves.
 
-### Example: convert to JSON
+### 🧩 Example: convert to JSON
 
 > [!NOTE]
 > At the moment, the JSON representation does not include all information from the PHP manual.
