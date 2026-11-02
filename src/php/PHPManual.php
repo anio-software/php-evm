@@ -6,12 +6,18 @@ use AnioSoftware\EVM\XML as XML;
 
 final class PHPManual implements \JsonSerializable {
 	private array $elementSelectorFactoryCache = [];
+	readonly private XML\AttributeSelector $refIdSelector;
 
 	public function __construct(
 		readonly private PHPNamespace $globalNamespace,
 		readonly private string $xmlIdNamespace,
 		readonly private string $docBookNamespace
-	) {}
+	) {
+		$this->refIdSelector = new XML\AttributeSelector(
+			XML\NamespaceMatcher::specific($this->xmlIdNamespace),
+			"id"
+		);
+	}
 
 	public function getGlobalNamespace(): PHPNamespace {
 		return $this->globalNamespace;
@@ -124,10 +130,7 @@ final class PHPManual implements \JsonSerializable {
 	}
 
 	public function refIdSelectorFactory(): XML\AttributeSelector {
-		return new XML\AttributeSelector(
-			XML\NamespaceMatcher::specific($this->xmlIdNamespace),
-			"id"
-		);
+		return $this->refIdSelector;
 	}
 
 	public function getRefIdAttribute(\DOMElement $el): string {
