@@ -9,4 +9,14 @@ final readonly class EVMTimingStatistics {
 		public int|float $elapsedTimeMsFunctions,
 		public int|float $elapsedTimeMs,
 	) {}
+
+	static public function measure(callable $fn): float {
+		$start = \hrtime(true);
+
+		$fn();
+
+		$elapsed = \hrtime(true) - $start;
+
+		return ($elapsed / 1E6);
+	}
 }
