@@ -84,7 +84,8 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 		$name = \strlen($namespace) ? "$namespace\\$name" : $name;
 		$qualifier = $ctx->manual->parseQualifiedName($name);
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$inst = $class::create($ns, $refId, $qualifier["localName"]);
+		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $reference);
+		$inst = $class::create($metadata, $ns, $refId, $qualifier["localName"]);
 
 		$ns->addDefinition($inst);
 	}
