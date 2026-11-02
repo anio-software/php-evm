@@ -33,6 +33,17 @@ echo \json_encode($context->manual, JSON_PRETTY_PRINT)."\n";
 
 Example output:
 
+```
+Took 3752ms to fully load PHP manual:
+Loaded 63 namespaces
+Loaded 767 classes
+Loaded 30 interfaces
+Loaded 8 enums
+Loaded 3399 functions
+Loaded 182 function aliases
+Loaded 4853 constants
+```
+
 ```json
 "str_pad": {
     "definitionMetadata": {
