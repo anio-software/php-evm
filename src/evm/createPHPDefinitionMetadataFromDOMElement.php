@@ -7,8 +7,7 @@ function createPHPDefinitionMetadataFromDOMElement(
 	\DOMElement $el
 ): PHP\PHPDefinitionMetadata {
 	$extensionMembership = getPHPExtensionMembershipFromDOMElement($el);
+	$bookId = getBookIdFromDOMElement($ctx, $el);
 
-	return new PHP\PHPDefinitionMetadata(
-		$extensionMembership, NULL
-	);
+	return new PHP\PHPDefinitionMetadata($extensionMembership, $bookId);
 }
