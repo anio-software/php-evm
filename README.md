@@ -26,9 +26,11 @@ EVM (**E**asy **V**irtual **M**anual) is a small library that makes it easy to a
     └── PHPUnspecifiedType
 ```
 
-## Example: convert to JSON
+## Examples
 
-(This example assumes you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).)
+The examples below assume you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).
+
+### Example: convert to JSON
 
 ```php
 #!/usr/bin/env php
