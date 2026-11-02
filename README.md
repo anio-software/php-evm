@@ -33,6 +33,10 @@ Example output:
 
 ```json
 "str_pad": {
+    "definitionMetadata": {
+        "extensionMembership": "core",
+        "bookId": "book.strings"
+    },
     "definitionKind": "function",
     "namespace": "",
     "referenceId": "function.str-pad",
