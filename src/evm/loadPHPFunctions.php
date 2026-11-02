@@ -161,10 +161,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 		}
 
 		if (\str_starts_with(\strtolower(\trim($refpurpose->textContent)), "alias of")) {
-			$el = XML\selectFirstMatchingChild(
-				$refpurpose,
-				$orSelector
-			);
+			$el = XML\selectFirstMatchingChild($refpurpose, $orSelector);
 
 			if (!$el) {
 				$diagnostics->addWarning("no <function> or <methodname> tag for $refId");

@@ -37,10 +37,7 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 			$namespace = $package->textContent;
 		}
 
-		$synopsis = XML\selectFirstMatchingDescendant(
-			$reference,
-			$orSelector
-		);
+		$synopsis = XML\selectFirstMatchingDescendant($reference, $orSelector);
 
 		if (!$synopsis) {
 			$diagnostics->addWarning("no classsynopsis or enumsynopsis for $refId");
