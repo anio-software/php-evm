@@ -1,5 +1,8 @@
 <?php
 
+require_once __DIR__."/../xml/index.php";
+require_once __DIR__."/../php/index.php";
+
 require_once __DIR__."/EVMDiagnosticMessageSeverity.php";
 require_once __DIR__."/EVMDiagnosticMessageOrigin.php";
 require_once __DIR__."/EVMDiagnosticMessage.php";
