@@ -4,12 +4,13 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunctionAlias extends PHPDefinition {
 	private function __construct(
+		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
 		string $referenceId,
 		string $name,
 		public string $originalName
 	) {
-		parent::__construct($namespace, $referenceId, $name);
+		parent::__construct($metadata, $namespace, $referenceId, $name);
 	}
 
 	public function getDefinitionKind(): PHPDefinitionKind {
@@ -17,12 +18,13 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 	}
 
 	static public function create(
+		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
 		string $referenceId,
 		string $name,
 		string $originalName
 	): self {
-		return new self($namespace, $referenceId, $name, $originalName);
+		return new self($metadata, $namespace, $referenceId, $name, $originalName);
 	}
 
 	public function jsonSerialize(): mixed {
