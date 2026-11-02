@@ -4,6 +4,8 @@
 
 ### Example: convert to JSON
 
+(This example assumes you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).)
+
 ```php
 #!/usr/bin/env php
 <?php
