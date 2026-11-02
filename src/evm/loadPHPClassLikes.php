@@ -8,6 +8,11 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 		$ctx->doc, "reference"
 	);
 
+	$orSelector = new XML\OrSelector(
+		$ctx->manual->elementSelectorFactory("classsynopsis"),
+		$ctx->manual->elementSelectorFactory("enumsynopsis"),
+	);
+
 	foreach ($references as $reference) {
 		$refId = $ctx->manual->getRefIdAttribute($reference);
 
@@ -34,10 +39,7 @@ function loadPHPClassLikes(EVMContext $ctx): void {
 
 		$synopsis = XML\selectFirstMatchingDescendant(
 			$reference,
-			new XML\OrSelector(
-				$ctx->manual->elementSelectorFactory("classsynopsis"),
-				$ctx->manual->elementSelectorFactory("enumsynopsis"),
-			)
+			$orSelector
 		);
 
 		if (!$synopsis) {
