@@ -11,7 +11,7 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 	private function __construct(
 		public string $name,
 		public PHPType $type,
-		public string|null $initializer,
+		public ?PHPExpression $initializer,
 		public int $flags
 	) {}
 
@@ -44,7 +44,7 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 		string $name,
 		PHPType $type,
 		bool $isReference,
-		string|null $initializer = NULL,
+		?PHPExpression $initializer = NULL,
 		bool $isVariadic = false
 	): self {
 		$isOptional = $initializer !== NULL;
