@@ -161,7 +161,10 @@ Loaded 4853 constants
                 "typeKind": "builtin",
                 "kind": "string"
             },
-            "initializer": "\" \"",
+            "initializer": {
+                "expressionKind": "raw",
+                "code": "\" \""
+            },
             "flags": 1
         },
         {
@@ -170,7 +173,10 @@ Loaded 4853 constants
                 "typeKind": "builtin",
                 "kind": "int"
             },
-            "initializer": "STR_PAD_RIGHT",
+            "initializer": {
+                "expressionKind": "raw",
+                "code": "STR_PAD_RIGHT"
+            },
             "flags": 129
         }
     ],
