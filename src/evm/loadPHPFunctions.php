@@ -22,14 +22,14 @@ function getFunctionParameterInt(
 		);
 
 		if ($el) {
-			$initializer = \trim($el->textContent);
+			$initializer = PHP\parsePHPFunctionParameterInitializer($el->textContent);
 		}
 	}
 
 	if ($isOptional && $initializer === NULL) {
 		$diagnostics->addWarning("isOptional and initializer is NULL for $refId");
 
-		$initializer = "?";
+		$initializer = PHP\PHPPlaceholderExpression::instance();
 	}
 
 	return PHP\PHPFunctionParameter::create(
