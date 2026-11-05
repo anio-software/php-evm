@@ -19,6 +19,10 @@ final readonly class PHPRawExpression extends PHPExpression {
 		return $this->code;
 	}
 
+	public function isRepresentableInCode(): bool {
+		return true;
+	}
+
 	public function jsonSerialize(): mixed {
 		return [
 			...parent::jsonSerialize(),

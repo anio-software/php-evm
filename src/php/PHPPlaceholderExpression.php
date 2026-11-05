@@ -13,6 +13,10 @@ final readonly class PHPPlaceholderExpression extends PHPExpression {
 		return "?";
 	}
 
+	public function isRepresentableInCode(): bool {
+		return false;
+	}
+
 	static public function instance(): self {
 		static $instance = NULL;
 

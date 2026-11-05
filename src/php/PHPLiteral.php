@@ -9,6 +9,10 @@ abstract readonly class PHPLiteral extends PHPExpression {
 		$this->value = $value;
 	}
 
+	final public function isRepresentableInCode(): bool {
+		return true;
+	}
+
 	final public function getValue(): mixed {
 		return $this->value;
 	}
