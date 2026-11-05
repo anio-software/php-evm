@@ -41,7 +41,7 @@ foreach ($function->getParameters() as $parameter) {
 	echo " of type '".$parameter->type->render()."'";
 
 	if ($parameter->initializer !== NULL) {
-		echo " with initializer = ".$parameter->initializer;
+		echo " with initializer = ".$parameter->initializer->render();
 	}
 
 	echo "\n";
