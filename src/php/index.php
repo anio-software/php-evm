@@ -23,6 +23,7 @@ require_once __DIR__."/getRenderability.php";
 
 require_once __DIR__."/PHPExpressionKind.php";
 require_once __DIR__."/PHPExpression.php";
+require_once __DIR__."/PHPLiteralKind.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
 require_once __DIR__."/PHPFunction.php";
