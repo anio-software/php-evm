@@ -21,6 +21,8 @@ require_once __DIR__."/Renderability.php";
 require_once __DIR__."/getFunctionRenderability.php";
 require_once __DIR__."/getRenderability.php";
 
+require_once __DIR__."/PHPExpressionKind.php";
+
 require_once __DIR__."/PHPFunctionParameter.php";
 require_once __DIR__."/PHPFunction.php";
 require_once __DIR__."/PHPFunctionAlias.php";
