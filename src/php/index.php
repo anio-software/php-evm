@@ -28,6 +28,7 @@ require_once __DIR__."/PHPLiteral.php";
 require_once __DIR__."/PHPNullLiteral.php";
 require_once __DIR__."/PHPBooleanLiteral.php";
 require_once __DIR__."/PHPPlaceholderExpression.php";
+require_once __DIR__."/PHPRawExpression.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
 require_once __DIR__."/PHPFunction.php";
