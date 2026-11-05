@@ -22,7 +22,8 @@ abstract readonly class PHPLiteral extends PHPExpression {
 	final public function jsonSerialize(): mixed {
 		return [
 			...parent::jsonSerialize(),
-			"literalKind" => $this->getLiteralKind()
+			"literalKind" => $this->getLiteralKind(),
+			"value"       => $this->value
 		];
 	}
 }
