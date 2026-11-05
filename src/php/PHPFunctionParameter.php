@@ -96,13 +96,13 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 		$ret .= "\$".$this->name;
 
 		if ($initializer && $this->initializer !== NULL) {
-			if ($this->initializer instanceof PHPPlaceholderExpression) {
+			if (!$this->initializer->isRepresentableInCode()) {
 				$ret .= "/*";
 			}
 
 			$ret .= " = ".$this->initializer->render();
 
-			if ($this->initializer instanceof PHPPlaceholderExpression) {
+			if (!$this->initializer->isRepresentableInCode()) {
 				$ret .= " */";
 			}
 		}
