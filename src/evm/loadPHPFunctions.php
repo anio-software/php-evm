@@ -14,6 +14,13 @@ function getFunctionParameterInt(
 	$isOptional    = $methodparam->attributes->getNamedItem("choice")?->value === "opt";
 	$isVariadic    = $methodparam->attributes->getNamedItem("rep")?->value === "repeat";
 	$initializer   = NULL;
+	$parameterType = createPHPTypeFromDOMElement(
+		$ctx,
+		XML\selectFirstMatchingChild(
+			$methodparam,
+			$ctx->manual->elementSelectorFactory("type")
+		)
+	);
 
 	if ($isOptional) {
 		$el = XML\selectFirstMatchingChild(
@@ -34,13 +41,7 @@ function getFunctionParameterInt(
 
 	return PHP\PHPFunctionParameter::create(
 		$parameterName,
-		createPHPTypeFromDOMElement(
-			$ctx,
-			XML\selectFirstMatchingChild(
-				$methodparam,
-				$ctx->manual->elementSelectorFactory("type")
-			)
-		),
+		$parameterType,
 		$isReference,
 		$initializer,
 		$isVariadic
