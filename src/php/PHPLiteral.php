@@ -5,7 +5,9 @@ namespace AnioSoftware\EVM\PHP;
 abstract readonly class PHPLiteral extends PHPExpression {
 	final protected mixed $value;
 
-	public function __construct(mixed $value) {
+	public function __construct(mixed $value, ?string $sourceCode = NULL) {
+		parent::__construct($sourceCode);
+
 		$this->value = $value;
 	}
 
