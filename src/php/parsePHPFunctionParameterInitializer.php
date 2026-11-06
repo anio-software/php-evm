@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 function parsePHPFunctionParameterInitializer(
-	string $string
+	?PHPType $parameterType, string $string
 ): PHPExpression {
 	$normalized = \trim(\strtolower($string));
 

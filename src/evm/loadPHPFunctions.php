@@ -29,7 +29,10 @@ function getFunctionParameterInt(
 		);
 
 		if ($el) {
-			$initializer = PHP\parsePHPFunctionParameterInitializer($el->textContent);
+			$initializer = PHP\parsePHPFunctionParameterInitializer(
+				$parameterType,
+				$el->textContent
+			);
 		}
 	}
 
