@@ -18,8 +18,14 @@ abstract readonly class PHPExpression implements \JsonSerializable {
 	abstract public function isRepresentableInCode(): bool;
 
 	public function jsonSerialize(): mixed {
-		return [
+		$arr = [
 			"expressionKind" => $this->getExpressionKind()
 		];
+
+		if ($this->sourceCode !== NULL) {
+			$arr["sourceCode"] = $this->sourceCode;
+		}
+
+		return $arr;
 	}
 }
