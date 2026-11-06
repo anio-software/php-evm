@@ -3,7 +3,9 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPPlaceholderExpression extends PHPExpression {
-	private function __construct() {}
+	private function __construct() {
+		parent::__construct(NULL);
+	}
 
 	public function getExpressionKind(): PHPExpressionKind {
 		return PHPExpressionKind::kPlaceholder;
