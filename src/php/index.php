@@ -30,6 +30,7 @@ require_once __DIR__."/PHPBooleanLiteral.php";
 require_once __DIR__."/PHPPlaceholderExpression.php";
 require_once __DIR__."/PHPRawExpression.php";
 require_once __DIR__."/PHPNumberRadix.php";
+require_once __DIR__."/PHPNumberLiteral.php";
 require_once __DIR__."/parsePHPFunctionParameterInitializer.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
