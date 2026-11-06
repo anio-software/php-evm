@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPExpression implements \JsonSerializable {
-	final private ?string $sourceCode;
+	private ?string $sourceCode;
 
 	public function __construct(?string $sourceCode = NULL) {
 		$this->sourceCode = $sourceCode;
