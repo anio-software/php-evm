@@ -112,10 +112,10 @@ echo \json_encode($context->manual, JSON_PRETTY_PRINT)."\n";
 Example output:
 
 ```
-Took 759ms to fully load PHP manual:
-Spent 496ms for class likes
-Spent 81ms for constants
-Spent 181ms for functions
+Took 806ms to fully load PHP manual:
+Spent 517ms for class likes
+Spent 85ms for constants
+Spent 197ms for functions
 Loaded 63 namespaces
 Loaded 767 classes
 Loaded 30 interfaces
