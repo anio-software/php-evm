@@ -7,6 +7,7 @@ use AnioSoftware\EVM\XML as XML;
 final class PHPManual implements \JsonSerializable {
 	private array $elementSelectorFactoryCache = [];
 	readonly private XML\AttributeSelector $refIdSelector;
+	private ?PHPManualIndex $index = NULL;
 
 	public function __construct(
 		readonly private PHPNamespace $globalNamespace,
@@ -17,6 +18,12 @@ final class PHPManual implements \JsonSerializable {
 			XML\NamespaceMatcher::specific($this->xmlIdNamespace),
 			"id"
 		);
+	}
+
+	public function buildIndex(): PHPManualIndex {
+		$this->index = new PHPManualIndex($this);
+
+		return $this->index;
 	}
 
 	public function getGlobalNamespace(): PHPNamespace {
