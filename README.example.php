@@ -11,7 +11,7 @@ $context = new EVM\EVMContext($options);
 $context->loadPHPManual();
 
 // Retrieve a function from the manual.
-$function = $context->manual->getGlobalNamespace()->getFunctions()["strpos"];
+$function = $context->getPHPManualIndex()->getFunctions()["\\strpos"];
 
 // Print the function signature.
 echo "Signature: ".$function->renderSignature()."\n\n";
