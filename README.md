@@ -163,7 +163,7 @@ Loaded 4853 constants
             },
             "initializer": {
                 "expressionKind": "raw",
-                "code": "\" \""
+                "sourceCode": "\" \""
             },
             "flags": 1
         },
@@ -174,8 +174,18 @@ Loaded 4853 constants
                 "kind": "int"
             },
             "initializer": {
-                "expressionKind": "raw",
-                "code": "STR_PAD_RIGHT"
+                "expressionKind": "constantFetch",
+                "constant": {
+                    "definitionMetadata": {
+                        "extensionMembership": "core",
+                        "bookId": "book.strings"
+                    },
+                    "definitionKind": "constant",
+                    "namespace": "",
+                    "referenceId": "constant.str-pad-right",
+                    "name": "STR_PAD_RIGHT",
+                    "fullyQualifiedName": "\\STR_PAD_RIGHT"
+                }
             },
             "flags": 129
         }
