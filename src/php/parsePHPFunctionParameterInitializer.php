@@ -3,6 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 function parsePHPFunctionParameterInitializer(
+	?PHPManualIndex $index,
 	?PHPType $parameterType,
 	string $string
 ): PHPExpression {
@@ -26,6 +27,12 @@ function parsePHPFunctionParameterInitializer(
 		return PHPBooleanLiteral::instance(false);
 	} else if ($normalized === "?") {
 		return PHPPlaceholderExpression::instance();
+	}
+
+	$constants = $index?->getConstants() ?? [];
+
+	if (\array_key_exists("\\$string", $constants)) {
+		return new PHPConstantFetchExpression($constants["\\$string"]);
 	}
 
 	return new PHPRawExpression($string);
