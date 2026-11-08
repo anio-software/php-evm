@@ -12,7 +12,7 @@ $statistics = $context->loadPHPManual();
 
 \fwrite(\STDERR, $statistics->toString());
 
-foreach ($context->manual->getFunctions() as $fn) {
+foreach ($context->getPHPManualIndex()->getFunctions() as $fn) {
 	$renderability = PHP\getRenderability($fn);
 
 	if ($renderability === PHP\Renderability::kRenderable) {
