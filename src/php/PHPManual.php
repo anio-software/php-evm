@@ -30,64 +30,6 @@ final class PHPManual implements \JsonSerializable {
 		return $this->globalNamespace;
 	}
 
-	public function getDefinitionsOfKind(PHPDefinitionKind $kind): array {
-		$arr = [];
-
-		visitNamespace(
-			$this->globalNamespace,
-			static function($node) use ($kind, &$arr): void {
-				if (!($node instanceof PHPDefinition)) {
-					return;
-				} else if ($node->getDefinitionKind() !== $kind) {
-					return;
-				}
-
-				$arr[] = $node;
-			},
-			PHPNamespaceVisitFlags::VisitAll
-		);
-
-		return $arr;
-	}
-
-	public function getNamespaces(): array {
-		$arr = [];
-
-		visitNamespace(
-			$this->globalNamespace,
-			static function(PHPNamespace $ns) use (&$arr): void {
-				$arr[] = $ns;
-			},
-			PHPNamespaceVisitFlags::VisitNamespaces
-		);
-
-		return $arr;
-	}
-
-	public function getClasses(): array {
-		return $this->getDefinitionsOfKind(PHPDefinitionKind::kClass);
-	}
-
-	public function getInterfaces(): array {
-		return $this->getDefinitionsOfKind(PHPDefinitionKind::kInterface);
-	}
-
-	public function getEnums(): array {
-		return $this->getDefinitionsOfKind(PHPDefinitionKind::kEnum);
-	}
-
-	public function getConstants(): array {
-		return $this->getDefinitionsOfKind(PHPDefinitionKind::kConstant);
-	}
-
-	public function getFunctions(): array {
-		return $this->getDefinitionsOfKind(PHPDefinitionKind::kFunction);
-	}
-
-	public function getFunctionAliases(): array {
-		return $this->getDefinitionsOfKind(PHPDefinitionKind::kFunctionAlias);
-	}
-
 	public function getOrCreateNamespace(string $path): PHPNamespace {
 		if ($path === "") {
 			return $this->globalNamespace;
