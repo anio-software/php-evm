@@ -5,6 +5,7 @@ namespace AnioSoftware\EVM;
 final class EVMContext {
 	readonly public \DOMDocument  $doc;
 	readonly public PHP\PHPManual $manual;
+	private ?PHP\PHPManualIndex $manualIndex = NULL;
 
 	private ?EVMStatistics $statistics = NULL;
 	private array $diagnosticsObjects  = [];
@@ -43,13 +44,19 @@ final class EVMContext {
 					fn () => loadPHPClassLikes($this)
 				);
 
+				$this->manualIndex = $this->manual->buildIndex();
+
 				$elapsedTimeMsConstants = EVMTimingStatistics::measure(
 					fn () => loadPHPConstants($this)
 				);
 
+				$this->manualIndex = $this->manual->buildIndex();
+
 				$elapsedTimeMsFunctions = EVMTimingStatistics::measure(
 					fn () => loadPHPFunctions($this)
 				);
+
+				$this->manualIndex = $this->manual->buildIndex();
 			}
 		);
 
