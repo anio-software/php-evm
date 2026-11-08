@@ -31,12 +31,20 @@ function getFunctionRenderability(PHPFunction $func): Renderability {
 
 		if ($param->type instanceof PHPUnknownType) {
 			return Renderability::kFunctionUnknownParameterType;
-		} else if ($param->initializer === "?") {
+		} else if ($param->initializer instanceof PHPPlaceholderExpression) {
 			return Renderability::kFunctionUnsupportedParameterInitializer;
 		}
 
-		if ($param->initializer !== NULL && \str_starts_with($param->initializer, "ini_get(")) {
-			return Renderability::kFunctionIniGetParameterInitializer;
+		if ($param->initializer instanceof PHPRawExpression) {
+			$initializer = \strtolower(
+				\trim(
+					$param->initializer->getSourceCode()
+				)
+			);
+
+			if (\str_starts_with($initializer, "ini_get(")) {
+				return Renderability::kFunctionIniGetParameterInitializer;
+			}
 		}
 	}
 
