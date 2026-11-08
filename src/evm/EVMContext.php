@@ -25,6 +25,10 @@ final class EVMContext {
 		);
 	}
 
+	public function getPHPManualIndex(): ?PHP\PHPManualIndex {
+		return $this->manualIndex;
+	}
+
 	public function loadPHPManual(): EVMStatistics {
 		if ($this->statistics !== NULL) {
 			return $this->statistics;
