@@ -64299,8 +64299,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "DEBUG_BACKTRACE_PROVIDE_OBJECT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "unspecified",
+                                    "bookId": "appendices"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.debug-backtrace-provide-object",
+                                "name": "DEBUG_BACKTRACE_PROVIDE_OBJECT",
+                                "fullyQualifiedName": "\\DEBUG_BACKTRACE_PROVIDE_OBJECT"
+                            }
                         },
                         "flags": 1
                     },
@@ -64653,8 +64663,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "E_ALL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.errorfunc"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.e-all",
+                                "name": "E_ALL",
+                                "fullyQualifiedName": "\\E_ALL"
+                            }
                         },
                         "flags": 129
                     }
@@ -64746,8 +64766,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "E_USER_NOTICE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.errorfunc"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.e-user-notice",
+                                "name": "E_USER_NOTICE",
+                                "fullyQualifiedName": "\\E_USER_NOTICE"
+                            }
                         },
                         "flags": 129
                     }
@@ -65328,8 +65358,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PHP_OUTPUT_HANDLER_STDFLAGS"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.outcontrol"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.php-output-handler-stdflags",
+                                "name": "PHP_OUTPUT_HANDLER_STDFLAGS",
+                                "fullyQualifiedName": "\\PHP_OUTPUT_HANDLER_STDFLAGS"
+                            }
                         },
                         "flags": 129
                     }
@@ -66695,8 +66735,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "CREDITS_ALL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.info"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.credits-all",
+                                "name": "CREDITS_ALL",
+                                "fullyQualifiedName": "\\CREDITS_ALL"
+                            }
                         },
                         "flags": 129
                     }
@@ -66725,8 +66775,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "INFO_ALL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.info"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.info-all",
+                                "name": "INFO_ALL",
+                                "fullyQualifiedName": "\\INFO_ALL"
+                            }
                         },
                         "flags": 129
                     }
@@ -67863,8 +67923,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "RUNKIT7_ACC_PUBLIC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.runkit7"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.runkit7-acc-public",
+                                "name": "RUNKIT7_ACC_PUBLIC",
+                                "fullyQualifiedName": "\\RUNKIT7_ACC_PUBLIC"
+                            }
                         },
                         "flags": 1
                     },
@@ -68029,8 +68099,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "RUNKIT7_ACC_PUBLIC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.runkit7"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.runkit7-acc-public",
+                                "name": "RUNKIT7_ACC_PUBLIC",
+                                "fullyQualifiedName": "\\RUNKIT7_ACC_PUBLIC"
+                            }
                         },
                         "flags": 1
                     },
@@ -68275,8 +68355,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "ZEND_ACC_PUBLIC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.uopz"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.zend-acc-public",
+                                "name": "ZEND_ACC_PUBLIC",
+                                "fullyQualifiedName": "\\ZEND_ACC_PUBLIC"
+                            }
                         },
                         "flags": 133
                     }
@@ -68556,8 +68646,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PHP_INT_MAX"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "unspecified",
+                                    "bookId": "appendices"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.php-int-max",
+                                "name": "PHP_INT_MAX",
+                                "fullyQualifiedName": "\\PHP_INT_MAX"
+                            }
                         },
                         "flags": 129
                     }
@@ -73418,8 +73518,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "ZLIB_SYNC_FLUSH"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.zlib"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.zlib-sync-flush",
+                                "name": "ZLIB_SYNC_FLUSH",
+                                "fullyQualifiedName": "\\ZLIB_SYNC_FLUSH"
+                            }
                         },
                         "flags": 129
                     }
@@ -73564,8 +73674,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "ZLIB_ENCODING_DEFLATE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.zlib"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.zlib-encoding-deflate",
+                                "name": "ZLIB_ENCODING_DEFLATE",
+                                "fullyQualifiedName": "\\ZLIB_ENCODING_DEFLATE"
+                            }
                         },
                         "flags": 129
                     }
@@ -73672,8 +73792,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "ZLIB_ENCODING_RAW"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.zlib"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.zlib-encoding-raw",
+                                "name": "ZLIB_ENCODING_RAW",
+                                "fullyQualifiedName": "\\ZLIB_ENCODING_RAW"
+                            }
                         },
                         "flags": 129
                     }
@@ -73732,8 +73862,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "ZLIB_ENCODING_GZIP"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.zlib"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.zlib-encoding-gzip",
+                                "name": "ZLIB_ENCODING_GZIP",
+                                "fullyQualifiedName": "\\ZLIB_ENCODING_GZIP"
+                            }
                         },
                         "flags": 129
                     }
@@ -74211,8 +74351,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SEEK_SET"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.filesystem"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.seek-set",
+                                "name": "SEEK_SET",
+                                "fullyQualifiedName": "\\SEEK_SET"
+                            }
                         },
                         "flags": 129
                     }
@@ -74412,8 +74562,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "ZLIB_SYNC_FLUSH"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.zlib"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.zlib-sync-flush",
+                                "name": "ZLIB_SYNC_FLUSH",
+                                "fullyQualifiedName": "\\ZLIB_SYNC_FLUSH"
+                            }
                         },
                         "flags": 129
                     }
@@ -75577,8 +75737,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "MCRYPT_DEV_URANDOM"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.mcrypt"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.mcrypt-dev-urandom",
+                                "name": "MCRYPT_DEV_URANDOM",
+                                "fullyQualifiedName": "\\MCRYPT_DEV_URANDOM"
+                            }
                         },
                         "flags": 129
                     }
@@ -77078,8 +77248,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_ENCODING_SMIME"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-encoding-smime",
+                                "name": "OPENSSL_ENCODING_SMIME",
+                                "fullyQualifiedName": "\\OPENSSL_ENCODING_SMIME"
+                            }
                         },
                         "flags": 129
                     }
@@ -77180,8 +77360,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_ENCODING_SMIME"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-encoding-smime",
+                                "name": "OPENSSL_ENCODING_SMIME",
+                                "fullyQualifiedName": "\\OPENSSL_ENCODING_SMIME"
+                            }
                         },
                         "flags": 1
                     },
@@ -77201,8 +77391,18 @@
                             ]
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_CIPHER_AES_128_CBC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-cipher-aes-128-cbc",
+                                "name": "OPENSSL_CIPHER_AES_128_CBC",
+                                "fullyQualifiedName": "\\OPENSSL_CIPHER_AES_128_CBC"
+                            }
                         },
                         "flags": 129
                     }
@@ -77365,8 +77565,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_ENCODING_SMIME"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-encoding-smime",
+                                "name": "OPENSSL_ENCODING_SMIME",
+                                "fullyQualifiedName": "\\OPENSSL_ENCODING_SMIME"
+                            }
                         },
                         "flags": 1
                     },
@@ -77560,8 +77770,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_ENCODING_SMIME"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-encoding-smime",
+                                "name": "OPENSSL_ENCODING_SMIME",
+                                "fullyQualifiedName": "\\OPENSSL_ENCODING_SMIME"
+                            }
                         },
                         "flags": 129
                     }
@@ -79284,8 +79504,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_CIPHER_AES_128_CBC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-cipher-aes-128-cbc",
+                                "name": "OPENSSL_CIPHER_AES_128_CBC",
+                                "fullyQualifiedName": "\\OPENSSL_CIPHER_AES_128_CBC"
+                            }
                         },
                         "flags": 129
                     }
@@ -80240,8 +80470,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_PKCS1_PADDING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-pkcs1-padding",
+                                "name": "OPENSSL_PKCS1_PADDING",
+                                "fullyQualifiedName": "\\OPENSSL_PKCS1_PADDING"
+                            }
                         },
                         "flags": 1
                     },
@@ -80340,8 +80580,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_PKCS1_PADDING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-pkcs1-padding",
+                                "name": "OPENSSL_PKCS1_PADDING",
+                                "fullyQualifiedName": "\\OPENSSL_PKCS1_PADDING"
+                            }
                         },
                         "flags": 129
                     }
@@ -80418,8 +80668,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_PKCS1_PADDING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-pkcs1-padding",
+                                "name": "OPENSSL_PKCS1_PADDING",
+                                "fullyQualifiedName": "\\OPENSSL_PKCS1_PADDING"
+                            }
                         },
                         "flags": 129
                     }
@@ -80496,8 +80756,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_PKCS1_PADDING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-pkcs1-padding",
+                                "name": "OPENSSL_PKCS1_PADDING",
+                                "fullyQualifiedName": "\\OPENSSL_PKCS1_PADDING"
+                            }
                         },
                         "flags": 1
                     },
@@ -80748,8 +81018,18 @@
                             ]
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_ALGO_SHA1"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-algo-sha1",
+                                "name": "OPENSSL_ALGO_SHA1",
+                                "fullyQualifiedName": "\\OPENSSL_ALGO_SHA1"
+                            }
                         },
                         "flags": 1
                     },
@@ -80882,8 +81162,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_ALGO_MD5"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-algo-md5",
+                                "name": "OPENSSL_ALGO_MD5",
+                                "fullyQualifiedName": "\\OPENSSL_ALGO_MD5"
+                            }
                         },
                         "flags": 129
                     }
@@ -81005,8 +81295,18 @@
                             ]
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "OPENSSL_ALGO_SHA1"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.openssl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.openssl-algo-sha1",
+                                "name": "OPENSSL_ALGO_SHA1",
+                                "fullyQualifiedName": "\\OPENSSL_ALGO_SHA1"
+                            }
                         },
                         "flags": 1
                     },
@@ -85246,8 +85546,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SODIUM_CRYPTO_GENERICHASH_BYTES"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.sodium"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sodium-crypto-generichash-bytes",
+                                "name": "SODIUM_CRYPTO_GENERICHASH_BYTES",
+                                "fullyQualifiedName": "\\SODIUM_CRYPTO_GENERICHASH_BYTES"
+                            }
                         },
                         "flags": 129
                     }
@@ -85285,8 +85595,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SODIUM_CRYPTO_GENERICHASH_BYTES"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.sodium"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sodium-crypto-generichash-bytes",
+                                "name": "SODIUM_CRYPTO_GENERICHASH_BYTES",
+                                "fullyQualifiedName": "\\SODIUM_CRYPTO_GENERICHASH_BYTES"
+                            }
                         },
                         "flags": 129
                     }
@@ -85327,8 +85647,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SODIUM_CRYPTO_GENERICHASH_BYTES"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.sodium"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sodium-crypto-generichash-bytes",
+                                "name": "SODIUM_CRYPTO_GENERICHASH_BYTES",
+                                "fullyQualifiedName": "\\SODIUM_CRYPTO_GENERICHASH_BYTES"
+                            }
                         },
                         "flags": 129
                     }
@@ -85696,8 +86026,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SODIUM_CRYPTO_PWHASH_ALG_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.sodium"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sodium-crypto-pwhash-alg-default",
+                                "name": "SODIUM_CRYPTO_PWHASH_ALG_DEFAULT",
+                                "fullyQualifiedName": "\\SODIUM_CRYPTO_PWHASH_ALG_DEFAULT"
+                            }
                         },
                         "flags": 129
                     }
@@ -86378,8 +86718,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.sodium"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sodium-crypto-secretstream-xchacha20poly1305-tag-message",
+                                "name": "SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE",
+                                "fullyQualifiedName": "\\SODIUM_CRYPTO_SECRETSTREAM_XCHACHA20POLY1305_TAG_MESSAGE"
+                            }
                         },
                         "flags": 129
                     }
@@ -88660,8 +89010,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SQL_CUR_USE_DRIVER"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.uodbc"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sql-cur-use-driver",
+                                "name": "SQL_CUR_USE_DRIVER",
+                                "fullyQualifiedName": "\\SQL_CUR_USE_DRIVER"
+                            }
                         },
                         "flags": 129
                     }
@@ -89884,8 +90244,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SQL_CUR_USE_DRIVER"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.uodbc"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sql-cur-use-driver",
+                                "name": "SQL_CUR_USE_DRIVER",
+                                "fullyQualifiedName": "\\SQL_CUR_USE_DRIVER"
+                            }
                         },
                         "flags": 129
                     }
@@ -94618,8 +94988,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "DBASE_TYPE_DBASE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.dbase"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.dbase-type-dbase",
+                                "name": "DBASE_TYPE_DBASE",
+                                "fullyQualifiedName": "\\DBASE_TYPE_DBASE"
+                            }
                         },
                         "flags": 129
                     }
@@ -97106,8 +97486,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "DB2_PARAM_IN"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.ibm-db2"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.db2-param-in",
+                                "name": "DB2_PARAM_IN",
+                                "fullyQualifiedName": "\\DB2_PARAM_IN"
+                            }
                         },
                         "flags": 1
                     },
@@ -105081,8 +105471,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_DML_EXEC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-dml-exec",
+                                "name": "PGSQL_DML_EXEC",
+                                "fullyQualifiedName": "\\PGSQL_DML_EXEC"
+                            }
                         },
                         "flags": 129
                     }
@@ -105411,8 +105811,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_ASSOC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-assoc",
+                                "name": "PGSQL_ASSOC",
+                                "fullyQualifiedName": "\\PGSQL_ASSOC"
+                            }
                         },
                         "flags": 129
                     }
@@ -105515,8 +105925,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_BOTH"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-both",
+                                "name": "PGSQL_BOTH",
+                                "fullyQualifiedName": "\\PGSQL_BOTH"
+                            }
                         },
                         "flags": 129
                     }
@@ -105804,8 +106224,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_NUM"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-num",
+                                "name": "PGSQL_NUM",
+                                "fullyQualifiedName": "\\PGSQL_NUM"
+                            }
                         },
                         "flags": 129
                     }
@@ -106304,8 +106734,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_ASSOC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-assoc",
+                                "name": "PGSQL_ASSOC",
+                                "fullyQualifiedName": "\\PGSQL_ASSOC"
+                            }
                         },
                         "flags": 129
                     }
@@ -106483,8 +106923,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_DML_EXEC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-dml-exec",
+                                "name": "PGSQL_DML_EXEC",
+                                "fullyQualifiedName": "\\PGSQL_DML_EXEC"
+                            }
                         },
                         "flags": 129
                     }
@@ -106623,8 +107073,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_NOTICE_LAST"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-notice-last",
+                                "name": "PGSQL_NOTICE_LAST",
+                                "fullyQualifiedName": "\\PGSQL_NOTICE_LAST"
+                            }
                         },
                         "flags": 129
                     }
@@ -107058,8 +107518,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SEEK_CUR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.filesystem"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.seek-cur",
+                                "name": "SEEK_CUR",
+                                "fullyQualifiedName": "\\SEEK_CUR"
+                            }
                         },
                         "flags": 129
                     }
@@ -108072,8 +108542,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_STATUS_LONG"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-status-long",
+                                "name": "PGSQL_STATUS_LONG",
+                                "fullyQualifiedName": "\\PGSQL_STATUS_LONG"
+                            }
                         },
                         "flags": 129
                     }
@@ -108143,8 +108623,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_DML_EXEC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-dml-exec",
+                                "name": "PGSQL_DML_EXEC",
+                                "fullyQualifiedName": "\\PGSQL_DML_EXEC"
+                            }
                         },
                         "flags": 1
                     },
@@ -108155,8 +108645,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_ASSOC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-assoc",
+                                "name": "PGSQL_ASSOC",
+                                "fullyQualifiedName": "\\PGSQL_ASSOC"
+                            }
                         },
                         "flags": 129
                     }
@@ -108968,8 +109468,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PGSQL_DML_EXEC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.pgsql"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pgsql-dml-exec",
+                                "name": "PGSQL_DML_EXEC",
+                                "fullyQualifiedName": "\\PGSQL_DML_EXEC"
+                            }
                         },
                         "flags": 129
                     }
@@ -110150,8 +110660,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "CAL_EASTER_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.calendar"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.cal-easter-default",
+                                "name": "CAL_EASTER_DEFAULT",
+                                "fullyQualifiedName": "\\CAL_EASTER_DEFAULT"
+                            }
                         },
                         "flags": 129
                     }
@@ -110202,8 +110722,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "CAL_EASTER_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.calendar"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.cal-easter-default",
+                                "name": "CAL_EASTER_DEFAULT",
+                                "fullyQualifiedName": "\\CAL_EASTER_DEFAULT"
+                            }
                         },
                         "flags": 129
                     }
@@ -110331,8 +110861,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "CAL_DOW_DAYNO"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.calendar"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.cal-dow-dayno",
+                                "name": "CAL_DOW_DAYNO",
+                                "fullyQualifiedName": "\\CAL_DOW_DAYNO"
+                            }
                         },
                         "flags": 129
                     }
@@ -111090,8 +111630,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SUNFUNCS_RET_STRING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.datetime"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sunfuncs-ret-string",
+                                "name": "SUNFUNCS_RET_STRING",
+                                "fullyQualifiedName": "\\SUNFUNCS_RET_STRING"
+                            }
                         },
                         "flags": 1
                     },
@@ -111234,8 +111784,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SUNFUNCS_RET_STRING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.datetime"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sunfuncs-ret-string",
+                                "name": "SUNFUNCS_RET_STRING",
+                                "fullyQualifiedName": "\\SUNFUNCS_RET_STRING"
+                            }
                         },
                         "flags": 1
                     },
@@ -112433,8 +112993,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SEEK_SET"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.filesystem"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.seek-set",
+                                "name": "SEEK_SET",
+                                "fullyQualifiedName": "\\SEEK_SET"
+                            }
                         },
                         "flags": 129
                     }
@@ -112946,8 +113516,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SCANDIR_SORT_ASCENDING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.dir"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.scandir-sort-ascending",
+                                "name": "SCANDIR_SORT_ASCENDING",
+                                "fullyQualifiedName": "\\SCANDIR_SORT_ASCENDING"
+                            }
                         },
                         "flags": 1
                     },
@@ -113027,8 +113607,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FILEINFO_NONE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.fileinfo"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.fileinfo-none",
+                                "name": "FILEINFO_NONE",
+                                "fullyQualifiedName": "\\FILEINFO_NONE"
+                            }
                         },
                         "flags": 1
                     },
@@ -113137,8 +113727,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FILEINFO_NONE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.fileinfo"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.fileinfo-none",
+                                "name": "FILEINFO_NONE",
+                                "fullyQualifiedName": "\\FILEINFO_NONE"
+                            }
                         },
                         "flags": 1
                     },
@@ -113198,8 +113798,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FILEINFO_NONE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.fileinfo"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.fileinfo-none",
+                                "name": "FILEINFO_NONE",
+                                "fullyQualifiedName": "\\FILEINFO_NONE"
+                            }
                         },
                         "flags": 1
                     },
@@ -115102,8 +115712,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SEEK_SET"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.filesystem"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.seek-set",
+                                "name": "SEEK_SET",
+                                "fullyQualifiedName": "\\SEEK_SET"
+                            }
                         },
                         "flags": 129
                     }
@@ -115901,8 +116521,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "INI_SCANNER_NORMAL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.filesystem"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ini-scanner-normal",
+                                "name": "INI_SCANNER_NORMAL",
+                                "fullyQualifiedName": "\\INI_SCANNER_NORMAL"
+                            }
                         },
                         "flags": 129
                     }
@@ -115962,8 +116592,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "INI_SCANNER_NORMAL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.filesystem"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ini-scanner-normal",
+                                "name": "INI_SCANNER_NORMAL",
+                                "fullyQualifiedName": "\\INI_SCANNER_NORMAL"
+                            }
                         },
                         "flags": 129
                     }
@@ -116010,8 +116650,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PATHINFO_ALL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.filesystem"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.pathinfo-all",
+                                "name": "PATHINFO_ALL",
+                                "fullyQualifiedName": "\\PATHINFO_ALL"
+                            }
                         },
                         "flags": 129
                     }
@@ -119809,8 +120459,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "GRAPHEME_EXTR_COUNT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.intl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.grapheme-extr-count",
+                                "name": "GRAPHEME_EXTR_COUNT",
+                                "fullyQualifiedName": "\\GRAPHEME_EXTR_COUNT"
+                            }
                         },
                         "flags": 1
                     },
@@ -120567,8 +121227,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "IDNA_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.intl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.idna-default",
+                                "name": "IDNA_DEFAULT",
+                                "fullyQualifiedName": "\\IDNA_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -120579,8 +121249,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "INTL_IDNA_VARIANT_UTS46"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.intl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.intl-idna-variant-uts46",
+                                "name": "INTL_IDNA_VARIANT_UTS46",
+                                "fullyQualifiedName": "\\INTL_IDNA_VARIANT_UTS46"
+                            }
                         },
                         "flags": 1
                     },
@@ -120649,8 +121329,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "IDNA_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.intl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.idna-default",
+                                "name": "IDNA_DEFAULT",
+                                "fullyQualifiedName": "\\IDNA_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -120661,8 +121351,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "INTL_IDNA_VARIANT_UTS46"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.intl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.intl-idna-variant-uts46",
+                                "name": "INTL_IDNA_VARIANT_UTS46",
+                                "fullyQualifiedName": "\\INTL_IDNA_VARIANT_UTS46"
+                            }
                         },
                         "flags": 1
                     },
@@ -123312,8 +124012,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "STR_PAD_RIGHT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.strings"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.str-pad-right",
+                                "name": "STR_PAD_RIGHT",
+                                "fullyQualifiedName": "\\STR_PAD_RIGHT"
+                            }
                         },
                         "flags": 1
                     },
@@ -129055,8 +129765,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "IMG_CROP_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.image"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.img-crop-default",
+                                "name": "IMG_CROP_DEFAULT",
+                                "fullyQualifiedName": "\\IMG_CROP_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -130223,8 +130943,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "IMG_GD2_RAW"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.image"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.img-gd2-raw",
+                                "name": "IMG_GD2_RAW",
+                                "fullyQualifiedName": "\\IMG_GD2_RAW"
+                            }
                         },
                         "flags": 129
                     }
@@ -131268,8 +131998,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "IMG_BILINEAR_FIXED"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.image"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.img-bilinear-fixed",
+                                "name": "IMG_BILINEAR_FIXED",
+                                "fullyQualifiedName": "\\IMG_BILINEAR_FIXED"
+                            }
                         },
                         "flags": 129
                     }
@@ -131425,8 +132165,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "IMG_BILINEAR_FIXED"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.image"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.img-bilinear-fixed",
+                                "name": "IMG_BILINEAR_FIXED",
+                                "fullyQualifiedName": "\\IMG_BILINEAR_FIXED"
+                            }
                         },
                         "flags": 129
                     }
@@ -135156,8 +135906,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SE_FREE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.imap"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.se-free",
+                                "name": "SE_FREE",
+                                "fullyQualifiedName": "\\SE_FREE"
+                            }
                         },
                         "flags": 1
                     },
@@ -135588,8 +136348,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SE_FREE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.imap"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.se-free",
+                                "name": "SE_FREE",
+                                "fullyQualifiedName": "\\SE_FREE"
+                            }
                         },
                         "flags": 129
                     }
@@ -137648,8 +138418,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "GMP_ROUND_ZERO"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.gmp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.gmp-round-zero",
+                                "name": "GMP_ROUND_ZERO",
+                                "fullyQualifiedName": "\\GMP_ROUND_ZERO"
+                            }
                         },
                         "flags": 129
                     }
@@ -137728,8 +138508,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "GMP_ROUND_ZERO"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.gmp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.gmp-round-zero",
+                                "name": "GMP_ROUND_ZERO",
+                                "fullyQualifiedName": "\\GMP_ROUND_ZERO"
+                            }
                         },
                         "flags": 129
                     }
@@ -137806,8 +138596,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "GMP_ROUND_ZERO"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.gmp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.gmp-round-zero",
+                                "name": "GMP_ROUND_ZERO",
+                                "fullyQualifiedName": "\\GMP_ROUND_ZERO"
+                            }
                         },
                         "flags": 129
                     }
@@ -141036,8 +141836,18 @@
                             "kind": "float"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "M_E"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.math"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.m-e",
+                                "name": "M_E",
+                                "fullyQualifiedName": "\\M_E"
+                            }
                         },
                         "flags": 129
                     }
@@ -158488,8 +159298,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "RPMTAG_NAME"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.rpminfo"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.rpmtag-name",
+                                "name": "RPMTAG_NAME",
+                                "fullyQualifiedName": "\\RPMTAG_NAME"
+                            }
                         },
                         "flags": 1
                     },
@@ -158814,8 +159634,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -158924,8 +159754,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159019,8 +159859,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159093,8 +159943,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159234,8 +160094,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159352,8 +160222,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159435,8 +160315,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159530,8 +160420,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159604,8 +160504,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159790,8 +160700,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159876,8 +160796,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -159968,8 +160898,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -160260,8 +161200,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -160401,8 +161351,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -160493,8 +161453,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -160558,8 +161528,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -160887,8 +161867,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -161171,8 +162161,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -161245,8 +162245,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -161337,8 +162347,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -161756,8 +162776,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -161821,8 +162851,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -161922,8 +162962,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -161996,8 +163046,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -162082,8 +163142,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -162156,8 +163226,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -162248,8 +163328,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -162355,8 +163445,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EIO_PRI_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.eio"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.eio-pri-default",
+                                "name": "EIO_PRI_DEFAULT",
+                                "fullyQualifiedName": "\\EIO_PRI_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -162761,8 +163861,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PRIO_PROCESS"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.pcntl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.prio-process",
+                                "name": "PRIO_PROCESS",
+                                "fullyQualifiedName": "\\PRIO_PROCESS"
+                            }
                         },
                         "flags": 129
                     }
@@ -162932,8 +164042,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "CLONE_NEWNET"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.pcntl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.clone-newnet",
+                                "name": "CLONE_NEWNET",
+                                "fullyQualifiedName": "\\CLONE_NEWNET"
+                            }
                         },
                         "flags": 129
                     }
@@ -162993,8 +164113,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PRIO_PROCESS"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.pcntl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.prio-process",
+                                "name": "PRIO_PROCESS",
+                                "fullyQualifiedName": "\\PRIO_PROCESS"
+                            }
                         },
                         "flags": 129
                     }
@@ -163449,8 +164579,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "P_ALL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.pcntl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.p-all",
+                                "name": "P_ALL",
+                                "fullyQualifiedName": "\\P_ALL"
+                            }
                         },
                         "flags": 1
                     },
@@ -163495,8 +164635,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "WEXITED"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.pcntl"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.wexited",
+                                "name": "WEXITED",
+                                "fullyQualifiedName": "\\WEXITED"
+                            }
                         },
                         "flags": 1
                     },
@@ -166884,8 +168034,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "GEOIP_COUNTRY_EDITION"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.geoip"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.geoip-country-edition",
+                                "name": "GEOIP_COUNTRY_EDITION",
+                                "fullyQualifiedName": "\\GEOIP_COUNTRY_EDITION"
+                            }
                         },
                         "flags": 129
                     }
@@ -173926,8 +175086,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "MT_RAND_MT19937"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.random"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.mt-rand-mt19937",
+                                "name": "MT_RAND_MT19937",
+                                "fullyQualifiedName": "\\MT_RAND_MT19937"
+                            }
                         },
                         "flags": 129
                     }
@@ -174058,8 +175228,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "MT_RAND_MT19937"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.random"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.mt-rand-mt19937",
+                                "name": "MT_RAND_MT19937",
+                                "fullyQualifiedName": "\\MT_RAND_MT19937"
+                            }
                         },
                         "flags": 129
                     }
@@ -176314,8 +177494,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "STREAM_CLIENT_CONNECT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.stream"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.stream-client-connect",
+                                "name": "STREAM_CLIENT_CONNECT",
+                                "fullyQualifiedName": "\\STREAM_CLIENT_CONNECT"
+                            }
                         },
                         "flags": 1
                     },
@@ -178486,8 +179676,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PHP_QUERY_RFC1738"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.url"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.php-query-rfc1738",
+                                "name": "PHP_QUERY_RFC1738",
+                                "fullyQualifiedName": "\\PHP_QUERY_RFC1738"
+                            }
                         },
                         "flags": 129
                     }
@@ -178693,8 +179893,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "YAML_ANY_ENCODING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.yaml"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.yaml-any-encoding",
+                                "name": "YAML_ANY_ENCODING",
+                                "fullyQualifiedName": "\\YAML_ANY_ENCODING"
+                            }
                         },
                         "flags": 1
                     },
@@ -178705,8 +179915,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "YAML_ANY_BREAK"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.yaml"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.yaml-any-break",
+                                "name": "YAML_ANY_BREAK",
+                                "fullyQualifiedName": "\\YAML_ANY_BREAK"
+                            }
                         },
                         "flags": 1
                     },
@@ -178775,8 +179995,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "YAML_ANY_ENCODING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.yaml"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.yaml-any-encoding",
+                                "name": "YAML_ANY_ENCODING",
+                                "fullyQualifiedName": "\\YAML_ANY_ENCODING"
+                            }
                         },
                         "flags": 1
                     },
@@ -178787,8 +180017,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "YAML_ANY_BREAK"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.yaml"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.yaml-any-break",
+                                "name": "YAML_ANY_BREAK",
+                                "fullyQualifiedName": "\\YAML_ANY_BREAK"
+                            }
                         },
                         "flags": 1
                     },
@@ -180492,8 +181732,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 129
                     }
@@ -180841,8 +182091,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -180912,8 +182172,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -180983,8 +182253,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -181309,8 +182589,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -181380,8 +182670,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -181451,8 +182751,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -181531,8 +182841,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -181696,8 +183016,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FTP_BINARY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.ftp"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ftp-binary",
+                                "name": "FTP_BINARY",
+                                "fullyQualifiedName": "\\FTP_BINARY"
+                            }
                         },
                         "flags": 1
                     },
@@ -182742,8 +184072,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "GSLC_SSL_NO_AUTH"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.ldap"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.gslc-ssl-no-auth",
+                                "name": "GSLC_SSL_NO_AUTH",
+                                "fullyQualifiedName": "\\GSLC_SSL_NO_AUTH"
+                            }
                         },
                         "flags": 129
                     }
@@ -184387,8 +185727,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "LDAP_DEREF_NEVER"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.ldap"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ldap-deref-never",
+                                "name": "LDAP_DEREF_NEVER",
+                                "fullyQualifiedName": "\\LDAP_DEREF_NEVER"
+                            }
                         },
                         "flags": 1
                     },
@@ -185495,8 +186845,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "LDAP_DEREF_NEVER"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.ldap"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ldap-deref-never",
+                                "name": "LDAP_DEREF_NEVER",
+                                "fullyQualifiedName": "\\LDAP_DEREF_NEVER"
+                            }
                         },
                         "flags": 1
                     },
@@ -186034,8 +187394,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "LDAP_DEREF_NEVER"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundledexternal",
+                                    "bookId": "book.ldap"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ldap-deref-never",
+                                "name": "LDAP_DEREF_NEVER",
+                                "fullyQualifiedName": "\\LDAP_DEREF_NEVER"
+                            }
                         },
                         "flags": 1
                     },
@@ -187397,8 +188767,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "DNS_ANY"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.network"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.dns-any",
+                                "name": "DNS_ANY",
+                                "fullyQualifiedName": "\\DNS_ANY"
+                            }
                         },
                         "flags": 1
                     },
@@ -191650,8 +193030,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SOMAXCONN"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.sockets"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.somaxconn",
+                                "name": "SOMAXCONN",
+                                "fullyQualifiedName": "\\SOMAXCONN"
+                            }
                         },
                         "flags": 129
                     }
@@ -192104,8 +193494,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PHP_BINARY_READ"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.sockets"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.php-binary-read",
+                                "name": "PHP_BINARY_READ",
+                                "fullyQualifiedName": "\\PHP_BINARY_READ"
+                            }
                         },
                         "flags": 129
                     }
@@ -193572,8 +194972,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SSH2_TERM_UNIT_CHARS"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.ssh2"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ssh2-term-unit-chars",
+                                "name": "SSH2_TERM_UNIT_CHARS",
+                                "fullyQualifiedName": "\\SSH2_TERM_UNIT_CHARS"
+                            }
                         },
                         "flags": 129
                     }
@@ -194878,8 +196288,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SSH2_TERM_UNIT_CHARS"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.ssh2"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.ssh2-term-unit-chars",
+                                "name": "SSH2_TERM_UNIT_CHARS",
+                                "fullyQualifiedName": "\\SSH2_TERM_UNIT_CHARS"
+                            }
                         },
                         "flags": 129
                     }
@@ -195190,8 +196610,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SVN_REVISION_HEAD"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.svn"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.svn-revision-head",
+                                "name": "SVN_REVISION_HEAD",
+                                "fullyQualifiedName": "\\SVN_REVISION_HEAD"
+                            }
                         },
                         "flags": 129
                     }
@@ -196547,8 +197977,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SVN_REVISION_HEAD"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.svn"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.svn-revision-head",
+                                "name": "SVN_REVISION_HEAD",
+                                "fullyQualifiedName": "\\SVN_REVISION_HEAD"
+                            }
                         },
                         "flags": 1
                     },
@@ -196985,8 +198425,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SVN_REVISION_HEAD"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "pecl",
+                                    "bookId": "book.svn"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.svn-revision-head",
+                                "name": "SVN_REVISION_HEAD",
+                                "fullyQualifiedName": "\\SVN_REVISION_HEAD"
+                            }
                         },
                         "flags": 1
                     },
@@ -200637,8 +202087,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "PHP_INT_MAX"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "unspecified",
+                                    "bookId": "appendices"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.php-int-max",
+                                "name": "PHP_INT_MAX",
+                                "fullyQualifiedName": "\\PHP_INT_MAX"
+                            }
                         },
                         "flags": 129
                     }
@@ -200712,8 +202172,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "HTML_SPECIALCHARS"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.strings"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.html-specialchars",
+                                "name": "HTML_SPECIALCHARS",
+                                "fullyQualifiedName": "\\HTML_SPECIALCHARS"
+                            }
                         },
                         "flags": 1
                     },
@@ -202539,8 +204009,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "STR_PAD_RIGHT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.strings"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.str-pad-right",
+                                "name": "STR_PAD_RIGHT",
+                                "fullyQualifiedName": "\\STR_PAD_RIGHT"
+                            }
                         },
                         "flags": 129
                     }
@@ -204832,8 +206312,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "CASE_LOWER"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.case-lower",
+                                "name": "CASE_LOWER",
+                                "fullyQualifiedName": "\\CASE_LOWER"
+                            }
                         },
                         "flags": 129
                     }
@@ -206052,8 +207542,18 @@
                             "kind": "mixed"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_ASC"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-asc",
+                                "name": "SORT_ASC",
+                                "fullyQualifiedName": "\\SORT_ASC"
+                            }
                         },
                         "flags": 1
                     },
@@ -206064,8 +207564,18 @@
                             "kind": "mixed"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_REGULAR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-regular",
+                                "name": "SORT_REGULAR",
+                                "fullyQualifiedName": "\\SORT_REGULAR"
+                            }
                         },
                         "flags": 1
                     },
@@ -207023,8 +208533,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_STRING"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-string",
+                                "name": "SORT_STRING",
+                                "fullyQualifiedName": "\\SORT_STRING"
+                            }
                         },
                         "flags": 129
                     }
@@ -207241,8 +208761,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_REGULAR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-regular",
+                                "name": "SORT_REGULAR",
+                                "fullyQualifiedName": "\\SORT_REGULAR"
+                            }
                         },
                         "flags": 129
                     }
@@ -207280,8 +208810,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_REGULAR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-regular",
+                                "name": "SORT_REGULAR",
+                                "fullyQualifiedName": "\\SORT_REGULAR"
+                            }
                         },
                         "flags": 129
                     }
@@ -207384,8 +208924,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "COUNT_NORMAL"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.count-normal",
+                                "name": "COUNT_NORMAL",
+                                "fullyQualifiedName": "\\COUNT_NORMAL"
+                            }
                         },
                         "flags": 129
                     }
@@ -207531,8 +209081,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "EXTR_OVERWRITE"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.extr-overwrite",
+                                "name": "EXTR_OVERWRITE",
+                                "fullyQualifiedName": "\\EXTR_OVERWRITE"
+                            }
                         },
                         "flags": 1
                     },
@@ -207680,8 +209240,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_REGULAR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-regular",
+                                "name": "SORT_REGULAR",
+                                "fullyQualifiedName": "\\SORT_REGULAR"
+                            }
                         },
                         "flags": 129
                     }
@@ -207719,8 +209289,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_REGULAR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-regular",
+                                "name": "SORT_REGULAR",
+                                "fullyQualifiedName": "\\SORT_REGULAR"
+                            }
                         },
                         "flags": 129
                     }
@@ -208041,8 +209621,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_REGULAR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-regular",
+                                "name": "SORT_REGULAR",
+                                "fullyQualifiedName": "\\SORT_REGULAR"
+                            }
                         },
                         "flags": 129
                     }
@@ -208107,8 +209697,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "SORT_REGULAR"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "core",
+                                    "bookId": "book.array"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.sort-regular",
+                                "name": "SORT_REGULAR",
+                                "fullyQualifiedName": "\\SORT_REGULAR"
+                            }
                         },
                         "flags": 129
                     }
@@ -209317,8 +210917,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FILTER_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.filter"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.filter-default",
+                                "name": "FILTER_DEFAULT",
+                                "fullyQualifiedName": "\\FILTER_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -209386,8 +210996,18 @@
                             ]
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FILTER_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.filter"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.filter-default",
+                                "name": "FILTER_DEFAULT",
+                                "fullyQualifiedName": "\\FILTER_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -209468,8 +211088,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FILTER_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.filter"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.filter-default",
+                                "name": "FILTER_DEFAULT",
+                                "fullyQualifiedName": "\\FILTER_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -209537,8 +211167,18 @@
                             ]
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "FILTER_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.filter"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.filter-default",
+                                "name": "FILTER_DEFAULT",
+                                "fullyQualifiedName": "\\FILTER_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
@@ -212104,8 +213744,18 @@
                             "kind": "int"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "LOCALE_SYSTEM_DEFAULT"
+                            "expressionKind": "constantFetch",
+                            "constant": {
+                                "definitionMetadata": {
+                                    "extensionMembership": "bundled",
+                                    "bookId": "book.com"
+                                },
+                                "definitionKind": "constant",
+                                "namespace": "",
+                                "referenceId": "constant.locale-system-default",
+                                "name": "LOCALE_SYSTEM_DEFAULT",
+                                "fullyQualifiedName": "\\LOCALE_SYSTEM_DEFAULT"
+                            }
                         },
                         "flags": 1
                     },
