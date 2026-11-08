@@ -29,4 +29,11 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 
 		return "$sign$str";
 	}
+
+	public function jsonSerialize(): mixed {
+		return [
+			...parent::jsonSerialize(),
+			"radix" => $this->radix->getRadix()
+		];
+	}
 }
