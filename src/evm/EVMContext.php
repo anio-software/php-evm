@@ -68,13 +68,13 @@ final class EVMContext {
 				elapsedTimeMs          : $elapsedTimeMs
 			),
 
-			nLoadedNamespaces      : \count($this->manual->getNamespaces()),
-			nLoadedClasses         : \count($this->manual->getClasses()),
-			nLoadedInterfaces      : \count($this->manual->getInterfaces()),
-			nLoadedEnums           : \count($this->manual->getEnums()),
-			nLoadedFunctions       : \count($this->manual->getFunctions()),
-			nLoadedFunctionAliases : \count($this->manual->getFunctionAliases()),
-			nLoadedConstants       : \count($this->manual->getConstants())
+			nLoadedNamespaces      : \count($this->manualIndex->getNamespaces()),
+			nLoadedClasses         : \count($this->manualIndex->getClasses()),
+			nLoadedInterfaces      : \count($this->manualIndex->getInterfaces()),
+			nLoadedEnums           : \count($this->manualIndex->getEnums()),
+			nLoadedFunctions       : \count($this->manualIndex->getFunctions()),
+			nLoadedFunctionAliases : \count($this->manualIndex->getFunctionAliases()),
+			nLoadedConstants       : \count($this->manualIndex->getConstants())
 		);
 
 		return $this->statistics;
