@@ -3,7 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 function parsePHPFunctionParameterInitializer(
-	?PHPType $parameterType, string $string
+	?PHPType $parameterType,
+	string $string
 ): PHPExpression {
 	// unwrap nullable type unions
 	// e.g. convert "?int" type to "int"
