@@ -8,6 +8,15 @@ enum PHPNumberRadix: string {
 	case kOctal       = "octal";
 	case kBinary      = "binary";
 
+	public function parseWithoutPrefix(string $str): int|float {
+		return match($this) {
+			self::kDecimal     => (int)$str,
+			self::kHexadecimal => \hexdec($str),
+			self::kOctal       => \octdec($str),
+			self::kBinary      => \bindec($str)
+		};
+	}
+
 	public function getRadix(): int {
 		return match($this) {
 			self::kDecimal     => 10,
