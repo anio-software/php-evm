@@ -11,6 +11,10 @@ abstract readonly class PHPExpression implements \JsonSerializable {
 		return $this->sourceCode;
 	}
 
+	final public function render(): string {
+		return $this->sourceCode ?? $this->renderExpression();
+	}
+
 	abstract public function getExpressionKind(): PHPExpressionKind;
 	abstract public function renderExpression(): string;
 	abstract public function isRepresentableInCode(): bool;
