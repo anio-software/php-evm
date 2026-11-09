@@ -20,6 +20,10 @@ function handlePHPFunction(EVM\PHP\PHPFunction $fn): void {
 		return;
 	}
 
+	$bookId = $fn->metadata->bookId ?? "(null)";
+	$membership = $fn->metadata->extensionMembership->name;
+
+	echo "\t/* bookId: $bookId ; membership = $membership */\n";
 	echo "\tpublic function ";
 	echo $fn->renderSignature();
 
