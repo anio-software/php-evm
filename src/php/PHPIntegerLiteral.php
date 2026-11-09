@@ -40,4 +40,41 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 			"radix" => $this->radix->getRadix()
 		];
 	}
+
+	static public function parse(string $str, bool $negative = false): ?self {
+		if (\str_contains($str, ".")) {
+			return NULL;
+		} else if (\substr($str, 0, 1) === "-") {
+			return self::parse(\substr($str, 1), !$negative);
+		}
+
+		$normalized = \strtolower($str);
+		$radix      = NULL;
+		$value      = NULL;
+
+		if (\str_starts_with($normalized, "0x")) {
+			$radix = PHPIntegerRadix::kHexadecimal;
+			$value = \substr($str, 2);
+		} else if (\str_starts_with($normalized, "0b")) {
+			$radix = PHPIntegerRadix::kBinary;
+			$value = \substr($str, 2);
+		} else if (\str_starts_with($normalized, "0o")) {
+			$radix = PHPIntegerRadix::kOctal;
+			$value = \substr($str, 2);
+		} else if (\str_starts_with($normalized, "0") && \strlen($normalized) >= 2) {
+			$radix = PHPIntegerRadix::kOctal;
+			$value = \substr($str, 1);
+		} else if (\is_numeric($str)) {
+			$radix = PHPIntegerRadix::kDecimal;
+			$value = $str;
+		} else {
+			return NULL;
+		}
+
+		return new self(
+			$radix->parseWithoutPrefix($value) * ($negative ? -1 : 1),
+			$radix,
+			$str
+		);
+	}
 }
