@@ -48,7 +48,7 @@ $context = new EVM\EVMContext($options);
 
 $context->loadPHPManual();
 
-echo "<?php\n";
+echo "<?php\n\n";
 
 echo ($kind === "iface" ? "interface X" : "class X")." {\n";
 
