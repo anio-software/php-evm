@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-enum PHPNumberRadix: string {
+enum PHPIntegerRadix: string {
 	case kDecimal     = "decimal";
 	case kHexadecimal = "hexadecimal";
 	case kOctal       = "octal";

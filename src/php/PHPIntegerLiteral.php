@@ -5,13 +5,13 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 	public function __construct(
 		int $value,
-		private PHPNumberRadix $radix = PHPNumberRadix::kDecimal,
+		private PHPIntegerRadix $radix = PHPIntegerRadix::kDecimal,
 		?string $sourceCode = NULL
 	) {
 		parent::__construct($value, $sourceCode);
 	}
 
-	public function getNumberRadix(): PHPNumberRadix {
+	public function getNumberRadix(): PHPIntegerRadix {
 		return $this->radix;
 	}
 
@@ -21,10 +21,10 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		$value = \abs($this->value);
 
 		$str = match($this->radix) {
-			PHPNumberRadix::kDecimal     => (string)$value,
-			PHPNumberRadix::kHexadecimal => "0x".\dechex($value),
-			PHPNumberRadix::kOctal       => "0".\decoct($value),
-			PHPNumberRadix::kBinary      => "0b".\decbin($value)
+			PHPIntegerRadix::kDecimal     => (string)$value,
+			PHPIntegerRadix::kHexadecimal => "0x".\dechex($value),
+			PHPIntegerRadix::kOctal       => "0".\decoct($value),
+			PHPIntegerRadix::kBinary      => "0b".\decbin($value)
 		};
 
 		return "$sign$str";

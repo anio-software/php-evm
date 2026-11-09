@@ -29,7 +29,7 @@ require_once __DIR__."/PHPNullLiteral.php";
 require_once __DIR__."/PHPBooleanLiteral.php";
 require_once __DIR__."/PHPPlaceholderExpression.php";
 require_once __DIR__."/PHPRawExpression.php";
-require_once __DIR__."/PHPNumberRadix.php";
+require_once __DIR__."/PHPIntegerRadix.php";
 require_once __DIR__."/PHPNumberLiteral.php";
 require_once __DIR__."/PHPIntegerLiteral.php";
 require_once __DIR__."/PHPFloatLiteral.php";
