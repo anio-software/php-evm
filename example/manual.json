@@ -130355,8 +130355,11 @@
                             "kind": "float"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "0.5"
+                            "expressionKind": "literal",
+                            "sourceCode": "0.5",
+                            "literalKind": "number",
+                            "value": 0.5,
+                            "numberLiteralKind": "float"
                         },
                         "flags": 1
                     },
@@ -159659,8 +159662,11 @@
                             "kind": "float"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "0.0"
+                            "expressionKind": "literal",
+                            "sourceCode": "0.0",
+                            "literalKind": "number",
+                            "value": 0,
+                            "numberLiteralKind": "float"
                         },
                         "flags": 129
                     }
@@ -159723,8 +159729,11 @@
                             "kind": "float"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "0.0"
+                            "expressionKind": "literal",
+                            "sourceCode": "0.0",
+                            "literalKind": "number",
+                            "value": 0,
+                            "numberLiteralKind": "float"
                         },
                         "flags": 129
                     }
@@ -159902,8 +159911,11 @@
                             "kind": "float"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "0.0"
+                            "expressionKind": "literal",
+                            "sourceCode": "0.0",
+                            "literalKind": "number",
+                            "value": 0,
+                            "numberLiteralKind": "float"
                         },
                         "flags": 129
                     }
@@ -179440,8 +179452,11 @@
                             "kind": "float"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "0.5"
+                            "expressionKind": "literal",
+                            "sourceCode": "0.5",
+                            "literalKind": "number",
+                            "value": 0.5,
+                            "numberLiteralKind": "float"
                         },
                         "flags": 129
                     }
@@ -182031,8 +182046,11 @@
                             "kind": "float"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "1.0"
+                            "expressionKind": "literal",
+                            "sourceCode": "1.0",
+                            "literalKind": "number",
+                            "value": 1,
+                            "numberLiteralKind": "float"
                         },
                         "flags": 129
                     }
