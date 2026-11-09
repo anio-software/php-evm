@@ -27,7 +27,9 @@ enum PHPIntegerRadix: string {
 	}
 
 	static public function detectAndParse(string $str, bool $negative = false): array|null {
-		if (\substr($str, 0, 1) === "-") {
+		if (\str_contains($str, ".")) {
+			return NULL;
+		} else if (\substr($str, 0, 1) === "-") {
 			return self::detectAndParse(\substr($str, 1), !$negative);
 		}
 
