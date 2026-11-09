@@ -6,5 +6,6 @@ enum PHPLiteralKind: string {
 	case kNull    = "null";
 	case kBoolean = "boolean";
 	case kNumber  = "number";
+	case kString  = "string";
 	// ... more to be added
 }
