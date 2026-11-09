@@ -45,5 +45,11 @@ function parsePHPFunctionParameterInitializer(
 		return $intValue;
 	}
 
+	$stringValue = PHPDoubleQuotedStringLiteral::parse($string);
+
+	if ($stringValue !== NULL) {
+		return $stringValue;
+	}
+
 	return new PHPRawExpression($string);
 }
