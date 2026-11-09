@@ -11,7 +11,7 @@ final readonly class PHPBooleanLiteral extends PHPLiteral {
 		return PHPLiteralKind::kBoolean;
 	}
 
-	public function render(): string {
+	public function renderExpression(): string {
 		return $this->getValue() ? "true" : "false";
 	}
 

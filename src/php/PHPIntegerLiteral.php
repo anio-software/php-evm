@@ -15,7 +15,7 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		return $this->radix;
 	}
 
-	public function render(): string {
+	public function renderExpression(): string {
 		// todo: handle PHP_INT_MIN
 		$sign  = (0 > $this->value) ? "-" : "";
 		$value = \abs($this->value);

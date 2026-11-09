@@ -11,7 +11,7 @@ final readonly class PHPRawExpression extends PHPExpression {
 		return PHPExpressionKind::kRaw;
 	}
 
-	public function render(): string {
+	public function renderExpression(): string {
 		return $this->getSourceCode();
 	}
 

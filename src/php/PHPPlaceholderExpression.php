@@ -11,7 +11,7 @@ final readonly class PHPPlaceholderExpression extends PHPExpression {
 		return PHPExpressionKind::kPlaceholder;
 	}
 
-	public function render(): string {
+	public function renderExpression(): string {
 		return "?";
 	}
 

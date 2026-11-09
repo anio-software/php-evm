@@ -18,7 +18,7 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 		return PHPExpressionKind::kConstantFetch;
 	}
 
-	public function render(): string {
+	public function renderExpression(): string {
 		return $this->constant->getFullyQualifiedName();
 	}
 

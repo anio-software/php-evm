@@ -14,7 +14,7 @@ final readonly class PHPFloatLiteral extends PHPNumberLiteral {
 		}
 	}
 
-	public function render(): string {
+	public function renderExpression(): string {
 		$str = (string)$this->value;
 
 		if (
