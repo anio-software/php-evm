@@ -7,6 +7,8 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		parent::__construct($value, $sourceCode);
 	}
 
+	abstract public function getNumberLiteralKind(): PHPNumberLiteralKind;
+
 	final public function getLiteralKind(): PHPLiteralKind {
 		return PHPLiteralKind::kNumber;
 	}
