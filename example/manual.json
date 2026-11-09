@@ -66757,8 +66757,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"a\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"a\"",
+                            "literalKind": "string",
+                            "value": "a",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -73456,8 +73459,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"rb\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"rb\"",
+                            "literalKind": "string",
+                            "value": "rb",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -75392,8 +75398,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -75404,8 +75413,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -75601,8 +75613,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -78545,8 +78560,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -78579,8 +78597,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -78766,8 +78787,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -78800,8 +78824,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -79250,8 +79277,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"sha1\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"sha1\"",
+                            "literalKind": "string",
+                            "value": "sha1",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -81862,8 +81892,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"sha1\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"sha1\"",
+                            "literalKind": "string",
+                            "value": "sha1",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -83968,8 +84001,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -85742,8 +85778,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -85843,8 +85882,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -86857,8 +86899,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -86914,8 +86959,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -87700,8 +87748,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -90961,8 +91012,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -92818,8 +92872,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"BLOB\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"BLOB\"",
+                            "literalKind": "string",
+                            "value": "BLOB",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -103005,8 +103062,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -104158,8 +104218,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -104497,8 +104560,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -105655,8 +105721,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\t\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\t\"",
+                            "literalKind": "string",
+                            "value": "\t",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -105667,8 +105736,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\\\\\\N\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\\\\\\N\"",
+                            "literalKind": "string",
+                            "value": "\\\\N",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -105717,8 +105789,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\t\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\t\"",
+                            "literalKind": "string",
+                            "value": "\t",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -105729,8 +105804,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\\\\\\N\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\\\\\\N\"",
+                            "literalKind": "string",
+                            "value": "\\\\N",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -106439,8 +106517,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"stdClass\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"stdClass\"",
+                            "literalKind": "string",
+                            "value": "stdClass",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -109608,8 +109689,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"w\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"w\"",
+                            "literalKind": "string",
+                            "value": "w",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -111735,8 +111819,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"now\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"now\"",
+                            "literalKind": "string",
+                            "value": "now",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -111800,8 +111887,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"now\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"now\"",
+                            "literalKind": "string",
+                            "value": "now",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -114379,8 +114469,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -114548,8 +114641,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -114926,8 +115022,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\",\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\",\"",
+                            "literalKind": "string",
+                            "value": ",",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -114938,8 +115037,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\"\"",
+                            "literalKind": "string",
+                            "value": "\"",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -114950,8 +115052,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\\\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\\\"",
+                            "literalKind": "string",
+                            "value": "\\",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -115948,8 +116053,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\",\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\",\"",
+                            "literalKind": "string",
+                            "value": ",",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -115960,8 +116068,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\"\"",
+                            "literalKind": "string",
+                            "value": "\"",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -115972,8 +116083,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\\\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\\\"",
+                            "literalKind": "string",
+                            "value": "\\",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -115984,8 +116098,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\n\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\n\"",
+                            "literalKind": "string",
+                            "value": "\n",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -120308,8 +120425,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"all\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"all\"",
+                            "literalKind": "string",
+                            "value": "all",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121096,8 +121216,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121221,8 +121344,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121291,8 +121417,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121404,8 +121533,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121477,8 +121609,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121550,8 +121685,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121620,8 +121758,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -121699,8 +121840,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -122305,8 +122449,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"KV\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"KV\"",
+                            "literalKind": "string",
+                            "value": "KV",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -122695,8 +122842,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\r\\n\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\r\\n\"",
+                            "literalKind": "string",
+                            "value": "\r\n",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -123598,8 +123748,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"all\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"all\"",
+                            "literalKind": "string",
+                            "value": "all",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -124528,8 +124681,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\" \""
+                            "expressionKind": "literal",
+                            "sourceCode": "\" \"",
+                            "literalKind": "string",
+                            "value": " ",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -124774,8 +124930,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126141,8 +126300,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126153,8 +126315,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126165,8 +126330,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -126510,8 +126678,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126522,8 +126693,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126534,8 +126708,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126649,8 +126826,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126661,8 +126841,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -126673,8 +126856,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -136387,8 +136573,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"UNKNOWN\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"UNKNOWN\"",
+                            "literalKind": "string",
+                            "value": "UNKNOWN",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -136515,8 +136704,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -136603,8 +136795,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -137472,8 +137667,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -175441,8 +175639,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -175781,8 +175982,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -177670,8 +177874,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -178798,8 +179005,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -180617,8 +180827,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -185200,8 +185413,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -185629,8 +185845,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -185801,8 +186020,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -185813,8 +186035,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -185825,8 +186050,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -189797,8 +190025,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"MX\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"MX\"",
+                            "literalKind": "string",
+                            "value": "MX",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -191083,8 +191314,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -191111,8 +191345,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -191123,8 +191360,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -197532,8 +197772,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"vanilla\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"vanilla\"",
+                            "literalKind": "string",
+                            "value": "vanilla",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -201330,8 +201573,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -203183,8 +203429,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\r\\n\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\r\\n\"",
+                            "literalKind": "string",
+                            "value": "\r\n",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -203600,8 +203849,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"UTF-8\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"UTF-8\"",
+                            "literalKind": "string",
+                            "value": "UTF-8",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -204173,8 +204425,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\" \\n\\r\\t\\v\\x00\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\" \\n\\r\\t\\v\\x00\"",
+                            "literalKind": "string",
+                            "value": " \n\r\t\u000b\u0000",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -204481,8 +204736,11 @@
                             ]
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\".\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\".\"",
+                            "literalKind": "string",
+                            "value": ".",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -204502,8 +204760,11 @@
                             ]
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\",\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\",\"",
+                            "literalKind": "string",
+                            "value": ",",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -204748,8 +205009,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\" \\n\\r\\t\\v\\x00\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\" \\n\\r\\t\\v\\x00\"",
+                            "literalKind": "string",
+                            "value": " \n\r\t\u000b\u0000",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -205217,8 +205481,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\",\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\",\"",
+                            "literalKind": "string",
+                            "value": ",",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -205229,8 +205496,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\"\"",
+                            "literalKind": "string",
+                            "value": "\"",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -205241,8 +205511,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\\\\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\\\\"",
+                            "literalKind": "string",
+                            "value": "\\",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -205419,8 +205692,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\" \""
+                            "expressionKind": "literal",
+                            "sourceCode": "\" \"",
+                            "literalKind": "string",
+                            "value": " ",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -207331,8 +207607,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\" \\n\\r\\t\\v\\x00\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\" \\n\\r\\t\\v\\x00\"",
+                            "literalKind": "string",
+                            "value": " \n\r\t\u000b\u0000",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -207397,8 +207676,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\" \\t\\r\\n\\f\\v\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\" \\t\\r\\n\\f\\v\"",
+                            "literalKind": "string",
+                            "value": " \t\r\n\f\u000b",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -207623,8 +207905,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\\n\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\\n\"",
+                            "literalKind": "string",
+                            "value": "\n",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -210573,8 +210858,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -214260,8 +214548,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"iso-8859-1\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"iso-8859-1\"",
+                            "literalKind": "string",
+                            "value": "iso-8859-1",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
@@ -217311,8 +217602,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -217411,8 +217705,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\"\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\"\"",
+                            "literalKind": "string",
+                            "value": "",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 1
                     },
@@ -218012,8 +218309,11 @@
                             "kind": "string"
                         },
                         "initializer": {
-                            "expressionKind": "raw",
-                            "sourceCode": "\":\""
+                            "expressionKind": "literal",
+                            "sourceCode": "\":\"",
+                            "literalKind": "string",
+                            "value": ":",
+                            "stringLiteralKind": "doubleQuoted"
                         },
                         "flags": 129
                     }
