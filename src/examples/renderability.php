@@ -17,8 +17,6 @@ foreach ($context->getPHPManualIndex()->getFunctions() as $fn) {
 
 	if ($renderability === PHP\Renderability::kRenderable) {
 		continue;
-	} else if ($renderability === PHP\Renderability::kFunctionHaltCompiler) {
-		continue;
 	} else if ($renderability === PHP\Renderability::kFunctionIniGetParameterInitializer) {
 		continue;
 	}
