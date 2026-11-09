@@ -57,6 +57,8 @@ $fns = \array_filter($fns, static function(EVM\PHP\PHPFunction $fn) use ($filter
 	return $filter($fn);
 });
 
+\ksort($fns, \SORT_STRING);
+
 $nFns = \count($fns);
 $index = 0;
 
