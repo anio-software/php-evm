@@ -37,6 +37,7 @@ require_once __DIR__."/PHPFloatLiteral.php";
 require_once __DIR__."/PHPConstantFetchExpression.php";
 require_once __DIR__."/PHPStringLiteralKind.php";
 require_once __DIR__."/PHPStringLiteral.php";
+require_once __DIR__."/PHPDoubleQuotedStringLiteral.php";
 require_once __DIR__."/parsePHPFunctionParameterInitializer.php";
 
 require_once __DIR__."/PHPFunctionParameter.php";
