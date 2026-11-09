@@ -15,7 +15,7 @@ final readonly class PHPFloatLiteral extends PHPNumberLiteral {
 	}
 
 	public function getNumberLiteralKind(): PHPNumberLiteralKind {
-		return PHPNumberLiteralKind::kInteger;
+		return PHPNumberLiteralKind::kFloat;
 	}
 
 	public function renderExpression(): string {
