@@ -31,6 +31,25 @@ final readonly class PHPFunction extends PHPDefinition {
 		return true;
 	}
 
+	public function isLanguageConstruct(): bool {
+		static $languageConstructs = [
+			"\\__halt_compiler" => true, // __halt_compiler()
+			//"\\die"           => true, // die() is an alias of exit()
+			"\\empty"           => true, // empty()
+			"\\isset"           => true, // isset()
+			"\\list"            => true, // list()
+			"\\print"           => true, // print()
+			"\\eval"            => true, // eval()
+			"\\array"           => true, // array()
+			"\\exit"            => true, // exit()
+			"\\unset"           => true  // unset()
+		];
+
+		$name = \strtolower($this->getFullyQualifiedName());
+
+		return \array_key_exists($name, $languageConstructs);
+	}
+
 	public function withFunctionParameter(
 		PHPFunctionParameter $param
 	): self {
