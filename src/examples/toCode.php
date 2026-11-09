@@ -56,7 +56,9 @@ echo "<?php\n";
 
 echo ($kind === "iface" ? "interface X" : "class X")." {\n";
 
-foreach ($context->getPHPManualIndex()->getFunctions() as $fn) {
+$fns = $context->getPHPManualIndex()->getFunctions();
+
+foreach ($fns as $fn) {
 	handlePHPFunction($fn);
 }
 
