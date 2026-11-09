@@ -48,8 +48,8 @@ function getFunctionRenderability(PHPFunction $func): Renderability {
 		}
 	}
 
-	if ($func->name === "__halt_compiler") {
-		return Renderability::kFunctionHaltCompiler;
+	if ($func->isLanguageConstruct()) {
+		return Renderability::kFunctionLanguageConstruct;
 	}
 
 	return Renderability::kRenderable;

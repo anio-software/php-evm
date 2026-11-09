@@ -13,5 +13,5 @@ enum Renderability: string {
 	case kFunctionUnsupportedParameterInitializer = "function_unsupported_parameter_initializer";
 	case kFunctionIniGetParameterInitializer      = "function_ini_get_parameter_initializer";
 
-	case kFunctionHaltCompiler                    = "function_halt_compiler";
+	case kFunctionLanguageConstruct               = "function_language_construct";
 }
