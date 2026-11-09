@@ -33,7 +33,7 @@ function handlePHPFunction(EVM\PHP\PHPFunction $fn): void {
 			echo "return ";
 		}
 
-		echo "\\".$fn->name;
+		echo $fn->getFullyQualifiedName();
 		echo $fn->renderParameters();
 		echo ";\n";
 
