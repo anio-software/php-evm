@@ -13,7 +13,7 @@ if (\sizeof($argv) !== 4) {
 $kind    = $argv[2] === "iface" ? "iface" : "base";
 $filter  = require $argv[3];
 
-function handlePHPFunction(EVM\PHP\PHPFunction $fn): void {
+function handlePHPFunction(EVM\PHP\PHPFunction $fn, bool $last): void {
 	global $kind;
 
 	$bookId = $fn->metadata->bookId ?? "(null)";
@@ -40,7 +40,7 @@ function handlePHPFunction(EVM\PHP\PHPFunction $fn): void {
 		echo "\t}\n";
 	}
 
-	if ($kind === "base") echo "\n";
+	if ($kind === "base" && !$last) echo "\n";
 }
 
 $options = new EVM\EVMOptions($argv[1]);
@@ -57,8 +57,13 @@ $fns = \array_filter($fns, static function(EVM\PHP\PHPFunction $fn) use ($filter
 	return $filter($fn);
 });
 
+$nFns = \count($fns);
+$index = 0;
+
 foreach ($fns as $fn) {
-	handlePHPFunction($fn);
+	handlePHPFunction($fn, ($index + 1) === $nFns);
+
+	++$index;
 }
 
 echo "}\n";
