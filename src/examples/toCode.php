@@ -14,11 +14,7 @@ $kind    = $argv[2] === "iface" ? "iface" : "base";
 $filter  = require $argv[3];
 
 function handlePHPFunction(EVM\PHP\PHPFunction $fn): void {
-	global $kind, $filter;
-
-	if (!$filter($fn)) {
-		return;
-	}
+	global $kind;
 
 	$bookId = $fn->metadata->bookId ?? "(null)";
 	$membership = $fn->metadata->extensionMembership->name;
@@ -57,6 +53,9 @@ echo "<?php\n";
 echo ($kind === "iface" ? "interface X" : "class X")." {\n";
 
 $fns = $context->getPHPManualIndex()->getFunctions();
+$fns = \array_filter($fns, static function(EVM\PHP\PHPFunction $fn) use ($filter) : bool {
+	return $filter($fn);
+});
 
 foreach ($fns as $fn) {
 	handlePHPFunction($fn);
