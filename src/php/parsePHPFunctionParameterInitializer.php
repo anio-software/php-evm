@@ -35,5 +35,11 @@ function parsePHPFunctionParameterInitializer(
 		return new PHPConstantFetchExpression($constants["\\$string"]);
 	}
 
+	$intValue = PHPIntegerLiteral::parse($string);
+
+	if ($intValue !== NULL) {
+		return $intValue;
+	}
+
 	return new PHPRawExpression($string);
 }
