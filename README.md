@@ -162,8 +162,11 @@ Loaded 4853 constants
                 "kind": "string"
             },
             "initializer": {
-                "expressionKind": "raw",
-                "sourceCode": "\" \""
+                "expressionKind": "literal",
+                "sourceCode": "\" \"",
+                "literalKind": "string",
+                "value": " ",
+                "stringLiteralKind": "doubleQuoted"
             },
             "flags": 1
         },
