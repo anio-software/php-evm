@@ -56,19 +56,8 @@ echo "<?php\n";
 
 echo ($kind === "iface" ? "interface X" : "class X")." {\n";
 
-EVM\PHP\visitNamespace(
-	$context->manual->getGlobalNamespace(),
-
-	static function($node): void {
-		if (!($node instanceof EVM\PHP\PHPFunction)) {
-			return;
-		}
-
-		handlePHPFunction($node);
-	},
-
-	EVM\PHP\PHPNamespaceVisitFlags::VisitFunctions |
-	EVM\PHP\PHPNamespaceVisitFlags::VisitNamespaces
-);
+foreach ($context->getPHPManualIndex()->getFunctions() as $fn) {
+	handlePHPFunction($fn);
+}
 
 echo "}\n";
