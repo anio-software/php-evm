@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__."/ksort_r.php";
+
 require_once __DIR__."/PHPExtensionMembership.php";
 require_once __DIR__."/PHPReference.php";
 require_once __DIR__."/PHPDefinitionKind.php";
