@@ -35,6 +35,10 @@ function parsePHPFunctionParameterInitializer(
 		return new PHPConstantFetchExpression($constants["\\$string"]);
 	}
 
+	if ($parameterType && $parameterType->isBuiltinType(PHPBuiltinTypeKind::kFloat)) {
+		return new PHPFloatLiteral((float)$string, $string);
+	}
+
 	$intValue = PHPIntegerLiteral::parse($string);
 
 	if ($intValue !== NULL) {
