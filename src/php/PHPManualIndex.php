@@ -80,7 +80,7 @@ final readonly class PHPManualIndex {
 	}
 
 	public function diff(self $that): PHPManualIndexChanges {
-		$removed = $added = [];
+		$removed = $added = $retained = [];
 
 		foreach (PHPDefinitionKind::cases() as $case) {
 			$res = $this->diffDefinitionsOfKind($that, $case);
@@ -92,12 +92,16 @@ final readonly class PHPManualIndex {
 			foreach ($res->added as $item) {
 				$added[] = $item;
 			}
+
+			foreach ($res->retained as $item) {
+				$retained[] = $item;
+			}
 		}
 
 		return new PHPManualIndexChanges(
 			removed  : $removed,
 			added    : $added,
-			retained : []
+			retained : $retained
 		);
 	}
 
