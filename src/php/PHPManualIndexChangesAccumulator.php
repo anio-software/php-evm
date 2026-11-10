@@ -6,6 +6,7 @@ final class PHPManualIndexChangesAccumulator {
 	private array $removed  = [];
 	private array $added    = [];
 	private array $retained = [];
+	private array $changed  = [];
 
 	public function addChanges(PHPManualIndexChanges $changes): void {
 		foreach ($changes->removed as $item) {
@@ -19,13 +20,18 @@ final class PHPManualIndexChangesAccumulator {
 		foreach ($changes->retained as $item) {
 			$this->retained[] = $item;
 		}
+
+		foreach ($changes->changed as $item) {
+			$this->changed[] = $item;
+		}
 	}
 
 	public function build(): PHPManualIndexChanges {
 		return new PHPManualIndexChanges(
 			removed  : $this->removed,
 			added    : $this->added,
-			retained : $this->retained
+			retained : $this->retained,
+			changed  : $this->changed
 		);
 	}
 }

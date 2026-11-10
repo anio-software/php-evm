@@ -65,7 +65,8 @@ final readonly class PHPManualIndex {
 		return new PHPManualIndexChanges(
 			added    : $added,
 			removed  : $removed,
-			retained : $retained
+			retained : $retained,
+			changed  : []
 		);
 	}
 
