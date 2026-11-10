@@ -79,7 +79,7 @@ final readonly class PHPManualIndex {
 		return $ret;
 	}
 
-	public function diff(self $that): array {
+	public function diff(self $that): PHPManualIndexChanges {
 		$removed = $added = [];
 
 		foreach (PHPDefinitionKind::cases() as $case) {
@@ -94,10 +94,11 @@ final readonly class PHPManualIndex {
 			}
 		}
 
-		return [
-			"removed" => $removed,
-			"added"   => $added
-		];
+		return new PHPManualIndexChanges(
+			removed  : $removed,
+			added    : $added,
+			retained : []
+		);
 	}
 
 	public function getDefinitions(): array {
