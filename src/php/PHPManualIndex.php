@@ -85,11 +85,11 @@ final readonly class PHPManualIndex {
 		foreach (PHPDefinitionKind::cases() as $case) {
 			$res = $this->diffDefinitionsOfKind($that, $case);
 
-			foreach ($res["removed"] as $item) {
+			foreach ($res->removed as $item) {
 				$removed[] = $item;
 			}
 
-			foreach ($res["added"] as $item) {
+			foreach ($res->added as $item) {
 				$added[] = $item;
 			}
 		}
