@@ -136,19 +136,18 @@ function yellow(string $str): string {
 
 This generates output like:
 
-```
-[31m-[0m definition [31m\pg_service[0m [90m(kFunction)[0m was removed
-[32m+[0m definition [32m\Time\Duration[0m [90m(kClass)[0m was added
-[32m+[0m definition [32m\Time\TimeException[0m [90m(kClass)[0m was added
-[32m+[0m definition [32m\POSIX_SC_OPEN_MAX[0m [90m(kConstant)[0m was added
-[32m+[0m definition [32m\CURLOPT_SSL_SIGNATURE_ALGORITHMS[0m [90m(kConstant)[0m was added
-[32m+[0m definition [32m\clamp[0m [90m(kFunction)[0m was added
-[32m+[0m definition [32m\curl_multi_get_handles[0m [90m(kFunction)[0m was added
-[33m*[0m definition [33m\oci_set_call_timeout[0m [90m(kFunction)[0m was changed
-[33m*[0m definition [33m\ltrim[0m [90m(kFunction)[0m was changed
-[33m*[0m definition [33m\rtrim[0m [90m(kFunction)[0m was changed
-[33m*[0m definition [33m\trim[0m [90m(kFunction)[0m was changed
-```
+<pre class="terminal"><span style="color:#e5534b">-</span> definition <span style="color:#e5534b">\pg_service</span> <span style="color:#6e7681">(kFunction)</span> was removed
+<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\Time\Duration</span> <span style="color:#6e7681">(kClass)</span> was added
+<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\Time\TimeException</span> <span style="color:#6e7681">(kClass)</span> was added
+<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\POSIX_SC_OPEN_MAX</span> <span style="color:#6e7681">(kConstant)</span> was added
+<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\CURLOPT_SSL_SIGNATURE_ALGORITHMS</span> <span style="color:#6e7681">(kConstant)</span> was added
+<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\clamp</span> <span style="color:#6e7681">(kFunction)</span> was added
+<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\curl_multi_get_handles</span> <span style="color:#6e7681">(kFunction)</span> was added
+<span style="color:#c69026">*</span> definition <span style="color:#c69026">\oci_set_call_timeout</span> <span style="color:#6e7681">(kFunction)</span> was changed
+<span style="color:#c69026">*</span> definition <span style="color:#c69026">\ltrim</span> <span style="color:#6e7681">(kFunction)</span> was changed
+<span style="color:#c69026">*</span> definition <span style="color:#c69026">\rtrim</span> <span style="color:#6e7681">(kFunction)</span> was changed
+<span style="color:#c69026">*</span> definition <span style="color:#c69026">\trim</span> <span style="color:#6e7681">(kFunction)</span> was changed
+</pre>
 
 ### 🧩 Example: convert to JSON
 
