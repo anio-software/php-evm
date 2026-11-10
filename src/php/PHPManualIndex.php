@@ -58,8 +58,8 @@ final readonly class PHPManualIndex {
 		$before = $this->definitions[$kind->value];
 		$after  = $that->getDefinitions()[$kind->value];
 
-		$removed = \array_diff_key($before, $after);
-		$added   = \array_diff_key($after, $before);
+		$removed  = \array_diff_key($before, $after);
+		$added    = \array_diff_key($after, $before);
 		$retained = \array_intersect_key($before, $after);
 
 		return new PHPManualIndexChanges(
