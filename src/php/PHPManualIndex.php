@@ -60,11 +60,12 @@ final readonly class PHPManualIndex {
 
 		$removed = \array_diff_key($before, $after);
 		$added   = \array_diff_key($after, $before);
+		$retained = \array_intersect_key($before, $after);
 
 		return new PHPManualIndexChanges(
 			added    : $added,
 			removed  : $removed,
-			retained : []
+			retained : $retained
 		);
 	}
 
