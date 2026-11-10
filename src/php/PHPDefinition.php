@@ -22,6 +22,17 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
+	final public function hash(): string {
+		$data = $this->jsonSerialize();
+
+		// sort data for stable hash output
+		ksort_r($data, \SORT_STRING);
+
+		return \hash(
+			"sha1", \json_encode($data, \JSON_THROW_ON_ERROR)
+		);
+	}
+
 	public function jsonSerialize(): mixed {
 		return [
 			"definitionMetadata" => $this->metadata,
