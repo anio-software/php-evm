@@ -2,6 +2,7 @@
 
 require_once __DIR__."/ksort_r.php";
 require_once __DIR__."/array_flatten.php";
+require_once __DIR__."/array_diff.php";
 
 require_once __DIR__."/PHPExtensionMembership.php";
 require_once __DIR__."/PHPReference.php";
