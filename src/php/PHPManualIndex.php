@@ -58,12 +58,28 @@ final readonly class PHPManualIndex {
 		$before = $this->definitions[$kind->value];
 		$after  = $that->getDefinitions()[$kind->value];
 
-		return array_diff(
+		$result = array_diff(
 			$before,
 			$after,
 			static function(PHPDefinition $a, PHPDefinition $b): bool {
 				return $a->hash() === $b->hash();
 			}
+		);
+
+		$changed = [];
+
+		foreach (\array_keys($result->changed) as $name) {
+			$changed[$name] = new PHPDefinitionDiffLazy(
+				$before[$name],
+				$after[$name]
+			);
+		}
+
+		return new DiffResult(
+			removed  : $result->removed,
+			added    : $result->added,
+			retained : $result->retained,
+			changed  : $changed
 		);
 	}
 
