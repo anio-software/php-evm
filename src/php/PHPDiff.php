@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPManualIndexChanges {
+final readonly class PHPDiff {
 	public function __construct(
 		public array $removed,
 		public array $added,

@@ -54,7 +54,7 @@ final readonly class PHPManualIndex {
 		$this->namespaces  = $namespaces;
 	}
 
-	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): PHPManualIndexChanges {
+	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): PHPDiff {
 		$before = $this->definitions[$kind->value];
 		$after  = $that->getDefinitions()[$kind->value];
 
@@ -73,7 +73,7 @@ final readonly class PHPManualIndex {
 			}
 		}
 
-		return new PHPManualIndexChanges(
+		return new PHPDiff(
 			added    : $added,
 			removed  : $removed,
 			retained : $retained,
@@ -91,7 +91,7 @@ final readonly class PHPManualIndex {
 		return $ret;
 	}
 
-	public function diff(self $that): PHPManualIndexChanges {
+	public function diff(self $that): PHPDiff {
 		$acc = new PHPManualIndexChangesAccumulator;
 
 		foreach (PHPDefinitionKind::cases() as $kind) {
