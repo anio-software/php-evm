@@ -78,6 +78,78 @@ Union type member: int
 
 This example illustrates how EVM exposes PHP manual definitions as objects, allowing applications to inspect function signatures, parameter types, default values, and return types without having to parse the XML documentation themselves.
 
+### 🔍 Example: show changes between two manual.xml files
+
+```php
+<?php
+
+use AnioSoftware\EVM as EVM;
+
+require_once __DIR__."/src/evm/index.php";
+
+// Load the PHP manuals.
+$context1 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual.xml"));
+$context2 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual2.xml"));
+
+$context1->loadPHPManual();
+$context2->loadPHPManual();
+
+// Compute diff
+$diff = $context1->getPHPManualIndex()->diff(
+	$context2->getPHPManualIndex()
+);
+
+foreach ($diff->removed as $definition) {
+	echo red("-")." definition ".prettyDefName($definition, "\\red")." was removed\n";
+}
+
+foreach ($diff->added as $definition) {
+	echo green("+")." definition ".prettyDefName($definition, "\\green")." was added\n";
+}
+
+foreach ($diff->changed as $definition) {
+	echo yellow("*")." definition ".prettyDefName($definition, "\\yellow")." was changed\n";
+}
+
+function prettyDefName(EVM\PHP\PHPDefinition $def, callable $colorize): string {
+	return ($colorize)(
+		$def->getFullyQualifiedName()
+	)." ".\gray("(".$def->getDefinitionKind()->name.")");
+}
+
+function gray(string $str): string {
+	return "\033[90m".$str."\033[0m";
+}
+
+function red(string $str): string {
+	return "\033[31m".$str."\033[0m";
+}
+
+function green(string $str): string {
+	return "\033[32m".$str."\033[0m";
+}
+
+function yellow(string $str): string {
+	return "\033[33m".$str."\033[0m";
+}
+```
+
+This generates output like:
+
+```
+[31m-[0m definition [31m\pg_service[0m [90m(kFunction)[0m was removed
+[32m+[0m definition [32m\Time\Duration[0m [90m(kClass)[0m was added
+[32m+[0m definition [32m\Time\TimeException[0m [90m(kClass)[0m was added
+[32m+[0m definition [32m\POSIX_SC_OPEN_MAX[0m [90m(kConstant)[0m was added
+[32m+[0m definition [32m\CURLOPT_SSL_SIGNATURE_ALGORITHMS[0m [90m(kConstant)[0m was added
+[32m+[0m definition [32m\clamp[0m [90m(kFunction)[0m was added
+[32m+[0m definition [32m\curl_multi_get_handles[0m [90m(kFunction)[0m was added
+[33m*[0m definition [33m\oci_set_call_timeout[0m [90m(kFunction)[0m was changed
+[33m*[0m definition [33m\ltrim[0m [90m(kFunction)[0m was changed
+[33m*[0m definition [33m\rtrim[0m [90m(kFunction)[0m was changed
+[33m*[0m definition [33m\trim[0m [90m(kFunction)[0m was changed
+```
+
 ### 🧩 Example: convert to JSON
 
 > [!NOTE]
