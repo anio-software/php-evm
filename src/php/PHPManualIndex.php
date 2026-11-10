@@ -54,17 +54,18 @@ final readonly class PHPManualIndex {
 		$this->namespaces  = $namespaces;
 	}
 
-	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): array {
+	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): PHPManualIndexChanges {
 		$before = $this->definitions[$kind->value];
 		$after  = $that->getDefinitions()[$kind->value];
 
 		$removed = \array_diff_key($before, $after);
 		$added   = \array_diff_key($after, $before);
 
-		return [
-			"removed" => $removed,
-			"added"   => $added
-		];
+		return new PHPManualIndexChanges(
+			added    : $added,
+			removed  : $removed,
+			retained : []
+		);
 	}
 
 	public function diffDefinitions(self $that): array {
