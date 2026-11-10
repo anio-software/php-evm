@@ -80,29 +80,15 @@ final readonly class PHPManualIndex {
 	}
 
 	public function diff(self $that): PHPManualIndexChanges {
-		$removed = $added = $retained = [];
+		$acc = new PHPManualIndexChangesAccumulator;
 
 		foreach (PHPDefinitionKind::cases() as $kind) {
-			$res = $this->diffDefinitionsOfKind($that, $kind);
-
-			foreach ($res->removed as $item) {
-				$removed[] = $item;
-			}
-
-			foreach ($res->added as $item) {
-				$added[] = $item;
-			}
-
-			foreach ($res->retained as $item) {
-				$retained[] = $item;
-			}
+			$acc->addChanges(
+				$this->diffDefinitionsOfKind($that, $kind)
+			);
 		}
 
-		return new PHPManualIndexChanges(
-			removed  : $removed,
-			added    : $added,
-			retained : $retained
-		);
+		return $acc->build();
 	}
 
 	public function getDefinitions(): array {
