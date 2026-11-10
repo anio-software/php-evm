@@ -72,8 +72,8 @@ final readonly class PHPManualIndex {
 	public function diffDefinitions(self $that): array {
 		$ret = [];
 
-		foreach (PHPDefinitionKind::cases() as $case) {
-			$ret[$case->value] = $this->diffDefinitionsOfKind($that, $case);
+		foreach (PHPDefinitionKind::cases() as $kind) {
+			$ret[$kind->value] = $this->diffDefinitionsOfKind($that, $kind);
 		}
 
 		return $ret;
@@ -82,8 +82,8 @@ final readonly class PHPManualIndex {
 	public function diff(self $that): PHPManualIndexChanges {
 		$removed = $added = $retained = [];
 
-		foreach (PHPDefinitionKind::cases() as $case) {
-			$res = $this->diffDefinitionsOfKind($that, $case);
+		foreach (PHPDefinitionKind::cases() as $kind) {
+			$res = $this->diffDefinitionsOfKind($that, $kind);
 
 			foreach ($res->removed as $item) {
 				$removed[] = $item;
