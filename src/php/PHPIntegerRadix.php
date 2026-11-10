@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-enum PHPIntegerRadix: string {
+enum PHPIntegerRadix: string implements \JsonSerializable {
 	case kDecimal     = "decimal";
 	case kHexadecimal = "hexadecimal";
 	case kOctal       = "octal";
@@ -24,5 +24,9 @@ enum PHPIntegerRadix: string {
 			self::kOctal       => 8,
 			self::kBinary      => 2
 		};
+	}
+
+	public function jsonSerialize(): mixed {
+		return jsonSerializeEnumObject($this);
 	}
 }

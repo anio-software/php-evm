@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-enum PHPBuiltinTypeKind: string {
+enum PHPBuiltinTypeKind: string implements \JsonSerializable {
 	case kMixed    = "mixed";
 	case kNever    = "never";
 	case kVoid     = "void";
@@ -23,5 +23,9 @@ enum PHPBuiltinTypeKind: string {
 
 	public function toType(): PHPType {
 		return PHPBuiltinType::fromKind($this);
+	}
+
+	public function jsonSerialize(): mixed {
+		return jsonSerializeEnumObject($this);
 	}
 }
