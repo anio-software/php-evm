@@ -56,6 +56,6 @@ require_once __DIR__."/PHPNamespace.php";
 require_once __DIR__."/PHPNamespaceVisitFlags.php";
 require_once __DIR__."/visitNamespace.php";
 require_once __DIR__."/PHPDiff.php";
-require_once __DIR__."/PHPManualIndexChangesAccumulator.php";
+require_once __DIR__."/PHPDiffAccumulator.php";
 require_once __DIR__."/PHPManual.php";
 require_once __DIR__."/PHPManualIndex.php";

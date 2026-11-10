@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final class PHPManualIndexChangesAccumulator {
+final class PHPDiffAccumulator {
 	private array $removed  = [];
 	private array $added    = [];
 	private array $retained = [];
