@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPDiff {
+final readonly class DiffResult {
 	public function __construct(
 		public array $removed,
 		public array $added,
