@@ -12,6 +12,7 @@ require_once __DIR__."/PHPDefinitionKind.php";
 require_once __DIR__."/PHPDefinitionMetadata.php";
 require_once __DIR__."/PHPDefinition.php";
 require_once __DIR__."/PHPDefinitionDiff.php";
+require_once __DIR__."/PHPDefinitionDiffLazy.php";
 
 require_once __DIR__."/PHPTypeKind.php";
 require_once __DIR__."/PHPType.php";
