@@ -58,26 +58,12 @@ final readonly class PHPManualIndex {
 		$before = $this->definitions[$kind->value];
 		$after  = $that->getDefinitions()[$kind->value];
 
-		$removed  = \array_diff_key($before, $after);
-		$added    = \array_diff_key($after, $before);
-		$retained = \array_intersect_key($before, $after);
-
-		$changed = [];
-
-		foreach (\array_keys($retained) as $name) {
-			$definitionBefore = $before[$name];
-			$definitionAfter  = $after[$name];
-
-			if ($definitionBefore->hash() !== $definitionAfter->hash()) {
-				$changed[$name] = $definitionAfter;
+		return array_diff(
+			$before,
+			$after,
+			static function(PHPDefinition $a, PHPDefinition $b): bool {
+				return $a->hash() === $b->hash();
 			}
-		}
-
-		return new DiffResult(
-			added    : $added,
-			removed  : $removed,
-			retained : $retained,
-			changed  : $changed
 		);
 	}
 
