@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 function array_flattenImplementation(
-	array $array, string $pathFormat, string $path
+	array $array, string|ArrayPathFormat $pathFormat, string $path
 ): array {
 	$newArray = [];
 
@@ -22,6 +22,6 @@ function array_flattenImplementation(
 	return $newArray;
 }
 
-function array_flatten(array $array, string $pathFormat = "."): array {
+function array_flatten(array $array, string|ArrayPathFormat $pathFormat = "."): array {
 	return array_flattenImplementation($array, $pathFormat, "");
 }
