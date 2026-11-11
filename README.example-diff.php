@@ -25,7 +25,23 @@ foreach ($diff->added as $definition) {
 }
 
 foreach ($diff->changed as $definition) {
-	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was changed\n";
+	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was changed:\n\n";
+
+	$diff = $definition->getDiff();
+
+	foreach ($diff->removed as $key => $value) {
+		echo "    ".red("-")." property ".red($key)." was removed\n";
+	}
+
+	foreach ($diff->added as $key => $value) {
+		echo "    ".green("+")." property ".green($key)." was added\n";
+	}
+
+	foreach ($diff->changed as $key => $value) {
+		echo "    ".yellow("*")." property ".yellow($key)." was changed\n";
+	}
+
+	echo "\n";
 }
 
 function prettyDefName(EVM\PHP\PHPDefinition $def, callable $colorize): string {
