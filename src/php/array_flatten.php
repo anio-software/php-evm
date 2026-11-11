@@ -9,7 +9,12 @@ function array_flattenImplementation(
 		string $path,
 		string $key
 	) use ($pathFormat) : string {
-		return $path.$pathFormat.$key;
+		return match($pathFormat) {
+			ArrayPathFormat::kParentheses    => $path."(".$key.")",
+			ArrayPathFormat::kCurlyBrackets  => $path."{".$key."}",
+			ArrayPathFormat::kSquareBrackets => $path."[".$key."]",
+			default                          => $path.$pathFormat.$key
+		};
 	};
 
 	$newArray = [];
