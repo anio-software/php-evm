@@ -25,7 +25,7 @@ foreach ($diff->added as $definition) {
 }
 
 foreach ($diff->changed as $definition) {
-	echo yellow("*")." definition ".prettyDefName($definition, "\\yellow")." was changed\n";
+	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was changed\n";
 }
 
 function prettyDefName(EVM\PHP\PHPDefinition $def, callable $colorize): string {
