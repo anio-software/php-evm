@@ -15,7 +15,7 @@ final readonly class PHPDefinitionDiff {
 			);
 		}
 
-		$pathFormat = "/";
+		$pathFormat = ArrayPathFormat::kSquareBrackets;
 
 		$dataBefore = array_flatten($before->jsonSerialize(), $pathFormat);
 		$dataAfter  = array_flatten($after->jsonSerialize(), $pathFormat);
