@@ -152,18 +152,31 @@ function yellow(string $str): string {
 
 This generates output like:
 
-<pre class="terminal"><span style="color:#e5534b">-</span> definition <span style="color:#e5534b">\pg_service</span> <span style="color:#6e7681">(kFunction)</span> was removed
-<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\Time\Duration</span> <span style="color:#6e7681">(kClass)</span> was added
-<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\Time\TimeException</span> <span style="color:#6e7681">(kClass)</span> was added
-<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\POSIX_SC_OPEN_MAX</span> <span style="color:#6e7681">(kConstant)</span> was added
-<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\CURLOPT_SSL_SIGNATURE_ALGORITHMS</span> <span style="color:#6e7681">(kConstant)</span> was added
-<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\clamp</span> <span style="color:#6e7681">(kFunction)</span> was added
-<span style="color:#57ab5a">+</span> definition <span style="color:#57ab5a">\curl_multi_get_handles</span> <span style="color:#6e7681">(kFunction)</span> was added
-<span style="color:#c69026">*</span> definition <span style="color:#c69026">\oci_set_call_timeout</span> <span style="color:#6e7681">(kFunction)</span> was changed
-<span style="color:#c69026">*</span> definition <span style="color:#c69026">\ltrim</span> <span style="color:#6e7681">(kFunction)</span> was changed
-<span style="color:#c69026">*</span> definition <span style="color:#c69026">\rtrim</span> <span style="color:#6e7681">(kFunction)</span> was changed
-<span style="color:#c69026">*</span> definition <span style="color:#c69026">\trim</span> <span style="color:#6e7681">(kFunction)</span> was changed
-</pre>
+```
+- definition \pg_service (kFunction) was removed
++ definition \Time\Duration (kClass) was added
++ definition \Time\TimeException (kClass) was added
++ definition \POSIX_SC_OPEN_MAX (kConstant) was added
++ definition \CURLOPT_SSL_SIGNATURE_ALGORITHMS (kConstant) was added
++ definition \clamp (kFunction) was added
++ definition \curl_multi_get_handles (kFunction) was added
+* definition \oci_set_call_timeout (kFunction) was changed:
+
+    * property referenceId was changed
+
+* definition \ltrim (kFunction) was changed:
+
+    * property parameters[1] was changed
+
+* definition \rtrim (kFunction) was changed:
+
+    * property parameters[1] was changed
+
+* definition \trim (kFunction) was changed:
+
+    * property parameters[1] was changed
+
+```
 
 ### 🧩 Example: convert to JSON
 
