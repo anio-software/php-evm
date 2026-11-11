@@ -5,10 +5,17 @@ namespace AnioSoftware\EVM\PHP;
 function array_flattenImplementation(
 	array $array, string|ArrayPathFormat $pathFormat, string $path
 ): array {
+	$glue = static function(
+		string $path,
+		string $key
+	) use ($pathFormat) : string {
+		return $path.$pathFormat.$key;
+	};
+
 	$newArray = [];
 
 	foreach ($array as $key => $value) {
-		$keyPath = \strlen($path) ? $path.$pathFormat.$key : $key;
+		$keyPath = \strlen($path) ? $glue($path, $key) : $key;
 
 		if (\is_array($value) && \count($value)) {
 			foreach (array_flattenImplementation($value, $pathFormat, $keyPath) as $innerKeyPath => $innerValue) {
