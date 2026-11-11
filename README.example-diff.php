@@ -50,18 +50,22 @@ function prettyDefName(EVM\PHP\PHPDefinition $def, callable $colorize): string {
 	)." ".\gray("(".$def->getDefinitionKind()->name.")");
 }
 
+function colorize(int $colorSequence, string $str): string {
+	return \posix_isatty(\STDOUT) ? "\033[".$colorSequence."m".$str."\033[0m" : $str;
+}
+
 function gray(string $str): string {
-	return \posix_isatty(\STDOUT) ? "\033[90m".$str."\033[0m" : $str;
+	return colorize(90, $str);
 }
 
 function red(string $str): string {
-	return \posix_isatty(\STDOUT) ? "\033[31m".$str."\033[0m" : $str;
+	return colorize(31, $str);
 }
 
 function green(string $str): string {
-	return \posix_isatty(\STDOUT) ? "\033[32m".$str."\033[0m" : $str;
+	return colorize(32, $str);
 }
 
 function yellow(string $str): string {
-	return \posix_isatty(\STDOUT) ? "\033[33m".$str."\033[0m" : $str;
+	return colorize(33, $str);
 }
