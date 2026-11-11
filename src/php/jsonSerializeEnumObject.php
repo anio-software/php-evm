@@ -2,6 +2,6 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-function jsonSerializeEnumObject(object $enum): string {
+function jsonSerializeEnumObject(\UnitEnum $enum): string {
 	return $enum->name;
 }
