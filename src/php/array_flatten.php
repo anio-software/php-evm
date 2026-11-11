@@ -3,15 +3,15 @@
 namespace AnioSoftware\EVM\PHP;
 
 function array_flattenImplementation(
-	array $array, string $keyDelimiter, string $path
+	array $array, string $pathFormat, string $path
 ): array {
 	$newArray = [];
 
 	foreach ($array as $key => $value) {
-		$keyPath = \strlen($path) ? $path.$keyDelimiter.$key : $key;
+		$keyPath = \strlen($path) ? $path.$pathFormat.$key : $key;
 
 		if (\is_array($value) && \count($value)) {
-			foreach (array_flattenImplementation($value, $keyDelimiter, $keyPath) as $innerKeyPath => $innerValue) {
+			foreach (array_flattenImplementation($value, $pathFormat, $keyPath) as $innerKeyPath => $innerValue) {
 				$newArray[$innerKeyPath] = $innerValue;
 			}
 		} else {
@@ -22,6 +22,6 @@ function array_flattenImplementation(
 	return $newArray;
 }
 
-function array_flatten(array $array, string $keyDelimiter = "."): array {
-	return array_flattenImplementation($array, $keyDelimiter, "");
+function array_flatten(array $array, string $pathFormat = "."): array {
+	return array_flattenImplementation($array, $pathFormat, "");
 }
