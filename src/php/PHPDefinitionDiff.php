@@ -15,8 +15,10 @@ final readonly class PHPDefinitionDiff {
 			);
 		}
 
-		$dataBefore = array_flatten($before->jsonSerialize(), "/");
-		$dataAfter  = array_flatten($after->jsonSerialize(), "/");
+		$pathFormat = "/";
+
+		$dataBefore = array_flatten($before->jsonSerialize(), $pathFormat);
+		$dataAfter  = array_flatten($after->jsonSerialize(), $pathFormat);
 
 		$this->diff = array_diff(
 			$dataBefore,
