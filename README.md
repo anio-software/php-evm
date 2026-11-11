@@ -118,19 +118,19 @@ function prettyDefName(EVM\PHP\PHPDefinition $def, callable $colorize): string {
 }
 
 function gray(string $str): string {
-	return "\033[90m".$str."\033[0m";
+	return \posix_isatty(\STDOUT) ? "\033[90m".$str."\033[0m" : $str;
 }
 
 function red(string $str): string {
-	return "\033[31m".$str."\033[0m";
+	return \posix_isatty(\STDOUT) ? "\033[31m".$str."\033[0m" : $str;
 }
 
 function green(string $str): string {
-	return "\033[32m".$str."\033[0m";
+	return \posix_isatty(\STDOUT) ? "\033[32m".$str."\033[0m" : $str;
 }
 
 function yellow(string $str): string {
-	return "\033[33m".$str."\033[0m";
+	return \posix_isatty(\STDOUT) ? "\033[33m".$str."\033[0m" : $str;
 }
 ```
 
