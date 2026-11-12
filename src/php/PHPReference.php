@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-readonly abstract class PHPReference {
+readonly class PHPReference {
 	public function __construct(
 		public string $referenceId
 	) {}
