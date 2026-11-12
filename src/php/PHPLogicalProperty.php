@@ -4,10 +4,11 @@ namespace AnioSoftware\EVM\PHP;
 
 enum PHPLogicalProperty: string implements \JsonSerializable {
 	// common definition properties
+	case kReferenceId                           = "reference.id";
+
 	case kDefinitionMetadata                    = "definition.metadata";
 	case kDefinitionKind                        = "definition.kind";
 	case kDefinitionNamespace                   = "definition.namespace";
-	case kDefinitionReferenceId                 = "definition.referenceId";
 	case kDefinitionName                        = "definition.name";
 	case kDefinitionFullyQualifiedName          = "definition.fullyQualifiedName";
 
