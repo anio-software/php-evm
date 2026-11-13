@@ -7,6 +7,7 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 	abstract protected function provideLogicalProperties(): array;
 
 	static private function resolve(
+		?PHPLogicalPropertyGroup $group,
 		array $properties
 	): array {
 		$arr = [];
@@ -15,7 +16,7 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 			if ($value instanceof self) {
 				$value = $value->getLogicalProperties();
 			} else if (\is_array($value)) {
-				$value = self::resolve($value);
+				$value = self::resolve($group, $value);
 			}
 
 			$arr[$key] = $value;
@@ -25,7 +26,10 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 	}
 
 	final public function getLogicalProperties(): array {
-		return self::resolve($this->provideLogicalProperties());
+		return self::resolve(
+			$this->getLogicalPropertyGroup(),
+			$this->provideLogicalProperties()
+		);
 	}
 
 	final public function jsonSerialize(): mixed {
