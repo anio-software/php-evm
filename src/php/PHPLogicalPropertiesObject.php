@@ -12,6 +12,12 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 	): array {
 		$arr = [];
 
+		if ($group) {
+			$arr[
+				PHPLogicalProperty::kLogicalPropertyGroup->value
+			] = $group->value;
+		}
+
 		foreach ($properties as $key => $value) {
 			if ($value instanceof self) {
 				$value = $value->getLogicalProperties();
