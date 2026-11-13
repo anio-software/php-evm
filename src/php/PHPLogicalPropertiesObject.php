@@ -19,6 +19,11 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 				$value = self::resolve($group, $value);
 			}
 
+			// remove group prefix if it matches the current group
+			if ($group && \str_starts_with($key, $group->value.".")) {
+				$key = \substr($key, \strlen($group->value."."));
+			}
+
 			$arr[$key] = $value;
 		}
 
