@@ -22,7 +22,10 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 			if ($value instanceof self) {
 				$value = $value->getLogicalProperties();
 			} else if (\is_array($value)) {
-				$value = self::resolve($group, $value);
+				$value = self::resolve(
+					$group,
+					$value
+				);
 			}
 
 			// remove group prefix if it matches the current group
