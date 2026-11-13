@@ -6,7 +6,9 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 	abstract public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup;
 	abstract protected function provideLogicalProperties(): array;
 
-	static private function resolve(array $properties): array {
+	static private function resolve(
+		array $properties
+	): array {
 		$arr = [];
 
 		foreach ($properties as $key => $value) {
