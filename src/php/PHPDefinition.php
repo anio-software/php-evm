@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-readonly abstract class PHPDefinition extends PHPLogicalPropertiesObject {
+readonly abstract class PHPDefinition extends PHPReference {
 	public function __construct(
 		public PHPDefinitionMetadata $metadata,
 		public PHPNamespace $namespace,
