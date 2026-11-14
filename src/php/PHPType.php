@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-abstract readonly class PHPType implements \JsonSerializable {
+abstract readonly class PHPType extends PHPLogicalPropertiesObject {
 	abstract public function getNamespace(): ?PHPNamespace;
 	abstract public function getTypeKind(): PHPTypeKind;
 	abstract public function getTypeId(): string;

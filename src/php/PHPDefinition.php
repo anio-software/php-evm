@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-readonly abstract class PHPDefinition extends PHPReference implements \JsonSerializable {
+readonly abstract class PHPDefinition extends PHPLogicalPropertiesObject {
 	public function __construct(
 		public PHPDefinitionMetadata $metadata,
 		public PHPNamespace $namespace,
