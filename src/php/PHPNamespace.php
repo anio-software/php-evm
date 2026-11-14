@@ -110,5 +110,13 @@ final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
 		$this->state->definitionsByKind[$kind][$id] = $def;
 	}
 
+	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
+		return PHPLogicalPropertyGroup::kNamespace;
+	}
+
+	protected function provideLogicalProperties(): array {
+		return [];
+	}
+
 	//public function jsonSerialize(): mixed {}
 }
