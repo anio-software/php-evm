@@ -3,12 +3,16 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
+	private PHPNamespaceState $state;
+
 	public function __construct(
 		private string $name,
 		private ?self $parent = NULL
 	) {
+		$this->state = new PHPNamespaceState;
+
 		foreach (PHPDefinitionKind::cases() as $case) {
-			$this->definitionsByKind[$case->value] = [];
+			$this->state->definitionsByKind[$case->value] = [];
 		}
 	}
 
@@ -42,11 +46,11 @@ final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
 			);
 		}
 
-		$this->namespaces[$namespace->getName()] = $namespace;
+		$this->state->namespaces[$namespace->getName()] = $namespace;
 	}
 
 	public function getNamespaces(): array {
-		return $this->namespaces;
+		return $this->state->namespaces;
 	}
 
 	private function indexByName(array $definitions): array {
@@ -62,10 +66,10 @@ final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
 	public function getDefinitions(?PHPDefinitionKind $kind = NULL): array {
 		if (!$kind) {
 			// no re-index because of potential naming collisions
-			return $this->definitions;
+			return $this->state->definitions;
 		}
 
-		return $this->indexByName($this->definitionsByKind[$kind->value]);
+		return $this->indexByName($this->state->definitionsByKind[$kind->value]);
 	}
 
 	public function getClasses(): array {
@@ -96,14 +100,14 @@ final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
 		$id   = $def->getDefinitionId();
 		$kind = $def->getDefinitionKind()->value;
 
-		if (\array_key_exists($id, $this->definitions)) {
+		if (\array_key_exists($id, $this->state->definitions)) {
 			throw new \RuntimeException(
 				"A definition with this id ($id) was already added to this namespace."
 			);
 		}
 
-		$this->definitions[$id] = $def;
-		$this->definitionsByKind[$kind][$id] = $def;
+		$this->state->definitions[$id] = $def;
+		$this->state->definitionsByKind[$kind][$id] = $def;
 	}
 
 	//public function jsonSerialize(): mixed {}
