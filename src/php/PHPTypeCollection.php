@@ -111,12 +111,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return self::renderTypeCollection($this);
 	}
 
-	final public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"members"  => $this->members
-		];
-	}
+	//final public function jsonSerialize(): mixed {}
 
 	abstract public function getTypeOperator(): PHPTypeOperator;
 

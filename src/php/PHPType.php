@@ -28,17 +28,5 @@ abstract readonly class PHPType implements \JsonSerializable {
 		return $this->render();
 	}
 
-	public function jsonSerialize(): mixed {
-		$arr = [
-			"typeKind" => $this->getTypeKind()
-		];
-
-		$ns = $this->getNamespace();
-
-		if ($ns) {
-			$arr["namespace"] = $ns->getFullyQualifiedName();
-		}
-
-		return $arr;
-	}
+	//public function jsonSerialize(): mixed {}
 }

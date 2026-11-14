@@ -16,13 +16,7 @@ final readonly class PHPNamedType extends PHPType {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"name"               => $this->name,
-			"fullyQualifiedName" => $this->getFullyQualifiedName()
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 
 	public function getTypeId(): string {
 		return "named:".$this->getFullyQualifiedName();

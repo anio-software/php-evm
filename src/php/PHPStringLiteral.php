@@ -13,10 +13,5 @@ abstract readonly class PHPStringLiteral extends PHPLiteral {
 		return PHPLiteralKind::kString;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"stringLiteralKind" => $this->getStringLiteralKind()
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 }

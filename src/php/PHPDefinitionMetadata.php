@@ -8,10 +8,5 @@ final readonly class PHPDefinitionMetadata implements \JsonSerializable {
 		public ?string $bookId = NULL
 	) {}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"extensionMembership" => $this->extensionMembership->value,
-			"bookId"              => $this->bookId
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 }

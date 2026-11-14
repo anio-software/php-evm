@@ -13,10 +13,5 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		return PHPLiteralKind::kNumber;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"numberLiteralKind" => $this->getNumberLiteralKind()
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 }

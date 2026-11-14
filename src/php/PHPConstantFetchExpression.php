@@ -26,10 +26,5 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 		return true;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"constant" => $this->constant
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 }

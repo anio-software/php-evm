@@ -110,17 +110,5 @@ final class PHPNamespace implements \JsonSerializable {
 		$this->definitionsByKind[$kind][$id] = $def;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"name"               => $this->name,
-			"fullyQualifiedName" => $this->getFullyQualifiedName(),
-			"namespaces"         => $this->getNamespaces(),
-			"classes"            => $this->getClasses(),
-			"interfaces"         => $this->getInterfaces(),
-			"enums"              => $this->getEnums(),
-			"constants"          => $this->getConstants(),
-			"functions"          => $this->getFunctions(),
-			"functionAliases"    => $this->getFunctionAliases()
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 }

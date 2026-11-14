@@ -27,10 +27,5 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		return new self($metadata, $namespace, $referenceId, $name, $originalName);
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"originalName" => $this->originalName
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 }

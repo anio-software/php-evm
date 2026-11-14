@@ -110,12 +110,5 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 		return $ret;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"name"        => $this->name,
-			"type"        => $this->type,
-			"initializer" => $this->initializer,
-			"flags"       => $this->flags
-		];
-	}
+	//public function jsonSerialize(): mixed {}
 }
