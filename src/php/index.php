@@ -62,6 +62,7 @@ require_once __DIR__."/PHPInterface.php";
 require_once __DIR__."/PHPEnum.php";
 require_once __DIR__."/PHPConstant.php";
 
+require_once __DIR__."/PHPNamespaceState.php";
 require_once __DIR__."/PHPNamespace.php";
 require_once __DIR__."/PHPNamespaceVisitFlags.php";
 require_once __DIR__."/visitNamespace.php";
