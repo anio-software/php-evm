@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final class PHPNamespace extends PHPLogicalPropertiesObject {
+final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
 	private array $definitions       = [];
 	private array $definitionsByKind = [];
 	private array $namespaces        = [];
