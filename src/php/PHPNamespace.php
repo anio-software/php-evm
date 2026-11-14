@@ -3,10 +3,6 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
-	private array $definitions       = [];
-	private array $definitionsByKind = [];
-	private array $namespaces        = [];
-
 	public function __construct(
 		private string $name,
 		private ?self $parent = NULL
