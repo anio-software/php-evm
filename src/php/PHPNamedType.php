@@ -49,4 +49,15 @@ final readonly class PHPNamedType extends PHPType {
 	public function getNamespace(): ?PHPNamespace {
 		return $this->namespace;
 	}
+
+	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
+		return PHPLogicalPropertyGroup::kNamedType;
+	}
+
+	protected function provideLogicalProperties(): array {
+		return [
+			...parent::provideLogicalProperties(),
+			// tbd
+		];
+	}
 }

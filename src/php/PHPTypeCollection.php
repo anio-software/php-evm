@@ -133,6 +133,17 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return NULL;
 	}
 
+	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
+		return PHPLogicalPropertyGroup::kTypeCollection;
+	}
+
+	protected function provideLogicalProperties(): array {
+		return [
+			...parent::provideLogicalProperties(),
+			// tbd
+		];
+	}
+
 	static private function renderTypeCollection(self $col, bool $nested = false): string {
 		$members = \array_map(static function(PHPType $type) {
 			if ($type instanceof self) {

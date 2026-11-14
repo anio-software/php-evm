@@ -35,6 +35,16 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 	}
 
 	//public function jsonSerialize(): mixed {}
+	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
+		return PHPLogicalPropertyGroup::kIntegerLiteral;
+	}
+
+	protected function provideLogicalProperties(): array {
+		return [
+			...parent::provideLogicalProperties(),
+			// tbd
+		];
+	}
 
 	static public function parse(string $str, bool $negative = false): ?self {
 		if (\str_contains($str, ".")) {

@@ -13,5 +13,15 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		return PHPLiteralKind::kNumber;
 	}
 
+	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
+		return PHPLogicalPropertyGroup::kNumberLiteral;
+	}
+
+	protected function provideLogicalProperties(): array {
+		return [
+			...parent::provideLogicalProperties(),
+			// tbd
+		];
+	}
 	//public function jsonSerialize(): mixed {}
 }
