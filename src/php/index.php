@@ -6,6 +6,7 @@ require_once __DIR__."/array_flatten.php";
 require_once __DIR__."/array_diff.php";
 require_once __DIR__."/stable_json_encode.php";
 require_once __DIR__."/jsonSerializeEnumObject.php";
+require_once __DIR__."/HashMap.php";
 
 require_once __DIR__."/PHPLogicalProperty.php";
 require_once __DIR__."/PHPLogicalPropertyGroup.php";
