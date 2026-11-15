@@ -111,8 +111,6 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return self::renderTypeCollection($this);
 	}
 
-	//final public function jsonSerialize(): mixed {}
-
 	abstract public function getTypeOperator(): PHPTypeOperator;
 
 	public function isRepresentableInCode(): bool {
@@ -140,7 +138,8 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kTypeCollectionMembers->value => $this->members
 		];
 	}
 

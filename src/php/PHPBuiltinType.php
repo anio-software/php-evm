@@ -19,8 +19,6 @@ final readonly class PHPBuiltinType extends PHPType {
 		return PHPTypeKind::kBuiltin;
 	}
 
-	//public function jsonSerialize(): mixed {}
-
 	public function getBuiltinKind(): PHPBuiltinTypeKind {
 		return $this->kind;
 	}
@@ -75,7 +73,8 @@ final readonly class PHPBuiltinType extends PHPType {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kBuiltinTypeKind->value => $this->getBuiltinKind()
 		];
 	}
 }

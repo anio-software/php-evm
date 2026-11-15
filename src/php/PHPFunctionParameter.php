@@ -115,8 +115,11 @@ final readonly class PHPFunctionParameter extends PHPLogicalPropertiesObject {
 	}
 
 	protected function provideLogicalProperties(): array {
-		return [];
+		return [
+			PHPLogicalProperty::kFunctionParameterName->value        => $this->name,
+			PHPLogicalProperty::kFunctionParameterType->value        => $this->type,
+			PHPLogicalProperty::kFunctionParameterInitializer->value => $this->initializer,
+			PHPLogicalProperty::kFunctionParameterFlags->value       => $this->flags
+		];
 	}
-
-	//public function jsonSerialize(): mixed {}
 }

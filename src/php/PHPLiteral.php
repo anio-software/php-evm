@@ -32,9 +32,9 @@ abstract readonly class PHPLiteral extends PHPExpression {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kLiteralKind->value  => $this->getLiteralKind(),
+			PHPLogicalProperty::kLiteralValue->value => $this->value
 		];
 	}
-
-	//public function jsonSerialize(): mixed {}
 }

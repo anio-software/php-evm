@@ -16,8 +16,6 @@ final readonly class PHPNamedType extends PHPType {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
-	//public function jsonSerialize(): mixed {}
-
 	public function getTypeId(): string {
 		return "named:".$this->getFullyQualifiedName();
 	}
@@ -57,7 +55,9 @@ final readonly class PHPNamedType extends PHPType {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kNamedTypeName->value               => $this->name,
+			PHPLogicalProperty::kNamedTypeFullyQualifiedName->value => $this->getFullyQualifiedName()
 		];
 	}
 }

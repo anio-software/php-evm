@@ -153,9 +153,10 @@ final readonly class PHPFunction extends PHPDefinition {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kFunctionParameters->value  => $this->parameters,
+			PHPLogicalProperty::kFunctionFlags->value       => $this->flags,
+			PHPLogicalProperty::kFunctionReturnType->value  => $this->returnType
 		];
 	}
-
-	//public function jsonSerialize(): mixed {}
 }

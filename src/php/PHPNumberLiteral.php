@@ -20,8 +20,8 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kNumberLiteralKind->value => $this->getNumberLiteralKind()
 		];
 	}
-	//public function jsonSerialize(): mixed {}
 }

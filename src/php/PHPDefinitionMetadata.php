@@ -13,8 +13,9 @@ final readonly class PHPDefinitionMetadata extends PHPLogicalPropertiesObject {
 	}
 
 	protected function provideLogicalProperties(): array {
-		return [];
+		return [
+			PHPLogicalProperty::kDefinitionMetadataExtensionMembership->value => $this->extensionMembership,
+			PHPLogicalProperty::kDefinitionMetadataBookId->value              => $this->bookId
+		];
 	}
-
-	//public function jsonSerialize(): mixed {}
 }

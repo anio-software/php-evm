@@ -33,8 +33,8 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kConstantFetchConstant->value => $this->constant
 		];
 	}
-	//public function jsonSerialize(): mixed {}
 }

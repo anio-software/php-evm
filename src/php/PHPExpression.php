@@ -24,8 +24,9 @@ abstract readonly class PHPExpression extends PHPLogicalPropertiesObject {
 	}
 
 	protected function provideLogicalProperties(): array {
-		return [];
+		return [
+			PHPLogicalProperty::kExpressionKind->value       => $this->getExpressionKind(),
+			PHPLogicalProperty::kExpressionSourceCode->value => $this->sourceCode
+		];
 	}
-
-	//public function jsonSerialize(): mixed {}
 }

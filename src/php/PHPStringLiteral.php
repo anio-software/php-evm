@@ -20,8 +20,8 @@ abstract readonly class PHPStringLiteral extends PHPLiteral {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kStringLiteralKind->value => $this->getStringLiteralKind()
 		];
 	}
-	//public function jsonSerialize(): mixed {}
 }

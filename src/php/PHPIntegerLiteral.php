@@ -34,7 +34,6 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		return "$sign$str";
 	}
 
-	//public function jsonSerialize(): mixed {}
 	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
 		return PHPLogicalPropertyGroup::kIntegerLiteral;
 	}
@@ -42,7 +41,8 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kIntegerLiteralRadix->value => $this->radix->getRadix()
 		];
 	}
 

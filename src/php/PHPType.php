@@ -33,8 +33,16 @@ abstract readonly class PHPType extends PHPLogicalPropertiesObject {
 	}
 
 	protected function provideLogicalProperties(): array {
-		return [];
-	}
+		$arr = [
+			PHPLogicalProperty::kTypeKind->value => $this->getTypeKind()
+		];
 
-	//public function jsonSerialize(): mixed {}
+		$ns = $this->getNamespace();
+
+		$arr[
+			PHPLogicalProperty::kTypeNamespace->value
+		] = $ns ? $ns->getFullyQualifiedName() : NULL;
+
+		return $arr;
+	}
 }

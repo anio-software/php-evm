@@ -115,8 +115,16 @@ final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
 	}
 
 	protected function provideLogicalProperties(): array {
-		return [];
+		return [
+			PHPLogicalProperty::kNamespaceName->value               => $this->name,
+			PHPLogicalProperty::kNamespaceFullyQualifiedName->value => $this->getFullyQualifiedName(),
+			PHPLogicalProperty::kNamespaceNamespaces->value         => $this->getNamespaces(),
+			PHPLogicalProperty::kNamespaceClasses->value            => $this->getClasses(),
+			PHPLogicalProperty::kNamespaceInterfaces->value         => $this->getInterfaces(),
+			PHPLogicalProperty::kNamespaceEnums->value              => $this->getEnums(),
+			PHPLogicalProperty::kNamespaceConstants->value          => $this->getConstants(),
+			PHPLogicalProperty::kNamespaceFunctions->value          => $this->getFunctions(),
+			PHPLogicalProperty::kNamespaceFunctionAliases->value    => $this->getFunctionAliases()
+		];
 	}
-
-	//public function jsonSerialize(): mixed {}
 }

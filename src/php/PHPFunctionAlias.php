@@ -34,8 +34,8 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),
-			// tbd
+
+			PHPLogicalProperty::kFunctionAliasOriginalName->value => $this->originalName
 		];
 	}
-	//public function jsonSerialize(): mixed {}
 }
