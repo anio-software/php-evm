@@ -33,6 +33,10 @@ final readonly class PHPLogicalProperties {
 		return $this->hash;
 	}
 
+	public function isEqualTo(self $that): bool {
+		return $this->getHash() === $that->getHash();
+	}
+
 	public function withProperty(PHPLogicalProperty $prop, mixed $value): self {
 		if (!\str_starts_with($prop->value, $this->group->value.".")) {
 			throw new \InvalidArgumentException("Cannot add property ({$prop->value}) to foreign group '{$this->group->value}'.");
