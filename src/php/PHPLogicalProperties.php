@@ -24,7 +24,9 @@ final readonly class PHPLogicalProperties {
 	public function getHash(): string {
 		return \hash(
 			"sha1", stable_json_encode(
-				$this->serialize(true, "L:", "I:")
+				$this->serialize(
+					PHPLogicalPropertiesSerializationOptions::canonicalFormat()
+				)
 			)
 		);
 	}
