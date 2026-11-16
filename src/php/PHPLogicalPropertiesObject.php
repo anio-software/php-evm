@@ -12,6 +12,10 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 	}
 
 	final public function jsonSerialize(): mixed {
-		return $this->getLogicalProperties();
+		return $this->provideLogicalProperties()->serialize(
+			resolveParents       : true,
+			logicalPropertyPrefix: "#",
+			parentPropertyPrefix : "@"
+		);
 	}
 }
