@@ -8,4 +8,10 @@ final readonly class PHPLogicalPropertiesSerializationOptions {
 		public string $logicalPropertyPrefix = "#",
 		public string $inheritedPropertyPrefix = "@"
 	) {}
+
+	static public function defaults(): self {
+		static $instance = NULL;
+
+		return $instance ??= new self;
+	}
 }
