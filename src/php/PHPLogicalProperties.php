@@ -3,11 +3,19 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPLogicalProperties {
+	private string $hash;
+
 	private function __construct(
 		private ?self $parent,
 		private PHPLogicalPropertyGroup $group,
 		private HashMap $properties
-	) {}
+	) {
+		$this->hash = \hash(
+			"sha1", stable_json_encode(
+				$this->serialize(true, "L:", "I:")
+			)
+		);
+	}
 
 	public function getProperties(): array {
 		return $this->properties->entries();
@@ -19,6 +27,10 @@ final readonly class PHPLogicalProperties {
 
 	public function getParent(): ?self {
 		return $this->parent;
+	}
+
+	public function getHash(): string {
+		return $this->hash;
 	}
 
 	public function withProperty(PHPLogicalProperty $prop, mixed $value): self {
