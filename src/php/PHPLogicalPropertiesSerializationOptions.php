@@ -9,6 +9,30 @@ final readonly class PHPLogicalPropertiesSerializationOptions {
 		public string $inheritedPropertyPrefix = "@"
 	) {}
 
+	public function withResolveParents(bool $value): self {
+		return new self(
+			$value,
+			$this->logicalPropertyPrefix,
+			$this->inheritedPropertyPrefix
+		);
+	}
+
+	public function withLogicalPropertyPrefix(string $prefix): self {
+		return new self(
+			$this->resolveParents,
+			$prefix,
+			$this->inheritedPropertyPrefix
+		);
+	}
+
+	public function withInheritedPropertyPrefix(string $prefix): self {
+		return new self(
+			$this->resolveParents,
+			$this->logicalPropertyPrefix,
+			$prefix
+		);
+	}
+
 	static public function defaults(): self {
 		static $instance = NULL;
 
