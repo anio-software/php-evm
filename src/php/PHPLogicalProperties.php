@@ -68,7 +68,7 @@ final readonly class PHPLogicalProperties {
 	public function serialize(
 		?PHPLogicalPropertiesSerializationOptions $options = NULL
 	): array {
-		$options ??= new PHPLogicalPropertiesSerializationOptions;
+		$options ??= PHPLogicalPropertiesSerializationOptions::defaults();
 
 		$serialize = static function($value) use ($options, &$serialize) {
 			if ($value instanceof self) {
