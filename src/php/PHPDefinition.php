@@ -28,15 +28,15 @@ readonly abstract class PHPDefinition extends PHPReference {
 		);
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			...parent::provideLogicalProperties(),
-
-			PHPLogicalProperty::kDefinitionMetadata->value           => $this->metadata,
-			PHPLogicalProperty::kDefinitionKind->value               => $this->getDefinitionKind(),
-			PHPLogicalProperty::kDefinitionNamespace->value          => $this->namespace->getFullyQualifiedName(),
-			PHPLogicalProperty::kDefinitionName->value               => $this->name,
-			PHPLogicalProperty::kDefinitionFullyQualifiedName->value => $this->getFullyQualifiedName()
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			parent::provideLogicalProperties(),
+			PHPLogicalPropertyGroup::kDefinition
+		)
+		->withProperty(PHPLogicalProperty::kDefinitionMetadata           , $this->metadata)
+		->withProperty(PHPLogicalProperty::kDefinitionKind               , $this->getDefinitionKind())
+		->withProperty(PHPLogicalProperty::kDefinitionNamespace          , $this->namespace->getFullyQualifiedName())
+		->withProperty(PHPLogicalProperty::kDefinitionName               , $this->name)
+		->withProperty(PHPLogicalProperty::kDefinitionFullyQualifiedName , $this->getFullyQualifiedName());
 	}
 }

@@ -110,17 +110,18 @@ final readonly class PHPNamespace extends PHPLogicalPropertiesObject {
 		$this->state->definitionsByKind[$kind][$id] = $def;
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			PHPLogicalProperty::kNamespaceName->value               => $this->name,
-			PHPLogicalProperty::kNamespaceFullyQualifiedName->value => $this->getFullyQualifiedName(),
-			PHPLogicalProperty::kNamespaceNamespaces->value         => $this->getNamespaces(),
-			PHPLogicalProperty::kNamespaceClasses->value            => $this->getClasses(),
-			PHPLogicalProperty::kNamespaceInterfaces->value         => $this->getInterfaces(),
-			PHPLogicalProperty::kNamespaceEnums->value              => $this->getEnums(),
-			PHPLogicalProperty::kNamespaceConstants->value          => $this->getConstants(),
-			PHPLogicalProperty::kNamespaceFunctions->value          => $this->getFunctions(),
-			PHPLogicalProperty::kNamespaceFunctionAliases->value    => $this->getFunctionAliases()
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			NULL, PHPLogicalPropertyGroup::kNamespace
+		)
+		->withProperty(PHPLogicalProperty::kNamespaceName               , $this->name)
+		->withProperty(PHPLogicalProperty::kNamespaceFullyQualifiedName , $this->getFullyQualifiedName())
+		->withProperty(PHPLogicalProperty::kNamespaceNamespaces         , $this->getNamespaces())
+		->withProperty(PHPLogicalProperty::kNamespaceClasses            , $this->getClasses())
+		->withProperty(PHPLogicalProperty::kNamespaceInterfaces         , $this->getInterfaces())
+		->withProperty(PHPLogicalProperty::kNamespaceEnums              , $this->getEnums())
+		->withProperty(PHPLogicalProperty::kNamespaceConstants          , $this->getConstants())
+		->withProperty(PHPLogicalProperty::kNamespaceFunctions          , $this->getFunctions())
+		->withProperty(PHPLogicalProperty::kNamespaceFunctionAliases    , $this->getFunctionAliases());
 	}
 }

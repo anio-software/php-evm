@@ -146,13 +146,13 @@ final readonly class PHPFunction extends PHPDefinition {
 		return new self($metadata, $namespace, $referenceId, $name, [], 0, $returnType);
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			...parent::provideLogicalProperties(),
-
-			PHPLogicalProperty::kFunctionParameters->value  => $this->parameters,
-			PHPLogicalProperty::kFunctionFlags->value       => $this->flags,
-			PHPLogicalProperty::kFunctionReturnType->value  => $this->returnType
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			parent::provideLogicalProperties(),
+			PHPLogicalPropertyGroup::kFunction
+		)
+		->withProperty(PHPLogicalProperty::kFunctionParameters  , $this->parameters)
+		->withProperty(PHPLogicalProperty::kFunctionFlags       , $this->flags)
+		->withProperty(PHPLogicalProperty::kFunctionReturnType  , $this->returnType);
 	}
 }

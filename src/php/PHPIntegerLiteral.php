@@ -34,12 +34,12 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		return "$sign$str";
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			...parent::provideLogicalProperties(),
-
-			PHPLogicalProperty::kIntegerLiteralRadix->value => $this->radix->getRadix()
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			parent::provideLogicalProperties(),
+			PHPLogicalPropertyGroup::kIntegerLiteral
+		)
+		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix());
 	}
 
 	static public function parse(string $str, bool $negative = false): ?self {

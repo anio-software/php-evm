@@ -131,12 +131,12 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return NULL;
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			...parent::provideLogicalProperties(),
-
-			PHPLogicalProperty::kTypeCollectionMembers->value => $this->members
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			parent::provideLogicalProperties(),
+			PHPLogicalPropertyGroup::kTypeCollection
+		)
+		->withProperty(PHPLogicalProperty::kTypeCollectionMembers, $this->members);
 	}
 
 	static private function renderTypeCollection(self $col, bool $nested = false): string {

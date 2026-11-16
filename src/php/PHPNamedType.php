@@ -48,12 +48,12 @@ final readonly class PHPNamedType extends PHPType {
 		return $this->namespace;
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			...parent::provideLogicalProperties(),
-
-			PHPLogicalProperty::kNamedTypeName->value               => $this->name,
-			PHPLogicalProperty::kNamedTypeFullyQualifiedName->value => $this->getFullyQualifiedName()
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			parent::provideLogicalProperties(),
+			PHPLogicalPropertyGroup::kNamedType
+		)
+		->withProperty(PHPLogicalProperty::kNamedTypeName              , $this->name)
+		->withProperty(PHPLogicalProperty::kNamedTypeFullyQualifiedName, $this->getFullyQualifiedName());
 	}
 }

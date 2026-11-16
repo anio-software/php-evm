@@ -13,11 +13,11 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		return PHPLiteralKind::kNumber;
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			...parent::provideLogicalProperties(),
-
-			PHPLogicalProperty::kNumberLiteralKind->value => $this->getNumberLiteralKind()
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			parent::provideLogicalProperties(),
+			PHPLogicalPropertyGroup::kNumberLiteral
+		)
+		->withProperty(PHPLogicalProperty::kNumberLiteralKind, $this->getNumberLiteralKind());
 	}
 }

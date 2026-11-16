@@ -19,10 +19,11 @@ abstract readonly class PHPExpression extends PHPLogicalPropertiesObject {
 	abstract public function renderExpression(): string;
 	abstract public function isRepresentableInCode(): bool;
 
-	protected function provideLogicalProperties(): array {
-		return [
-			PHPLogicalProperty::kExpressionKind->value       => $this->getExpressionKind(),
-			PHPLogicalProperty::kExpressionSourceCode->value => $this->sourceCode
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			NULL, PHPLogicalPropertyGroup::kExpression
+		)
+		->withProperty(PHPLogicalProperty::kExpressionKind      , $this->getExpressionKind())
+		->withProperty(PHPLogicalProperty::kExpressionSourceCode, $this->sourceCode);
 	}
 }

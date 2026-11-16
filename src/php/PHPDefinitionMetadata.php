@@ -8,10 +8,11 @@ final readonly class PHPDefinitionMetadata extends PHPLogicalPropertiesObject {
 		public ?string $bookId = NULL
 	) {}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			PHPLogicalProperty::kDefinitionMetadataExtensionMembership->value => $this->extensionMembership,
-			PHPLogicalProperty::kDefinitionMetadataBookId->value              => $this->bookId
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			NULL, PHPLogicalPropertyGroup::kDefinitionMetadata
+		)
+		->withProperty(PHPLogicalProperty::kDefinitionMetadataExtensionMembership, $this->extensionMembership)
+		->withProperty(PHPLogicalProperty::kDefinitionMetadataBookId             , $this->bookId);
 	}
 }

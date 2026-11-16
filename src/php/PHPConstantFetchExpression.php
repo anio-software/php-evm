@@ -26,11 +26,11 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 		return true;
 	}
 
-	protected function provideLogicalProperties(): array {
-		return [
-			...parent::provideLogicalProperties(),
-
-			PHPLogicalProperty::kConstantFetchConstant->value => $this->constant
-		];
+	protected function provideLogicalProperties(): PHPLogicalProperties {
+		return PHPLogicalProperties::create(
+			parent::provideLogicalProperties(),
+			PHPLogicalPropertyGroup::kConstantFetch
+		)
+		->withProperty(PHPLogicalProperty::kConstantFetchConstant, $this->constant);
 	}
 }
