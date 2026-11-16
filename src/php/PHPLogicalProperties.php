@@ -64,14 +64,13 @@ final readonly class PHPLogicalProperties {
 	}
 
 	public function serialize(
-		bool $resolveParents = false,
-		string $logicalPropertyPrefix = "",
-		string $inheritedPropertyPrefix = ""
+		?PHPLogicalPropertiesSerializationOptions $options = NULL
 	): array {
-		$args  = \func_get_args();
-		$serialize = static function($value) use (&$args, &$serialize) {
+		$options ??= new PHPLogicalPropertiesSerializationOptions;
+
+		$serialize = static function($value) use ($options, &$serialize) {
 			if ($value instanceof self) {
-				return $value->serialize(...$args);
+				return $value->serialize($options);
 			}
 
 			return \is_array($value) ? \array_map($serialize, $value) : $value;
@@ -91,7 +90,7 @@ final readonly class PHPLogicalProperties {
 		for ($i = 0; $i <= $lastIndex; ++$i) {
 			$props = $inheritanceChain[$i];
 
-			$keyPrefix = $i === $lastIndex ? $logicalPropertyPrefix : $inheritedPropertyPrefix;
+			$keyPrefix = $i === $lastIndex ? $options->logicalPropertyPrefix : $options->inheritedPropertyPrefix;
 
 			foreach ($props->getProperties() as [$pKey, $pValue]) {
 				$key = $pKey->value;
