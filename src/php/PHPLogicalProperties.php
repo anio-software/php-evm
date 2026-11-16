@@ -108,6 +108,12 @@ final readonly class PHPLogicalProperties {
 		return $arr;
 	}
 
+	public function toCanonicalized(): array {
+		return $this->serialize(
+			PHPLogicalPropertiesSerializationOptions::canonicalFormat()
+		);
+	}
+
 	static public function create(
 		?self $parent,
 		PHPLogicalPropertyGroup $group
