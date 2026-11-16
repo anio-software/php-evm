@@ -8,7 +8,7 @@ final class DiffResultAccumulator {
 	private array $retained = [];
 	private array $changed  = [];
 
-	public function addChanges(DiffResult $changes): void {
+	public function addChanges(ArrayDiffResult $changes): void {
 		foreach ($changes->removed as $item) {
 			$this->removed[] = $item;
 		}
@@ -26,8 +26,8 @@ final class DiffResultAccumulator {
 		}
 	}
 
-	public function build(): DiffResult {
-		return new DiffResult(
+	public function build(): ArrayDiffResult {
+		return new ArrayDiffResult(
 			removed  : $this->removed,
 			added    : $this->added,
 			retained : $this->retained,

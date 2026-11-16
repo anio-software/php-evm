@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPDefinitionDiff {
-	public DiffResult $diff;
+	public ArrayDiffResult $diff;
 
 	public function __construct(
 		public PHPDefinition $before,

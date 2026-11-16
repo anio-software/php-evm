@@ -10,7 +10,7 @@ final class PHPDefinitionDiffLazy {
 		readonly public PHPDefinition $after
 	) {}
 
-	public function getDiff(): DiffResult {
+	public function getDiff(): ArrayDiffResult {
 		$this->cache ??= new PHPDefinitionDiff($this->before, $this->after);
 
 		return $this->cache->diff;

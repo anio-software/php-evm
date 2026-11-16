@@ -6,7 +6,7 @@ function array_diff(
 	array $before,
 	array $after,
 	callable $equals
-): DiffResult {
+): ArrayDiffResult {
 	$removed  = \array_diff_key($before, $after);
 	$added    = \array_diff_key($after, $before);
 	$retained = \array_intersect_key($before, $after);
@@ -22,7 +22,7 @@ function array_diff(
 		}
 	}
 
-	return new DiffResult(
+	return new ArrayDiffResult(
 		removed  : $removed,
 		added    : $added,
 		retained : $retained,
