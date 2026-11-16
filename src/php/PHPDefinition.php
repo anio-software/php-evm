@@ -22,12 +22,6 @@ readonly abstract class PHPDefinition extends PHPReference {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
-	final public function hash(): string {
-		return \hash(
-			"sha1", stable_json_encode($this)
-		);
-	}
-
 	protected function provideLogicalProperties(): PHPLogicalProperties {
 		return PHPLogicalProperties::create(
 			parent::provideLogicalProperties(),

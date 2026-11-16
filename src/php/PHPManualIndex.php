@@ -62,7 +62,9 @@ final readonly class PHPManualIndex {
 			$before,
 			$after,
 			static function(PHPDefinition $a, PHPDefinition $b): bool {
-				return $a->hash() === $b->hash();
+				return $a->getLogicalProperties()->isEqualTo(
+					$b->getLogicalProperties()
+				);
 			}
 		);
 
