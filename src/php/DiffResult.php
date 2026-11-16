@@ -9,4 +9,10 @@ final readonly class DiffResult {
 		public array $retained,
 		public array $changed
 	) {}
+
+	public function getChangeCount(): int {
+		return \count($this->removed) +
+		       \count($this->added)   +
+		       \count($this->changed);
+	}
 }
