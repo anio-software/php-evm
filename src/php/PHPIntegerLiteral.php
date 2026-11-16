@@ -34,10 +34,6 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		return "$sign$str";
 	}
 
-	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
-		return PHPLogicalPropertyGroup::kIntegerLiteral;
-	}
-
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),

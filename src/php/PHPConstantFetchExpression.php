@@ -26,10 +26,6 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 		return true;
 	}
 
-	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
-		return PHPLogicalPropertyGroup::kConstantFetch;
-	}
-
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),

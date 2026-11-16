@@ -28,10 +28,6 @@ abstract readonly class PHPType extends PHPLogicalPropertiesObject {
 		return $this->render();
 	}
 
-	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
-		return PHPLogicalPropertyGroup::kType;
-	}
-
 	protected function provideLogicalProperties(): array {
 		$arr = [
 			PHPLogicalProperty::kTypeKind->value => $this->getTypeKind()

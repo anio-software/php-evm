@@ -28,10 +28,6 @@ readonly abstract class PHPDefinition extends PHPReference {
 		);
 	}
 
-	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
-		return PHPLogicalPropertyGroup::kDefinition;
-	}
-
 	protected function provideLogicalProperties(): array {
 		return [
 			...parent::provideLogicalProperties(),

@@ -7,10 +7,6 @@ readonly class PHPReference extends PHPLogicalPropertiesObject {
 		public string $referenceId
 	) {}
 
-	public function getLogicalPropertyGroup(): PHPLogicalPropertyGroup {
-		return PHPLogicalPropertyGroup::kReference;
-	}
-
 	protected function provideLogicalProperties(): array {
 		return [
 			PHPLogicalProperty::kReferenceId->value => $this->referenceId
