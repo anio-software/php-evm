@@ -57,12 +57,6 @@ final readonly class PHPLogicalProperties {
 		string $inheritedPropertyPrefix = ""
 	): array {
 		$args  = \func_get_args();
-		$props = $this;
-		$group = $props->getGroup()->value;
-		$arr   = [
-			PHPLogicalProperty::kLogicalPropertyGroup->value => $group
-		];
-
 		$serialize = static function($value) use (&$args, &$serialize) {
 			if ($value instanceof self) {
 				return $value->serialize(...$args);
@@ -70,22 +64,6 @@ final readonly class PHPLogicalProperties {
 
 			return \is_array($value) ? \array_map($serialize, $value) : $value;
 		};
-
-		for ($i = 0; $props; ++$i) {
-			$keyPrefix = $i > 0 ? $inheritedPropertyPrefix : $logicalPropertyPrefix;
-
-			foreach ($props->getProperties() as [$pKey, $pValue]) {
-				$key = $pKey->value;
-
-				if (\str_starts_with($key, $group.".")) {
-					$key = \substr($key, \strlen($group."."));
-				}
-
-				$arr[$keyPrefix.$key] = $serialize($pValue);
-			}
-
-			$props = $resolveParents ? $props->getParent() : NULL;
-		}
 
 		return $arr;
 	}
