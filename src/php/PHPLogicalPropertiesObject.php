@@ -13,9 +13,9 @@ readonly abstract class PHPLogicalPropertiesObject implements \JsonSerializable 
 
 	final public function jsonSerialize(): mixed {
 		return $this->provideLogicalProperties()->serialize(
-			resolveParents       : true,
-			logicalPropertyPrefix: "#",
-			parentPropertyPrefix : "@"
+			resolveParents          : true,
+			logicalPropertyPrefix   : "#",
+			inheritedPropertyPrefix : "@"
 		);
 	}
 }

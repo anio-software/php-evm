@@ -54,7 +54,7 @@ final readonly class PHPLogicalProperties {
 	public function serialize(
 		bool $resolveParents = false,
 		string $logicalPropertyPrefix = "",
-		string $parentPropertyPrefix = ""
+		string $inheritedPropertyPrefix = ""
 	): array {
 		$args  = \func_get_args();
 		$props = $this;
@@ -72,7 +72,7 @@ final readonly class PHPLogicalProperties {
 		};
 
 		for ($i = 0; $props; ++$i) {
-			$keyPrefix = $i > 0 ? $parentPropertyPrefix : $logicalPropertyPrefix;
+			$keyPrefix = $i > 0 ? $inheritedPropertyPrefix : $logicalPropertyPrefix;
 
 			foreach ($props->getProperties() as [$pKey, $pValue]) {
 				$key = $pKey->value;
