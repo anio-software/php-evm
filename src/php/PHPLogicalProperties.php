@@ -38,6 +38,19 @@ final readonly class PHPLogicalProperties {
 		);
 	}
 
+	private function getInheritanceChain(): array {
+		$arr = [];
+		$current = $this;
+
+		while ($current) {
+			$arr[] = $current;
+
+			$current = $current->getParent();
+		}
+
+		return \array_reverse($arr);
+	}
+
 	public function serialize(
 		bool $resolveParents = false,
 		string $logicalPropertyPrefix = "",
