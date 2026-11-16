@@ -14,8 +14,11 @@ function array_diff(
 	$changed = [];
 
 	foreach (\array_keys($retained) as $key) {
-		if (!$equals($before[$key], $after[$key])) {
-			$changed[$key] = $after[$key];
+		$beforeValue = $before[$key];
+		$afterValue  = $after[$key];
+
+		if (!$equals($beforeValue, $afterValue)) {
+			$changed[$key] = $afterValue;
 		}
 	}
 
