@@ -65,6 +65,33 @@ final readonly class PHPLogicalProperties {
 			return \is_array($value) ? \array_map($serialize, $value) : $value;
 		};
 
+		$inheritanceChain = $this->getInheritanceChain();
+		$lastIndex = \count($inheritanceChain) - 1;
+		$group = $this->getGroup()->value;
+		$arr = [];
+
+		$arr[PHPLogicalProperty::kLogicalPropertyGroup->value] = \array_map(
+			static function(self $props): string {
+				return $props->getGroup()->name;
+			}, $inheritanceChain
+		);
+
+		for ($i = 0; $i <= $lastIndex; ++$i) {
+			$props = $inheritanceChain[$i];
+
+			$keyPrefix = $i === $lastIndex ? $logicalPropertyPrefix : $inheritedPropertyPrefix;
+
+			foreach ($props->getProperties() as [$pKey, $pValue]) {
+				$key = $pKey->value;
+
+				if (\str_starts_with($key, $group.".")) {
+					$key = \substr($key, \strlen($group."."));
+				}
+
+				$arr[$keyPrefix.$key] = $serialize($pValue);
+			}
+		}
+
 		return $arr;
 	}
 
