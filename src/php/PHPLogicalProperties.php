@@ -76,7 +76,7 @@ final readonly class PHPLogicalProperties {
 			return \is_array($value) ? \array_map($serialize, $value) : $value;
 		};
 
-		$inheritanceChain = $this->getInheritanceChain();
+		$inheritanceChain = $options->resolveParents ? $this->getInheritanceChain() : [$this];
 		$lastIndex = \count($inheritanceChain) - 1;
 		$group = $this->getGroup()->value;
 		$arr = [];
