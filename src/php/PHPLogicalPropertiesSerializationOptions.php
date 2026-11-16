@@ -38,4 +38,14 @@ final readonly class PHPLogicalPropertiesSerializationOptions {
 
 		return $instance ??= new self;
 	}
+
+	static public function canonicalFormat(): self {
+		static $instance = NULL;
+
+		return $instance ??= new self(
+			resolveParents          : true,
+			logicalPropertyPrefix   : "#",
+			inheritedPropertyPrefix : "@"
+		);
+	}
 }
