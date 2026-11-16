@@ -94,7 +94,7 @@ final readonly class PHPManualIndex {
 	}
 
 	public function diff(self $that): ArrayDiffResult {
-		$acc = new DiffResultAccumulator;
+		$acc = new ArrayDiffResultAccumulator;
 
 		foreach (PHPDefinitionKind::cases() as $kind) {
 			$acc->addChanges(

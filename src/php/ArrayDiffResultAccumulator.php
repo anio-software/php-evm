@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final class DiffResultAccumulator {
+final class ArrayDiffResultAccumulator {
 	private array $removed  = [];
 	private array $added    = [];
 	private array $retained = [];
