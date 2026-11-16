@@ -11,8 +11,12 @@ final readonly class ArrayDiffResult {
 	) {}
 
 	public function getChangeCount(): int {
-		return \count($this->removed) +
-		       \count($this->added)   +
-		       \count($this->changed);
+		$count = \count($this->removed) + \count($this->added);
+
+		foreach ($this->changed as $changed) {
+			$count += $changed instanceof self ? $changed->getChangeCount() : 1;
+		}
+
+		return $count;
 	}
 }
