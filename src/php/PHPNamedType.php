@@ -13,10 +13,6 @@ final readonly class PHPNamedType extends PHPType {
 		);
 	}
 
-	public function getTypeKind(): PHPTypeKind {
-		return PHPTypeKind::kNamed;
-	}
-
 	public function getFullyQualifiedName(): string {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}

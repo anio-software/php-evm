@@ -10,10 +10,6 @@ final readonly class PHPUnspecifiedType extends PHPType {
 		);
 	}
 
-	public function getTypeKind(): PHPTypeKind {
-		return PHPTypeKind::kUnspecified;
-	}
-
 	public function getTypeId(): string {
 		return "unspecified";
 	}
