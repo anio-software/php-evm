@@ -17,4 +17,4 @@ $statistics = $context->loadPHPManual();
 
 \fwrite(\STDERR, $statistics->toString());
 
-echo \json_encode($context->manual, JSON_PRETTY_PRINT)."\n";
+echo \json_encode($context->manual, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)."\n";
