@@ -41,6 +41,14 @@ final readonly class PHPLogicalPropertySet {
 		return $this->parent;
 	}
 
+	public function getInheritanceChain(): array {
+		return $this->inheritanceChain;
+	}
+
+	public function getPath(): string {
+		return $this->path;
+	}
+
 	public function getHash(): string {
 		return \hash(
 			"sha1", stable_json_encode(
