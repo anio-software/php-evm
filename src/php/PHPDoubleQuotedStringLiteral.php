@@ -3,8 +3,14 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPDoubleQuotedStringLiteral extends PHPStringLiteral {
-	public function __construct(string $value, ?string $sourceCode = NULL) {
-		parent::__construct($value, $sourceCode);
+	public function __construct(
+		string $value,
+		?string $sourceCode = NULL
+	) {
+		parent::__construct(
+			$value,
+			$sourceCode
+		);
 	}
 
 	public function renderExpression(): string {
