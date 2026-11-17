@@ -8,6 +8,7 @@ final readonly class PHPDoubleQuotedStringLiteral extends PHPStringLiteral {
 		?string $sourceCode = NULL
 	) {
 		parent::__construct(
+			PHPStringLiteralKind::kDoubleQuoted,
 			$value,
 			$sourceCode
 		);
