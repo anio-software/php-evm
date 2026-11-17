@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPLogicalPropertiesSerializationOptions {
+final readonly class PHPLogicalPropertySetArrayOptions {
 	public function __construct(
 		public bool $resolveParents = false,
 		public string $logicalPropertyPrefix = "#",

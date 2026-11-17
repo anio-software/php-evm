@@ -64,9 +64,9 @@ final readonly class PHPLogicalPropertySet {
 	}
 
 	public function serialize(
-		?PHPLogicalPropertiesSerializationOptions $options = NULL
+		?PHPLogicalPropertySetArrayOptions $options = NULL
 	): array {
-		$options ??= PHPLogicalPropertiesSerializationOptions::defaults();
+		$options ??= PHPLogicalPropertySetArrayOptions::defaults();
 
 		$serialize = static function($value) use ($options, &$serialize) {
 			if ($value instanceof self) {
@@ -108,7 +108,7 @@ final readonly class PHPLogicalPropertySet {
 
 	public function toCanonicalized(): array {
 		return $this->serialize(
-			PHPLogicalPropertiesSerializationOptions::canonicalFormat()
+			PHPLogicalPropertySetArrayOptions::canonicalFormat()
 		);
 	}
 
