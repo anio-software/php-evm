@@ -14,10 +14,11 @@ abstract readonly class PHPStringLiteral extends PHPLiteral {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kStringLiteral
 		)
-		->withProperty(PHPLogicalProperty::kStringLiteralKind, $this->getStringLiteralKind());
+		->withProperty(PHPLogicalProperty::kStringLiteralKind, $this->getStringLiteralKind())
+		->finalize();
 	}
 }

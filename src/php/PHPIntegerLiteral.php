@@ -35,11 +35,12 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kIntegerLiteral
 		)
-		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix());
+		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix())
+		->finalize();
 	}
 
 	static public function tryParse(string $str, bool $negative = false): ?self {

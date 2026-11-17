@@ -23,7 +23,7 @@ readonly abstract class PHPDefinition extends PHPReference {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kDefinition
 		)
@@ -31,6 +31,7 @@ readonly abstract class PHPDefinition extends PHPReference {
 		->withProperty(PHPLogicalProperty::kDefinitionKind               , $this->getDefinitionKind())
 		->withProperty(PHPLogicalProperty::kDefinitionNamespace          , $this->namespace->getFullyQualifiedName())
 		->withProperty(PHPLogicalProperty::kDefinitionName               , $this->name)
-		->withProperty(PHPLogicalProperty::kDefinitionFullyQualifiedName , $this->getFullyQualifiedName());
+		->withProperty(PHPLogicalProperty::kDefinitionFullyQualifiedName , $this->getFullyQualifiedName())
+		->finalize();
 	}
 }

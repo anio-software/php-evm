@@ -20,10 +20,11 @@ abstract readonly class PHPExpression extends PHPLogicalObject {
 	abstract public function isRepresentableInCode(): bool;
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			NULL, PHPLogicalPropertyDomain::kExpression
 		)
 		->withProperty(PHPLogicalProperty::kExpressionKind      , $this->getExpressionKind())
-		->withProperty(PHPLogicalProperty::kExpressionSourceCode, $this->sourceCode);
+		->withProperty(PHPLogicalProperty::kExpressionSourceCode, $this->sourceCode)
+		->finalize();
 	}
 }

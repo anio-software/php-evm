@@ -8,9 +8,10 @@ readonly class PHPReference extends PHPLogicalObject {
 	) {}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			NULL, PHPLogicalPropertyDomain::kReference
 		)
-		->withProperty(PHPLogicalProperty::kReferenceId, $this->referenceId);
+		->withProperty(PHPLogicalProperty::kReferenceId, $this->referenceId)
+		->finalize();
 	}
 }

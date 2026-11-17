@@ -49,11 +49,12 @@ final readonly class PHPNamedType extends PHPType {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kNamedType
 		)
 		->withProperty(PHPLogicalProperty::kNamedTypeName              , $this->name)
-		->withProperty(PHPLogicalProperty::kNamedTypeFullyQualifiedName, $this->getFullyQualifiedName());
+		->withProperty(PHPLogicalProperty::kNamedTypeFullyQualifiedName, $this->getFullyQualifiedName())
+		->finalize();
 	}
 }

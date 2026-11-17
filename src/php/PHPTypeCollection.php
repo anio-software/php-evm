@@ -132,11 +132,12 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kTypeCollection
 		)
-		->withProperty(PHPLogicalProperty::kTypeCollectionMembers, $this->members);
+		->withProperty(PHPLogicalProperty::kTypeCollectionMembers, $this->members)
+		->finalize();
 	}
 
 	static private function renderTypeCollection(self $col, bool $nested = false): string {

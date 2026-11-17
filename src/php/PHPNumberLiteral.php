@@ -14,10 +14,11 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kNumberLiteral
 		)
-		->withProperty(PHPLogicalProperty::kNumberLiteralKind, $this->getNumberLiteralKind());
+		->withProperty(PHPLogicalProperty::kNumberLiteralKind, $this->getNumberLiteralKind())
+		->finalize();
 	}
 }

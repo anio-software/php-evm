@@ -147,12 +147,13 @@ final readonly class PHPFunction extends PHPDefinition {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kFunction
 		)
 		->withProperty(PHPLogicalProperty::kFunctionParameters  , $this->parameters)
 		->withProperty(PHPLogicalProperty::kFunctionFlags       , $this->flags)
-		->withProperty(PHPLogicalProperty::kFunctionReturnType  , $this->returnType);
+		->withProperty(PHPLogicalProperty::kFunctionReturnType  , $this->returnType)
+		->finalize();
 	}
 }

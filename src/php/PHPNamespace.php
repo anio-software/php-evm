@@ -111,7 +111,7 @@ final readonly class PHPNamespace extends PHPLogicalObject {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			NULL, PHPLogicalPropertyDomain::kNamespace
 		)
 		->withProperty(PHPLogicalProperty::kNamespaceName               , $this->name)
@@ -122,6 +122,7 @@ final readonly class PHPNamespace extends PHPLogicalObject {
 		->withProperty(PHPLogicalProperty::kNamespaceEnums              , $this->getEnums())
 		->withProperty(PHPLogicalProperty::kNamespaceConstants          , $this->getConstants())
 		->withProperty(PHPLogicalProperty::kNamespaceFunctions          , $this->getFunctions())
-		->withProperty(PHPLogicalProperty::kNamespaceFunctionAliases    , $this->getFunctionAliases());
+		->withProperty(PHPLogicalProperty::kNamespaceFunctionAliases    , $this->getFunctionAliases())
+		->finalize();
 	}
 }

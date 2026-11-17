@@ -28,10 +28,11 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySet::create(
+		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kFunctionAlias
 		)
-		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName);
+		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName)
+		->finalize();
 	}
 }
