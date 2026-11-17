@@ -36,7 +36,7 @@ final readonly class PHPBuiltinType extends PHPType {
 			return false;
 		}
 
-		return $t->builtinKind === $this->builtinKind;
+		return $t->getBuiltinKind() === $this->builtinKind;
 	}
 
 	public function render(): string {
