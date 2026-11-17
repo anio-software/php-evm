@@ -166,19 +166,22 @@ This generates output like:
 + definition \curl_multi_get_handles (kFunction) was added
 * definition \oci_set_call_timeout (kFunction) was changed:
 
-    * property referenceId was changed
+    * property @reference.id was changed
 
 * definition \ltrim (kFunction) was changed:
 
-    * property parameters[1] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was changed
+    * property #parameters[1][#initializer][@literal.value] was changed
 
 * definition \rtrim (kFunction) was changed:
 
-    * property parameters[1] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was changed
+    * property #parameters[1][#initializer][@literal.value] was changed
 
 * definition \trim (kFunction) was changed:
 
-    * property parameters[1] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was changed
+    * property #parameters[1][#initializer][@literal.value] was changed
 
 ```
 
