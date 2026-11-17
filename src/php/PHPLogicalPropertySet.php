@@ -81,7 +81,7 @@ final readonly class PHPLogicalPropertySet {
 		$domain = $this->getDomain()->value;
 		$arr = [];
 
-		$arr[PHPLogicalProperty::kLogicalPropertyGroup->value] = \array_map(
+		$arr[PHPLogicalProperty::kLogicalPropertyDomain->value] = \array_map(
 			static function(self $props): string {
 				return $props->getDomain()->name;
 			}, $inheritanceChain
