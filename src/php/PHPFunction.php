@@ -14,7 +14,12 @@ final readonly class PHPFunction extends PHPDefinition {
 		public int $flags,
 		public PHPType $returnType
 	) {
-		parent::__construct($metadata, $namespace, $referenceId, $name);
+		parent::__construct(
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name
+		);
 	}
 
 	public function getDefinitionKind(): PHPDefinitionKind {

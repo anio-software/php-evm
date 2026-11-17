@@ -9,7 +9,12 @@ final readonly class PHPInterface extends PHPDefinition {
 		string $referenceId,
 		string $name
 	) {
-		parent::__construct($metadata, $namespace, $referenceId, $name);
+		parent::__construct(
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name
+		);
 	}
 
 	public function getDefinitionKind(): PHPDefinitionKind {
