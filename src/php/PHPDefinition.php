@@ -22,12 +22,6 @@ readonly abstract class PHPDefinition extends PHPReference {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
-	final public function isEqualTo(self $that): bool {
-		return $this->getLogicalProperties()->isEqualTo(
-			$that->getLogicalProperties()
-		);
-	}
-
 	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
 			parent::provideLogicalProperties(),

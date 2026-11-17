@@ -11,6 +11,12 @@ readonly abstract class PHPLogicalObject implements \JsonSerializable {
 		return $this->provideLogicalProperties();
 	}
 
+	final public function isLogicallyEqualTo(self $that): bool {
+		return $this->getLogicalProperties()->isEqualTo(
+			$that->getLogicalProperties()
+		);
+	}
+
 	final public function jsonSerialize(): mixed {
 		return $this->provideLogicalProperties()->toCanonicalized();
 	}
