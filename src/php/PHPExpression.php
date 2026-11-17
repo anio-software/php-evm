@@ -27,7 +27,7 @@ abstract readonly class PHPExpression extends PHPLogicalObject {
 		return PHPLogicalPropertySetBuilder::create(
 			NULL, PHPLogicalPropertyDomain::kExpression
 		)
-		->withProperty(PHPLogicalProperty::kExpressionKind      , $this->getExpressionKind())
+		->withProperty(PHPLogicalProperty::kExpressionKind      , $this->kind)
 		->withProperty(PHPLogicalProperty::kExpressionSourceCode, $this->sourceCode)
 		->finalize();
 	}
