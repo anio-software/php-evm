@@ -9,7 +9,7 @@ require_once __DIR__."/jsonSerializeEnumObject.php";
 require_once __DIR__."/HashMap.php";
 
 require_once __DIR__."/PHPLogicalProperty.php";
-require_once __DIR__."/PHPLogicalPropertyGroup.php";
+require_once __DIR__."/PHPLogicalPropertyDomain.php";
 require_once __DIR__."/PHPLogicalPropertySetArrayOptions.php";
 require_once __DIR__."/PHPLogicalPropertySet.php";
 require_once __DIR__."/PHPLogicalObject.php";

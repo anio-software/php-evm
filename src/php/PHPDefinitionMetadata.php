@@ -10,7 +10,7 @@ final readonly class PHPDefinitionMetadata extends PHPLogicalObject {
 
 	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			NULL, PHPLogicalPropertyGroup::kDefinitionMetadata
+			NULL, PHPLogicalPropertyDomain::kDefinitionMetadata
 		)
 		->withProperty(PHPLogicalProperty::kDefinitionMetadataExtensionMembership, $this->extensionMembership)
 		->withProperty(PHPLogicalProperty::kDefinitionMetadataBookId             , $this->bookId);

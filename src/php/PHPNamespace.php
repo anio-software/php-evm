@@ -112,7 +112,7 @@ final readonly class PHPNamespace extends PHPLogicalObject {
 
 	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			NULL, PHPLogicalPropertyGroup::kNamespace
+			NULL, PHPLogicalPropertyDomain::kNamespace
 		)
 		->withProperty(PHPLogicalProperty::kNamespaceName               , $this->name)
 		->withProperty(PHPLogicalProperty::kNamespaceFullyQualifiedName , $this->getFullyQualifiedName())

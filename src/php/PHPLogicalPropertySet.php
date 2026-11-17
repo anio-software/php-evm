@@ -5,7 +5,7 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPLogicalPropertySet {
 	private function __construct(
 		private ?self $parent,
-		private PHPLogicalPropertyGroup $group,
+		private PHPLogicalPropertyDomain $group,
 		private HashMap $properties
 	) {}
 
@@ -13,7 +13,7 @@ final readonly class PHPLogicalPropertySet {
 		return $this->properties->entries();
 	}
 
-	public function getGroup(): PHPLogicalPropertyGroup {
+	public function getGroup(): PHPLogicalPropertyDomain {
 		return $this->group;
 	}
 
@@ -114,7 +114,7 @@ final readonly class PHPLogicalPropertySet {
 
 	static public function create(
 		?self $parent,
-		PHPLogicalPropertyGroup $group
+		PHPLogicalPropertyDomain $group
 	): self {
 		return new self(
 			$parent,

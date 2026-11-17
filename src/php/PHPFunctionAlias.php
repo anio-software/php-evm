@@ -30,7 +30,7 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
 			parent::provideLogicalProperties(),
-			PHPLogicalPropertyGroup::kFunctionAlias
+			PHPLogicalPropertyDomain::kFunctionAlias
 		)
 		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName);
 	}

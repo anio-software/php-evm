@@ -112,7 +112,7 @@ final readonly class PHPFunctionParameter extends PHPLogicalObject {
 
 	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			NULL, PHPLogicalPropertyGroup::kFunctionParameter
+			NULL, PHPLogicalPropertyDomain::kFunctionParameter
 		)
 		->withProperty(PHPLogicalProperty::kFunctionParameterName        , $this->name)
 		->withProperty(PHPLogicalProperty::kFunctionParameterType        , $this->type)

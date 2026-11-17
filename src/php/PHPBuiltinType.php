@@ -69,7 +69,7 @@ final readonly class PHPBuiltinType extends PHPType {
 	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
 			parent::provideLogicalProperties(),
-			PHPLogicalPropertyGroup::kBuiltinType
+			PHPLogicalPropertyDomain::kBuiltinType
 		)
 		->withProperty(PHPLogicalProperty::kBuiltinTypeKind, $this->getBuiltinKind());
 	}

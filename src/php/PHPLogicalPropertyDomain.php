@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-enum PHPLogicalPropertyGroup: string implements \JsonSerializable {
+enum PHPLogicalPropertyDomain: string implements \JsonSerializable {
 	case kReference          = "reference";
 
 	case kDefinition         = "definition";

@@ -37,7 +37,7 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
 			parent::provideLogicalProperties(),
-			PHPLogicalPropertyGroup::kIntegerLiteral
+			PHPLogicalPropertyDomain::kIntegerLiteral
 		)
 		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix());
 	}
