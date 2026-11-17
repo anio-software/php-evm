@@ -34,8 +34,8 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		return "$sign$str";
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalProperties {
-		return PHPLogicalProperties::create(
+	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+		return PHPLogicalPropertySet::create(
 			parent::provideLogicalProperties(),
 			PHPLogicalPropertyGroup::kIntegerLiteral
 		)

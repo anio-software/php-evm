@@ -28,11 +28,11 @@ abstract readonly class PHPType extends PHPLogicalObject {
 		return $this->render();
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalProperties {
+	protected function provideLogicalProperties(): PHPLogicalPropertySet {
 		$ns = $this->getNamespace();
 		$ns = $ns ? $ns->getFullyQualifiedName() : NULL;
 
-		return PHPLogicalProperties::create(
+		return PHPLogicalPropertySet::create(
 			NULL, PHPLogicalPropertyGroup::kType
 		)
 		->withProperty(PHPLogicalProperty::kTypeKind     , $this->getTypeKind())

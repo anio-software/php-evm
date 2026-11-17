@@ -7,8 +7,8 @@ readonly class PHPReference extends PHPLogicalObject {
 		public string $referenceId
 	) {}
 
-	protected function provideLogicalProperties(): PHPLogicalProperties {
-		return PHPLogicalProperties::create(
+	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+		return PHPLogicalPropertySet::create(
 			NULL, PHPLogicalPropertyGroup::kReference
 		)
 		->withProperty(PHPLogicalProperty::kReferenceId, $this->referenceId);

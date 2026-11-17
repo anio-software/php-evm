@@ -3,11 +3,11 @@
 namespace AnioSoftware\EVM\PHP;
 
 readonly abstract class PHPLogicalObject implements \JsonSerializable {
-	abstract protected function provideLogicalProperties(): PHPLogicalProperties;
+	abstract protected function provideLogicalProperties(): PHPLogicalPropertySet;
 
 	// The separation of provideLogicalProperties() and getLogicalProperties()
 	// is an artefact of the old code base.
-	final public function getLogicalProperties(): PHPLogicalProperties {
+	final public function getLogicalProperties(): PHPLogicalPropertySet {
 		return $this->provideLogicalProperties();
 	}
 

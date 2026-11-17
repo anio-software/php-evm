@@ -28,8 +28,8 @@ readonly abstract class PHPDefinition extends PHPReference {
 		);
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalProperties {
-		return PHPLogicalProperties::create(
+	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+		return PHPLogicalPropertySet::create(
 			parent::provideLogicalProperties(),
 			PHPLogicalPropertyGroup::kDefinition
 		)

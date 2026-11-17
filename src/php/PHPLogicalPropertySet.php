@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPLogicalProperties {
+final readonly class PHPLogicalPropertySet {
 	private function __construct(
 		private ?self $parent,
 		private PHPLogicalPropertyGroup $group,

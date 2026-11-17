@@ -13,8 +13,8 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		return PHPLiteralKind::kNumber;
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalProperties {
-		return PHPLogicalProperties::create(
+	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+		return PHPLogicalPropertySet::create(
 			parent::provideLogicalProperties(),
 			PHPLogicalPropertyGroup::kNumberLiteral
 		)
