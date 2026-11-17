@@ -66,10 +66,10 @@ final readonly class PHPManualIndex {
 			}
 		);
 
-		$changed = [];
+		$modified = [];
 
-		foreach (\array_keys($result->changed) as $name) {
-			$changed[$name] = new PHPDefinitionDiffLazy(
+		foreach (\array_keys($result->modified) as $name) {
+			$modified[$name] = new PHPDefinitionDiffLazy(
 				$before[$name],
 				$after[$name]
 			);
@@ -79,7 +79,7 @@ final readonly class PHPManualIndex {
 			removed  : $result->removed,
 			added    : $result->added,
 			retained : $result->retained,
-			changed  : $changed
+			modified : $modified
 		);
 	}
 
