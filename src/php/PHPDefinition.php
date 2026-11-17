@@ -31,7 +31,7 @@ readonly abstract class PHPDefinition extends PHPReference {
 			PHPLogicalPropertyDomain::kDefinition
 		)
 		->withProperty(PHPLogicalProperty::kDefinitionMetadata           , $this->metadata)
-		->withProperty(PHPLogicalProperty::kDefinitionKind               , $this->getDefinitionKind())
+		->withProperty(PHPLogicalProperty::kDefinitionKind               , $this->kind)
 		->withProperty(PHPLogicalProperty::kDefinitionNamespace          , $this->namespace->getFullyQualifiedName())
 		->withProperty(PHPLogicalProperty::kDefinitionName               , $this->name)
 		->withProperty(PHPLogicalProperty::kDefinitionFullyQualifiedName , $this->getFullyQualifiedName())
