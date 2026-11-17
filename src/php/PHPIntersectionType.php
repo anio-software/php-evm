@@ -6,7 +6,7 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 	public function __construct(
 		PHPType $type, PHPType ...$types
 	) {
-		parent::__construct($type, ...$types);
+		parent::__construct(PHPTypeKind::kIntersection, $type, ...$types);
 	}
 
 	public function getTypeKind(): PHPTypeKind {

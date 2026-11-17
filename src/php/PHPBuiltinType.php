@@ -7,6 +7,7 @@ final readonly class PHPBuiltinType extends PHPType {
 		private PHPBuiltinTypeKind $builtinKind
 	) {
 		parent::__construct(
+			PHPTypeKind::kBuiltin,
 			NULL
 		);
 	}

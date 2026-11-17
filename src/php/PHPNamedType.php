@@ -8,6 +8,7 @@ final readonly class PHPNamedType extends PHPType {
 		public string $name
 	) {
 		parent::__construct(
+			PHPTypeKind::kNamed,
 			$namespace
 		);
 	}

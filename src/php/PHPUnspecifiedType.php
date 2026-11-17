@@ -5,6 +5,7 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPUnspecifiedType extends PHPType {
 	private function __construct() {
 		parent::__construct(
+			PHPTypeKind::kUnspecified,
 			NULL
 		);
 	}

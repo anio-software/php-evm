@@ -6,7 +6,7 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	public function __construct(
 		PHPType $type, PHPType ...$types
 	) {
-		parent::__construct($type, ...$types);
+		parent::__construct(PHPTypeKind::kUnion, $type, ...$types);
 	}
 
 	public function getTypeKind(): PHPTypeKind {

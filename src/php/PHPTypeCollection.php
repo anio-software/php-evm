@@ -31,8 +31,11 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return \array_values($unique);
 	}
 
-	public function __construct(PHPType $type, PHPType ...$types) {
+	public function __construct(
+		PHPTypeKind $kind, PHPType $type, PHPType ...$types
+	) {
 		parent::__construct(
+			$kind,
 			NULL
 		);
 
