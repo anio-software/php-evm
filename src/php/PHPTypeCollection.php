@@ -32,7 +32,9 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	}
 
 	public function __construct(PHPType $type, PHPType ...$types) {
-		parent::__construct();
+		parent::__construct(
+			NULL
+		);
 
 		$this->members = self::flatten(
 			$this->getTypeKind(),

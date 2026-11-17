@@ -4,10 +4,12 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPNamedType extends PHPType {
 	public function __construct(
-		public PHPNamespace $namespace,
+		PHPNamespace $namespace,
 		public string $name
 	) {
-		parent::__construct();
+		parent::__construct(
+			$namespace
+		);
 	}
 
 	public function getTypeKind(): PHPTypeKind {

@@ -4,7 +4,9 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPUnknownType extends PHPType {
 	private function __construct() {
-		parent::__construct();
+		parent::__construct(
+			NULL
+		);
 	}
 
 	public function getTypeKind(): PHPTypeKind {
