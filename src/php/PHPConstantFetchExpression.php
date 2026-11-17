@@ -7,7 +7,9 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 		private PHPConstant $constant,
 		?string $sourceCode = NULL
 	) {
-		parent::__construct($sourceCode);
+		parent::__construct(
+			$sourceCode
+		);
 	}
 
 	public function getConstant(): PHPConstant {
