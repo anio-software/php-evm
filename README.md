@@ -233,98 +233,100 @@ Loaded 4853 constants
 ```
 
 ```json
-"str_pad": {
-    "#logicalPropertyDomainPath": "kReference/kDefinition/kFunction",
-    "@reference.id": "function.str-pad",
-    "@definition.metadata": {
-        "#logicalPropertyDomainPath": "kDefinitionMetadata",
-        "#extensionMembership": "kCore",
-        "#bookId": "book.strings"
-    },
-    "@definition.kind": "kFunction",
-    "@definition.namespace": "",
-    "@definition.name": "str_pad",
-    "@definition.fullyQualifiedName": "\\str_pad",
-    "#parameters": [
-        {
-            "#logicalPropertyDomainPath": "kFunctionParameter",
-            "#name": "string",
-            "#type": {
-                "#logicalPropertyDomainPath": "kType/kBuiltinType",
-                "@type.kind": "kBuiltin",
-                "@type.namespace": null,
-                "#kind": "kString"
-            },
-            "#initializer": null,
-            "#flags": 0
+{
+    "str_pad": {
+        "#logicalPropertyDomainPath": "kReference/kDefinition/kFunction",
+        "@reference.id": "function.str-pad",
+        "@definition.metadata": {
+            "#logicalPropertyDomainPath": "kDefinitionMetadata",
+            "#extensionMembership": "kCore",
+            "#bookId": "book.strings"
         },
-        {
-            "#logicalPropertyDomainPath": "kFunctionParameter",
-            "#name": "length",
-            "#type": {
-                "#logicalPropertyDomainPath": "kType/kBuiltinType",
-                "@type.kind": "kBuiltin",
-                "@type.namespace": null,
-                "#kind": "kInt"
+        "@definition.kind": "kFunction",
+        "@definition.namespace": "",
+        "@definition.name": "str_pad",
+        "@definition.fullyQualifiedName": "\\str_pad",
+        "#parameters": [
+            {
+                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "string",
+                "#type": {
+                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kString"
+                },
+                "#initializer": null,
+                "#flags": 0
             },
-            "#initializer": null,
-            "#flags": 0
-        },
-        {
-            "#logicalPropertyDomainPath": "kFunctionParameter",
-            "#name": "pad_string",
-            "#type": {
-                "#logicalPropertyDomainPath": "kType/kBuiltinType",
-                "@type.kind": "kBuiltin",
-                "@type.namespace": null,
-                "#kind": "kString"
+            {
+                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "length",
+                "#type": {
+                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kInt"
+                },
+                "#initializer": null,
+                "#flags": 0
             },
-            "#initializer": {
-                "#logicalPropertyDomainPath": "kExpression/kLiteral/kStringLiteral",
-                "@expression.kind": "kLiteral",
-                "@expression.sourceCode": "\" \"",
-                "@literal.kind": "kString",
-                "@literal.value": " ",
-                "#kind": "kDoubleQuoted"
+            {
+                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "pad_string",
+                "#type": {
+                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kString"
+                },
+                "#initializer": {
+                    "#logicalPropertyDomainPath": "kExpression/kLiteral/kStringLiteral",
+                    "@expression.kind": "kLiteral",
+                    "@expression.sourceCode": "\" \"",
+                    "@literal.kind": "kString",
+                    "@literal.value": " ",
+                    "#kind": "kDoubleQuoted"
+                },
+                "#flags": 1
             },
-            "#flags": 1
-        },
-        {
-            "#logicalPropertyDomainPath": "kFunctionParameter",
-            "#name": "pad_type",
-            "#type": {
-                "#logicalPropertyDomainPath": "kType/kBuiltinType",
-                "@type.kind": "kBuiltin",
-                "@type.namespace": null,
-                "#kind": "kInt"
-            },
-            "#initializer": {
-                "#logicalPropertyDomainPath": "kExpression/kConstantFetch",
-                "@expression.kind": "kConstantFetch",
-                "@expression.sourceCode": null,
-                "#constant": {
-                    "#logicalPropertyDomainPath": "kReference/kDefinition",
-                    "@reference.id": "constant.str-pad-right",
-                    "#metadata": {
-                        "#logicalPropertyDomainPath": "kDefinitionMetadata",
-                        "#extensionMembership": "kCore",
-                        "#bookId": "book.strings"
-                    },
-                    "#kind": "kConstant",
-                    "#namespace": "",
-                    "#name": "STR_PAD_RIGHT",
-                    "#fullyQualifiedName": "\\STR_PAD_RIGHT"
-                }
-            },
-            "#flags": 129
+            {
+                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "pad_type",
+                "#type": {
+                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kInt"
+                },
+                "#initializer": {
+                    "#logicalPropertyDomainPath": "kExpression/kConstantFetch",
+                    "@expression.kind": "kConstantFetch",
+                    "@expression.sourceCode": null,
+                    "#constant": {
+                        "#logicalPropertyDomainPath": "kReference/kDefinition",
+                        "@reference.id": "constant.str-pad-right",
+                        "#metadata": {
+                            "#logicalPropertyDomainPath": "kDefinitionMetadata",
+                            "#extensionMembership": "kCore",
+                            "#bookId": "book.strings"
+                        },
+                        "#kind": "kConstant",
+                        "#namespace": "",
+                        "#name": "STR_PAD_RIGHT",
+                        "#fullyQualifiedName": "\\STR_PAD_RIGHT"
+                    }
+                },
+                "#flags": 129
+            }
+        ],
+        "#flags": 0,
+        "#returnType": {
+            "#logicalPropertyDomainPath": "kType/kBuiltinType",
+            "@type.kind": "kBuiltin",
+            "@type.namespace": null,
+            "#kind": "kString"
         }
-    ],
-    "#flags": 0,
-    "#returnType": {
-        "#logicalPropertyDomainPath": "kType/kBuiltinType",
-        "@type.kind": "kBuiltin",
-        "@type.namespace": null,
-        "#kind": "kString"
     }
 }
 ```
