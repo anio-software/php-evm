@@ -5,6 +5,7 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPRawExpression extends PHPExpression {
 	public function __construct(string $sourceCode) {
 		parent::__construct(
+			PHPExpressionKind::kRaw,
 			$sourceCode
 		);
 	}

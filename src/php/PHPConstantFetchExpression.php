@@ -8,6 +8,7 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 		?string $sourceCode = NULL
 	) {
 		parent::__construct(
+			PHPExpressionKind::kConstantFetch,
 			$sourceCode
 		);
 	}

@@ -7,6 +7,7 @@ abstract readonly class PHPLiteral extends PHPExpression {
 
 	public function __construct(mixed $value, ?string $sourceCode = NULL) {
 		parent::__construct(
+			PHPExpressionKind::kLiteral,
 			$sourceCode
 		);
 
