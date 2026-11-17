@@ -19,10 +19,6 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		);
 	}
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kFunctionAlias;
-	}
-
 	static public function create(
 		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,

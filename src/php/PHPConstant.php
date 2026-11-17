@@ -18,10 +18,6 @@ final readonly class PHPConstant extends PHPDefinition {
 		);
 	}
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kConstant;
-	}
-
 	static public function create(
 		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,

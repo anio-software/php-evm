@@ -18,10 +18,6 @@ final readonly class PHPClass extends PHPDefinition {
 		);
 	}
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kClass;
-	}
-
 	static public function create(
 		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,

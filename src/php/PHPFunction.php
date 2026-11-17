@@ -23,10 +23,6 @@ final readonly class PHPFunction extends PHPDefinition {
 		);
 	}
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kFunction;
-	}
-
 	public function returnsValue(): bool {
 		if ($this->returnType->isBuiltinType(PHPBuiltinTypeKind::kVoid)) {
 			return false;

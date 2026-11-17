@@ -13,7 +13,9 @@ readonly abstract class PHPDefinition extends PHPReference {
 		parent::__construct($referenceId);
 	}
 
-	abstract public function getDefinitionKind(): PHPDefinitionKind;
+	final public function getDefinitionKind(): PHPDefinitionKind {
+		return $this->kind;
+	}
 
 	final public function getDefinitionId(): string {
 		return static::class.":".$this->getFullyQualifiedName();

@@ -18,10 +18,6 @@ final readonly class PHPInterface extends PHPDefinition {
 		);
 	}
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kInterface;
-	}
-
 	static public function create(
 		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,

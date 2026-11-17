@@ -18,10 +18,6 @@ final readonly class PHPEnum extends PHPDefinition {
 		);
 	}
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kEnum;
-	}
-
 	static public function create(
 		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
