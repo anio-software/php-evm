@@ -4,7 +4,7 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPBuiltinType extends PHPType {
 	private function __construct(
-		private PHPBuiltinTypeKind $kind
+		private PHPBuiltinTypeKind $builtinKind
 	) {
 		parent::__construct(
 			NULL
@@ -24,11 +24,11 @@ final readonly class PHPBuiltinType extends PHPType {
 	}
 
 	public function getBuiltinKind(): PHPBuiltinTypeKind {
-		return $this->kind;
+		return $this->builtinKind;
 	}
 
 	public function getTypeId(): string {
-		return "builtin:".$this->kind->name;
+		return "builtin:".$this->builtinKind->name;
 	}
 
 	public function isEqualTo(PHPType $t): bool {
@@ -36,15 +36,15 @@ final readonly class PHPBuiltinType extends PHPType {
 			return false;
 		}
 
-		return $t->kind === $this->kind;
+		return $t->builtinKind === $this->builtinKind;
 	}
 
 	public function render(): string {
-		return $this->kind->value;
+		return $this->builtinKind->value;
 	}
 
 	public function isRepresentableInCode(): bool {
-		return $this->kind !== PHPBuiltinTypeKind::kResource;
+		return $this->builtinKind !== PHPBuiltinTypeKind::kResource;
 	}
 
 	public function isCompoundType(): bool {
@@ -53,9 +53,9 @@ final readonly class PHPBuiltinType extends PHPType {
 
 	public function toNullable(): PHPType {
 		if (
-			$this->kind === PHPBuiltinTypeKind::kMixed ||
-			$this->kind === PHPBuiltinTypeKind::kNull  ||
-			$this->kind === PHPBuiltinTypeKind::kNever
+			$this->builtinKind === PHPBuiltinTypeKind::kMixed ||
+			$this->builtinKind === PHPBuiltinTypeKind::kNull  ||
+			$this->builtinKind === PHPBuiltinTypeKind::kNever
 		) {
 			return $this;
 		}
