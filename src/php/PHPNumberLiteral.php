@@ -15,7 +15,9 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		);
 	}
 
-	abstract public function getNumberLiteralKind(): PHPNumberLiteralKind;
+	final public function getNumberLiteralKind(): PHPNumberLiteralKind {
+		return $this->numberLiteralKind;
+	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySetBuilder::create(

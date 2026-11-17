@@ -18,10 +18,6 @@ final readonly class PHPFloatLiteral extends PHPNumberLiteral {
 		}
 	}
 
-	public function getNumberLiteralKind(): PHPNumberLiteralKind {
-		return PHPNumberLiteralKind::kFloat;
-	}
-
 	public function renderExpression(): string {
 		$str = (string)$this->value;
 

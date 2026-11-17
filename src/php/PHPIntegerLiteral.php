@@ -15,10 +15,6 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		);
 	}
 
-	public function getNumberLiteralKind(): PHPNumberLiteralKind {
-		return PHPNumberLiteralKind::kInteger;
-	}
-
 	public function getNumberRadix(): PHPIntegerRadix {
 		return $this->radix;
 	}
