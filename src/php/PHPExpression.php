@@ -16,7 +16,10 @@ abstract readonly class PHPExpression extends PHPLogicalObject {
 		return $this->sourceCode ?? $this->renderExpression();
 	}
 
-	abstract public function getExpressionKind(): PHPExpressionKind;
+	final public function getExpressionKind(): PHPExpressionKind {
+		return $this->kind;
+	}
+
 	abstract public function renderExpression(): string;
 	abstract public function isRepresentableInCode(): bool;
 

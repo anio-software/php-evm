@@ -10,10 +10,6 @@ final readonly class PHPPlaceholderExpression extends PHPExpression {
 		);
 	}
 
-	public function getExpressionKind(): PHPExpressionKind {
-		return PHPExpressionKind::kPlaceholder;
-	}
-
 	public function renderExpression(): string {
 		return "?";
 	}
