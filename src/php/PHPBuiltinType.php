@@ -5,7 +5,9 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPBuiltinType extends PHPType {
 	private function __construct(
 		private PHPBuiltinTypeKind $kind
-	) {}
+	) {
+		parent::__construct();
+	}
 
 	static public function fromKind(PHPBuiltinTypeKind $kind): self {
 		static $instances = [];
