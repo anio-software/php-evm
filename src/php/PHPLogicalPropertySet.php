@@ -63,14 +63,14 @@ final readonly class PHPLogicalPropertySet {
 		return \array_reverse($arr);
 	}
 
-	public function serialize(
+	public function toArray(
 		?PHPLogicalPropertySetArrayOptions $options = NULL
 	): array {
 		$options ??= PHPLogicalPropertySetArrayOptions::defaults();
 
 		$normalizeValue = static function($value) use ($options, &$normalizeValue) {
 			if ($value instanceof self) {
-				return $value->serialize($options);
+				return $value->toArray($options);
 			}
 
 			return \is_array($value) ? \array_map($normalizeValue, $value) : $value;
@@ -107,7 +107,7 @@ final readonly class PHPLogicalPropertySet {
 	}
 
 	public function toCanonicalized(): array {
-		return $this->serialize(
+		return $this->toArray(
 			PHPLogicalPropertySetArrayOptions::canonicalFormat()
 		);
 	}
