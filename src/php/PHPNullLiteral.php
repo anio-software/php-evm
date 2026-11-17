@@ -10,10 +10,6 @@ final readonly class PHPNullLiteral extends PHPLiteral {
 		);
 	}
 
-	public function getLiteralKind(): PHPLiteralKind {
-		return PHPLiteralKind::kNull;
-	}
-
 	public function renderExpression(): string {
 		return "NULL";
 	}

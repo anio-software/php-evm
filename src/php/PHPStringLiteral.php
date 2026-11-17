@@ -13,10 +13,6 @@ abstract readonly class PHPStringLiteral extends PHPLiteral {
 
 	abstract public function getStringLiteralKind(): PHPStringLiteralKind;
 
-	final public function getLiteralKind(): PHPLiteralKind {
-		return PHPLiteralKind::kString;
-	}
-
 	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),

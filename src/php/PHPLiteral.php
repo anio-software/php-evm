@@ -26,7 +26,9 @@ abstract readonly class PHPLiteral extends PHPExpression {
 		return $this->value;
 	}
 
-	abstract public function getLiteralKind(): PHPLiteralKind;
+	final public function getLiteralKind(): PHPLiteralKind {
+		return $this->literalKind;
+	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySetBuilder::create(
