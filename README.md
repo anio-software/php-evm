@@ -164,24 +164,24 @@ This generates output like:
 + definition \CURLOPT_SSL_SIGNATURE_ALGORITHMS (kConstant) was added
 + definition \clamp (kFunction) was added
 + definition \curl_multi_get_handles (kFunction) was added
-* definition \oci_set_call_timeout (kFunction) was changed:
+* definition \oci_set_call_timeout (kFunction) was modified:
 
-    * property @reference.id was changed
+    * property @reference.id was modified
 
-* definition \ltrim (kFunction) was changed:
+* definition \ltrim (kFunction) was modified:
 
-    * property #parameters[1][#initializer][@expression.sourceCode] was changed
-    * property #parameters[1][#initializer][@literal.value] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was modified
+    * property #parameters[1][#initializer][@literal.value] was modified
 
-* definition \rtrim (kFunction) was changed:
+* definition \rtrim (kFunction) was modified:
 
-    * property #parameters[1][#initializer][@expression.sourceCode] was changed
-    * property #parameters[1][#initializer][@literal.value] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was modified
+    * property #parameters[1][#initializer][@literal.value] was modified
 
-* definition \trim (kFunction) was changed:
+* definition \trim (kFunction) was modified:
 
-    * property #parameters[1][#initializer][@expression.sourceCode] was changed
-    * property #parameters[1][#initializer][@literal.value] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was modified
+    * property #parameters[1][#initializer][@literal.value] was modified
 
 ```
 
