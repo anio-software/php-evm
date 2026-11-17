@@ -30,10 +30,6 @@ final readonly class PHPDoubleQuotedStringLiteral extends PHPStringLiteral {
 		]).'"';
 	}
 
-	public function getStringLiteralKind(): PHPStringLiteralKind {
-		return PHPStringLiteralKind::kDoubleQuoted;
-	}
-
 	static public function tryParse(string $string): ?self {
 		if (!\str_starts_with($string, '"')) {
 			return NULL;
