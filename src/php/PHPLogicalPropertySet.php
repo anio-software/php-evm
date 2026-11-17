@@ -5,7 +5,7 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPLogicalPropertySet {
 	private function __construct(
 		private ?self $parent,
-		private PHPLogicalPropertyDomain $group,
+		private PHPLogicalPropertyDomain $domain,
 		private HashMap $properties
 	) {}
 
@@ -13,8 +13,8 @@ final readonly class PHPLogicalPropertySet {
 		return $this->properties->entries();
 	}
 
-	public function getGroup(): PHPLogicalPropertyDomain {
-		return $this->group;
+	public function getDomain(): PHPLogicalPropertyDomain {
+		return $this->domain;
 	}
 
 	public function getParent(): ?self {
@@ -34,13 +34,13 @@ final readonly class PHPLogicalPropertySet {
 	}
 
 	public function withProperty(PHPLogicalProperty $prop, mixed $value): self {
-		if (!\str_starts_with($prop->value, $this->group->value.".")) {
-			throw new \InvalidArgumentException("Cannot add property ({$prop->value}) to foreign group '{$this->group->value}'.");
+		if (!\str_starts_with($prop->value, $this->domain->value.".")) {
+			throw new \InvalidArgumentException("Cannot add property ({$prop->value}) to foreign domain '{$this->domain->value}'.");
 		}
 
 		return new self(
 			$this->parent,
-			$this->group,
+			$this->domain,
 			HashMap::from(
 				$this->properties,
 				new HashMap([
@@ -78,12 +78,12 @@ final readonly class PHPLogicalPropertySet {
 
 		$inheritanceChain = $options->resolveParents ? $this->getInheritanceChain() : [$this];
 		$lastIndex = \count($inheritanceChain) - 1;
-		$group = $this->getGroup()->value;
+		$domain = $this->getDomain()->value;
 		$arr = [];
 
 		$arr[PHPLogicalProperty::kLogicalPropertyGroup->value] = \array_map(
 			static function(self $props): string {
-				return $props->getGroup()->name;
+				return $props->getDomain()->name;
 			}, $inheritanceChain
 		);
 
@@ -95,8 +95,8 @@ final readonly class PHPLogicalPropertySet {
 			foreach ($props->getProperties() as [$pKey, $pValue]) {
 				$key = $pKey->value;
 
-				if (\str_starts_with($key, $group.".")) {
-					$key = \substr($key, \strlen($group."."));
+				if (\str_starts_with($key, $domain.".")) {
+					$key = \substr($key, \strlen($domain."."));
 				}
 
 				$arr[$keyPrefix.$key] = $normalizeValue($pValue);
@@ -114,11 +114,11 @@ final readonly class PHPLogicalPropertySet {
 
 	static public function create(
 		?self $parent,
-		PHPLogicalPropertyDomain $group
+		PHPLogicalPropertyDomain $domain
 	): self {
 		return new self(
 			$parent,
-			$group,
+			$domain,
 			new HashMap
 		);
 	}
