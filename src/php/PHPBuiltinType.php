@@ -68,7 +68,7 @@ final readonly class PHPBuiltinType extends PHPType {
 			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kBuiltinType
 		)
-		->withProperty(PHPLogicalProperty::kBuiltinTypeKind, $this->getBuiltinKind())
+		->withProperty(PHPLogicalProperty::kBuiltinTypeKind, $this->builtinKind)
 		->finalize();
 	}
 }
