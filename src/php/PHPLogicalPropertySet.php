@@ -11,22 +11,14 @@ final readonly class PHPLogicalPropertySet {
 		private PHPLogicalPropertyDomain $domain,
 		private HashMap $properties
 	) {
-		$current = $this;
-		$chain = [];
+		$this->inheritanceChain = [
+			...($parent?->getInheritanceChain() ?? []),
+			$this
+		];
 
-		while ($current) {
-			$chain[] = $current;
-
-			$current = $current->getParent();
-		}
-
-		$this->inheritanceChain = \array_reverse($chain);
-		$this->path = \implode(
-			"/",
-			\array_map(static function(self $that): string {
-				return $that->getDomain()->name;
-			}, $this->inheritanceChain)
-		);
+		$this->path = $parent !== null
+		            ? $parent->getPath()."/".$domain->name
+		            : $domain->name;
 	}
 
 	public function getProperties(): array {
