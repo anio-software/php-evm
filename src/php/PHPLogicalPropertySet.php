@@ -68,12 +68,12 @@ final readonly class PHPLogicalPropertySet {
 	): array {
 		$options ??= PHPLogicalPropertySetArrayOptions::defaults();
 
-		$serialize = static function($value) use ($options, &$serialize) {
+		$normalizeValue = static function($value) use ($options, &$normalizeValue) {
 			if ($value instanceof self) {
 				return $value->serialize($options);
 			}
 
-			return \is_array($value) ? \array_map($serialize, $value) : $value;
+			return \is_array($value) ? \array_map($normalizeValue, $value) : $value;
 		};
 
 		$inheritanceChain = $options->resolveParents ? $this->getInheritanceChain() : [$this];
@@ -99,7 +99,7 @@ final readonly class PHPLogicalPropertySet {
 					$key = \substr($key, \strlen($group."."));
 				}
 
-				$arr[$keyPrefix.$key] = $serialize($pValue);
+				$arr[$keyPrefix.$key] = $normalizeValue($pValue);
 			}
 		}
 
