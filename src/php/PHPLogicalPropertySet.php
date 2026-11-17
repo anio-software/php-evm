@@ -53,23 +53,6 @@ final readonly class PHPLogicalPropertySet {
 		return $this->getHash() === $that->getHash();
 	}
 
-	public function withProperty(PHPLogicalProperty $prop, mixed $value): self {
-		if (!\str_starts_with($prop->value, $this->domain->value.".")) {
-			throw new \InvalidArgumentException("Cannot add property ({$prop->value}) to foreign domain '{$this->domain->value}'.");
-		}
-
-		return new self(
-			$this->parent,
-			$this->domain,
-			HashMap::from(
-				$this->properties,
-				new HashMap([
-					[$prop, $value]
-				])
-			)
-		);
-	}
-
 	public function toArray(
 		?PHPLogicalPropertySetArrayOptions $options = NULL
 	): array {
