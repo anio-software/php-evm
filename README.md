@@ -107,8 +107,8 @@ foreach ($diff->added as $definition) {
 	echo green("+")." definition ".prettyDefName($definition, "\\green")." was added\n";
 }
 
-foreach ($diff->changed as $definition) {
-	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was changed:\n\n";
+foreach ($diff->modified as $definition) {
+	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was modified:\n\n";
 
 	$diff = $definition->getDiff();
 
@@ -120,8 +120,8 @@ foreach ($diff->changed as $definition) {
 		echo "    ".green("+")." property ".green($key)." was added\n";
 	}
 
-	foreach ($diff->changed as $key => $value) {
-		echo "    ".yellow("*")." property ".yellow($key)." was changed\n";
+	foreach ($diff->modified as $key => $value) {
+		echo "    ".yellow("*")." property ".yellow($key)." was modified\n";
 	}
 
 	echo "\n";
