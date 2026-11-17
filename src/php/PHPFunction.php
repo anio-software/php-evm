@@ -15,6 +15,7 @@ final readonly class PHPFunction extends PHPDefinition {
 		public PHPType $returnType
 	) {
 		parent::__construct(
+			PHPDefinitionKind::kFunction,
 			$metadata,
 			$namespace,
 			$referenceId,

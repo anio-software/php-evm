@@ -11,6 +11,7 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		public string $originalName
 	) {
 		parent::__construct(
+			PHPDefinitionKind::kFunctionAlias,
 			$metadata,
 			$namespace,
 			$referenceId,

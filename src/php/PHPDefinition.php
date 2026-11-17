@@ -4,6 +4,7 @@ namespace AnioSoftware\EVM\PHP;
 
 readonly abstract class PHPDefinition extends PHPReference {
 	public function __construct(
+		public PHPDefinitionKind $kind,
 		public PHPDefinitionMetadata $metadata,
 		public PHPNamespace $namespace,
 		string $referenceId,

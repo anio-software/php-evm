@@ -10,6 +10,7 @@ final readonly class PHPEnum extends PHPDefinition {
 		string $name
 	) {
 		parent::__construct(
+			PHPDefinitionKind::kEnum,
 			$metadata,
 			$namespace,
 			$referenceId,

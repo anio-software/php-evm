@@ -10,6 +10,7 @@ final readonly class PHPClass extends PHPDefinition {
 		string $name
 	) {
 		parent::__construct(
+			PHPDefinitionKind::kClass,
 			$metadata,
 			$namespace,
 			$referenceId,

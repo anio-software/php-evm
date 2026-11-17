@@ -10,6 +10,7 @@ final readonly class PHPConstant extends PHPDefinition {
 		string $name
 	) {
 		parent::__construct(
+			PHPDefinitionKind::kConstant,
 			$metadata,
 			$namespace,
 			$referenceId,
