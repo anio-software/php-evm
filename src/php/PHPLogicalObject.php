@@ -21,6 +21,29 @@ readonly abstract class PHPLogicalObject implements \JsonSerializable {
 		return $this->provideLogicalProperties()->getHash();
 	}
 
+	final public function toLogicalArray(bool $resolveParents = true): array {
+		$normalizeValue = static function($value) use (&$normalizeValue, $resolveParents) {
+			if ($value instanceof self) {
+				return $value->toLogicalArray($resolveParents);
+			}
+
+			return \is_array($value) ? \array_map($normalizeValue, $value) : $value;
+		};
+
+		$arr = [];
+
+		$props = $this->provideLogicalProperties()->toArray(
+			PHPLogicalPropertySetArrayOptions::canonicalFormat()
+			->withResolveParents($resolveParents)
+		);
+
+		foreach ($props as $key => $value) {
+			$arr[$key] = $normalizeValue($value);
+		}
+
+		return $arr;
+	}
+
 	final public function jsonSerialize(): mixed {
 		return $this->provideLogicalProperties()->toCanonicalized();
 	}
