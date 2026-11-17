@@ -89,7 +89,7 @@ final readonly class PHPLogicalPropertySet {
 		$arr = [];
 
 		$arr[
-			PHPLogicalProperty::kLogicalPropertyDomain->value
+			PHPLogicalProperty::kLogicalPropertyDomainPath->value
 		] = $this->inheritanceChainString;
 
 		for ($i = 0; $i <= $lastIndex; ++$i) {
