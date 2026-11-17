@@ -3,11 +3,24 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPLogicalPropertySet {
+	private array $inheritanceChain;
+
 	private function __construct(
 		private ?self $parent,
 		private PHPLogicalPropertyDomain $domain,
 		private HashMap $properties
-	) {}
+	) {
+		$current = $this;
+		$chain = [];
+
+		while ($current) {
+			$chain[] = $current;
+
+			$current = $current->getParent();
+		}
+
+		$this->inheritanceChain = \array_reverse($chain);
+	}
 
 	public function getProperties(): array {
 		return $this->properties->entries();
@@ -50,19 +63,6 @@ final readonly class PHPLogicalPropertySet {
 		);
 	}
 
-	private function getInheritanceChain(): array {
-		$arr = [];
-		$current = $this;
-
-		while ($current) {
-			$arr[] = $current;
-
-			$current = $current->getParent();
-		}
-
-		return \array_reverse($arr);
-	}
-
 	public function toArray(
 		?PHPLogicalPropertySetArrayOptions $options = NULL
 	): array {
@@ -76,7 +76,7 @@ final readonly class PHPLogicalPropertySet {
 			return \is_array($value) ? \array_map($normalizeValue, $value) : $value;
 		};
 
-		$inheritanceChain = $options->resolveParents ? $this->getInheritanceChain() : [$this];
+		$inheritanceChain = $options->resolveParents ? $this->inheritanceChain : [$this];
 		$lastIndex = \count($inheritanceChain) - 1;
 		$domain = $this->getDomain()->value;
 		$arr = [];
