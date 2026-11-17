@@ -8,6 +8,7 @@ final readonly class PHPFloatLiteral extends PHPNumberLiteral {
 		?string $sourceCode = NULL
 	) {
 		parent::__construct(
+			PHPNumberLiteralKind::kFloat,
 			$value,
 			$sourceCode
 		);

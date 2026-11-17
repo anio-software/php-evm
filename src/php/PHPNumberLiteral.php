@@ -4,6 +4,7 @@ namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPNumberLiteral extends PHPLiteral {
 	public function __construct(
+		public PHPNumberLiteralKind $numberLiteralKind,
 		int|float $value,
 		?string $sourceCode = NULL
 	) {

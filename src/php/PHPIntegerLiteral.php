@@ -9,6 +9,7 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		?string $sourceCode = NULL
 	) {
 		parent::__construct(
+			PHPNumberLiteralKind::kInteger,
 			$value,
 			$sourceCode
 		);
