@@ -12,7 +12,7 @@ require_once __DIR__."/PHPLogicalProperty.php";
 require_once __DIR__."/PHPLogicalPropertyGroup.php";
 require_once __DIR__."/PHPLogicalPropertiesSerializationOptions.php";
 require_once __DIR__."/PHPLogicalProperties.php";
-require_once __DIR__."/PHPLogicalPropertiesObject.php";
+require_once __DIR__."/PHPLogicalObject.php";
 
 require_once __DIR__."/PHPExtensionMembership.php";
 require_once __DIR__."/PHPReference.php";

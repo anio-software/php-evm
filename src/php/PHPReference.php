@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-readonly class PHPReference extends PHPLogicalPropertiesObject {
+readonly class PHPReference extends PHPLogicalObject {
 	public function __construct(
 		public string $referenceId
 	) {}

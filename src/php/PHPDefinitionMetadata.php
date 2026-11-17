@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPDefinitionMetadata extends PHPLogicalPropertiesObject {
+final readonly class PHPDefinitionMetadata extends PHPLogicalObject {
 	public function __construct(
 		public PHPExtensionMembership $extensionMembership,
 		public ?string $bookId = NULL
