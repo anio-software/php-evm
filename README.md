@@ -234,16 +234,10 @@ Loaded 4853 constants
 
 ```json
 "str_pad": {
-    "#logicalPropertyDomain": [
-        "kReference",
-        "kDefinition",
-        "kFunction"
-    ],
+    "#logicalPropertyDomainPath": "kReference/kDefinition/kFunction",
     "@reference.id": "function.str-pad",
     "@definition.metadata": {
-        "#logicalPropertyDomain": [
-            "kDefinitionMetadata"
-        ],
+        "#logicalPropertyDomainPath": "kDefinitionMetadata",
         "#extensionMembership": "kCore",
         "#bookId": "book.strings"
     },
@@ -253,15 +247,10 @@ Loaded 4853 constants
     "@definition.fullyQualifiedName": "\\str_pad",
     "#parameters": [
         {
-            "#logicalPropertyDomain": [
-                "kFunctionParameter"
-            ],
+            "#logicalPropertyDomainPath": "kFunctionParameter",
             "#name": "string",
             "#type": {
-                "#logicalPropertyDomain": [
-                    "kType",
-                    "kBuiltinType"
-                ],
+                "#logicalPropertyDomainPath": "kType/kBuiltinType",
                 "@type.kind": "kBuiltin",
                 "@type.namespace": null,
                 "#kind": "kString"
@@ -270,15 +259,10 @@ Loaded 4853 constants
             "#flags": 0
         },
         {
-            "#logicalPropertyDomain": [
-                "kFunctionParameter"
-            ],
+            "#logicalPropertyDomainPath": "kFunctionParameter",
             "#name": "length",
             "#type": {
-                "#logicalPropertyDomain": [
-                    "kType",
-                    "kBuiltinType"
-                ],
+                "#logicalPropertyDomainPath": "kType/kBuiltinType",
                 "@type.kind": "kBuiltin",
                 "@type.namespace": null,
                 "#kind": "kInt"
@@ -287,25 +271,16 @@ Loaded 4853 constants
             "#flags": 0
         },
         {
-            "#logicalPropertyDomain": [
-                "kFunctionParameter"
-            ],
+            "#logicalPropertyDomainPath": "kFunctionParameter",
             "#name": "pad_string",
             "#type": {
-                "#logicalPropertyDomain": [
-                    "kType",
-                    "kBuiltinType"
-                ],
+                "#logicalPropertyDomainPath": "kType/kBuiltinType",
                 "@type.kind": "kBuiltin",
                 "@type.namespace": null,
                 "#kind": "kString"
             },
             "#initializer": {
-                "#logicalPropertyDomain": [
-                    "kExpression",
-                    "kLiteral",
-                    "kStringLiteral"
-                ],
+                "#logicalPropertyDomainPath": "kExpression/kLiteral/kStringLiteral",
                 "@expression.kind": "kLiteral",
                 "@expression.sourceCode": "\" \"",
                 "@literal.kind": "kString",
@@ -315,36 +290,23 @@ Loaded 4853 constants
             "#flags": 1
         },
         {
-            "#logicalPropertyDomain": [
-                "kFunctionParameter"
-            ],
+            "#logicalPropertyDomainPath": "kFunctionParameter",
             "#name": "pad_type",
             "#type": {
-                "#logicalPropertyDomain": [
-                    "kType",
-                    "kBuiltinType"
-                ],
+                "#logicalPropertyDomainPath": "kType/kBuiltinType",
                 "@type.kind": "kBuiltin",
                 "@type.namespace": null,
                 "#kind": "kInt"
             },
             "#initializer": {
-                "#logicalPropertyDomain": [
-                    "kExpression",
-                    "kConstantFetch"
-                ],
+                "#logicalPropertyDomainPath": "kExpression/kConstantFetch",
                 "@expression.kind": "kConstantFetch",
                 "@expression.sourceCode": null,
                 "#constant": {
-                    "#logicalPropertyDomain": [
-                        "kReference",
-                        "kDefinition"
-                    ],
+                    "#logicalPropertyDomainPath": "kReference/kDefinition",
                     "@reference.id": "constant.str-pad-right",
                     "#metadata": {
-                        "#logicalPropertyDomain": [
-                            "kDefinitionMetadata"
-                        ],
+                        "#logicalPropertyDomainPath": "kDefinitionMetadata",
                         "#extensionMembership": "kCore",
                         "#bookId": "book.strings"
                     },
@@ -359,10 +321,7 @@ Loaded 4853 constants
     ],
     "#flags": 0,
     "#returnType": {
-        "#logicalPropertyDomain": [
-            "kType",
-            "kBuiltinType"
-        ],
+        "#logicalPropertyDomainPath": "kType/kBuiltinType",
         "@type.kind": "kBuiltin",
         "@type.namespace": null,
         "#kind": "kString"
