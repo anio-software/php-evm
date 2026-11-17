@@ -22,9 +22,9 @@ readonly abstract class PHPDefinition extends PHPReference {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			parent::provideLogicalProperties(),
+			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kDefinition
 		)
 		->withProperty(PHPLogicalProperty::kDefinitionMetadata           , $this->metadata)

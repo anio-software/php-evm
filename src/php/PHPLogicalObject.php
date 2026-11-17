@@ -3,13 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 readonly abstract class PHPLogicalObject implements \JsonSerializable {
-	abstract protected function provideLogicalProperties(): PHPLogicalPropertySet;
-
-	// The separation of provideLogicalProperties() and getLogicalProperties()
-	// is an artefact of the old code base.
-	final public function getLogicalProperties(): PHPLogicalPropertySet {
-		return $this->provideLogicalProperties();
-	}
+	abstract public function getLogicalProperties(): PHPLogicalPropertySet;
 
 	final public function isLogicallyEqualTo(self $that): bool {
 		return $this->getLogicalProperties()->isEqualTo(
@@ -18,7 +12,7 @@ readonly abstract class PHPLogicalObject implements \JsonSerializable {
 	}
 
 	final public function getLogicalHash(): string {
-		return $this->provideLogicalProperties()->getHash();
+		return $this->getLogicalProperties()->getHash();
 	}
 
 	final public function toLogicalArray(bool $resolveParents = true): array {
@@ -32,7 +26,7 @@ readonly abstract class PHPLogicalObject implements \JsonSerializable {
 
 		$arr = [];
 
-		$props = $this->provideLogicalProperties()->toArray(
+		$props = $this->getLogicalProperties()->toArray(
 			PHPLogicalPropertySetArrayOptions::canonicalFormat()
 			->withResolveParents($resolveParents)
 		);

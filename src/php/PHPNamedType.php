@@ -48,9 +48,9 @@ final readonly class PHPNamedType extends PHPType {
 		return $this->namespace;
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			parent::provideLogicalProperties(),
+			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kNamedType
 		)
 		->withProperty(PHPLogicalProperty::kNamedTypeName              , $this->name)

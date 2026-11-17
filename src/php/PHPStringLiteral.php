@@ -13,9 +13,9 @@ abstract readonly class PHPStringLiteral extends PHPLiteral {
 		return PHPLiteralKind::kString;
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			parent::provideLogicalProperties(),
+			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kStringLiteral
 		)
 		->withProperty(PHPLogicalProperty::kStringLiteralKind, $this->getStringLiteralKind());

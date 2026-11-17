@@ -131,9 +131,9 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return NULL;
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			parent::provideLogicalProperties(),
+			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kTypeCollection
 		)
 		->withProperty(PHPLogicalProperty::kTypeCollectionMembers, $this->members);

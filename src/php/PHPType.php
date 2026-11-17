@@ -28,7 +28,7 @@ abstract readonly class PHPType extends PHPLogicalObject {
 		return $this->render();
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalProperties(): PHPLogicalPropertySet {
 		$ns = $this->getNamespace();
 		$ns = $ns ? $ns->getFullyQualifiedName() : NULL;
 

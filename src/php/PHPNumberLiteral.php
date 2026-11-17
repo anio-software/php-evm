@@ -13,9 +13,9 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		return PHPLiteralKind::kNumber;
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			parent::provideLogicalProperties(),
+			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kNumberLiteral
 		)
 		->withProperty(PHPLogicalProperty::kNumberLiteralKind, $this->getNumberLiteralKind());

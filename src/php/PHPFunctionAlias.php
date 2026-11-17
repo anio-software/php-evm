@@ -27,9 +27,9 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		return new self($metadata, $namespace, $referenceId, $name, $originalName);
 	}
 
-	protected function provideLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySet::create(
-			parent::provideLogicalProperties(),
+			parent::getLogicalProperties(),
 			PHPLogicalPropertyDomain::kFunctionAlias
 		)
 		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName);
