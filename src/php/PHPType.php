@@ -48,7 +48,7 @@ abstract readonly class PHPType extends PHPLogicalObject {
 		return PHPLogicalPropertySetBuilder::create(
 			NULL, PHPLogicalPropertyDomain::kType
 		)
-		->withProperty(PHPLogicalProperty::kTypeKind     , $this->getTypeKind())
+		->withProperty(PHPLogicalProperty::kTypeKind     , $this->kind)
 		->withProperty(PHPLogicalProperty::kTypeNamespace, $ns)
 		->finalize();
 	}
