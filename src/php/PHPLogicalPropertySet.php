@@ -116,15 +116,4 @@ final readonly class PHPLogicalPropertySet {
 			PHPLogicalPropertySetArrayOptions::canonicalFormat()
 		);
 	}
-
-	static public function create(
-		?self $parent,
-		PHPLogicalPropertyDomain $domain
-	): self {
-		return new self(
-			$parent,
-			$domain,
-			new HashMap
-		);
-	}
 }
