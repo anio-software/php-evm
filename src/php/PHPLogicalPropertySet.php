@@ -4,6 +4,7 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPLogicalPropertySet {
 	private array $inheritanceChain;
+	private string $inheritanceChainString;
 
 	private function __construct(
 		private ?self $parent,
@@ -20,6 +21,12 @@ final readonly class PHPLogicalPropertySet {
 		}
 
 		$this->inheritanceChain = \array_reverse($chain);
+		$this->inheritanceChainString = \implode(
+			"/",
+			\array_map(static function(self $that): string {
+				return $that->getDomain()->name;
+			}, $this->inheritanceChain)
+		);
 	}
 
 	public function getProperties(): array {
@@ -81,11 +88,9 @@ final readonly class PHPLogicalPropertySet {
 		$domain = $this->getDomain()->value;
 		$arr = [];
 
-		$arr[PHPLogicalProperty::kLogicalPropertyDomain->value] = \array_map(
-			static function(self $props): string {
-				return $props->getDomain()->name;
-			}, $inheritanceChain
-		);
+		$arr[
+			PHPLogicalProperty::kLogicalPropertyDomain->value
+		] = $this->inheritanceChainString;
 
 		for ($i = 0; $i <= $lastIndex; ++$i) {
 			$props = $inheritanceChain[$i];
