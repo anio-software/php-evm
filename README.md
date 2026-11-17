@@ -232,6 +232,8 @@ Loaded 182 function aliases
 Loaded 4853 constants
 ```
 
+Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is represented:
+
 ```json
 {
     "str_pad": {
