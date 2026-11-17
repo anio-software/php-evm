@@ -27,7 +27,7 @@ final readonly class PHPDoubleQuotedStringLiteral extends PHPStringLiteral {
 		return PHPStringLiteralKind::kDoubleQuoted;
 	}
 
-	static public function parse(string $string): ?self {
+	static public function tryParse(string $string): ?self {
 		if (!\str_starts_with($string, '"')) {
 			return NULL;
 		} else if (!\str_ends_with($string, '"')) {

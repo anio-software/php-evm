@@ -42,11 +42,11 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix());
 	}
 
-	static public function parse(string $str, bool $negative = false): ?self {
+	static public function tryParse(string $str, bool $negative = false): ?self {
 		if (\str_contains($str, ".")) {
 			return NULL;
 		} else if (\substr($str, 0, 1) === "-") {
-			return self::parse(\substr($str, 1), !$negative);
+			return self::tryParse(\substr($str, 1), !$negative);
 		}
 
 		$normalized = \strtolower($str);
