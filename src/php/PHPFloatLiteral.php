@@ -7,7 +7,10 @@ final readonly class PHPFloatLiteral extends PHPNumberLiteral {
 		float $value,
 		?string $sourceCode = NULL
 	) {
-		parent::__construct($value, $sourceCode);
+		parent::__construct(
+			$value,
+			$sourceCode
+		);
 
 		if (!\is_finite($value)) {
 			throw new \InvalidArgumentException("Float literal must be finite.");

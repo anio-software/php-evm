@@ -4,7 +4,10 @@ namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPStringLiteral extends PHPLiteral {
 	public function __construct(string $value, ?string $sourceCode = NULL) {
-		parent::__construct($value, $sourceCode);
+		parent::__construct(
+			$value,
+			$sourceCode
+		);
 	}
 
 	abstract public function getStringLiteralKind(): PHPStringLiteralKind;

@@ -8,7 +8,10 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		private PHPIntegerRadix $radix = PHPIntegerRadix::kDecimal,
 		?string $sourceCode = NULL
 	) {
-		parent::__construct($value, $sourceCode);
+		parent::__construct(
+			$value,
+			$sourceCode
+		);
 	}
 
 	public function getNumberLiteralKind(): PHPNumberLiteralKind {
