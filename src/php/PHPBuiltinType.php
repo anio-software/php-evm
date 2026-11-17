@@ -66,10 +66,6 @@ final readonly class PHPBuiltinType extends PHPType {
 		);
 	}
 
-	public function getNamespace(): ?PHPNamespace {
-		return NULL;
-	}
-
 	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),

@@ -9,7 +9,10 @@ abstract readonly class PHPType extends PHPLogicalObject {
 		// tbd
 	}
 
-	abstract public function getNamespace(): ?PHPNamespace;
+	final public function getNamespace(): ?PHPNamespace {
+		return $this->namespace;
+	}
+
 	abstract public function getTypeKind(): PHPTypeKind;
 	abstract public function getTypeId(): string;
 	abstract public function isEqualTo(PHPType $t): bool;

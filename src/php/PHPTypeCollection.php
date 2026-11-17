@@ -131,10 +131,6 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return true;
 	}
 
-	final public function getNamespace(): ?PHPNamespace {
-		return NULL;
-	}
-
 	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),

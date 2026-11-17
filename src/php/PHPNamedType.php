@@ -48,10 +48,6 @@ final readonly class PHPNamedType extends PHPType {
 		return new PHPUnionType($this, PHPBuiltinTypeKind::kNull->toType());
 	}
 
-	public function getNamespace(): ?PHPNamespace {
-		return $this->namespace;
-	}
-
 	public function getLogicalProperties(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySetBuilder::create(
 			parent::getLogicalProperties(),
