@@ -6,7 +6,7 @@ final readonly class PHPLogicalPropertySet {
 	private array $inheritanceChain;
 	private string $path;
 
-	private function __construct(
+	public function __construct(
 		private ?self $parent,
 		private PHPLogicalPropertyDomain $domain,
 		private HashMap $properties
