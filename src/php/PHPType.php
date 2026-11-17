@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPType extends PHPLogicalObject {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		public PHPTypeKind $kind,
 		public ?PHPNamespace $namespace

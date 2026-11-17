@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPBuiltinType extends PHPType {
+	private PHPLogicalPropertySet $props;
+
 	private function __construct(
 		private PHPBuiltinTypeKind $builtinKind
 	) {

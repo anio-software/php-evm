@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPNumberLiteral extends PHPLiteral {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		public PHPNumberLiteralKind $numberLiteralKind,
 		int|float $value,

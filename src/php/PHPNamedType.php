@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPNamedType extends PHPType {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		PHPNamespace $namespace,
 		public string $name

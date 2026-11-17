@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunctionParameter extends PHPLogicalObject {
+	private PHPLogicalPropertySet $props;
+
 	public const int FLAG_OPTIONAL  = 1 << 0;
 	public const int FLAG_VARIADIC  = 1 << 1;
 	public const int FLAG_REFERENCE = 1 << 2;

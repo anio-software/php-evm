@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPConstantFetchExpression extends PHPExpression {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		private PHPConstant $constant,
 		?string $sourceCode = NULL

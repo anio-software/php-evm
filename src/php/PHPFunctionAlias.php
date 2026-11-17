@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunctionAlias extends PHPDefinition {
+	private PHPLogicalPropertySet $props;
+
 	private function __construct(
 		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,

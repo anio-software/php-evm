@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPExpression extends PHPLogicalObject {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		public PHPExpressionKind $kind,
 		private ?string $sourceCode = NULL

@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunction extends PHPDefinition {
+	private PHPLogicalPropertySet $props;
+
 	public const int FLAG_VARIADIC = 1 << 0;
 
 	private function __construct(

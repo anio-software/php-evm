@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPStringLiteral extends PHPLiteral {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		public PHPStringLiteralKind $stringLiteralKind,
 		string $value,

@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPTypeCollection extends PHPType {
+	private PHPLogicalPropertySet $props;
+
 	final protected array $members;
 
 	static private function flatten(

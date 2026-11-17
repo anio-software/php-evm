@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 readonly class PHPReference extends PHPLogicalObject {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		public string $referenceId
 	) {}

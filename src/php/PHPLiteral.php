@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPLiteral extends PHPExpression {
+	private PHPLogicalPropertySet $props;
+
 	final protected mixed $value;
 
 	public function __construct(

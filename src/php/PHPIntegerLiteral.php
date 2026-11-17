@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		int $value,
 		private PHPIntegerRadix $radix = PHPIntegerRadix::kDecimal,
