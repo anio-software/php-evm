@@ -6,6 +6,7 @@ abstract readonly class PHPLiteral extends PHPExpression {
 	final protected mixed $value;
 
 	public function __construct(
+		public PHPLiteralKind $literalKind,
 		mixed $value,
 		?string $sourceCode = NULL
 	) {

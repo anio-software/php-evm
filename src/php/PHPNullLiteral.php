@@ -5,6 +5,7 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPNullLiteral extends PHPLiteral {
 	private function __construct() {
 		parent::__construct(
+			PHPLiteralKind::kNull,
 			NULL
 		);
 	}
