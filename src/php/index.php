@@ -24,7 +24,7 @@ require_once __DIR__."/PHPDefinitionKind.php";
 require_once __DIR__."/PHPDefinitionMetadata.php";
 require_once __DIR__."/PHPDefinition.php";
 require_once __DIR__."/PHPStructuredObjectDiff.php";
-require_once __DIR__."/PHPLogicalObjectDiffLazy.php";
+require_once __DIR__."/PHPStructuredObjectDiffLazy.php";
 
 require_once __DIR__."/PHPTypeKind.php";
 require_once __DIR__."/PHPType.php";
