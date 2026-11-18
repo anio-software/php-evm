@@ -7,9 +7,9 @@ final class Hash {
 	readonly private \HashContext $hashContext;
 
 	public function __construct(
-		readonly public string $algo
+		readonly public HashAlgo $algo
 	) {
-		$this->hashContext = \hash_init($algo);
+		$this->hashContext = \hash_init($algo->value);
 	}
 
 	public function update(string $data, string ...$args): self {
