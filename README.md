@@ -237,10 +237,10 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
 ```json
 {
     "str_pad": {
-        "#logicalPropertyDomainPath": "kReference/kDefinition/kFunction",
+        "$logicalPropertyDomainPath": "kReference/kDefinition/kFunction",
         "@reference.id": "function.str-pad",
         "@definition.metadata": {
-            "#logicalPropertyDomainPath": "kDefinitionMetadata",
+            "$logicalPropertyDomainPath": "kDefinitionMetadata",
             "#extensionMembership": "kCore",
             "#bookId": "book.strings"
         },
@@ -250,10 +250,10 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
         "@definition.fullyQualifiedName": "\\str_pad",
         "#parameters": [
             {
-                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "$logicalPropertyDomainPath": "kFunctionParameter",
                 "#name": "string",
                 "#type": {
-                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
                     "@type.kind": "kBuiltin",
                     "@type.namespace": null,
                     "#kind": "kString"
@@ -262,10 +262,10 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
                 "#flags": 0
             },
             {
-                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "$logicalPropertyDomainPath": "kFunctionParameter",
                 "#name": "length",
                 "#type": {
-                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
                     "@type.kind": "kBuiltin",
                     "@type.namespace": null,
                     "#kind": "kInt"
@@ -274,16 +274,16 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
                 "#flags": 0
             },
             {
-                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "$logicalPropertyDomainPath": "kFunctionParameter",
                 "#name": "pad_string",
                 "#type": {
-                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
                     "@type.kind": "kBuiltin",
                     "@type.namespace": null,
                     "#kind": "kString"
                 },
                 "#initializer": {
-                    "#logicalPropertyDomainPath": "kExpression/kLiteral/kStringLiteral",
+                    "$logicalPropertyDomainPath": "kExpression/kLiteral/kStringLiteral",
                     "@expression.kind": "kLiteral",
                     "@expression.sourceCode": "\" \"",
                     "@literal.kind": "kString",
@@ -293,23 +293,23 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
                 "#flags": 1
             },
             {
-                "#logicalPropertyDomainPath": "kFunctionParameter",
+                "$logicalPropertyDomainPath": "kFunctionParameter",
                 "#name": "pad_type",
                 "#type": {
-                    "#logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
                     "@type.kind": "kBuiltin",
                     "@type.namespace": null,
                     "#kind": "kInt"
                 },
                 "#initializer": {
-                    "#logicalPropertyDomainPath": "kExpression/kConstantFetch",
+                    "$logicalPropertyDomainPath": "kExpression/kConstantFetch",
                     "@expression.kind": "kConstantFetch",
                     "@expression.sourceCode": null,
                     "#constant": {
-                        "#logicalPropertyDomainPath": "kReference/kDefinition",
+                        "$logicalPropertyDomainPath": "kReference/kDefinition",
                         "@reference.id": "constant.str-pad-right",
                         "#metadata": {
-                            "#logicalPropertyDomainPath": "kDefinitionMetadata",
+                            "$logicalPropertyDomainPath": "kDefinitionMetadata",
                             "#extensionMembership": "kCore",
                             "#bookId": "book.strings"
                         },
@@ -324,7 +324,7 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
         ],
         "#flags": 0,
         "#returnType": {
-            "#logicalPropertyDomainPath": "kType/kBuiltinType",
+            "$logicalPropertyDomainPath": "kType/kBuiltinType",
             "@type.kind": "kBuiltin",
             "@type.namespace": null,
             "#kind": "kString"
