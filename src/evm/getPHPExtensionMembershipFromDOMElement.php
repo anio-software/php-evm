@@ -23,7 +23,7 @@ function getPHPExtensionMembershipFromDOMElement(
 						return;
 					}
 
-					$attributeValue = EVM\getPHPDocAttribute($node, "extension-membership");
+					$attributeValue = EVM\Bits\getPHPDocAttribute($node, "extension-membership");
 
 					if ($attributeValue === NULL) {
 						return;
