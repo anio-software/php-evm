@@ -24,10 +24,6 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		return \count($this->members) === 1 ? $this->members[0] : $this;
 	}
 
-	public function getTypeOperator(): PHPTypeOperator {
-		return PHPTypeOperator::kPipe;
-	}
-
 	public function getNullableMemberType(): ?PHPType {
 		if (\count($this->members) !== 2) {
 			return NULL;

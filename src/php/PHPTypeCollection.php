@@ -131,7 +131,9 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return self::renderTypeCollection($this);
 	}
 
-	abstract public function getTypeOperator(): PHPTypeOperator;
+	final public function getTypeOperator(): PHPTypeOperator {
+		return $this->operator;
+	}
 
 	public function isRepresentableInCode(): bool {
 		foreach ($this->getTypeMembers() as $member) {
