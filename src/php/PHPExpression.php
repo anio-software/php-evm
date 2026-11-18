@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-abstract readonly class PHPExpression extends PHPLogicalObject {
+abstract readonly class PHPExpression extends PHPStructuredObject {
 	private PHPLogicalPropertySet $props;
 
 	public function __construct(

@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 function canonicalizeLogicalObject(
-	PHPLogicalObject $obj
+	PHPStructuredObject $obj
 ): array {
 	$arr = [];
 
@@ -18,7 +18,7 @@ function canonicalizeLogicalObject(
 	$normalizeValue = static function(
 		mixed $value
 	) use(&$normalizeValue): mixed {
-		if ($value instanceof PHPLogicalObject) {
+		if ($value instanceof PHPStructuredObject) {
 			return canonicalizeLogicalObject($value);
 		}
 

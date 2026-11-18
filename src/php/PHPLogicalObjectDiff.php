@@ -6,8 +6,8 @@ final readonly class PHPLogicalObjectDiff {
 	public ArrayDiffResult $diff;
 
 	public function __construct(
-		public PHPLogicalObject $before,
-		public PHPLogicalObject $after
+		public PHPStructuredObject $before,
+		public PHPStructuredObject $after
 	) {
 		$pathFormat = ArrayPathFormat::kSquareBrackets;
 

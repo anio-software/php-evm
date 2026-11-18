@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-abstract readonly class PHPType extends PHPLogicalObject {
+abstract readonly class PHPType extends PHPStructuredObject {
 	private PHPLogicalPropertySet $props;
 
 	public function __construct(

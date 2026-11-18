@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-readonly abstract class PHPLogicalObject implements \JsonSerializable {
+readonly abstract class PHPStructuredObject implements \JsonSerializable {
 	abstract public function getLogicalPropertySet(): PHPLogicalPropertySet;
 
 	final public function isLogicallyEqualTo(self $that): bool {

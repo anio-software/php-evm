@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPNamespace extends PHPLogicalObject {
+final readonly class PHPNamespace extends PHPStructuredObject {
 	private PHPNamespaceState $state;
 
 	public function __construct(
