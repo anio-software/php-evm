@@ -1,6 +1,10 @@
 <?php
 
-namespace AnioSoftware\EVM;
+namespace AnioSoftware\EVM\Bits;
+
+use AnioSoftware\EVM as EVM;
+use AnioSoftware\EVM\XML as XML;
+use AnioSoftware\EVM\PHP as PHP;
 
 function getPHPExtensionMembershipFromDOMElement(
 	\DOMElement $element
@@ -19,7 +23,7 @@ function getPHPExtensionMembershipFromDOMElement(
 						return;
 					}
 
-					$attributeValue = getPHPDocAttribute($node, "extension-membership");
+					$attributeValue = EVM\getPHPDocAttribute($node, "extension-membership");
 
 					if ($attributeValue === NULL) {
 						return;

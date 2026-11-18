@@ -6,7 +6,7 @@ function createPHPDefinitionMetadataFromDOMElement(
 	EVMContext $ctx,
 	\DOMElement $el
 ): PHP\PHPDefinitionMetadata {
-	$extensionMembership = getPHPExtensionMembershipFromDOMElement($el);
+	$extensionMembership = Bits\getPHPExtensionMembershipFromDOMElement($el);
 	$bookId = getBookIdFromDOMElement($ctx, $el);
 
 	return new PHP\PHPDefinitionMetadata($extensionMembership, $bookId);
