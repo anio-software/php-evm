@@ -8,14 +8,17 @@ final readonly class PHPDefinitionMetadata extends PHPLogicalObject {
 	public function __construct(
 		public PHPExtensionMembership $extensionMembership,
 		public ?string $bookId = NULL
-	) {}
-
-	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
+	) {
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
 			NULL, PHPLogicalPropertyDomain::kDefinitionMetadata
 		)
 		->withProperty(PHPLogicalProperty::kDefinitionMetadataExtensionMembership, $this->extensionMembership)
 		->withProperty(PHPLogicalProperty::kDefinitionMetadataBookId             , $this->bookId)
 		->finalize();
+	}
+
+	public function getLogicalProperties(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

@@ -13,6 +13,14 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 			PHPExpressionKind::kConstantFetch,
 			$sourceCode
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kConstantFetch
+		)
+		->withProperty(PHPLogicalProperty::kConstantFetchConstant, $this->constant)
+		->finalize();
 	}
 
 	public function getConstant(): PHPConstant {
@@ -28,11 +36,6 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kConstantFetch
-		)
-		->withProperty(PHPLogicalProperty::kConstantFetchConstant, $this->constant)
-		->finalize();
+		return $this->props;
 	}
 }

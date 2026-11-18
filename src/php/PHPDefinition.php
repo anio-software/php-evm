@@ -13,6 +13,18 @@ readonly abstract class PHPDefinition extends PHPReference {
 		public string $name
 	) {
 		parent::__construct($referenceId);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kDefinition
+		)
+		->withProperty(PHPLogicalProperty::kDefinitionMetadata           , $this->metadata)
+		->withProperty(PHPLogicalProperty::kDefinitionKind               , $this->kind)
+		->withProperty(PHPLogicalProperty::kDefinitionNamespace          , $this->namespace->getFullyQualifiedName())
+		->withProperty(PHPLogicalProperty::kDefinitionName               , $this->name)
+		->withProperty(PHPLogicalProperty::kDefinitionFullyQualifiedName , $this->getFullyQualifiedName())
+		->finalize();
 	}
 
 	final public function getDefinitionKind(): PHPDefinitionKind {
@@ -28,15 +40,6 @@ readonly abstract class PHPDefinition extends PHPReference {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kDefinition
-		)
-		->withProperty(PHPLogicalProperty::kDefinitionMetadata           , $this->metadata)
-		->withProperty(PHPLogicalProperty::kDefinitionKind               , $this->kind)
-		->withProperty(PHPLogicalProperty::kDefinitionNamespace          , $this->namespace->getFullyQualifiedName())
-		->withProperty(PHPLogicalProperty::kDefinitionName               , $this->name)
-		->withProperty(PHPLogicalProperty::kDefinitionFullyQualifiedName , $this->getFullyQualifiedName())
-		->finalize();
+		return $this->props;
 	}
 }

@@ -12,6 +12,14 @@ final readonly class PHPBuiltinType extends PHPType {
 			PHPTypeKind::kBuiltin,
 			NULL
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kBuiltinType
+		)
+		->withProperty(PHPLogicalProperty::kBuiltinTypeKind, $this->builtinKind)
+		->finalize();
 	}
 
 	static public function fromKind(PHPBuiltinTypeKind $kind): self {
@@ -66,11 +74,6 @@ final readonly class PHPBuiltinType extends PHPType {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kBuiltinType
-		)
-		->withProperty(PHPLogicalProperty::kBuiltinTypeKind, $this->builtinKind)
-		->finalize();
+		return $this->props;
 	}
 }

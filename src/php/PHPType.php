@@ -9,7 +9,16 @@ abstract readonly class PHPType extends PHPLogicalObject {
 		public PHPTypeKind $kind,
 		public ?PHPNamespace $namespace
 	) {
-		// tbd
+		$ns = $this->getNamespace();
+		$ns = $ns ? $ns->getFullyQualifiedName() : NULL;
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kType
+		)
+		->withProperty(PHPLogicalProperty::kTypeKind     , $this->kind)
+		->withProperty(PHPLogicalProperty::kTypeNamespace, $ns)
+		->finalize();
 	}
 
 	final public function getNamespace(): ?PHPNamespace {
@@ -44,14 +53,6 @@ abstract readonly class PHPType extends PHPLogicalObject {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		$ns = $this->getNamespace();
-		$ns = $ns ? $ns->getFullyQualifiedName() : NULL;
-
-		return PHPLogicalPropertySetBuilder::create(
-			NULL, PHPLogicalPropertyDomain::kType
-		)
-		->withProperty(PHPLogicalProperty::kTypeKind     , $this->kind)
-		->withProperty(PHPLogicalProperty::kTypeNamespace, $ns)
-		->finalize();
+		return $this->props;
 	}
 }

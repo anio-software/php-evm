@@ -23,6 +23,16 @@ final readonly class PHPFunction extends PHPDefinition {
 			$referenceId,
 			$name
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kFunction
+		)
+		->withProperty(PHPLogicalProperty::kFunctionParameters  , $this->parameters)
+		->withProperty(PHPLogicalProperty::kFunctionFlags       , $this->flags)
+		->withProperty(PHPLogicalProperty::kFunctionReturnType  , $this->returnType)
+		->finalize();
 	}
 
 	public function returnsValue(): bool {
@@ -151,13 +161,6 @@ final readonly class PHPFunction extends PHPDefinition {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kFunction
-		)
-		->withProperty(PHPLogicalProperty::kFunctionParameters  , $this->parameters)
-		->withProperty(PHPLogicalProperty::kFunctionFlags       , $this->flags)
-		->withProperty(PHPLogicalProperty::kFunctionReturnType  , $this->returnType)
-		->finalize();
+		return $this->props;
 	}
 }

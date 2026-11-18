@@ -15,6 +15,14 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 			$value,
 			$sourceCode
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kNumberLiteral
+		)
+		->withProperty(PHPLogicalProperty::kNumberLiteralKind, $this->numberLiteralKind)
+		->finalize();
 	}
 
 	final public function getNumberLiteralKind(): PHPNumberLiteralKind {
@@ -22,11 +30,6 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kNumberLiteral
-		)
-		->withProperty(PHPLogicalProperty::kNumberLiteralKind, $this->numberLiteralKind)
-		->finalize();
+		return $this->props;
 	}
 }

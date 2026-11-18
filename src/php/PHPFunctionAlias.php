@@ -19,6 +19,14 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 			$referenceId,
 			$name
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kFunctionAlias
+		)
+		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName)
+		->finalize();
 	}
 
 	static public function create(
@@ -32,11 +40,6 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kFunctionAlias
-		)
-		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName)
-		->finalize();
+		return $this->props;
 	}
 }

@@ -13,6 +13,15 @@ final readonly class PHPNamedType extends PHPType {
 			PHPTypeKind::kNamed,
 			$namespace
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kNamedType
+		)
+		->withProperty(PHPLogicalProperty::kNamedTypeName              , $this->name)
+		->withProperty(PHPLogicalProperty::kNamedTypeFullyQualifiedName, $this->getFullyQualifiedName())
+		->finalize();
 	}
 
 	public function getFullyQualifiedName(): string {
@@ -48,12 +57,6 @@ final readonly class PHPNamedType extends PHPType {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kNamedType
-		)
-		->withProperty(PHPLogicalProperty::kNamedTypeName              , $this->name)
-		->withProperty(PHPLogicalProperty::kNamedTypeFullyQualifiedName, $this->getFullyQualifiedName())
-		->finalize();
+		return $this->props;
 	}
 }

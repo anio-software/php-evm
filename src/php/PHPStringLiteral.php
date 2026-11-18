@@ -15,6 +15,14 @@ abstract readonly class PHPStringLiteral extends PHPLiteral {
 			$value,
 			$sourceCode
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kStringLiteral
+		)
+		->withProperty(PHPLogicalProperty::kStringLiteralKind, $this->stringLiteralKind)
+		->finalize();
 	}
 
 	final public function getStringLiteralKind(): PHPStringLiteralKind {
@@ -22,11 +30,6 @@ abstract readonly class PHPStringLiteral extends PHPLiteral {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kStringLiteral
-		)
-		->withProperty(PHPLogicalProperty::kStringLiteralKind, $this->stringLiteralKind)
-		->finalize();
+		return $this->props;
 	}
 }

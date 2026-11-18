@@ -15,6 +15,14 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 			$value,
 			$sourceCode
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kIntegerLiteral
+		)
+		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix())
+		->finalize();
 	}
 
 	public function getNumberRadix(): PHPIntegerRadix {
@@ -37,12 +45,7 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kIntegerLiteral
-		)
-		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix())
-		->finalize();
+		return $this->props;
 	}
 
 	static public function tryParse(string $str, bool $negative = false): ?self {

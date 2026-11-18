@@ -18,6 +18,15 @@ abstract readonly class PHPLiteral extends PHPExpression {
 		);
 
 		$this->value = $value;
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalProperties(),
+			PHPLogicalPropertyDomain::kLiteral
+		)
+		->withProperty(PHPLogicalProperty::kLiteralKind , $this->literalKind)
+		->withProperty(PHPLogicalProperty::kLiteralValue, $this->value)
+		->finalize();
 	}
 
 	final public function isRepresentableInCode(): bool {
@@ -33,12 +42,6 @@ abstract readonly class PHPLiteral extends PHPExpression {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
-			PHPLogicalPropertyDomain::kLiteral
-		)
-		->withProperty(PHPLogicalProperty::kLiteralKind , $this->literalKind)
-		->withProperty(PHPLogicalProperty::kLiteralValue, $this->value)
-		->finalize();
+		return $this->props;
 	}
 }

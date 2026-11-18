@@ -8,7 +8,15 @@ abstract readonly class PHPExpression extends PHPLogicalObject {
 	public function __construct(
 		public PHPExpressionKind $kind,
 		private ?string $sourceCode = NULL
-	) {}
+	) {
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kExpression
+		)
+		->withProperty(PHPLogicalProperty::kExpressionKind      , $this->kind)
+		->withProperty(PHPLogicalProperty::kExpressionSourceCode, $this->sourceCode)
+		->finalize();
+	}
 
 	final public function getSourceCode(): ?string {
 		return $this->sourceCode;
@@ -26,11 +34,6 @@ abstract readonly class PHPExpression extends PHPLogicalObject {
 	abstract public function isRepresentableInCode(): bool;
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			NULL, PHPLogicalPropertyDomain::kExpression
-		)
-		->withProperty(PHPLogicalProperty::kExpressionKind      , $this->kind)
-		->withProperty(PHPLogicalProperty::kExpressionSourceCode, $this->sourceCode)
-		->finalize();
+		return $this->props;
 	}
 }

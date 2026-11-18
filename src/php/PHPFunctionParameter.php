@@ -15,7 +15,17 @@ final readonly class PHPFunctionParameter extends PHPLogicalObject {
 		public PHPType $type,
 		public ?PHPExpression $initializer,
 		public int $flags
-	) {}
+	) {
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kFunctionParameter
+		)
+		->withProperty(PHPLogicalProperty::kFunctionParameterName        , $this->name)
+		->withProperty(PHPLogicalProperty::kFunctionParameterType        , $this->type)
+		->withProperty(PHPLogicalProperty::kFunctionParameterInitializer , $this->initializer)
+		->withProperty(PHPLogicalProperty::kFunctionParameterFlags       , $this->flags)
+		->finalize();
+	}
 
 	public function isReference(): bool {
 		return ($this->flags & self::FLAG_REFERENCE) !== 0;
@@ -113,13 +123,6 @@ final readonly class PHPFunctionParameter extends PHPLogicalObject {
 	}
 
 	public function getLogicalProperties(): PHPLogicalPropertySet {
-		return PHPLogicalPropertySetBuilder::create(
-			NULL, PHPLogicalPropertyDomain::kFunctionParameter
-		)
-		->withProperty(PHPLogicalProperty::kFunctionParameterName        , $this->name)
-		->withProperty(PHPLogicalProperty::kFunctionParameterType        , $this->type)
-		->withProperty(PHPLogicalProperty::kFunctionParameterInitializer , $this->initializer)
-		->withProperty(PHPLogicalProperty::kFunctionParameterFlags       , $this->flags)
-		->finalize();
+		return $this->props;
 	}
 }
