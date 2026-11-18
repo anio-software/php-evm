@@ -156,7 +156,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 		$functionName = \trim($refname->textContent);
 		$qualifier    = $ctx->manual->parseQualifiedName($functionName);
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = EVM\createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
+		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
 			$refentry,
