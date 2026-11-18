@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 enum PHPLogicalProperty: string implements \JsonSerializable {
-	case kLogicalPropertyDomainPath             = "#logicalPropertyDomainPath";
+	case kLogicalPropertyDomainPath             = "\$logicalPropertyDomainPath";
 
 	// common definition properties
 	case kReferenceId                           = "reference.id";
