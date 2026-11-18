@@ -12,8 +12,8 @@ readonly abstract class PHPStructuredObject implements \JsonSerializable {
 		return stable_json_encode($a) === stable_json_encode($b);
 	}
 
-	final public function logicalDiff(self $that): PHPLogicalObjectDiff {
-		return new PHPLogicalObjectDiff($this, $that);
+	final public function logicalDiff(self $that): PHPStructuredObjectDiff {
+		return new PHPStructuredObjectDiff($this, $that);
 	}
 
 	final public function toCanonicalizedArray(): array {

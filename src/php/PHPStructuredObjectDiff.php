@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPLogicalObjectDiff {
+final readonly class PHPStructuredObjectDiff {
 	public ArrayDiffResult $diff;
 
 	public function __construct(
