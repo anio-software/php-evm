@@ -6,15 +6,9 @@ final readonly class PHPLogicalObjectDiff {
 	public ArrayDiffResult $diff;
 
 	public function __construct(
-		public PHPDefinition $before,
-		public PHPDefinition $after
+		public PHPLogicalObject $before,
+		public PHPLogicalObject $after
 	) {
-		if ($before->getDefinitionKind() !== $after->getDefinitionKind()) {
-			throw new \InvalidArgumentException(
-				"Cannot diff definitions of different kinds."
-			);
-		}
-
 		$pathFormat = ArrayPathFormat::kSquareBrackets;
 
 		$dataBefore = array_flatten($before->toCanonicalizedArray(), $pathFormat);
