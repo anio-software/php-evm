@@ -8,6 +8,7 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	) {
 		parent::__construct(
 			PHPTypeKind::kUnion,
+			PHPTypeOperator::kPipe,
 			$type,
 			...$types
 		);

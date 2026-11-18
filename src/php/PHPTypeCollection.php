@@ -35,6 +35,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 
 	public function __construct(
 		PHPTypeKind $kind,
+		public PHPTypeOperator $operator,
 		PHPType $type,
 		PHPType ...$types
 	) {
