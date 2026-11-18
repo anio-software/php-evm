@@ -3,20 +3,33 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPStringLiteral extends PHPLiteral {
-	public function __construct(string $value, ?string $sourceCode = NULL) {
-		parent::__construct($value, $sourceCode);
+	private PHPLogicalPropertySet $props;
+
+	public function __construct(
+		public PHPStringLiteralKind $stringLiteralKind,
+		string $value,
+		?string $sourceCode = NULL
+	) {
+		parent::__construct(
+			PHPLiteralKind::kString,
+			$value,
+			$sourceCode
+		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kStringLiteral
+		)
+		->withProperty(PHPLogicalProperty::kStringLiteralKind, $this->stringLiteralKind)
+		->finalize();
 	}
 
-	abstract public function getStringLiteralKind(): PHPStringLiteralKind;
-
-	final public function getLiteralKind(): PHPLiteralKind {
-		return PHPLiteralKind::kString;
+	final public function getStringLiteralKind(): PHPStringLiteralKind {
+		return $this->stringLiteralKind;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"stringLiteralKind" => $this->getStringLiteralKind()
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

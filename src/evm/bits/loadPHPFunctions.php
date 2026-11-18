@@ -1,10 +1,14 @@
 <?php
 
-namespace AnioSoftware\EVM;
+namespace AnioSoftware\EVM\Bits;
+
+use AnioSoftware\EVM as EVM;
+use AnioSoftware\EVM\XML as XML;
+use AnioSoftware\EVM\PHP as PHP;
 
 function getFunctionParameterInt(
-	EVMDiagnostics $diagnostics,
-	EVMContext $ctx,
+	EVM\EVMDiagnostics $diagnostics,
+	EVM\EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodparam,
 	\DOMElement $parameter
@@ -53,8 +57,8 @@ function getFunctionParameterInt(
 }
 
 function getFunctionParametersInt(
-	EVMDiagnostics $diagnostics,
-	EVMContext $ctx,
+	EVM\EVMDiagnostics $diagnostics,
+	EVM\EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodsynopsis
 ) {
@@ -92,8 +96,8 @@ function getFunctionParametersInt(
 
 function getFunctionInt(
 	PHP\PHPDefinitionMetadata $metadata,
-	EVMDiagnostics $diagnostics,
-	EVMContext $ctx,
+	EVM\EVMDiagnostics $diagnostics,
+	EVM\EVMContext $ctx,
 	PHP\PHPNamespace $ns,
 	string $refId,
 	string $functionName,
@@ -120,8 +124,8 @@ function getFunctionInt(
 	) : $func;
 }
 
-function loadPHPFunctions(EVMContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
+function loadPHPFunctions(EVM\EVMContext $ctx): void {
+	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
 	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "refentry"
 	);

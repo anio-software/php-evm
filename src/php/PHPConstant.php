@@ -9,11 +9,13 @@ final readonly class PHPConstant extends PHPDefinition {
 		string $referenceId,
 		string $name
 	) {
-		parent::__construct($metadata, $namespace, $referenceId, $name);
-	}
-
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kConstant;
+		parent::__construct(
+			PHPDefinitionKind::kConstant,
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name
+		);
 	}
 
 	static public function create(

@@ -3,17 +3,28 @@
 require_once __DIR__."/ksort_r.php";
 require_once __DIR__."/ArrayPathFormat.php";
 require_once __DIR__."/array_flatten.php";
+require_once __DIR__."/ValueChange.php";
 require_once __DIR__."/array_diff.php";
 require_once __DIR__."/stable_json_encode.php";
 require_once __DIR__."/jsonSerializeEnumObject.php";
+require_once __DIR__."/HashMap.php";
+require_once __DIR__."/HashAlgo.php";
+require_once __DIR__."/Hash.php";
+require_once __DIR__."/canonicalizeStructuredObject.php";
+
+require_once __DIR__."/PHPLogicalProperty.php";
+require_once __DIR__."/PHPLogicalPropertyDomain.php";
+require_once __DIR__."/PHPLogicalPropertySet.php";
+require_once __DIR__."/PHPLogicalPropertySetBuilder.php";
+require_once __DIR__."/PHPStructuredObject.php";
 
 require_once __DIR__."/PHPExtensionMembership.php";
 require_once __DIR__."/PHPReference.php";
 require_once __DIR__."/PHPDefinitionKind.php";
 require_once __DIR__."/PHPDefinitionMetadata.php";
 require_once __DIR__."/PHPDefinition.php";
-require_once __DIR__."/PHPDefinitionDiff.php";
-require_once __DIR__."/PHPDefinitionDiffLazy.php";
+require_once __DIR__."/PHPStructuredObjectDiff.php";
+require_once __DIR__."/PHPStructuredObjectDiffLazy.php";
 
 require_once __DIR__."/PHPTypeKind.php";
 require_once __DIR__."/PHPType.php";
@@ -58,10 +69,11 @@ require_once __DIR__."/PHPInterface.php";
 require_once __DIR__."/PHPEnum.php";
 require_once __DIR__."/PHPConstant.php";
 
+require_once __DIR__."/PHPNamespaceState.php";
 require_once __DIR__."/PHPNamespace.php";
 require_once __DIR__."/PHPNamespaceVisitFlags.php";
 require_once __DIR__."/visitNamespace.php";
-require_once __DIR__."/DiffResult.php";
-require_once __DIR__."/DiffResultAccumulator.php";
+require_once __DIR__."/ArrayDiffResult.php";
+require_once __DIR__."/ArrayDiffResultAccumulator.php";
 require_once __DIR__."/PHPManual.php";
 require_once __DIR__."/PHPManualIndex.php";

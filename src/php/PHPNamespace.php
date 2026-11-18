@@ -2,17 +2,17 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final class PHPNamespace implements \JsonSerializable {
-	private array $definitions       = [];
-	private array $definitionsByKind = [];
-	private array $namespaces        = [];
+final readonly class PHPNamespace extends PHPStructuredObject {
+	private PHPNamespaceState $state;
 
 	public function __construct(
 		private string $name,
 		private ?self $parent = NULL
 	) {
+		$this->state = new PHPNamespaceState;
+
 		foreach (PHPDefinitionKind::cases() as $case) {
-			$this->definitionsByKind[$case->value] = [];
+			$this->state->definitionsByKind[$case->value] = [];
 		}
 	}
 
@@ -46,11 +46,11 @@ final class PHPNamespace implements \JsonSerializable {
 			);
 		}
 
-		$this->namespaces[$namespace->getName()] = $namespace;
+		$this->state->namespaces[$namespace->getName()] = $namespace;
 	}
 
 	public function getNamespaces(): array {
-		return $this->namespaces;
+		return $this->state->namespaces;
 	}
 
 	private function indexByName(array $definitions): array {
@@ -66,10 +66,10 @@ final class PHPNamespace implements \JsonSerializable {
 	public function getDefinitions(?PHPDefinitionKind $kind = NULL): array {
 		if (!$kind) {
 			// no re-index because of potential naming collisions
-			return $this->definitions;
+			return $this->state->definitions;
 		}
 
-		return $this->indexByName($this->definitionsByKind[$kind->value]);
+		return $this->indexByName($this->state->definitionsByKind[$kind->value]);
 	}
 
 	public function getClasses(): array {
@@ -100,27 +100,29 @@ final class PHPNamespace implements \JsonSerializable {
 		$id   = $def->getDefinitionId();
 		$kind = $def->getDefinitionKind()->value;
 
-		if (\array_key_exists($id, $this->definitions)) {
+		if (\array_key_exists($id, $this->state->definitions)) {
 			throw new \RuntimeException(
 				"A definition with this id ($id) was already added to this namespace."
 			);
 		}
 
-		$this->definitions[$id] = $def;
-		$this->definitionsByKind[$kind][$id] = $def;
+		$this->state->definitions[$id] = $def;
+		$this->state->definitionsByKind[$kind][$id] = $def;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"name"               => $this->name,
-			"fullyQualifiedName" => $this->getFullyQualifiedName(),
-			"namespaces"         => $this->getNamespaces(),
-			"classes"            => $this->getClasses(),
-			"interfaces"         => $this->getInterfaces(),
-			"enums"              => $this->getEnums(),
-			"constants"          => $this->getConstants(),
-			"functions"          => $this->getFunctions(),
-			"functionAliases"    => $this->getFunctionAliases()
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kNamespace
+		)
+		->withProperty(PHPLogicalProperty::kNamespaceName               , $this->name)
+		->withProperty(PHPLogicalProperty::kNamespaceFullyQualifiedName , $this->getFullyQualifiedName())
+		->withProperty(PHPLogicalProperty::kNamespaceNamespaces         , $this->getNamespaces())
+		->withProperty(PHPLogicalProperty::kNamespaceClasses            , $this->getClasses())
+		->withProperty(PHPLogicalProperty::kNamespaceInterfaces         , $this->getInterfaces())
+		->withProperty(PHPLogicalProperty::kNamespaceEnums              , $this->getEnums())
+		->withProperty(PHPLogicalProperty::kNamespaceConstants          , $this->getConstants())
+		->withProperty(PHPLogicalProperty::kNamespaceFunctions          , $this->getFunctions())
+		->withProperty(PHPLogicalProperty::kNamespaceFunctionAliases    , $this->getFunctionAliases())
+		->finalize();
 	}
 }

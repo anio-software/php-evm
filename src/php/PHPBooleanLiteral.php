@@ -4,11 +4,10 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPBooleanLiteral extends PHPLiteral {
 	private function __construct(bool $value) {
-		parent::__construct($value);
-	}
-
-	public function getLiteralKind(): PHPLiteralKind {
-		return PHPLiteralKind::kBoolean;
+		parent::__construct(
+			PHPLiteralKind::kBoolean,
+			$value
+		);
 	}
 
 	public function renderExpression(): string {

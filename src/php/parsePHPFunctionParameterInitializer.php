@@ -39,13 +39,13 @@ function parsePHPFunctionParameterInitializer(
 		return new PHPFloatLiteral((float)$string, $string);
 	}
 
-	$intValue = PHPIntegerLiteral::parse($string);
+	$intValue = PHPIntegerLiteral::tryParse($string);
 
 	if ($intValue !== NULL) {
 		return $intValue;
 	}
 
-	$stringValue = PHPDoubleQuotedStringLiteral::parse($string);
+	$stringValue = PHPDoubleQuotedStringLiteral::tryParse($string);
 
 	if ($stringValue !== NULL) {
 		return $stringValue;

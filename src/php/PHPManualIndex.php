@@ -54,7 +54,7 @@ final readonly class PHPManualIndex {
 		$this->namespaces  = $namespaces;
 	}
 
-	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): DiffResult {
+	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): ArrayDiffResult {
 		$before = $this->definitions[$kind->value];
 		$after  = $that->getDefinitions()[$kind->value];
 
@@ -62,24 +62,24 @@ final readonly class PHPManualIndex {
 			$before,
 			$after,
 			static function(PHPDefinition $a, PHPDefinition $b): bool {
-				return $a->hash() === $b->hash();
+				return $a->isLogicallyEqualTo($b);
 			}
 		);
 
-		$changed = [];
+		$modified = [];
 
-		foreach (\array_keys($result->changed) as $name) {
-			$changed[$name] = new PHPDefinitionDiffLazy(
+		foreach (\array_keys($result->modified) as $name) {
+			$modified[$name] = new PHPStructuredObjectDiffLazy(
 				$before[$name],
 				$after[$name]
 			);
 		}
 
-		return new DiffResult(
+		return new ArrayDiffResult(
 			removed  : $result->removed,
 			added    : $result->added,
 			retained : $result->retained,
-			changed  : $changed
+			modified : $modified
 		);
 	}
 
@@ -93,8 +93,8 @@ final readonly class PHPManualIndex {
 		return $ret;
 	}
 
-	public function diff(self $that): DiffResult {
-		$acc = new DiffResultAccumulator;
+	public function diff(self $that): ArrayDiffResult {
+		$acc = new ArrayDiffResultAccumulator;
 
 		foreach (PHPDefinitionKind::cases() as $kind) {
 			$acc->addChanges(

@@ -2,9 +2,33 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-abstract readonly class PHPType implements \JsonSerializable {
-	abstract public function getNamespace(): ?PHPNamespace;
-	abstract public function getTypeKind(): PHPTypeKind;
+abstract readonly class PHPType extends PHPStructuredObject {
+	private PHPLogicalPropertySet $props;
+
+	public function __construct(
+		public PHPTypeKind $kind,
+		public ?PHPNamespace $namespace
+	) {
+		$ns = $this->getNamespace();
+		$ns = $ns ? $ns->getFullyQualifiedName() : NULL;
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kType
+		)
+		->withProperty(PHPLogicalProperty::kTypeKind     , $this->kind)
+		->withProperty(PHPLogicalProperty::kTypeNamespace, $ns)
+		->finalize();
+	}
+
+	final public function getNamespace(): ?PHPNamespace {
+		return $this->namespace;
+	}
+
+	final public function getTypeKind(): PHPTypeKind {
+		return $this->kind;
+	}
+
 	abstract public function getTypeId(): string;
 	abstract public function isEqualTo(PHPType $t): bool;
 	abstract public function render(): string;
@@ -28,17 +52,7 @@ abstract readonly class PHPType implements \JsonSerializable {
 		return $this->render();
 	}
 
-	public function jsonSerialize(): mixed {
-		$arr = [
-			"typeKind" => $this->getTypeKind()
-		];
-
-		$ns = $this->getNamespace();
-
-		if ($ns) {
-			$arr["namespace"] = $ns->getFullyQualifiedName();
-		}
-
-		return $arr;
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

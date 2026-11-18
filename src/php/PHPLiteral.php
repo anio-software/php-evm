@@ -3,12 +3,30 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPLiteral extends PHPExpression {
+	private PHPLogicalPropertySet $props;
+
 	final protected mixed $value;
 
-	public function __construct(mixed $value, ?string $sourceCode = NULL) {
-		parent::__construct($sourceCode);
+	public function __construct(
+		public PHPLiteralKind $literalKind,
+		mixed $value,
+		?string $sourceCode = NULL
+	) {
+		parent::__construct(
+			PHPExpressionKind::kLiteral,
+			$sourceCode
+		);
 
 		$this->value = $value;
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kLiteral
+		)
+		->withProperty(PHPLogicalProperty::kLiteralKind , $this->literalKind)
+		->withProperty(PHPLogicalProperty::kLiteralValue, $this->value)
+		->finalize();
 	}
 
 	final public function isRepresentableInCode(): bool {
@@ -19,17 +37,11 @@ abstract readonly class PHPLiteral extends PHPExpression {
 		return $this->value;
 	}
 
-	final public function getExpressionKind(): PHPExpressionKind {
-		return PHPExpressionKind::kLiteral;
+	final public function getLiteralKind(): PHPLiteralKind {
+		return $this->literalKind;
 	}
 
-	abstract public function getLiteralKind(): PHPLiteralKind;
-
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"literalKind" => $this->getLiteralKind(),
-			"value"       => $this->value
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

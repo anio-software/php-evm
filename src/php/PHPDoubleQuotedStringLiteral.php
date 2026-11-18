@@ -3,8 +3,15 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPDoubleQuotedStringLiteral extends PHPStringLiteral {
-	public function __construct(string $value, ?string $sourceCode = NULL) {
-		parent::__construct($value, $sourceCode);
+	public function __construct(
+		string $value,
+		?string $sourceCode = NULL
+	) {
+		parent::__construct(
+			PHPStringLiteralKind::kDoubleQuoted,
+			$value,
+			$sourceCode
+		);
 	}
 
 	public function renderExpression(): string {
@@ -23,11 +30,7 @@ final readonly class PHPDoubleQuotedStringLiteral extends PHPStringLiteral {
 		]).'"';
 	}
 
-	public function getStringLiteralKind(): PHPStringLiteralKind {
-		return PHPStringLiteralKind::kDoubleQuoted;
-	}
-
-	static public function parse(string $string): ?self {
+	static public function tryParse(string $string): ?self {
 		if (!\str_starts_with($string, '"')) {
 			return NULL;
 		} else if (!\str_ends_with($string, '"')) {

@@ -4,11 +4,10 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPRawExpression extends PHPExpression {
 	public function __construct(string $sourceCode) {
-		parent::__construct($sourceCode);
-	}
-
-	public function getExpressionKind(): PHPExpressionKind {
-		return PHPExpressionKind::kRaw;
+		parent::__construct(
+			PHPExpressionKind::kRaw,
+			$sourceCode
+		);
 	}
 
 	public function renderExpression(): string {

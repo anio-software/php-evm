@@ -3,9 +3,24 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPBuiltinType extends PHPType {
+	private PHPLogicalPropertySet $props;
+
 	private function __construct(
-		private PHPBuiltinTypeKind $kind
-	) {}
+		private PHPBuiltinTypeKind $builtinKind
+	) {
+		parent::__construct(
+			PHPTypeKind::kBuiltin,
+			NULL
+		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kBuiltinType
+		)
+		->withProperty(PHPLogicalProperty::kBuiltinTypeKind, $this->builtinKind)
+		->finalize();
+	}
 
 	static public function fromKind(PHPBuiltinTypeKind $kind): self {
 		static $instances = [];
@@ -15,23 +30,12 @@ final readonly class PHPBuiltinType extends PHPType {
 		return $instances[$kind->name];
 	}
 
-	public function getTypeKind(): PHPTypeKind {
-		return PHPTypeKind::kBuiltin;
-	}
-
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"kind" => $this->getBuiltinKind()->value
-		];
-	}
-
 	public function getBuiltinKind(): PHPBuiltinTypeKind {
-		return $this->kind;
+		return $this->builtinKind;
 	}
 
 	public function getTypeId(): string {
-		return "builtin:".$this->kind->name;
+		return "builtin:".$this->builtinKind->name;
 	}
 
 	public function isEqualTo(PHPType $t): bool {
@@ -39,15 +43,15 @@ final readonly class PHPBuiltinType extends PHPType {
 			return false;
 		}
 
-		return $t->kind === $this->kind;
+		return $t->getBuiltinKind() === $this->builtinKind;
 	}
 
 	public function render(): string {
-		return $this->kind->value;
+		return $this->builtinKind->value;
 	}
 
 	public function isRepresentableInCode(): bool {
-		return $this->kind !== PHPBuiltinTypeKind::kResource;
+		return $this->builtinKind !== PHPBuiltinTypeKind::kResource;
 	}
 
 	public function isCompoundType(): bool {
@@ -56,9 +60,9 @@ final readonly class PHPBuiltinType extends PHPType {
 
 	public function toNullable(): PHPType {
 		if (
-			$this->kind === PHPBuiltinTypeKind::kMixed ||
-			$this->kind === PHPBuiltinTypeKind::kNull  ||
-			$this->kind === PHPBuiltinTypeKind::kNever
+			$this->builtinKind === PHPBuiltinTypeKind::kMixed ||
+			$this->builtinKind === PHPBuiltinTypeKind::kNull  ||
+			$this->builtinKind === PHPBuiltinTypeKind::kNever
 		) {
 			return $this;
 		}
@@ -69,7 +73,7 @@ final readonly class PHPBuiltinType extends PHPType {
 		);
 	}
 
-	public function getNamespace(): ?PHPNamespace {
-		return NULL;
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

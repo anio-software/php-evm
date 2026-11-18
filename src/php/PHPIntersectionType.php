@@ -6,15 +6,12 @@ final readonly class PHPIntersectionType extends PHPTypeCollection {
 	public function __construct(
 		PHPType $type, PHPType ...$types
 	) {
-		parent::__construct($type, ...$types);
-	}
-
-	public function getTypeKind(): PHPTypeKind {
-		return PHPTypeKind::kIntersection;
-	}
-
-	public function getTypeOperator(): PHPTypeOperator {
-		return PHPTypeOperator::kAmpersand;
+		parent::__construct(
+			PHPTypeKind::kIntersection,
+			PHPTypeOperator::kAmpersand,
+			$type,
+			...$types
+		);
 	}
 
 	public function isRepresentableInCode(): bool {

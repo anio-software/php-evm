@@ -5,11 +5,8 @@ use AnioSoftware\EVM as EVM;
 require_once __DIR__."/src/evm/index.php";
 
 // Load the PHP manuals.
-$context1 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual.xml"));
-$context2 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual2.xml"));
-
-$context1->loadPHPManual();
-$context2->loadPHPManual();
+$context1 = EVM\loadPHPManual(__DIR__."/example/manual.xml");
+$context2 = EVM\loadPHPManual(__DIR__."/example/manual2.xml");
 
 // Compute diff
 $diff = $context1->getPHPManualIndex()->diff(
@@ -24,8 +21,8 @@ foreach ($diff->added as $definition) {
 	echo green("+")." definition ".prettyDefName($definition, "\\green")." was added\n";
 }
 
-foreach ($diff->changed as $definition) {
-	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was changed:\n\n";
+foreach ($diff->modified as $definition) {
+	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was modified:\n\n";
 
 	$diff = $definition->getDiff();
 
@@ -37,8 +34,8 @@ foreach ($diff->changed as $definition) {
 		echo "    ".green("+")." property ".green($key)." was added\n";
 	}
 
-	foreach ($diff->changed as $key => $value) {
-		echo "    ".yellow("*")." property ".yellow($key)." was changed\n";
+	foreach ($diff->modified as $key => $value) {
+		echo "    ".yellow("*")." property ".yellow($key)." was modified\n";
 	}
 
 	echo "\n";

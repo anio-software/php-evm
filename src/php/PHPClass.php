@@ -9,11 +9,13 @@ final readonly class PHPClass extends PHPDefinition {
 		string $referenceId,
 		string $name
 	) {
-		parent::__construct($metadata, $namespace, $referenceId, $name);
-	}
-
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kClass;
+		parent::__construct(
+			PHPDefinitionKind::kClass,
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name
+		);
 	}
 
 	static public function create(

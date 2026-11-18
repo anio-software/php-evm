@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunction extends PHPDefinition {
+	private PHPLogicalPropertySet $props;
+
 	public const int FLAG_VARIADIC = 1 << 0;
 
 	private function __construct(
@@ -14,11 +16,23 @@ final readonly class PHPFunction extends PHPDefinition {
 		public int $flags,
 		public PHPType $returnType
 	) {
-		parent::__construct($metadata, $namespace, $referenceId, $name);
-	}
+		parent::__construct(
+			PHPDefinitionKind::kFunction,
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name
+		);
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kFunction;
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kFunction
+		)
+		->withProperty(PHPLogicalProperty::kFunctionParameters  , $this->parameters)
+		->withProperty(PHPLogicalProperty::kFunctionFlags       , $this->flags)
+		->withProperty(PHPLogicalProperty::kFunctionReturnType  , $this->returnType)
+		->finalize();
 	}
 
 	public function returnsValue(): bool {
@@ -146,12 +160,7 @@ final readonly class PHPFunction extends PHPDefinition {
 		return new self($metadata, $namespace, $referenceId, $name, [], 0, $returnType);
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"parameters"  => $this->parameters,
-			"flags"       => $this->flags,
-			"returnType"  => $this->returnType
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

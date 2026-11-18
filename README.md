@@ -88,11 +88,8 @@ use AnioSoftware\EVM as EVM;
 require_once __DIR__."/src/evm/index.php";
 
 // Load the PHP manuals.
-$context1 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual.xml"));
-$context2 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual2.xml"));
-
-$context1->loadPHPManual();
-$context2->loadPHPManual();
+$context1 = EVM\loadPHPManual(__DIR__."/example/manual.xml");
+$context2 = EVM\loadPHPManual(__DIR__."/example/manual2.xml");
 
 // Compute diff
 $diff = $context1->getPHPManualIndex()->diff(
@@ -107,8 +104,8 @@ foreach ($diff->added as $definition) {
 	echo green("+")." definition ".prettyDefName($definition, "\\green")." was added\n";
 }
 
-foreach ($diff->changed as $definition) {
-	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was changed:\n\n";
+foreach ($diff->modified as $definition) {
+	echo yellow("*")." definition ".prettyDefName($definition->after, "\\yellow")." was modified:\n\n";
 
 	$diff = $definition->getDiff();
 
@@ -120,8 +117,8 @@ foreach ($diff->changed as $definition) {
 		echo "    ".green("+")." property ".green($key)." was added\n";
 	}
 
-	foreach ($diff->changed as $key => $value) {
-		echo "    ".yellow("*")." property ".yellow($key)." was changed\n";
+	foreach ($diff->modified as $key => $value) {
+		echo "    ".yellow("*")." property ".yellow($key)." was modified\n";
 	}
 
 	echo "\n";
@@ -164,21 +161,24 @@ This generates output like:
 + definition \CURLOPT_SSL_SIGNATURE_ALGORITHMS (kConstant) was added
 + definition \clamp (kFunction) was added
 + definition \curl_multi_get_handles (kFunction) was added
-* definition \oci_set_call_timeout (kFunction) was changed:
+* definition \oci_set_call_timeout (kFunction) was modified:
 
-    * property referenceId was changed
+    * property @reference.id was modified
 
-* definition \ltrim (kFunction) was changed:
+* definition \ltrim (kFunction) was modified:
 
-    * property parameters[1] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was modified
+    * property #parameters[1][#initializer][@literal.value] was modified
 
-* definition \rtrim (kFunction) was changed:
+* definition \rtrim (kFunction) was modified:
 
-    * property parameters[1] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was modified
+    * property #parameters[1][#initializer][@literal.value] was modified
 
-* definition \trim (kFunction) was changed:
+* definition \trim (kFunction) was modified:
 
-    * property parameters[1] was changed
+    * property #parameters[1][#initializer][@expression.sourceCode] was modified
+    * property #parameters[1][#initializer][@literal.value] was modified
 
 ```
 
@@ -229,78 +229,103 @@ Loaded 182 function aliases
 Loaded 4853 constants
 ```
 
+Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is represented:
+
 ```json
-"str_pad": {
-    "definitionMetadata": {
-        "extensionMembership": "core",
-        "bookId": "book.strings"
-    },
-    "definitionKind": "function",
-    "namespace": "",
-    "referenceId": "function.str-pad",
-    "name": "str_pad",
-    "fullyQualifiedName": "\\str_pad",
-    "parameters": [
-        {
-            "name": "string",
-            "type": {
-                "typeKind": "builtin",
-                "kind": "string"
-            },
-            "initializer": null,
-            "flags": 0
+{
+    "str_pad": {
+        "$logicalPropertyDomainPath": "kReference/kDefinition/kFunction",
+        "@reference.id": "function.str-pad",
+        "@definition.metadata": {
+            "$logicalPropertyDomainPath": "kDefinitionMetadata",
+            "#extensionMembership": "kCore",
+            "#bookId": "book.strings"
         },
-        {
-            "name": "length",
-            "type": {
-                "typeKind": "builtin",
-                "kind": "int"
+        "@definition.kind": "kFunction",
+        "@definition.namespace": "",
+        "@definition.name": "str_pad",
+        "@definition.fullyQualifiedName": "\\str_pad",
+        "#parameters": [
+            {
+                "$logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "string",
+                "#type": {
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kString"
+                },
+                "#initializer": null,
+                "#flags": 0
             },
-            "initializer": null,
-            "flags": 0
-        },
-        {
-            "name": "pad_string",
-            "type": {
-                "typeKind": "builtin",
-                "kind": "string"
+            {
+                "$logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "length",
+                "#type": {
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kInt"
+                },
+                "#initializer": null,
+                "#flags": 0
             },
-            "initializer": {
-                "expressionKind": "literal",
-                "sourceCode": "\" \"",
-                "literalKind": "string",
-                "value": " ",
-                "stringLiteralKind": "doubleQuoted"
+            {
+                "$logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "pad_string",
+                "#type": {
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kString"
+                },
+                "#initializer": {
+                    "$logicalPropertyDomainPath": "kExpression/kLiteral/kStringLiteral",
+                    "@expression.kind": "kLiteral",
+                    "@expression.sourceCode": "\" \"",
+                    "@literal.kind": "kString",
+                    "@literal.value": " ",
+                    "#kind": "kDoubleQuoted"
+                },
+                "#flags": 1
             },
-            "flags": 1
-        },
-        {
-            "name": "pad_type",
-            "type": {
-                "typeKind": "builtin",
-                "kind": "int"
-            },
-            "initializer": {
-                "expressionKind": "constantFetch",
-                "constant": {
-                    "definitionMetadata": {
-                        "extensionMembership": "core",
-                        "bookId": "book.strings"
-                    },
-                    "definitionKind": "constant",
-                    "namespace": "",
-                    "referenceId": "constant.str-pad-right",
-                    "name": "STR_PAD_RIGHT",
-                    "fullyQualifiedName": "\\STR_PAD_RIGHT"
-                }
-            },
-            "flags": 129
+            {
+                "$logicalPropertyDomainPath": "kFunctionParameter",
+                "#name": "pad_type",
+                "#type": {
+                    "$logicalPropertyDomainPath": "kType/kBuiltinType",
+                    "@type.kind": "kBuiltin",
+                    "@type.namespace": null,
+                    "#kind": "kInt"
+                },
+                "#initializer": {
+                    "$logicalPropertyDomainPath": "kExpression/kConstantFetch",
+                    "@expression.kind": "kConstantFetch",
+                    "@expression.sourceCode": null,
+                    "#constant": {
+                        "$logicalPropertyDomainPath": "kReference/kDefinition",
+                        "@reference.id": "constant.str-pad-right",
+                        "#metadata": {
+                            "$logicalPropertyDomainPath": "kDefinitionMetadata",
+                            "#extensionMembership": "kCore",
+                            "#bookId": "book.strings"
+                        },
+                        "#kind": "kConstant",
+                        "#namespace": "",
+                        "#name": "STR_PAD_RIGHT",
+                        "#fullyQualifiedName": "\\STR_PAD_RIGHT"
+                    }
+                },
+                "#flags": 129
+            }
+        ],
+        "#flags": 0,
+        "#returnType": {
+            "$logicalPropertyDomainPath": "kType/kBuiltinType",
+            "@type.kind": "kBuiltin",
+            "@type.namespace": null,
+            "#kind": "kString"
         }
-    ],
-    "flags": 0,
-    "returnType": {
-        "typeKind": "builtin",
-        "kind": "string"
     }
 }
 ```

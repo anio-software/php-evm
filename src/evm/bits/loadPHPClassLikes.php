@@ -1,9 +1,13 @@
 <?php
 
-namespace AnioSoftware\EVM;
+namespace AnioSoftware\EVM\Bits;
 
-function loadPHPClassLikes(EVMContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPClassLikes);
+use AnioSoftware\EVM as EVM;
+use AnioSoftware\EVM\XML as XML;
+use AnioSoftware\EVM\PHP as PHP;
+
+function loadPHPClassLikes(EVM\EVMContext $ctx): void {
+	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPClassLikes);
 	$references = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "reference"
 	);

@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPFunctionAlias extends PHPDefinition {
+	private PHPLogicalPropertySet $props;
+
 	private function __construct(
 		PHPDefinitionMetadata $metadata,
 		PHPNamespace $namespace,
@@ -10,11 +12,21 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		string $name,
 		public string $originalName
 	) {
-		parent::__construct($metadata, $namespace, $referenceId, $name);
-	}
+		parent::__construct(
+			PHPDefinitionKind::kFunctionAlias,
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name
+		);
 
-	public function getDefinitionKind(): PHPDefinitionKind {
-		return PHPDefinitionKind::kFunctionAlias;
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kFunctionAlias
+		)
+		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName)
+		->finalize();
 	}
 
 	static public function create(
@@ -27,10 +39,7 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		return new self($metadata, $namespace, $referenceId, $name, $originalName);
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"originalName" => $this->originalName
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

@@ -6,11 +6,12 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 	public function __construct(
 		PHPType $type, PHPType ...$types
 	) {
-		parent::__construct($type, ...$types);
-	}
-
-	public function getTypeKind(): PHPTypeKind {
-		return PHPTypeKind::kUnion;
+		parent::__construct(
+			PHPTypeKind::kUnion,
+			PHPTypeOperator::kPipe,
+			$type,
+			...$types
+		);
 	}
 
 	public function collapse(): PHPType {
@@ -21,10 +22,6 @@ final readonly class PHPUnionType extends PHPTypeCollection {
 		}
 
 		return \count($this->members) === 1 ? $this->members[0] : $this;
-	}
-
-	public function getTypeOperator(): PHPTypeOperator {
-		return PHPTypeOperator::kPipe;
 	}
 
 	public function getNullableMemberType(): ?PHPType {

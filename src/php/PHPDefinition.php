@@ -2,17 +2,34 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-readonly abstract class PHPDefinition extends PHPReference implements \JsonSerializable {
+readonly abstract class PHPDefinition extends PHPReference {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
+		public PHPDefinitionKind $kind,
 		public PHPDefinitionMetadata $metadata,
 		public PHPNamespace $namespace,
 		string $referenceId,
 		public string $name
 	) {
 		parent::__construct($referenceId);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kDefinition
+		)
+		->withProperty(PHPLogicalProperty::kDefinitionMetadata           , $this->metadata)
+		->withProperty(PHPLogicalProperty::kDefinitionKind               , $this->kind)
+		->withProperty(PHPLogicalProperty::kDefinitionNamespace          , $this->namespace->getFullyQualifiedName())
+		->withProperty(PHPLogicalProperty::kDefinitionName               , $this->name)
+		->withProperty(PHPLogicalProperty::kDefinitionFullyQualifiedName , $this->getFullyQualifiedName())
+		->finalize();
 	}
 
-	abstract public function getDefinitionKind(): PHPDefinitionKind;
+	final public function getDefinitionKind(): PHPDefinitionKind {
+		return $this->kind;
+	}
 
 	final public function getDefinitionId(): string {
 		return static::class.":".$this->getFullyQualifiedName();
@@ -22,20 +39,7 @@ readonly abstract class PHPDefinition extends PHPReference implements \JsonSeria
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
-	final public function hash(): string {
-		return \hash(
-			"sha1", stable_json_encode($this)
-		);
-	}
-
-	public function jsonSerialize(): mixed {
-		return [
-			"definitionMetadata" => $this->metadata,
-			"definitionKind"     => $this->getDefinitionKind(),
-			"namespace"          => $this->namespace->getFullyQualifiedName(),
-			"referenceId"        => $this->referenceId,
-			"name"               => $this->name,
-			"fullyQualifiedName" => $this->getFullyQualifiedName()
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

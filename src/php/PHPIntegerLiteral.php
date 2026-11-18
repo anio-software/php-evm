@@ -3,16 +3,26 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		int $value,
 		private PHPIntegerRadix $radix = PHPIntegerRadix::kDecimal,
 		?string $sourceCode = NULL
 	) {
-		parent::__construct($value, $sourceCode);
-	}
+		parent::__construct(
+			PHPNumberLiteralKind::kInteger,
+			$value,
+			$sourceCode
+		);
 
-	public function getNumberLiteralKind(): PHPNumberLiteralKind {
-		return PHPNumberLiteralKind::kInteger;
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kIntegerLiteral
+		)
+		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix())
+		->finalize();
 	}
 
 	public function getNumberRadix(): PHPIntegerRadix {
@@ -34,18 +44,15 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		return "$sign$str";
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"radix" => $this->radix->getRadix()
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 
-	static public function parse(string $str, bool $negative = false): ?self {
+	static public function tryParse(string $str, bool $negative = false): ?self {
 		if (\str_contains($str, ".")) {
 			return NULL;
 		} else if (\substr($str, 0, 1) === "-") {
-			return self::parse(\substr($str, 1), !$negative);
+			return self::tryParse(\substr($str, 1), !$negative);
 		}
 
 		$normalized = \strtolower($str);

@@ -3,10 +3,11 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPUnspecifiedType extends PHPType {
-	private function __construct() {}
-
-	public function getTypeKind(): PHPTypeKind {
-		return PHPTypeKind::kUnspecified;
+	private function __construct() {
+		parent::__construct(
+			PHPTypeKind::kUnspecified,
+			NULL
+		);
 	}
 
 	public function getTypeId(): string {
@@ -31,10 +32,6 @@ final readonly class PHPUnspecifiedType extends PHPType {
 
 	public function toNullable(): PHPType {
 		return $this;
-	}
-
-	public function getNamespace(): ?PHPNamespace {
-		return NULL;
 	}
 
 	static public function instance(): self {

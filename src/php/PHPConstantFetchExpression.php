@@ -3,19 +3,28 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPConstantFetchExpression extends PHPExpression {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		private PHPConstant $constant,
 		?string $sourceCode = NULL
 	) {
-		parent::__construct($sourceCode);
+		parent::__construct(
+			PHPExpressionKind::kConstantFetch,
+			$sourceCode
+		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kConstantFetch
+		)
+		->withProperty(PHPLogicalProperty::kConstantFetchConstant, $this->constant)
+		->finalize();
 	}
 
 	public function getConstant(): PHPConstant {
 		return $this->constant;
-	}
-
-	public function getExpressionKind(): PHPExpressionKind {
-		return PHPExpressionKind::kConstantFetch;
 	}
 
 	public function renderExpression(): string {
@@ -26,10 +35,7 @@ final readonly class PHPConstantFetchExpression extends PHPExpression {
 		return true;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"constant" => $this->constant
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

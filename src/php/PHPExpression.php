@@ -2,10 +2,21 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-abstract readonly class PHPExpression implements \JsonSerializable {
+abstract readonly class PHPExpression extends PHPStructuredObject {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
+		public PHPExpressionKind $kind,
 		private ?string $sourceCode = NULL
-	) {}
+	) {
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kExpression
+		)
+		->withProperty(PHPLogicalProperty::kExpressionKind      , $this->kind)
+		->withProperty(PHPLogicalProperty::kExpressionSourceCode, $this->sourceCode)
+		->finalize();
+	}
 
 	final public function getSourceCode(): ?string {
 		return $this->sourceCode;
@@ -15,19 +26,14 @@ abstract readonly class PHPExpression implements \JsonSerializable {
 		return $this->sourceCode ?? $this->renderExpression();
 	}
 
-	abstract public function getExpressionKind(): PHPExpressionKind;
+	final public function getExpressionKind(): PHPExpressionKind {
+		return $this->kind;
+	}
+
 	abstract public function renderExpression(): string;
 	abstract public function isRepresentableInCode(): bool;
 
-	public function jsonSerialize(): mixed {
-		$arr = [
-			"expressionKind" => $this->getExpressionKind()
-		];
-
-		if ($this->sourceCode !== NULL) {
-			$arr["sourceCode"] = $this->sourceCode;
-		}
-
-		return $arr;
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

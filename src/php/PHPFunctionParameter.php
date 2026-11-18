@@ -2,7 +2,9 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPFunctionParameter implements \JsonSerializable {
+final readonly class PHPFunctionParameter extends PHPStructuredObject {
+	private PHPLogicalPropertySet $props;
+
 	public const int FLAG_OPTIONAL  = 1 << 0;
 	public const int FLAG_VARIADIC  = 1 << 1;
 	public const int FLAG_REFERENCE = 1 << 2;
@@ -13,7 +15,17 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 		public PHPType $type,
 		public ?PHPExpression $initializer,
 		public int $flags
-	) {}
+	) {
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kFunctionParameter
+		)
+		->withProperty(PHPLogicalProperty::kFunctionParameterName        , $this->name)
+		->withProperty(PHPLogicalProperty::kFunctionParameterType        , $this->type)
+		->withProperty(PHPLogicalProperty::kFunctionParameterInitializer , $this->initializer)
+		->withProperty(PHPLogicalProperty::kFunctionParameterFlags       , $this->flags)
+		->finalize();
+	}
 
 	public function isReference(): bool {
 		return ($this->flags & self::FLAG_REFERENCE) !== 0;
@@ -110,12 +122,7 @@ final readonly class PHPFunctionParameter implements \JsonSerializable {
 		return $ret;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"name"        => $this->name,
-			"type"        => $this->type,
-			"initializer" => $this->initializer,
-			"flags"       => $this->flags
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

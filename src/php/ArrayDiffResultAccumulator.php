@@ -2,13 +2,13 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final class DiffResultAccumulator {
+final class ArrayDiffResultAccumulator {
 	private array $removed  = [];
 	private array $added    = [];
 	private array $retained = [];
-	private array $changed  = [];
+	private array $modified = [];
 
-	public function addChanges(DiffResult $changes): void {
+	public function addChanges(ArrayDiffResult $changes): void {
 		foreach ($changes->removed as $item) {
 			$this->removed[] = $item;
 		}
@@ -21,17 +21,17 @@ final class DiffResultAccumulator {
 			$this->retained[] = $item;
 		}
 
-		foreach ($changes->changed as $item) {
-			$this->changed[] = $item;
+		foreach ($changes->modified as $item) {
+			$this->modified[] = $item;
 		}
 	}
 
-	public function build(): DiffResult {
-		return new DiffResult(
+	public function build(): ArrayDiffResult {
+		return new ArrayDiffResult(
 			removed  : $this->removed,
 			added    : $this->added,
 			retained : $this->retained,
-			changed  : $this->changed
+			modified : $this->modified
 		);
 	}
 }

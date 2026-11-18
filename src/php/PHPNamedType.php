@@ -3,25 +3,29 @@
 namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPNamedType extends PHPType {
-	public function __construct(
-		public PHPNamespace $namespace,
-		public string $name
-	) {}
+	private PHPLogicalPropertySet $props;
 
-	public function getTypeKind(): PHPTypeKind {
-		return PHPTypeKind::kNamed;
+	public function __construct(
+		PHPNamespace $namespace,
+		public string $name
+	) {
+		parent::__construct(
+			PHPTypeKind::kNamed,
+			$namespace
+		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kNamedType
+		)
+		->withProperty(PHPLogicalProperty::kNamedTypeName              , $this->name)
+		->withProperty(PHPLogicalProperty::kNamedTypeFullyQualifiedName, $this->getFullyQualifiedName())
+		->finalize();
 	}
 
 	public function getFullyQualifiedName(): string {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
-	}
-
-	public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"name"               => $this->name,
-			"fullyQualifiedName" => $this->getFullyQualifiedName()
-		];
 	}
 
 	public function getTypeId(): string {
@@ -52,7 +56,7 @@ final readonly class PHPNamedType extends PHPType {
 		return new PHPUnionType($this, PHPBuiltinTypeKind::kNull->toType());
 	}
 
-	public function getNamespace(): ?PHPNamespace {
-		return $this->namespace;
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

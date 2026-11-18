@@ -2,16 +2,23 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPDefinitionMetadata implements \JsonSerializable {
+final readonly class PHPDefinitionMetadata extends PHPStructuredObject {
+	private PHPLogicalPropertySet $props;
+
 	public function __construct(
 		public PHPExtensionMembership $extensionMembership,
 		public ?string $bookId = NULL
-	) {}
+	) {
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kDefinitionMetadata
+		)
+		->withProperty(PHPLogicalProperty::kDefinitionMetadataExtensionMembership, $this->extensionMembership)
+		->withProperty(PHPLogicalProperty::kDefinitionMetadataBookId             , $this->bookId)
+		->finalize();
+	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"extensionMembership" => $this->extensionMembership->value,
-			"bookId"              => $this->bookId
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 }

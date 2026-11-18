@@ -4,11 +4,10 @@ namespace AnioSoftware\EVM\PHP;
 
 final readonly class PHPNullLiteral extends PHPLiteral {
 	private function __construct() {
-		parent::__construct(NULL);
-	}
-
-	public function getLiteralKind(): PHPLiteralKind {
-		return PHPLiteralKind::kNull;
+		parent::__construct(
+			PHPLiteralKind::kNull,
+			NULL
+		);
 	}
 
 	public function renderExpression(): string {

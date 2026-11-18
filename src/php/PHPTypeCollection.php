@@ -3,6 +3,8 @@
 namespace AnioSoftware\EVM\PHP;
 
 abstract readonly class PHPTypeCollection extends PHPType {
+	private PHPLogicalPropertySet $props;
+
 	final protected array $members;
 
 	static private function flatten(
@@ -31,12 +33,30 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return \array_values($unique);
 	}
 
-	public function __construct(PHPType $type, PHPType ...$types) {
+	public function __construct(
+		PHPTypeKind $kind,
+		public PHPTypeOperator $operator,
+		PHPType $type,
+		PHPType ...$types
+	) {
+		parent::__construct(
+			$kind,
+			NULL
+		);
+
 		$this->members = self::flatten(
 			$this->getTypeKind(),
 			$type,
 			...$types
 		);
+
+		# note: make sure to initialize this property last
+		$this->props = PHPLogicalPropertySetBuilder::create(
+			parent::getLogicalPropertySet(),
+			PHPLogicalPropertyDomain::kTypeCollection
+		)
+		->withProperty(PHPLogicalProperty::kTypeCollectionMembers, $this->members)
+		->finalize();
 	}
 
 	final public function getTypeId(): string {
@@ -111,14 +131,9 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return self::renderTypeCollection($this);
 	}
 
-	final public function jsonSerialize(): mixed {
-		return [
-			...parent::jsonSerialize(),
-			"members"  => $this->members
-		];
+	final public function getTypeOperator(): PHPTypeOperator {
+		return $this->operator;
 	}
-
-	abstract public function getTypeOperator(): PHPTypeOperator;
 
 	public function isRepresentableInCode(): bool {
 		foreach ($this->getTypeMembers() as $member) {
@@ -134,8 +149,8 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return true;
 	}
 
-	final public function getNamespace(): ?PHPNamespace {
-		return NULL;
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return $this->props;
 	}
 
 	static private function renderTypeCollection(self $col, bool $nested = false): string {
