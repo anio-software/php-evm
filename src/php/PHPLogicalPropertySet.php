@@ -5,7 +5,6 @@ namespace AnioSoftware\EVM\PHP;
 final readonly class PHPLogicalPropertySet {
 	private array $inheritanceChain;
 	private string $path;
-	private string $hash;
 
 	public function __construct(
 		private ?self $parent,
@@ -20,8 +19,6 @@ final readonly class PHPLogicalPropertySet {
 		$this->path = $parent !== null
 		            ? $parent->getPath()."/".$domain->name
 		            : $domain->name;
-
-		$this->hash = $this->computeHash();
 	}
 
 	public function entries(): array {
@@ -46,21 +43,5 @@ final readonly class PHPLogicalPropertySet {
 
 	public function getPath(): string {
 		return $this->path;
-	}
-
-	private function computeHash(): string {
-		return \hash(
-			"sha1", stable_json_encode(
-				$this->toCanonicalized()
-			)
-		);
-	}
-
-	public function getHash(): string {
-		return $this->hash;
-	}
-
-	public function isEqualTo(self $that): bool {
-		return $this->getHash() === $that->getHash();
 	}
 }
