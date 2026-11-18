@@ -110,7 +110,7 @@ final readonly class PHPNamespace extends PHPLogicalObject {
 		$this->state->definitionsByKind[$kind][$id] = $def;
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return PHPLogicalPropertySetBuilder::create(
 			NULL, PHPLogicalPropertyDomain::kNamespace
 		)

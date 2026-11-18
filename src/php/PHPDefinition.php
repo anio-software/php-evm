@@ -16,7 +16,7 @@ readonly abstract class PHPDefinition extends PHPReference {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kDefinition
 		)
 		->withProperty(PHPLogicalProperty::kDefinitionMetadata           , $this->metadata)
@@ -39,7 +39,7 @@ readonly abstract class PHPDefinition extends PHPReference {
 		return $this->namespace->getFullyQualifiedName()."\\".$this->name;
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

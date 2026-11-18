@@ -21,7 +21,7 @@ abstract readonly class PHPLiteral extends PHPExpression {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kLiteral
 		)
 		->withProperty(PHPLogicalProperty::kLiteralKind , $this->literalKind)
@@ -41,7 +41,7 @@ abstract readonly class PHPLiteral extends PHPExpression {
 		return $this->literalKind;
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

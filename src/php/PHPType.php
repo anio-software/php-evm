@@ -52,7 +52,7 @@ abstract readonly class PHPType extends PHPLogicalObject {
 		return $this->render();
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

@@ -18,7 +18,7 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kIntegerLiteral
 		)
 		->withProperty(PHPLogicalProperty::kIntegerLiteralRadix, $this->radix->getRadix())
@@ -44,7 +44,7 @@ final readonly class PHPIntegerLiteral extends PHPNumberLiteral {
 		return "$sign$str";
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 

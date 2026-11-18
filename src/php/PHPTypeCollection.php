@@ -49,7 +49,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kTypeCollection
 		)
 		->withProperty(PHPLogicalProperty::kTypeCollectionMembers, $this->members)
@@ -144,7 +144,7 @@ abstract readonly class PHPTypeCollection extends PHPType {
 		return true;
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 

@@ -16,7 +16,7 @@ final readonly class PHPNamedType extends PHPType {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kNamedType
 		)
 		->withProperty(PHPLogicalProperty::kNamedTypeName              , $this->name)
@@ -56,7 +56,7 @@ final readonly class PHPNamedType extends PHPType {
 		return new PHPUnionType($this, PHPBuiltinTypeKind::kNull->toType());
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

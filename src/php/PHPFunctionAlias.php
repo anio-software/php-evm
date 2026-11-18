@@ -22,7 +22,7 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kFunctionAlias
 		)
 		->withProperty(PHPLogicalProperty::kFunctionAliasOriginalName, $this->originalName)
@@ -39,7 +39,7 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		return new self($metadata, $namespace, $referenceId, $name, $originalName);
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

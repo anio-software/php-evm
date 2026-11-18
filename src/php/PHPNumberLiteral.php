@@ -18,7 +18,7 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kNumberLiteral
 		)
 		->withProperty(PHPLogicalProperty::kNumberLiteralKind, $this->numberLiteralKind)
@@ -29,7 +29,7 @@ abstract readonly class PHPNumberLiteral extends PHPLiteral {
 		return $this->numberLiteralKind;
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

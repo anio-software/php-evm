@@ -16,7 +16,7 @@ readonly class PHPReference extends PHPLogicalObject {
 		->finalize();
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

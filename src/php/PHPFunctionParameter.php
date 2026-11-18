@@ -122,7 +122,7 @@ final readonly class PHPFunctionParameter extends PHPLogicalObject {
 		return $ret;
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }

@@ -26,7 +26,7 @@ final readonly class PHPFunction extends PHPDefinition {
 
 		# note: make sure to initialize this property last
 		$this->props = PHPLogicalPropertySetBuilder::create(
-			parent::getLogicalProperties(),
+			parent::getLogicalPropertySet(),
 			PHPLogicalPropertyDomain::kFunction
 		)
 		->withProperty(PHPLogicalProperty::kFunctionParameters  , $this->parameters)
@@ -160,7 +160,7 @@ final readonly class PHPFunction extends PHPDefinition {
 		return new self($metadata, $namespace, $referenceId, $name, [], 0, $returnType);
 	}
 
-	public function getLogicalProperties(): PHPLogicalPropertySet {
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
 		return $this->props;
 	}
 }
