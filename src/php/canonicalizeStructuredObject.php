@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-function canonicalizeLogicalObject(
+function canonicalizeStructuredObject(
 	PHPStructuredObject $obj
 ): array {
 	$arr = [];
@@ -19,7 +19,7 @@ function canonicalizeLogicalObject(
 		mixed $value
 	) use(&$normalizeValue): mixed {
 		if ($value instanceof PHPStructuredObject) {
-			return canonicalizeLogicalObject($value);
+			return canonicalizeStructuredObject($value);
 		}
 
 		return \is_array($value) ? \array_map($normalizeValue, $value) : $value;
