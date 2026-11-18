@@ -10,6 +10,7 @@ require_once __DIR__."/jsonSerializeEnumObject.php";
 require_once __DIR__."/HashMap.php";
 require_once __DIR__."/HashAlgo.php";
 require_once __DIR__."/Hash.php";
+require_once __DIR__."/canonicalizeLogicalObject.php";
 
 require_once __DIR__."/PHPLogicalProperty.php";
 require_once __DIR__."/PHPLogicalPropertyDomain.php";
