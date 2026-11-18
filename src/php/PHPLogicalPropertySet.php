@@ -28,6 +28,10 @@ final readonly class PHPLogicalPropertySet {
 		return $this->properties->entries();
 	}
 
+	public function keys(): array {
+		return $this->properties->keys();
+	}
+
 	public function getDomain(): PHPLogicalPropertyDomain {
 		return $this->domain;
 	}
