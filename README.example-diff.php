@@ -5,11 +5,8 @@ use AnioSoftware\EVM as EVM;
 require_once __DIR__."/src/evm/index.php";
 
 // Load the PHP manuals.
-$context1 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual.xml"));
-$context2 = new EVM\EVMContext(new EVM\EVMOptions(__DIR__."/example/manual2.xml"));
-
-$context1->loadPHPManual();
-$context2->loadPHPManual();
+$context1 = EVM\loadPHPManual(__DIR__."/example/manual.xml");
+$context2 = EVM\loadPHPManual(__DIR__."/example/manual2.xml");
 
 // Compute diff
 $diff = $context1->getPHPManualIndex()->diff(
