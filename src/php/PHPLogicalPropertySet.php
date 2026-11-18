@@ -24,7 +24,7 @@ final readonly class PHPLogicalPropertySet {
 		$this->hash = $this->computeHash();
 	}
 
-	public function getProperties(): array {
+	public function entries(): array {
 		return $this->properties->entries();
 	}
 
@@ -87,7 +87,7 @@ final readonly class PHPLogicalPropertySet {
 
 			$keyPrefix = $i === $lastIndex ? $options->logicalPropertyPrefix : $options->inheritedPropertyPrefix;
 
-			foreach ($props->getProperties() as [$pKey, $pValue]) {
+			foreach ($props->entries() as [$pKey, $pValue]) {
 				$key = $pKey->value;
 
 				if (\str_starts_with($key, $domain.".")) {
