@@ -1,10 +1,14 @@
 <?php
 
-namespace AnioSoftware\EVM;
+namespace AnioSoftware\EVM\Bits;
+
+use AnioSoftware\EVM as EVM;
+use AnioSoftware\EVM\XML as XML;
+use AnioSoftware\EVM\PHP as PHP;
 
 function getFunctionParameterInt(
-	EVMDiagnostics $diagnostics,
-	EVMContext $ctx,
+	EVM\EVMDiagnostics $diagnostics,
+	EVM\EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodparam,
 	\DOMElement $parameter
@@ -14,7 +18,7 @@ function getFunctionParameterInt(
 	$isOptional    = $methodparam->attributes->getNamedItem("choice")?->value === "opt";
 	$isVariadic    = $methodparam->attributes->getNamedItem("rep")?->value === "repeat";
 	$initializer   = NULL;
-	$parameterType = createPHPTypeFromDOMElement(
+	$parameterType = EVM\createPHPTypeFromDOMElement(
 		$ctx,
 		XML\selectFirstMatchingChild(
 			$methodparam,
@@ -53,8 +57,8 @@ function getFunctionParameterInt(
 }
 
 function getFunctionParametersInt(
-	EVMDiagnostics $diagnostics,
-	EVMContext $ctx,
+	EVM\EVMDiagnostics $diagnostics,
+	EVM\EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodsynopsis
 ) {
@@ -92,14 +96,14 @@ function getFunctionParametersInt(
 
 function getFunctionInt(
 	PHP\PHPDefinitionMetadata $metadata,
-	EVMDiagnostics $diagnostics,
-	EVMContext $ctx,
+	EVM\EVMDiagnostics $diagnostics,
+	EVM\EVMContext $ctx,
 	PHP\PHPNamespace $ns,
 	string $refId,
 	string $functionName,
 	\DOMElement $methodsynopsis
 ): PHP\PHPFunction {
-	$returnType = createPHPTypeFromDOMElement(
+	$returnType = EVM\createPHPTypeFromDOMElement(
 		$ctx,
 		XML\selectFirstMatchingChild(
 			$methodsynopsis, $ctx->manual->elementSelectorFactory("type")
@@ -120,8 +124,8 @@ function getFunctionInt(
 	) : $func;
 }
 
-function loadPHPFunctions(EVMContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
+function loadPHPFunctions(EVM\EVMContext $ctx): void {
+	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
 	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "refentry"
 	);
@@ -152,7 +156,7 @@ function loadPHPFunctions(EVMContext $ctx): void {
 		$functionName = \trim($refname->textContent);
 		$qualifier    = $ctx->manual->parseQualifiedName($functionName);
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
+		$metadata = EVM\createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
 			$refentry,

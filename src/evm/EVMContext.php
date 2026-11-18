@@ -45,19 +45,19 @@ final class EVMContext {
 				&$elapsedTimeMsFunctions
 			) : void {
 				$elapsedTimeMsClassLikes = EVMTimingStatistics::measure(
-					fn () => loadPHPClassLikes($this)
+					fn () => Bits\loadPHPClassLikes($this)
 				);
 
 				$this->manualIndex = $this->manual->buildIndex();
 
 				$elapsedTimeMsConstants = EVMTimingStatistics::measure(
-					fn () => loadPHPConstants($this)
+					fn () => Bits\loadPHPConstants($this)
 				);
 
 				$this->manualIndex = $this->manual->buildIndex();
 
 				$elapsedTimeMsFunctions = EVMTimingStatistics::measure(
-					fn () => loadPHPFunctions($this)
+					fn () => Bits\loadPHPFunctions($this)
 				);
 
 				$this->manualIndex = $this->manual->buildIndex();

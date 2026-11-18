@@ -1,9 +1,13 @@
 <?php
 
-namespace AnioSoftware\EVM;
+namespace AnioSoftware\EVM\Bits;
 
-function loadPHPConstants(EVMContext $ctx): void {
-	$diagnostics = $ctx->diagnosticsFor(EVMDiagnosticMessageOrigin::kLoadPHPConstants);
+use AnioSoftware\EVM as EVM;
+use AnioSoftware\EVM\XML as XML;
+use AnioSoftware\EVM\PHP as PHP;
+
+function loadPHPConstants(EVM\EVMContext $ctx): void {
+	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPConstants);
 	$constants = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "varlistentry"
 	);
@@ -34,7 +38,7 @@ function loadPHPConstants(EVMContext $ctx): void {
 		);
 
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $constant);
+		$metadata = EVM\createPHPDefinitionMetadataFromDOMElement($ctx, $constant);
 		$inst = PHP\PHPConstant::create($metadata, $ns, $refId, $qualifier["localName"]);
 		$ns->addDefinition($inst);
 	}
