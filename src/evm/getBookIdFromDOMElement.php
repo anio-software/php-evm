@@ -1,9 +1,12 @@
 <?php
 
-namespace AnioSoftware\EVM;
+namespace AnioSoftware\EVM\Bits;
+
+use AnioSoftware\EVM as EVM;
+use AnioSoftware\EVM\XML as XML;
 
 function getBookIdFromDOMElement(
-	EVMContext $ctx,
+	EVM\EVMContext $ctx,
 	\DOMElement $el
 ): ?string {
 	$bookId = NULL;
