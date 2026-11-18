@@ -11,10 +11,6 @@ readonly abstract class PHPLogicalObject implements \JsonSerializable {
 		);
 	}
 
-	final public function getLogicalHash(): string {
-		return $this->getLogicalPropertySet()->getHash();
-	}
-
 	final public function jsonSerialize(): mixed {
 		return canonicalizeLogicalObject($this);
 	}
