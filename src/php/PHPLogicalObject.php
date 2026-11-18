@@ -12,7 +12,11 @@ readonly abstract class PHPLogicalObject implements \JsonSerializable {
 		return stable_json_encode($a) === stable_json_encode($b);
 	}
 
-	final public function jsonSerialize(): mixed {
+	final public function toCanonicalizedArray(): array {
 		return canonicalizeLogicalObject($this);
+	}
+
+	final public function jsonSerialize(): mixed {
+		return $this->toCanonicalizedArray();
 	}
 }
