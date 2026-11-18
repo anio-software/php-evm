@@ -18,7 +18,7 @@ function getFunctionParameterInt(
 	$isOptional    = $methodparam->attributes->getNamedItem("choice")?->value === "opt";
 	$isVariadic    = $methodparam->attributes->getNamedItem("rep")?->value === "repeat";
 	$initializer   = NULL;
-	$parameterType = EVM\createPHPTypeFromDOMElement(
+	$parameterType = createPHPTypeFromDOMElement(
 		$ctx,
 		XML\selectFirstMatchingChild(
 			$methodparam,
@@ -103,7 +103,7 @@ function getFunctionInt(
 	string $functionName,
 	\DOMElement $methodsynopsis
 ): PHP\PHPFunction {
-	$returnType = EVM\createPHPTypeFromDOMElement(
+	$returnType = createPHPTypeFromDOMElement(
 		$ctx,
 		XML\selectFirstMatchingChild(
 			$methodsynopsis, $ctx->manual->elementSelectorFactory("type")

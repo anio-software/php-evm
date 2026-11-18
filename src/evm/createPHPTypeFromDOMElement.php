@@ -1,8 +1,11 @@
 <?php
 
-namespace AnioSoftware\EVM;
+namespace AnioSoftware\EVM\Bits;
 
-function mapTypeStringInt(EVMContext $ctx, string $typeName): PHP\PHPType {
+use AnioSoftware\EVM as EVM;
+use AnioSoftware\EVM\PHP as PHP;
+
+function mapTypeStringInt(EVM\EVMContext $ctx, string $typeName): PHP\PHPType {
 	foreach (PHP\PHPBuiltinTypeKind::cases() as $case) {
 		if (\strtolower($case->value) === \strtolower($typeName)) {
 			return $case->toType();
@@ -26,14 +29,14 @@ function mapTypeStringInt(EVMContext $ctx, string $typeName): PHP\PHPType {
 	}
 
 	$ctx->diagnosticsFor(
-		EVMDiagnosticMessageOrigin::kUnspecified
+		EVM\EVMDiagnosticMessageOrigin::kUnspecified
 	)->addWarning("don't know how to map string '$typeName' to a type.");
 
 	return PHP\PHPUnknownType::instance();
 }
 
 function createPHPTypeFromDOMElement(
-	EVMContext $ctx,
+	EVM\EVMContext $ctx,
 	\DOMElement $element
 ): PHP\PHPType {
 	if ($element->attributes->getNamedItem("class")?->value === "union") {
