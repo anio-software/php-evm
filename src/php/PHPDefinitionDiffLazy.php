@@ -3,7 +3,7 @@
 namespace AnioSoftware\EVM\PHP;
 
 final class PHPDefinitionDiffLazy {
-	private ?PHPDefinitionDiff $cache = NULL;
+	private ?PHPLogicalObjectDiff $cache = NULL;
 
 	public function __construct(
 		readonly public PHPDefinition $before,
@@ -11,7 +11,7 @@ final class PHPDefinitionDiffLazy {
 	) {}
 
 	public function getDiff(): ArrayDiffResult {
-		$this->cache ??= new PHPDefinitionDiff($this->before, $this->after);
+		$this->cache ??= new PHPLogicalObjectDiff($this->before, $this->after);
 
 		return $this->cache->diff;
 	}

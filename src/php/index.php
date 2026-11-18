@@ -23,7 +23,7 @@ require_once __DIR__."/PHPReference.php";
 require_once __DIR__."/PHPDefinitionKind.php";
 require_once __DIR__."/PHPDefinitionMetadata.php";
 require_once __DIR__."/PHPDefinition.php";
-require_once __DIR__."/PHPDefinitionDiff.php";
+require_once __DIR__."/PHPLogicalObjectDiff.php";
 require_once __DIR__."/PHPDefinitionDiffLazy.php";
 
 require_once __DIR__."/PHPTypeKind.php";
