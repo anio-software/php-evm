@@ -2,7 +2,7 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final class PHPDefinitionDiffLazy {
+final class PHPLogicalObjectDiffLazy {
 	private ?PHPLogicalObjectDiff $cache = NULL;
 
 	public function __construct(

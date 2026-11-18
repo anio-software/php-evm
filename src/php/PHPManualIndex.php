@@ -69,7 +69,7 @@ final readonly class PHPManualIndex {
 		$modified = [];
 
 		foreach (\array_keys($result->modified) as $name) {
-			$modified[$name] = new PHPDefinitionDiffLazy(
+			$modified[$name] = new PHPLogicalObjectDiffLazy(
 				$before[$name],
 				$after[$name]
 			);
