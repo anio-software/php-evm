@@ -14,11 +14,11 @@ require_once __DIR__."/EVMTimingStatistics.php";
 require_once __DIR__."/EVMStatistics.php";
 require_once __DIR__."/EVMContext.php";
 
-require_once __DIR__."/getPHPDocAttribute.php";
-require_once __DIR__."/getPHPExtensionMembershipFromDOMElement.php";
-require_once __DIR__."/getBookIdFromDOMElement.php";
-require_once __DIR__."/createPHPDefinitionMetadataFromDOMElement.php";
-require_once __DIR__."/createPHPTypeFromDOMElement.php";
+require_once __DIR__."/bits/getPHPDocAttribute.php";
+require_once __DIR__."/bits/getPHPExtensionMembershipFromDOMElement.php";
+require_once __DIR__."/bits/getBookIdFromDOMElement.php";
+require_once __DIR__."/bits/createPHPDefinitionMetadataFromDOMElement.php";
+require_once __DIR__."/bits/createPHPTypeFromDOMElement.php";
 require_once __DIR__."/bits/loadPHPClassLikes.php";
 require_once __DIR__."/bits/loadPHPConstants.php";
 require_once __DIR__."/bits/loadPHPFunctions.php";
