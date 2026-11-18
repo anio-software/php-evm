@@ -34,7 +34,9 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	}
 
 	public function __construct(
-		PHPTypeKind $kind, PHPType $type, PHPType ...$types
+		PHPTypeKind $kind,
+		PHPType $type,
+		PHPType ...$types
 	) {
 		parent::__construct(
 			$kind,
