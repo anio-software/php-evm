@@ -3,7 +3,15 @@
 EVM is a small library that makes it easy to access the official PHP manual programmatically.
 EVM provides an object-oriented API for navigating the PHP manual and inspecting definitions, parameters, and types.
 
+## Quick Start
+---
+
+Install the library using [composer](https://getcomposer.org):
+
+    php composer.phar require anio-software/evm
+
 ## Examples
+---
 
 The examples below assume you already have the [PHP's documentation in XML format](https://doc.php.net/guide/local-setup.md).
 
