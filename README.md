@@ -339,25 +339,37 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
 ### Type Hierarchy
 
 ```
-├── PHPFunctionParameter
-├── PHPManual
-├── PHPNamespace
-├── PHPReference
-│   └── PHPDefinition
-│       ├── PHPClass
-│       ├── PHPConstant
-│       ├── PHPEnum
-│       ├── PHPFunction
-│       ├── PHPFunctionAlias
-│       └── PHPInterface
-└── PHPType
-    ├── PHPBuiltinType
-    ├── PHPNamedType
-    ├── PHPTypeCollection
-    │   ├── PHPIntersectionType
-    │   └── PHPUnionType
-    ├── PHPUnknownType
-    └── PHPUnspecifiedType
+├──PHPReference
+│    └──PHPDefinition
+│         ├──PHPFunction
+│         ├──PHPFunctionAlias
+│         ├──PHPClass
+│         ├──PHPInterface
+│         ├──PHPEnum
+│         └──PHPConstant
+├──PHPDefinitionMetadata
+├──PHPType
+│    ├──PHPTypeCollection
+│    │    ├──PHPUnionType
+│    │    └──PHPIntersectionType
+│    ├──PHPBuiltinType
+│    ├──PHPNamedType
+│    ├──PHPUnknownType
+│    └──PHPUnspecifiedType
+├──PHPExpression
+│    ├──PHPLiteral
+│    │    ├──PHPNullLiteral
+│    │    ├──PHPBooleanLiteral
+│    │    ├──PHPNumberLiteral
+│    │    │    ├──PHPIntegerLiteral
+│    │    │    └──PHPFloatLiteral
+│    │    └──PHPStringLiteral
+│    │         └──PHPDoubleQuotedStringLiteral
+│    ├──PHPPlaceholderExpression
+│    ├──PHPRawExpression
+│    └──PHPConstantFetchExpression
+├──PHPFunctionParameter
+└──PHPNamespace
 ```
 
 ## Todo
