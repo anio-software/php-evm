@@ -1,0 +1,9 @@
+{
+    "name": "anio-software/evm",
+    "description": "Easy Virtual Manual - access php's documentation programmatically.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "files": ["src/evm/index.php"]
+    }
+}
