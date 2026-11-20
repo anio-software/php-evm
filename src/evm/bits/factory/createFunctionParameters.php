@@ -8,7 +8,7 @@ use AnioSoftware\EVM\XML as XML;
 function createFunctionParameters(
 	EVM\EVMDiagnostics $diagnostics,
 	EVM\EVMContext $evmContext,
-	string $refId,
+	string $referenceId,
 	\DOMElement $methodsynopsis
 ): array {
 	$methodparams = XML\select(
@@ -26,7 +26,7 @@ function createFunctionParameters(
 		);
 
 		if (!$parameter) {
-			$diagnostics->addWarning("no <parameter> for $refId");
+			$diagnostics->addWarning("no <parameter> for $referenceId");
 
 			continue;
 		}
@@ -34,7 +34,7 @@ function createFunctionParameters(
 		$ret[] = createFunctionParameter(
 			$diagnostics,
 			$evmContext,
-			$refId,
+			$referenceId,
 			$methodparam,
 			$parameter
 		);

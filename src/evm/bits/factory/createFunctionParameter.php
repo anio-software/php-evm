@@ -10,7 +10,7 @@ use AnioSoftware\EVM\Bits as Bits;
 function createFunctionParameter(
 	EVM\EVMDiagnostics $diagnostics,
 	EVM\EVMContext $evmContext,
-	string $refId,
+	string $referenceId,
 	\DOMElement $methodparam,
 	\DOMElement $parameter
 ): PHP\PHPFunctionParameter {
@@ -43,7 +43,7 @@ function createFunctionParameter(
 	}
 
 	if ($isOptional && $initializer === NULL) {
-		$diagnostics->addWarning("isOptional and initializer is NULL for $refId");
+		$diagnostics->addWarning("isOptional and initializer is NULL for $referenceId");
 
 		$initializer = PHP\PHPPlaceholderExpression::instance();
 	}

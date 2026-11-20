@@ -11,8 +11,8 @@ function createFunction(
 	PHP\PHPDefinitionMetadata $metadata,
 	EVM\EVMDiagnostics $diagnostics,
 	EVM\EVMContext $evmContext,
-	PHP\PHPNamespace $ns,
-	string $refId,
+	PHP\PHPNamespace $namespace,
+	string $referenceId,
 	string $functionName,
 	\DOMElement $methodsynopsis
 ): PHP\PHPFunction {
@@ -25,8 +25,8 @@ function createFunction(
 
 	$func = PHP\PHPFunction::create(
 		$metadata,
-		$ns,
-		$refId,
+		$namespace,
+		$referenceId,
 		$functionName,
 		$returnType
 	);
@@ -34,7 +34,7 @@ function createFunction(
 	$params = createFunctionParameters(
 		$diagnostics,
 		$evmContext,
-		$refId,
+		$referenceId,
 		$methodsynopsis
 	);
 
