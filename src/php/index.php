@@ -16,6 +16,7 @@ require_once __DIR__."/PHPLogicalProperty.php";
 require_once __DIR__."/PHPLogicalPropertyDomain.php";
 require_once __DIR__."/PHPLogicalPropertySet.php";
 require_once __DIR__."/PHPLogicalPropertySetBuilder.php";
+require_once __DIR__."/PHPStructuredObjectBehavior.php";
 require_once __DIR__."/PHPStructuredObject.php";
 
 require_once __DIR__."/PHPExtensionMembership.php";
