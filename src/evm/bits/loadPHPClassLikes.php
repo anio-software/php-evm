@@ -33,14 +33,14 @@ function loadPHPClassLikes(
 			$reference, $evmContext->manual->elementSelectorFactory("packagesynopsis")
 		);
 
-		$namespace = "";
+		$namespaceStr = "";
 
 		if ($packagesynopsis) {
 			$package = XML\selectFirstMatchingChild(
 				$packagesynopsis, $evmContext->manual->elementSelectorFactory("package")
 			);
 
-			$namespace = $package->textContent;
+			$namespaceStr = $package->textContent;
 		}
 
 		$synopsis = XML\selectFirstMatchingDescendant($reference, $orSelector);
@@ -86,7 +86,7 @@ function loadPHPClassLikes(
 		}
 
 		$class = $map[$kind]["class"];
-		$name = \strlen($namespace) ? "$namespace\\$name" : $name;
+		$name = \strlen($namespaceStr) ? "$namespaceStr\\$name" : $name;
 		$qualifier = $evmContext->manual->parseQualifiedName($name);
 		$ns = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $reference);
