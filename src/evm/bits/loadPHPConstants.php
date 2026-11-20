@@ -6,22 +6,22 @@ use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
 
 function loadPHPConstants(
-	EVM\EVMContext $ctx
+	EVM\EVMContext $evmContext
 ): void {
-	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPConstants);
-	$constants = $ctx->manual->getElementsWithReferenceIdAttribute(
-		$ctx->doc, "varlistentry"
+	$diagnostics = $evmContext->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPConstants);
+	$constants = $evmContext->manual->getElementsWithReferenceIdAttribute(
+		$evmContext->doc, "varlistentry"
 	);
 
 	foreach ($constants as $constant) {
-		$refId = $ctx->manual->getRefIdAttribute($constant);
+		$refId = $evmContext->manual->getRefIdAttribute($constant);
 
 		if (!\str_starts_with($refId, "constant.")) {
 			continue;
 		}
 
 		$const = XML\selectFirstMatchingDescendant(
-			$constant, $ctx->manual->elementSelectorFactory("constant")
+			$constant, $evmContext->manual->elementSelectorFactory("constant")
 		);
 
 		if (!$const) {
@@ -34,12 +34,12 @@ function loadPHPConstants(
 			continue;
 		}
 
-		$qualifier = $ctx->manual->parseQualifiedName(
+		$qualifier = $evmContext->manual->parseQualifiedName(
 			\trim($const->textContent)
 		);
 
-		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $constant);
+		$ns = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
+		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $constant);
 		$inst = Factory\createConstant(
 			$metadata,
 			$ns,

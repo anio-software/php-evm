@@ -7,20 +7,20 @@ use AnioSoftware\EVM\XML as XML;
 use AnioSoftware\EVM\PHP as PHP;
 
 function loadPHPClassLikes(
-	EVM\EVMContext $ctx
+	EVM\EVMContext $evmContext
 ): void {
-	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPClassLikes);
-	$references = $ctx->manual->getElementsWithReferenceIdAttribute(
-		$ctx->doc, "reference"
+	$diagnostics = $evmContext->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPClassLikes);
+	$references = $evmContext->manual->getElementsWithReferenceIdAttribute(
+		$evmContext->doc, "reference"
 	);
 
 	$orSelector = new XML\OrSelector(
-		$ctx->manual->elementSelectorFactory("classsynopsis"),
-		$ctx->manual->elementSelectorFactory("enumsynopsis"),
+		$evmContext->manual->elementSelectorFactory("classsynopsis"),
+		$evmContext->manual->elementSelectorFactory("enumsynopsis"),
 	);
 
 	foreach ($references as $reference) {
-		$refId = $ctx->manual->getRefIdAttribute($reference);
+		$refId = $evmContext->manual->getRefIdAttribute($reference);
 
 		if (
 			!\str_starts_with($refId, "class.") &&
@@ -30,14 +30,14 @@ function loadPHPClassLikes(
 		}
 
 		$packagesynopsis = XML\selectFirstMatchingDescendant(
-			$reference, $ctx->manual->elementSelectorFactory("packagesynopsis")
+			$reference, $evmContext->manual->elementSelectorFactory("packagesynopsis")
 		);
 
 		$namespace = "";
 
 		if ($packagesynopsis) {
 			$package = XML\selectFirstMatchingChild(
-				$packagesynopsis, $ctx->manual->elementSelectorFactory("package")
+				$packagesynopsis, $evmContext->manual->elementSelectorFactory("package")
 			);
 
 			$namespace = $package->textContent;
@@ -80,16 +80,16 @@ function loadPHPClassLikes(
 			$name = \trim(
 				XML\selectFirstMatchingDescendant(
 					$firstElement,
-					$ctx->manual->elementSelectorFactory($map[$kind]["tag"])
+					$evmContext->manual->elementSelectorFactory($map[$kind]["tag"])
 				)->textContent
 			);
 		}
 
 		$class = $map[$kind]["class"];
 		$name = \strlen($namespace) ? "$namespace\\$name" : $name;
-		$qualifier = $ctx->manual->parseQualifiedName($name);
-		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $reference);
+		$qualifier = $evmContext->manual->parseQualifiedName($name);
+		$ns = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
+		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $reference);
 
 		$inst = match($class) {
 			PHP\PHPClass::class => Factory\createClass(
