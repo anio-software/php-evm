@@ -4,7 +4,6 @@ namespace AnioSoftware\EVM\Bits;
 
 use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
-use AnioSoftware\EVM\PHP as PHP;
 
 function loadPHPConstants(
 	EVM\EVMContext $ctx
