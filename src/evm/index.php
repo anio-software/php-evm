@@ -15,6 +15,10 @@ require_once __DIR__."/EVMTimingStatistics.php";
 require_once __DIR__."/EVMStatistics.php";
 require_once __DIR__."/EVMContext.php";
 
+require_once __DIR__."/bits/factory/createFunctionParameter.php";
+require_once __DIR__."/bits/factory/createFunctionParameters.php";
+require_once __DIR__."/bits/factory/createFunction.php";
+
 require_once __DIR__."/bits/getPHPDocAttribute.php";
 require_once __DIR__."/bits/getPHPExtensionMembershipFromDOMElement.php";
 require_once __DIR__."/bits/getBookIdFromDOMElement.php";

@@ -6,124 +6,6 @@ use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
 use AnioSoftware\EVM\PHP as PHP;
 
-function createFunctionParameter(
-	EVM\EVMDiagnostics $diagnostics,
-	EVM\EVMContext $ctx,
-	string $refId,
-	\DOMElement $methodparam,
-	\DOMElement $parameter
-): PHP\PHPFunctionParameter {
-	$parameterName = \trim($parameter->textContent);
-	$isReference   = $parameter->attributes->getNamedItem("role")?->value === "reference";
-	$isOptional    = $methodparam->attributes->getNamedItem("choice")?->value === "opt";
-	$isVariadic    = $methodparam->attributes->getNamedItem("rep")?->value === "repeat";
-	$initializer   = NULL;
-	$parameterType = createPHPTypeFromDOMElement(
-		$ctx,
-		XML\selectFirstMatchingChild(
-			$methodparam,
-			$ctx->manual->elementSelectorFactory("type")
-		)
-	);
-
-	if ($isOptional) {
-		$el = XML\selectFirstMatchingChild(
-			$methodparam,
-			$ctx->manual->elementSelectorFactory("initializer")
-		);
-
-		if ($el) {
-			$initializer = parsePHPFunctionParameterInitializer(
-				$ctx->getPHPManualIndex(),
-				$parameterType,
-				$el->textContent
-			);
-		}
-	}
-
-	if ($isOptional && $initializer === NULL) {
-		$diagnostics->addWarning("isOptional and initializer is NULL for $refId");
-
-		$initializer = PHP\PHPPlaceholderExpression::instance();
-	}
-
-	return PHP\PHPFunctionParameter::create(
-		$parameterName,
-		$parameterType,
-		$isReference,
-		$initializer,
-		$isVariadic
-	);
-}
-
-function createFunctionParameters(
-	EVM\EVMDiagnostics $diagnostics,
-	EVM\EVMContext $ctx,
-	string $refId,
-	\DOMElement $methodsynopsis
-): array {
-	$methodparams = XML\select(
-		$methodsynopsis,
-		$ctx->manual->elementSelectorFactory("methodparam"),
-		0
-	);
-
-	$ret = [];
-
-	foreach ($methodparams as $methodparam) {
-		$parameter = XML\selectFirstMatchingChild(
-			$methodparam,
-			$ctx->manual->elementSelectorFactory("parameter")
-		);
-
-		if (!$parameter) {
-			$diagnostics->addWarning("no <parameter> for $refId");
-
-			continue;
-		}
-
-		$ret[] = createFunctionParameter(
-			$diagnostics,
-			$ctx,
-			$refId,
-			$methodparam,
-			$parameter
-		);
-	}
-
-	return $ret;
-}
-
-function createFunction(
-	PHP\PHPDefinitionMetadata $metadata,
-	EVM\EVMDiagnostics $diagnostics,
-	EVM\EVMContext $ctx,
-	PHP\PHPNamespace $ns,
-	string $refId,
-	string $functionName,
-	\DOMElement $methodsynopsis
-): PHP\PHPFunction {
-	$returnType = createPHPTypeFromDOMElement(
-		$ctx,
-		XML\selectFirstMatchingChild(
-			$methodsynopsis, $ctx->manual->elementSelectorFactory("type")
-		)
-	);
-	$func   = PHP\PHPFunction::create($metadata, $ns, $refId, $functionName, $returnType);
-	$params = createFunctionParameters($diagnostics, $ctx, $refId, $methodsynopsis);
-
-	$isVariadic = false;
-	foreach ($params as $param) {
-		$func = $func->withFunctionParameter($param);
-
-		if ($param->isVariadic()) $isVariadic = true;
-	}
-
-	return $isVariadic ? $func->withFlags(
-		PHP\PHPFunction::FLAG_VARIADIC
-	) : $func;
-}
-
 function loadPHPFunctions(EVM\EVMContext $ctx): void {
 	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
 	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
@@ -201,7 +83,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 			continue;
 		}
 
-		$inst = createFunction(
+		$inst = Factory\createFunction(
 			$metadata,
 			$diagnostics,
 			$ctx,
