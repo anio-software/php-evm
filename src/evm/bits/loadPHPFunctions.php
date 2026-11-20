@@ -5,7 +5,9 @@ namespace AnioSoftware\EVM\Bits;
 use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
 
-function loadPHPFunctions(EVM\EVMContext $ctx): void {
+function loadPHPFunctions(
+	EVM\EVMContext $ctx
+): void {
 	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
 	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "refentry"
