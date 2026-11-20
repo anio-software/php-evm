@@ -15,6 +15,7 @@ require_once __DIR__."/EVMTimingStatistics.php";
 require_once __DIR__."/EVMStatistics.php";
 require_once __DIR__."/EVMContext.php";
 
+require_once __DIR__."/bits/factory/createFunctionAlias.php";
 require_once __DIR__."/bits/factory/createFunctionParameter.php";
 require_once __DIR__."/bits/factory/createFunctionParameters.php";
 require_once __DIR__."/bits/factory/createFunction.php";

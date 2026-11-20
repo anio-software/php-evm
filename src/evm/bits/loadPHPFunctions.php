@@ -4,7 +4,6 @@ namespace AnioSoftware\EVM\Bits;
 
 use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
-use AnioSoftware\EVM\PHP as PHP;
 
 function loadPHPFunctions(EVM\EVMContext $ctx): void {
 	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
@@ -61,7 +60,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 			}
 
 			$ns->addDefinition(
-				PHP\PHPFunctionAlias::create(
+				Factory\createFunctionAlias(
 					$metadata,
 					$ns,
 					$refId,
