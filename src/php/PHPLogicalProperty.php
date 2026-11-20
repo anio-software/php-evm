@@ -65,6 +65,15 @@ enum PHPLogicalProperty: string implements \JsonSerializable {
 	case kFunctionFlags                         = "function.flags";
 	case kFunctionReturnType                    = "function.returnType";
 
+	// manual
+	case kManualGlobalNamespace                 = "manual.globalNamespace";
+
+	// manual enums
+	case kManualEnumsTypeKind                   = "manualEnums.typeKind";
+	case kManualEnumsBuiltinTypeKind            = "manualEnums.builtinTypeKind";
+	case kManualEnumsDefinitionKind             = "manualEnums.definitionKind";
+	case kManualEnumsExtensionMembership        = "manualEnums.extensionMembership";
+
 	public function jsonSerialize(): mixed {
 		return Bits\jsonSerializeEnumObject($this);
 	}

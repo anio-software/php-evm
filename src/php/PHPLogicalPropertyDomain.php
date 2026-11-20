@@ -27,6 +27,9 @@ enum PHPLogicalPropertyDomain: string implements \JsonSerializable {
 	case kFunctionParameter  = "functionParameter";
 	case kFunction           = "function";
 
+	case kManual             = "manual";
+	case kManualEnums        = "manualEnums";
+
 	public function jsonSerialize(): mixed {
 		return Bits\jsonSerializeEnumObject($this);
 	}
