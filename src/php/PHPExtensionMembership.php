@@ -10,6 +10,6 @@ enum PHPExtensionMembership: string implements \JsonSerializable {
 	case kUnspecified     = "unspecified";
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

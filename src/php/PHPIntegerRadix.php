@@ -27,6 +27,6 @@ enum PHPIntegerRadix: string implements \JsonSerializable {
 	}
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

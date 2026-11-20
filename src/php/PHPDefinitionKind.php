@@ -11,6 +11,6 @@ enum PHPDefinitionKind: string implements \JsonSerializable {
 	case kFunctionAlias = "functionAlias";
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

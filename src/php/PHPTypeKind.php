@@ -11,6 +11,6 @@ enum PHPTypeKind: string implements \JsonSerializable {
 	case kUnknown      = "unknown";
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

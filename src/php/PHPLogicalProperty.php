@@ -66,6 +66,6 @@ enum PHPLogicalProperty: string implements \JsonSerializable {
 	case kFunctionReturnType                    = "function.returnType";
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

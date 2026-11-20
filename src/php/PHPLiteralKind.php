@@ -10,6 +10,6 @@ enum PHPLiteralKind: string implements \JsonSerializable {
 	// ... more to be added
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

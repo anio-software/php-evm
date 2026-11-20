@@ -7,6 +7,6 @@ enum PHPNumberLiteralKind: string implements \JsonSerializable {
 	case kInteger = "integer";
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

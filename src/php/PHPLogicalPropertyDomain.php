@@ -28,6 +28,6 @@ enum PHPLogicalPropertyDomain: string implements \JsonSerializable {
 	case kFunction           = "function";
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }

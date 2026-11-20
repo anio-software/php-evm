@@ -7,6 +7,6 @@ enum PHPTypeOperator: string implements \JsonSerializable {
 	case kAmpersand = "&";
 
 	public function jsonSerialize(): mixed {
-		return jsonSerializeEnumObject($this);
+		return Bits\jsonSerializeEnumObject($this);
 	}
 }
