@@ -1,15 +1,17 @@
 <?php
 
-namespace AnioSoftware\EVM\PHP;
+namespace AnioSoftware\EVM\Bits;
+
+use AnioSoftware\EVM\PHP as PHP;
 
 function parsePHPFunctionParameterInitializer(
-	?PHPManualIndex $index,
-	?PHPType $parameterType,
+	?PHP\PHPManualIndex $index,
+	?PHP\PHPType $parameterType,
 	string $string
-): PHPExpression {
+): PHP\PHPExpression {
 	// unwrap nullable type unions
 	// e.g. convert "?int" type to "int"
-	if ($parameterType && $parameterType instanceof PHPUnionType) {
+	if ($parameterType && $parameterType instanceof PHP\PHPUnionType) {
 		$unwrapped = $parameterType->getNullableMemberType();
 
 		if ($unwrapped !== NULL) {
@@ -20,36 +22,36 @@ function parsePHPFunctionParameterInitializer(
 	$normalized = \trim(\strtolower($string));
 
 	if ($normalized === "null") {
-		return PHPNullLiteral::instance();
+		return PHP\PHPNullLiteral::instance();
 	} else if ($normalized === "true") {
-		return PHPBooleanLiteral::instance(true);
+		return PHP\PHPBooleanLiteral::instance(true);
 	} else if ($normalized === "false") {
-		return PHPBooleanLiteral::instance(false);
+		return PHP\PHPBooleanLiteral::instance(false);
 	} else if ($normalized === "?") {
-		return PHPPlaceholderExpression::instance();
+		return PHP\PHPPlaceholderExpression::instance();
 	}
 
 	$constants = $index?->getConstants() ?? [];
 
 	if (\array_key_exists("\\$string", $constants)) {
-		return new PHPConstantFetchExpression($constants["\\$string"]);
+		return new PHP\PHPConstantFetchExpression($constants["\\$string"]);
 	}
 
-	if ($parameterType && $parameterType->isBuiltinType(PHPBuiltinTypeKind::kFloat)) {
-		return new PHPFloatLiteral((float)$string, $string);
+	if ($parameterType && $parameterType->isBuiltinType(PHP\PHPBuiltinTypeKind::kFloat)) {
+		return new PHP\PHPFloatLiteral((float)$string, $string);
 	}
 
-	$intValue = PHPIntegerLiteral::tryParse($string);
+	$intValue = PHP\PHPIntegerLiteral::tryParse($string);
 
 	if ($intValue !== NULL) {
 		return $intValue;
 	}
 
-	$stringValue = PHPDoubleQuotedStringLiteral::tryParse($string);
+	$stringValue = PHP\PHPDoubleQuotedStringLiteral::tryParse($string);
 
 	if ($stringValue !== NULL) {
 		return $stringValue;
 	}
 
-	return new PHPRawExpression($string);
+	return new PHP\PHPRawExpression($string);
 }

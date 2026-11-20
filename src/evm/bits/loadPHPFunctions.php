@@ -33,7 +33,7 @@ function getFunctionParameterInt(
 		);
 
 		if ($el) {
-			$initializer = PHP\parsePHPFunctionParameterInitializer(
+			$initializer = parsePHPFunctionParameterInitializer(
 				$ctx->getPHPManualIndex(),
 				$parameterType,
 				$el->textContent
