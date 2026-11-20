@@ -61,7 +61,7 @@ function getFunctionParametersInt(
 	EVM\EVMContext $ctx,
 	string $refId,
 	\DOMElement $methodsynopsis
-) {
+): array {
 	$methodparams = XML\select(
 		$methodsynopsis,
 		$ctx->manual->elementSelectorFactory("methodparam"),
