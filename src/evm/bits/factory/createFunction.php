@@ -22,10 +22,24 @@ function createFunction(
 			$methodsynopsis, $evmContext->manual->elementSelectorFactory("type")
 		)
 	);
-	$func   = PHP\PHPFunction::create($metadata, $ns, $refId, $functionName, $returnType);
-	$params = createFunctionParameters($diagnostics, $evmContext, $refId, $methodsynopsis);
+
+	$func = PHP\PHPFunction::create(
+		$metadata,
+		$ns,
+		$refId,
+		$functionName,
+		$returnType
+	);
+
+	$params = createFunctionParameters(
+		$diagnostics,
+		$evmContext,
+		$refId,
+		$methodsynopsis
+	);
 
 	$isVariadic = false;
+
 	foreach ($params as $param) {
 		$func = $func->withFunctionParameter($param);
 
