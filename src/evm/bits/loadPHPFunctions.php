@@ -38,7 +38,7 @@ function loadPHPFunctions(
 
 		$functionName = \trim($refname->textContent);
 		$qualifier    = $ctx->manual->parseQualifiedName($functionName);
-		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
+		$namespace = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
@@ -61,10 +61,10 @@ function loadPHPFunctions(
 				continue;
 			}
 
-			$ns->addDefinition(
+			$namespace->addDefinition(
 				Factory\createFunctionAlias(
 					$metadata,
-					$ns,
+					$namespace,
 					$referenceId,
 					$qualifier["localName"],
 					\trim($el->textContent)
@@ -88,12 +88,12 @@ function loadPHPFunctions(
 			$metadata,
 			$diagnostics,
 			$ctx,
-			$ns,
+			$namespace,
 			$referenceId,
 			$qualifier["localName"],
 			$methodsynopsis
 		);
 
-		$ns->addDefinition($inst);
+		$namespace->addDefinition($inst);
 	}
 }
