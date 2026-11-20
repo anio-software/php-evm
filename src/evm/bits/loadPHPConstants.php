@@ -38,15 +38,15 @@ function loadPHPConstants(
 			\trim($const->textContent)
 		);
 
-		$ns = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
+		$namespace = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $constant);
 		$inst = Factory\createConstant(
 			$metadata,
-			$ns,
+			$namespace,
 			$referenceId,
 			$qualifier["localName"]
 		);
 
-		$ns->addDefinition($inst);
+		$namespace->addDefinition($inst);
 	}
 }
