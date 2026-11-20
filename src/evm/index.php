@@ -24,4 +24,5 @@ require_once __DIR__."/bits/parsePHPFunctionParameterInitializer.php";
 require_once __DIR__."/bits/loadPHPClassLikes.php";
 require_once __DIR__."/bits/loadPHPConstants.php";
 require_once __DIR__."/bits/loadPHPFunctions.php";
+
 require_once __DIR__."/loadPHPManual.php";
