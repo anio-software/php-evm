@@ -88,14 +88,12 @@ function loadPHPClassLikes(
 		$class = $map[$kind]["class"];
 		$name = \strlen($namespaceStr) ? "$namespaceStr\\$name" : $name;
 		$qualifier = $evmContext->manual->parseQualifiedName($name);
-		$namespace = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $reference);
 
 		$factoryCtx = new Factory\EVMBitsFactoryContext(
 			evmContext  : $evmContext,
 			diagnostics : $diagnostics,
-			metadata    : $metadata,
-			namespace   : $namespace,
+			metadata    : createPHPDefinitionMetadataFromDOMElement($evmContext, $reference),
+			namespace   : $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]),
 			referenceId : $referenceId
 		);
 
@@ -113,6 +111,6 @@ function loadPHPClassLikes(
 			)
 		};
 
-		$namespace->addDefinition($inst);
+		$factoryCtx->namespace->addDefinition($inst);
 	}
 }

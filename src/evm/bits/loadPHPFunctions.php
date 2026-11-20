@@ -38,14 +38,12 @@ function loadPHPFunctions(
 
 		$functionName = \trim($refname->textContent);
 		$qualifier = $evmContext->manual->parseQualifiedName($functionName);
-		$namespace = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $refentry);
 
 		$factoryCtx = new Factory\EVMBitsFactoryContext(
 			evmContext  : $evmContext,
 			diagnostics : $diagnostics,
-			metadata    : $metadata,
-			namespace   : $namespace,
+			metadata    : createPHPDefinitionMetadataFromDOMElement($evmContext, $refentry),
+			namespace   : $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]),
 			referenceId : $referenceId
 		);
 
@@ -69,7 +67,7 @@ function loadPHPFunctions(
 				continue;
 			}
 
-			$namespace->addDefinition(
+			$factoryCtx->namespace->addDefinition(
 				Factory\createFunctionAlias(
 					$factoryCtx,
 					$qualifier["localName"],
@@ -96,6 +94,6 @@ function loadPHPFunctions(
 			$methodsynopsis
 		);
 
-		$namespace->addDefinition($inst);
+		$factoryCtx->namespace->addDefinition($inst);
 	}
 }
