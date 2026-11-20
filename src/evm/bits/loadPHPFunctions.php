@@ -6,7 +6,7 @@ use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
 use AnioSoftware\EVM\PHP as PHP;
 
-function getFunctionParameterInt(
+function createFunctionParameterInt(
 	EVM\EVMDiagnostics $diagnostics,
 	EVM\EVMContext $ctx,
 	string $refId,
@@ -56,7 +56,7 @@ function getFunctionParameterInt(
 	);
 }
 
-function getFunctionParametersInt(
+function createFunctionParametersInt(
 	EVM\EVMDiagnostics $diagnostics,
 	EVM\EVMContext $ctx,
 	string $refId,
@@ -82,7 +82,7 @@ function getFunctionParametersInt(
 			continue;
 		}
 
-		$ret[] = getFunctionParameterInt(
+		$ret[] = createFunctionParameterInt(
 			$diagnostics,
 			$ctx,
 			$refId,
@@ -94,7 +94,7 @@ function getFunctionParametersInt(
 	return $ret;
 }
 
-function getFunctionInt(
+function createFunctionInt(
 	PHP\PHPDefinitionMetadata $metadata,
 	EVM\EVMDiagnostics $diagnostics,
 	EVM\EVMContext $ctx,
@@ -110,7 +110,7 @@ function getFunctionInt(
 		)
 	);
 	$func   = PHP\PHPFunction::create($metadata, $ns, $refId, $functionName, $returnType);
-	$params = getFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis);
+	$params = createFunctionParametersInt($diagnostics, $ctx, $refId, $methodsynopsis);
 
 	$isVariadic = false;
 	foreach ($params as $param) {
@@ -201,7 +201,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 			continue;
 		}
 
-		$inst = getFunctionInt(
+		$inst = createFunctionInt(
 			$metadata,
 			$diagnostics,
 			$ctx,
