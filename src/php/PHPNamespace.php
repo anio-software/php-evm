@@ -5,16 +5,16 @@ namespace AnioSoftware\EVM\PHP;
 final class PHPNamespace implements PHPStructuredObject {
 	use PHPStructuredObjectBehavior;
 
-	private PHPNamespaceState $state;
+	private array $definitions       = [];
+	private array $definitionsByKind = [];
+	private array $namespaces        = [];
 
 	public function __construct(
 		private string $name,
 		private ?self $parent = NULL
 	) {
-		$this->state = new PHPNamespaceState;
-
 		foreach (PHPDefinitionKind::cases() as $case) {
-			$this->state->definitionsByKind[$case->value] = [];
+			$this->definitionsByKind[$case->value] = [];
 		}
 	}
 
@@ -48,11 +48,11 @@ final class PHPNamespace implements PHPStructuredObject {
 			);
 		}
 
-		$this->state->namespaces[$namespace->getName()] = $namespace;
+		$this->namespaces[$namespace->getName()] = $namespace;
 	}
 
 	public function getNamespaces(): array {
-		return $this->state->namespaces;
+		return $this->namespaces;
 	}
 
 	private function indexByName(array $definitions): array {
@@ -68,10 +68,10 @@ final class PHPNamespace implements PHPStructuredObject {
 	public function getDefinitions(?PHPDefinitionKind $kind = NULL): array {
 		if (!$kind) {
 			// no re-index because of potential naming collisions
-			return $this->state->definitions;
+			return $this->definitions;
 		}
 
-		return $this->indexByName($this->state->definitionsByKind[$kind->value]);
+		return $this->indexByName($this->definitionsByKind[$kind->value]);
 	}
 
 	public function getClasses(): array {
@@ -102,14 +102,14 @@ final class PHPNamespace implements PHPStructuredObject {
 		$id   = $def->getDefinitionId();
 		$kind = $def->getDefinitionKind()->value;
 
-		if (\array_key_exists($id, $this->state->definitions)) {
+		if (\array_key_exists($id, $this->definitions)) {
 			throw new \RuntimeException(
 				"A definition with this id ($id) was already added to this namespace."
 			);
 		}
 
-		$this->state->definitions[$id] = $def;
-		$this->state->definitionsByKind[$kind][$id] = $def;
+		$this->definitions[$id] = $def;
+		$this->definitionsByKind[$kind][$id] = $def;
 	}
 
 	public function getLogicalPropertySet(): PHPLogicalPropertySet {
