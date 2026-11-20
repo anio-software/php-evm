@@ -2,6 +2,8 @@
 
 namespace AnioSoftware\EVM\PHP;
 
+use AnioSoftware\EVM\Utils as Utils;
+
 //
 // this class represents an immutable index of the php manual
 //
@@ -54,11 +56,11 @@ final readonly class PHPManualIndex {
 		$this->namespaces  = $namespaces;
 	}
 
-	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): ArrayDiffResult {
+	public function diffDefinitionsOfKind(self $that, PHPDefinitionKind $kind): Utils\ArrayDiffResult {
 		$before = $this->definitions[$kind->value];
 		$after  = $that->getDefinitions()[$kind->value];
 
-		$result = array_diff(
+		$result = Utils\array_diff(
 			$before,
 			$after,
 			static function(PHPDefinition $a, PHPDefinition $b): bool {
@@ -75,7 +77,7 @@ final readonly class PHPManualIndex {
 			);
 		}
 
-		return new ArrayDiffResult(
+		return new Utils\ArrayDiffResult(
 			removed  : $result->removed,
 			added    : $result->added,
 			retained : $result->retained,
@@ -93,8 +95,8 @@ final readonly class PHPManualIndex {
 		return $ret;
 	}
 
-	public function diff(self $that): ArrayDiffResult {
-		$acc = new ArrayDiffResultAccumulator;
+	public function diff(self $that): Utils\ArrayDiffResult {
+		$acc = new Utils\ArrayDiffResultAccumulator;
 
 		foreach (PHPDefinitionKind::cases() as $kind) {
 			$acc->addChanges(

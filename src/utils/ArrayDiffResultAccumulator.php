@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\EVM\PHP;
+namespace AnioSoftware\EVM\Utils;
 
 final class ArrayDiffResultAccumulator {
 	private array $removed  = [];

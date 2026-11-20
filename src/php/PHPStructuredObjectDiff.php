@@ -5,7 +5,7 @@ namespace AnioSoftware\EVM\PHP;
 use AnioSoftware\EVM\Utils as Utils;
 
 final readonly class PHPStructuredObjectDiff {
-	public ArrayDiffResult $diff;
+	public Utils\ArrayDiffResult $diff;
 
 	public function __construct(
 		public PHPStructuredObject $before,
@@ -16,7 +16,7 @@ final readonly class PHPStructuredObjectDiff {
 		$dataBefore = Utils\array_flatten($before->toCanonicalizedArray(), $pathFormat);
 		$dataAfter  = Utils\array_flatten($after->toCanonicalizedArray(), $pathFormat);
 
-		$this->diff = array_diff(
+		$this->diff = Utils\array_diff(
 			$dataBefore,
 			$dataAfter,
 			static function(mixed $a, mixed $b): bool {

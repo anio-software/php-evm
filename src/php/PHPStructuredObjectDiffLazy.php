@@ -2,6 +2,8 @@
 
 namespace AnioSoftware\EVM\PHP;
 
+use AnioSoftware\EVM\Utils as Utils;
+
 final class PHPStructuredObjectDiffLazy {
 	private ?PHPStructuredObjectDiff $cache = NULL;
 
@@ -10,7 +12,7 @@ final class PHPStructuredObjectDiffLazy {
 		readonly public PHPDefinition $after
 	) {}
 
-	public function getDiff(): ArrayDiffResult {
+	public function getDiff(): Utils\ArrayDiffResult {
 		$this->cache ??= new PHPStructuredObjectDiff($this->before, $this->after);
 
 		return $this->cache->diff;
