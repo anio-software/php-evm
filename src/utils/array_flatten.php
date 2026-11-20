@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\EVM\PHP;
+namespace AnioSoftware\EVM\Utils;
 
 function array_flattenImplementation(
 	array $array, string|ArrayPathFormat $pathFormat, string $path

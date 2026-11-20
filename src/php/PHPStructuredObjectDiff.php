@@ -2,6 +2,8 @@
 
 namespace AnioSoftware\EVM\PHP;
 
+use AnioSoftware\EVM\Utils as Utils;
+
 final readonly class PHPStructuredObjectDiff {
 	public ArrayDiffResult $diff;
 
@@ -9,10 +11,10 @@ final readonly class PHPStructuredObjectDiff {
 		public PHPStructuredObject $before,
 		public PHPStructuredObject $after
 	) {
-		$pathFormat = ArrayPathFormat::kSquareBrackets;
+		$pathFormat = Utils\ArrayPathFormat::kSquareBrackets;
 
-		$dataBefore = array_flatten($before->toCanonicalizedArray(), $pathFormat);
-		$dataAfter  = array_flatten($after->toCanonicalizedArray(), $pathFormat);
+		$dataBefore = Utils\array_flatten($before->toCanonicalizedArray(), $pathFormat);
+		$dataAfter  = Utils\array_flatten($after->toCanonicalizedArray(), $pathFormat);
 
 		$this->diff = array_diff(
 			$dataBefore,
