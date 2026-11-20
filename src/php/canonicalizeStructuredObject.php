@@ -1,14 +1,16 @@
 <?php
 
-namespace AnioSoftware\EVM\PHP;
+namespace AnioSoftware\EVM\PHP\Bits;
+
+use AnioSoftware\EVM\PHP as PHP;
 
 function canonicalizeStructuredObject(
-	PHPStructuredObject $obj
+	PHP\PHPStructuredObject $obj
 ): array {
 	$arr = [];
 
 	$arr[
-		PHPLogicalProperty::kLogicalPropertyDomainPath->value
+		PHP\PHPLogicalProperty::kLogicalPropertyDomainPath->value
 	] = $obj->getLogicalPropertySet()->getPath();
 
 	$chain = $obj->getLogicalPropertySet()->getInheritanceChain();
@@ -18,7 +20,7 @@ function canonicalizeStructuredObject(
 	$normalizeValue = static function(
 		mixed $value
 	) use(&$normalizeValue): mixed {
-		if ($value instanceof PHPStructuredObject) {
+		if ($value instanceof PHP\PHPStructuredObject) {
 			return canonicalizeStructuredObject($value);
 		}
 
