@@ -1,6 +1,8 @@
 {
-    "enums": {
-        "typeKind": [
+    "$logicalPropertyDomainPath": "kManual",
+    "#enums": {
+        "$logicalPropertyDomainPath": "kManualEnums",
+        "#typeKind": [
             "kBuiltin",
             "kNamed",
             "kUnion",
@@ -8,7 +10,7 @@
             "kUnspecified",
             "kUnknown"
         ],
-        "builtinTypeKind": [
+        "#builtinTypeKind": [
             "kMixed",
             "kNever",
             "kVoid",
@@ -25,7 +27,7 @@
             "kFalse",
             "kNull"
         ],
-        "definitionKind": [
+        "#definitionKind": [
             "kClass",
             "kInterface",
             "kEnum",
@@ -33,7 +35,7 @@
             "kFunction",
             "kFunctionAlias"
         ],
-        "extensionMembership": [
+        "#extensionMembership": [
             "kCore",
             "kBundled",
             "kBundledExternal",
@@ -41,7 +43,7 @@
             "kUnspecified"
         ]
     },
-    "globalNamespace": {
+    "#globalNamespace": {
         "$logicalPropertyDomainPath": "kNamespace",
         "#name": "",
         "#fullyQualifiedName": "",
