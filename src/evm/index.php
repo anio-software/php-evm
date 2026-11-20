@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__."/../utils/index.php";
 require_once __DIR__."/../xml/index.php";
 require_once __DIR__."/../php/index.php";
 
