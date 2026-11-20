@@ -6,20 +6,20 @@ use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
 
 function loadPHPFunctions(
-	EVM\EVMContext $ctx
+	EVM\EVMContext $evmContext
 ): void {
-	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
-	$refentries = $ctx->manual->getElementsWithReferenceIdAttribute(
-		$ctx->doc, "refentry"
+	$diagnostics = $evmContext->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPFunctions);
+	$refentries = $evmContext->manual->getElementsWithReferenceIdAttribute(
+		$evmContext->doc, "refentry"
 	);
 
 	$orSelector = new XML\OrSelector(
-		$ctx->manual->elementSelectorFactory("function"),
-		$ctx->manual->elementSelectorFactory("methodname")
+		$evmContext->manual->elementSelectorFactory("function"),
+		$evmContext->manual->elementSelectorFactory("methodname")
 	);
 
 	foreach ($refentries as $refentry) {
-		$referenceId = $ctx->manual->getRefIdAttribute($refentry);
+		$referenceId = $evmContext->manual->getRefIdAttribute($refentry);
 
 		if (!\str_starts_with($referenceId, "function.")) {
 			continue;
@@ -27,7 +27,7 @@ function loadPHPFunctions(
 
 		$refname = XML\selectFirstMatchingDescendant(
 			$refentry,
-			$ctx->manual->elementSelectorFactory("refname")
+			$evmContext->manual->elementSelectorFactory("refname")
 		);
 
 		if (!$refname) {
@@ -37,13 +37,13 @@ function loadPHPFunctions(
 		}
 
 		$functionName = \trim($refname->textContent);
-		$qualifier = $ctx->manual->parseQualifiedName($functionName);
-		$namespace = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
-		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
+		$qualifier = $evmContext->manual->parseQualifiedName($functionName);
+		$namespace = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
+		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $refentry);
 
 		$refpurpose = XML\selectFirstMatchingDescendant(
 			$refentry,
-			$ctx->manual->elementSelectorFactory("refpurpose")
+			$evmContext->manual->elementSelectorFactory("refpurpose")
 		);
 
 		if (!$refpurpose) {
@@ -75,7 +75,7 @@ function loadPHPFunctions(
 		}
 
 		$methodsynopsis = XML\selectFirstMatchingDescendant(
-			$refentry, $ctx->manual->elementSelectorFactory("methodsynopsis")
+			$refentry, $evmContext->manual->elementSelectorFactory("methodsynopsis")
 		);
 
 		if (!$methodsynopsis) {
@@ -87,7 +87,7 @@ function loadPHPFunctions(
 		$inst = Factory\createFunction(
 			$metadata,
 			$diagnostics,
-			$ctx,
+			$evmContext,
 			$namespace,
 			$referenceId,
 			$qualifier["localName"],
