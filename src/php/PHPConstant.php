@@ -24,6 +24,11 @@ final readonly class PHPConstant extends PHPDefinition {
 		string $referenceId,
 		string $name
 	): self {
-		return new self($metadata, $namespace, $referenceId, $name);
+		return new self(
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name
+		);
 	}
 }

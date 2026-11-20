@@ -157,7 +157,15 @@ final readonly class PHPFunction extends PHPDefinition {
 		string $name,
 		PHPType $returnType
 	): self {
-		return new self($metadata, $namespace, $referenceId, $name, [], 0, $returnType);
+		return new self(
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name,
+			[],
+			0,
+			$returnType
+		);
 	}
 
 	public function getLogicalPropertySet(): PHPLogicalPropertySet {

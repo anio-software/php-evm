@@ -36,7 +36,13 @@ final readonly class PHPFunctionAlias extends PHPDefinition {
 		string $name,
 		string $originalName
 	): self {
-		return new self($metadata, $namespace, $referenceId, $name, $originalName);
+		return new self(
+			$metadata,
+			$namespace,
+			$referenceId,
+			$name,
+			$originalName
+		);
 	}
 
 	public function getLogicalPropertySet(): PHPLogicalPropertySet {

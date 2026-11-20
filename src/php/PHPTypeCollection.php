@@ -8,7 +8,9 @@ abstract readonly class PHPTypeCollection extends PHPType {
 	final protected array $members;
 
 	static private function flatten(
-		PHPTypeKind $kind, PHPType $type, PHPType ...$types
+		PHPTypeKind $kind,
+		PHPType $type,
+		PHPType ...$types
 	): array {
 		$unique = [];
 
