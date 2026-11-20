@@ -91,17 +91,25 @@ function loadPHPClassLikes(
 		$namespace = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $reference);
 
+		$factoryCtx = new Factory\EVMBitsFactoryContext(
+			evmContext  : $evmContext,
+			diagnostics : $diagnostics,
+			metadata    : $metadata,
+			namespace   : $namespace,
+			referenceId : $referenceId
+		);
+
 		$inst = match($class) {
 			PHP\PHPClass::class => Factory\createClass(
-				$metadata, $namespace, $referenceId, $qualifier["localName"]
+				$factoryCtx, $qualifier["localName"]
 			),
 
 			PHP\PHPInterface::class => Factory\createInterface(
-				$metadata, $namespace, $referenceId, $qualifier["localName"]
+				$factoryCtx, $qualifier["localName"]
 			),
 
 			PHP\PHPEnum::class => Factory\createEnum(
-				$metadata, $namespace, $referenceId, $qualifier["localName"]
+				$factoryCtx, $qualifier["localName"]
 			)
 		};
 

@@ -5,15 +5,13 @@ namespace AnioSoftware\EVM\Bits\Factory;
 use AnioSoftware\EVM\PHP as PHP;
 
 function createClass(
-	PHP\PHPDefinitionMetadata $metadata,
-	PHP\PHPNamespace $namespace,
-	string $referenceId,
+	EVMBitsFactoryContext $ctx,
 	string $name
 ): PHP\PHPClass {
 	return PHP\PHPClass::create(
-		$metadata,
-		$namespace,
-		$referenceId,
+		$ctx->metadata,
+		$ctx->namespace,
+		$ctx->referenceId,
 		$name
 	);
 }

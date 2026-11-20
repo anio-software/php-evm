@@ -40,10 +40,17 @@ function loadPHPConstants(
 
 		$namespace = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $constant);
+
+		$factoryCtx = new Factory\EVMBitsFactoryContext(
+			evmContext  : $evmContext,
+			diagnostics : $diagnostics,
+			metadata    : $metadata,
+			namespace   : $namespace,
+			referenceId : $referenceId
+		);
+
 		$inst = Factory\createConstant(
-			$metadata,
-			$namespace,
-			$referenceId,
+			$factoryCtx,
 			$qualifier["localName"]
 		);
 

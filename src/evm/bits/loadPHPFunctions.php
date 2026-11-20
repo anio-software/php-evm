@@ -41,6 +41,14 @@ function loadPHPFunctions(
 		$namespace = $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($evmContext, $refentry);
 
+		$factoryCtx = new Factory\EVMBitsFactoryContext(
+			evmContext  : $evmContext,
+			diagnostics : $diagnostics,
+			metadata    : $metadata,
+			namespace   : $namespace,
+			referenceId : $referenceId
+		);
+
 		$refpurpose = XML\selectFirstMatchingDescendant(
 			$refentry,
 			$evmContext->manual->elementSelectorFactory("refpurpose")
@@ -63,9 +71,7 @@ function loadPHPFunctions(
 
 			$namespace->addDefinition(
 				Factory\createFunctionAlias(
-					$metadata,
-					$namespace,
-					$referenceId,
+					$factoryCtx,
 					$qualifier["localName"],
 					\trim($el->textContent)
 				)
@@ -85,11 +91,7 @@ function loadPHPFunctions(
 		}
 
 		$inst = Factory\createFunction(
-			$metadata,
-			$diagnostics,
-			$evmContext,
-			$namespace,
-			$referenceId,
+			$factoryCtx,
 			$qualifier["localName"],
 			$methodsynopsis
 		);
