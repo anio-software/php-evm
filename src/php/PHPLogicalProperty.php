@@ -66,6 +66,7 @@ enum PHPLogicalProperty: string implements \JsonSerializable {
 	case kFunctionReturnType                    = "function.returnType";
 
 	// manual
+	case kManualEnums                           = "manual.enums";
 	case kManualGlobalNamespace                 = "manual.globalNamespace";
 
 	// manual enums
