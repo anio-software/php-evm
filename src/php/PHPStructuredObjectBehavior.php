@@ -3,8 +3,6 @@
 namespace AnioSoftware\EVM\PHP;
 
 trait PHPStructuredObjectBehavior {
-	private PHPLogicalPropertySet $props;
-
 	abstract public function getLogicalPropertySet(): PHPLogicalPropertySet;
 
 	final public function isLogicallyEqualTo(PHPStructuredObject $that): bool {
