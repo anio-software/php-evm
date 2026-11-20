@@ -2,7 +2,9 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPDefinitionMetadata extends PHPStructuredObject {
+final readonly class PHPDefinitionMetadata implements PHPStructuredObject {
+	use PHPStructuredObjectBehavior;
+
 	private PHPLogicalPropertySet $props;
 
 	public function __construct(

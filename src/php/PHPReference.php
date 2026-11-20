@@ -2,7 +2,9 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-readonly class PHPReference extends PHPStructuredObject {
+readonly class PHPReference implements PHPStructuredObject {
+	use PHPStructuredObjectBehavior;
+
 	private PHPLogicalPropertySet $props;
 
 	public function __construct(

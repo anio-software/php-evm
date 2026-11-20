@@ -2,7 +2,9 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-final readonly class PHPFunctionParameter extends PHPStructuredObject {
+final readonly class PHPFunctionParameter implements PHPStructuredObject {
+	use PHPStructuredObjectBehavior;
+
 	private PHPLogicalPropertySet $props;
 
 	public const int FLAG_OPTIONAL  = 1 << 0;
