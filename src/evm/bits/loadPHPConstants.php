@@ -6,7 +6,9 @@ use AnioSoftware\EVM as EVM;
 use AnioSoftware\EVM\XML as XML;
 use AnioSoftware\EVM\PHP as PHP;
 
-function loadPHPConstants(EVM\EVMContext $ctx): void {
+function loadPHPConstants(
+	EVM\EVMContext $ctx
+): void {
 	$diagnostics = $ctx->diagnosticsFor(EVM\EVMDiagnosticMessageOrigin::kLoadPHPConstants);
 	$constants = $ctx->manual->getElementsWithReferenceIdAttribute(
 		$ctx->doc, "varlistentry"
