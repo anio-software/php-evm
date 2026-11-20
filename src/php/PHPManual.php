@@ -4,7 +4,9 @@ namespace AnioSoftware\EVM\PHP;
 
 use AnioSoftware\EVM\XML as XML;
 
-final class PHPManual implements \JsonSerializable {
+final class PHPManual implements PHPStructuredObject {
+	use PHPStructuredObjectBehavior;
+
 	private array $elementSelectorFactoryCache = [];
 	readonly private XML\AttributeSelector $refIdSelector;
 	private ?PHPManualIndex $index = NULL;
@@ -120,15 +122,12 @@ final class PHPManual implements \JsonSerializable {
 		return $arr;
 	}
 
-	public function jsonSerialize(): mixed {
-		return [
-			"enums" => [
-				"typeKind"            => PHPTypeKind::cases(),
-				"builtinTypeKind"     => PHPBuiltinTypeKind::cases(),
-				"definitionKind"      => PHPDefinitionKind::cases(),
-				"extensionMembership" => PHPExtensionMembership::cases()
-			],
-			"globalNamespace" => $this->globalNamespace
-		];
+	public function getLogicalPropertySet(): PHPLogicalPropertySet {
+		return PHPLogicalPropertySetBuilder::create(
+			NULL, PHPLogicalPropertyDomain::kManual
+		)
+		->withProperty(PHPLogicalProperty::kManualEnums          , PHPManualEnums::instance())
+		->withProperty(PHPLogicalProperty::kManualGlobalNamespace, $this->globalNamespace)
+		->finalize();
 	}
 }
