@@ -19,6 +19,7 @@ require_once __DIR__."/bits/getPHPExtensionMembershipFromDOMElement.php";
 require_once __DIR__."/bits/getBookIdFromDOMElement.php";
 require_once __DIR__."/bits/createPHPDefinitionMetadataFromDOMElement.php";
 require_once __DIR__."/bits/createPHPTypeFromDOMElement.php";
+require_once __DIR__."/bits/parsePHPFunctionParameterInitializer.php";
 require_once __DIR__."/bits/loadPHPClassLikes.php";
 require_once __DIR__."/bits/loadPHPConstants.php";
 require_once __DIR__."/bits/loadPHPFunctions.php";
