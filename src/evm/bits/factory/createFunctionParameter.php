@@ -9,7 +9,7 @@ use AnioSoftware\EVM\Bits as Bits;
 
 function createFunctionParameter(
 	EVM\EVMDiagnostics $diagnostics,
-	EVM\EVMContext $ctx,
+	EVM\EVMContext $evmContext,
 	string $refId,
 	\DOMElement $methodparam,
 	\DOMElement $parameter
@@ -20,22 +20,22 @@ function createFunctionParameter(
 	$isVariadic    = $methodparam->attributes->getNamedItem("rep")?->value === "repeat";
 	$initializer   = NULL;
 	$parameterType = Bits\createPHPTypeFromDOMElement(
-		$ctx,
+		$evmContext,
 		XML\selectFirstMatchingChild(
 			$methodparam,
-			$ctx->manual->elementSelectorFactory("type")
+			$evmContext->manual->elementSelectorFactory("type")
 		)
 	);
 
 	if ($isOptional) {
 		$el = XML\selectFirstMatchingChild(
 			$methodparam,
-			$ctx->manual->elementSelectorFactory("initializer")
+			$evmContext->manual->elementSelectorFactory("initializer")
 		);
 
 		if ($el) {
 			$initializer = Bits\parsePHPFunctionParameterInitializer(
-				$ctx->getPHPManualIndex(),
+				$evmContext->getPHPManualIndex(),
 				$parameterType,
 				$el->textContent
 			);

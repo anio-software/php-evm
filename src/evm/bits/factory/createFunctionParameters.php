@@ -7,13 +7,13 @@ use AnioSoftware\EVM\XML as XML;
 
 function createFunctionParameters(
 	EVM\EVMDiagnostics $diagnostics,
-	EVM\EVMContext $ctx,
+	EVM\EVMContext $evmContext,
 	string $refId,
 	\DOMElement $methodsynopsis
 ): array {
 	$methodparams = XML\select(
 		$methodsynopsis,
-		$ctx->manual->elementSelectorFactory("methodparam"),
+		$evmContext->manual->elementSelectorFactory("methodparam"),
 		0
 	);
 
@@ -22,7 +22,7 @@ function createFunctionParameters(
 	foreach ($methodparams as $methodparam) {
 		$parameter = XML\selectFirstMatchingChild(
 			$methodparam,
-			$ctx->manual->elementSelectorFactory("parameter")
+			$evmContext->manual->elementSelectorFactory("parameter")
 		);
 
 		if (!$parameter) {
@@ -33,7 +33,7 @@ function createFunctionParameters(
 
 		$ret[] = createFunctionParameter(
 			$diagnostics,
-			$ctx,
+			$evmContext,
 			$refId,
 			$methodparam,
 			$parameter

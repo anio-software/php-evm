@@ -10,20 +10,20 @@ use AnioSoftware\EVM\Bits as Bits;
 function createFunction(
 	PHP\PHPDefinitionMetadata $metadata,
 	EVM\EVMDiagnostics $diagnostics,
-	EVM\EVMContext $ctx,
+	EVM\EVMContext $evmContext,
 	PHP\PHPNamespace $ns,
 	string $refId,
 	string $functionName,
 	\DOMElement $methodsynopsis
 ): PHP\PHPFunction {
 	$returnType = Bits\createPHPTypeFromDOMElement(
-		$ctx,
+		$evmContext,
 		XML\selectFirstMatchingChild(
-			$methodsynopsis, $ctx->manual->elementSelectorFactory("type")
+			$methodsynopsis, $evmContext->manual->elementSelectorFactory("type")
 		)
 	);
 	$func   = PHP\PHPFunction::create($metadata, $ns, $refId, $functionName, $returnType);
-	$params = createFunctionParameters($diagnostics, $ctx, $refId, $methodsynopsis);
+	$params = createFunctionParameters($diagnostics, $evmContext, $refId, $methodsynopsis);
 
 	$isVariadic = false;
 	foreach ($params as $param) {
