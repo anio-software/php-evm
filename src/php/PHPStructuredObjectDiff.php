@@ -20,7 +20,7 @@ final readonly class PHPStructuredObjectDiff {
 			$dataBefore,
 			$dataAfter,
 			static function(mixed $a, mixed $b): bool {
-				return stable_json_encode($a) === stable_json_encode($b);
+				return Utils\stable_json_encode($a) === Utils\stable_json_encode($b);
 			}
 		);
 	}

@@ -2,6 +2,8 @@
 
 namespace AnioSoftware\EVM\PHP;
 
+use AnioSoftware\EVM\Utils as Utils;
+
 trait PHPStructuredObjectBehavior {
 	abstract public function getLogicalPropertySet(): PHPLogicalPropertySet;
 
@@ -9,7 +11,7 @@ trait PHPStructuredObjectBehavior {
 		$a = Bits\canonicalizeStructuredObject($this);
 		$b = Bits\canonicalizeStructuredObject($that);
 
-		return stable_json_encode($a) === stable_json_encode($b);
+		return Utils\stable_json_encode($a) === Utils\stable_json_encode($b);
 	}
 
 	final public function logicalDiff(PHPStructuredObject $that): PHPStructuredObjectDiff {

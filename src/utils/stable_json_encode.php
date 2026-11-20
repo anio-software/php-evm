@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\EVM\PHP;
+namespace AnioSoftware\EVM\Utils;
 
 function stable_json_encode(mixed $data): string {
 	if ($data instanceof \JsonSerializable) {

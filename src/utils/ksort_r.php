@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\EVM\PHP;
+namespace AnioSoftware\EVM\Utils;
 
 // like ksort() but recursive
 function ksort_r(array &$input, int $flags = \SORT_REGULAR): true {
