@@ -3,7 +3,6 @@
 require_once __DIR__."/ValueChange.php";
 require_once __DIR__."/array_diff.php";
 require_once __DIR__."/bits/jsonSerializeEnumObject.php";
-require_once __DIR__."/HashMap.php";
 require_once __DIR__."/bits/canonicalizeStructuredObject.php";
 
 require_once __DIR__."/PHPLogicalProperty.php";
