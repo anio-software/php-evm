@@ -37,7 +37,7 @@ function loadPHPFunctions(
 		}
 
 		$functionName = \trim($refname->textContent);
-		$qualifier    = $ctx->manual->parseQualifiedName($functionName);
+		$qualifier = $ctx->manual->parseQualifiedName($functionName);
 		$namespace = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $refentry);
 
