@@ -39,7 +39,13 @@ function loadPHPConstants(EVM\EVMContext $ctx): void {
 
 		$ns = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
 		$metadata = createPHPDefinitionMetadataFromDOMElement($ctx, $constant);
-		$inst = PHP\PHPConstant::create($metadata, $ns, $refId, $qualifier["localName"]);
+		$inst = Factory\createConstant(
+			$metadata,
+			$ns,
+			$refId,
+			$qualifier["localName"]
+		);
+
 		$ns->addDefinition($inst);
 	}
 }
