@@ -18,6 +18,9 @@ require_once __DIR__."/EVMContext.php";
 require_once __DIR__."/bits/factory/createFunctionParameter.php";
 require_once __DIR__."/bits/factory/createFunctionParameters.php";
 require_once __DIR__."/bits/factory/createFunction.php";
+require_once __DIR__."/bits/factory/createClass.php";
+require_once __DIR__."/bits/factory/createInterface.php";
+require_once __DIR__."/bits/factory/createEnum.php";
 
 require_once __DIR__."/bits/getPHPDocAttribute.php";
 require_once __DIR__."/bits/getPHPExtensionMembershipFromDOMElement.php";
