@@ -2,11 +2,13 @@
 
 namespace AnioSoftware\EVM\PHP;
 
+use AnioSoftware\EVM\Utils as Utils;
+
 final class PHPLogicalPropertySetBuilder {
 	private function __construct(
 		private ?PHPLogicalPropertySet $parent,
 		private PHPLogicalPropertyDomain $domain,
-		private HashMap $properties
+		private Utils\HashMap $properties
 	) {}
 
 	public function withProperty(PHPLogicalProperty $prop, mixed $value): self {
@@ -34,7 +36,7 @@ final class PHPLogicalPropertySetBuilder {
 		return new self(
 			$parent,
 			$domain,
-			new HashMap
+			new Utils\HashMap
 		);
 	}
 }

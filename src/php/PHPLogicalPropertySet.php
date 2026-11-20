@@ -2,6 +2,8 @@
 
 namespace AnioSoftware\EVM\PHP;
 
+use AnioSoftware\EVM\Utils as Utils;
+
 final readonly class PHPLogicalPropertySet {
 	private array $inheritanceChain;
 	private string $path;
@@ -9,7 +11,7 @@ final readonly class PHPLogicalPropertySet {
 	public function __construct(
 		private ?self $parent,
 		private PHPLogicalPropertyDomain $domain,
-		private HashMap $properties
+		private Utils\HashMap $properties
 	) {
 		$this->inheritanceChain = [
 			...($parent?->getInheritanceChain() ?? []),
