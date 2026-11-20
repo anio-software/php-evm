@@ -2,6 +2,21 @@
 
 require_once __DIR__."/src/evm/index.php";
 
+function getBaseClasses(string $interface): array {
+	$arr = [];
+
+	foreach (\get_declared_classes() as $class) {
+		$reflection = new \ReflectionClass($class);
+		$parent = $reflection->getParentClass();
+
+		if ($parent === false && $reflection->implementsInterface($interface)) {
+			$arr[] = $class;
+		}
+	}
+
+	return $arr;
+}
+
 function getDescendants(string $baseClass): array {
 	$descendants = [];
 
@@ -38,6 +53,10 @@ function printTree(array $tree, array $stack = []) {
 	}
 }
 
-printTree(
-	getDescendants("AnioSoftware\\EVM\PHP\\PHPStructuredObject")
-);
+$tree = [];
+
+foreach (getBaseClasses("AnioSoftware\\EVM\PHP\\PHPStructuredObject") as $class) {
+	$tree[$class] = getDescendants($class);
+}
+
+printTree($tree);
