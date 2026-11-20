@@ -17,9 +17,9 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 	);
 
 	foreach ($refentries as $refentry) {
-		$refId = $ctx->manual->getRefIdAttribute($refentry);
+		$referenceId = $ctx->manual->getRefIdAttribute($refentry);
 
-		if (!\str_starts_with($refId, "function.")) {
+		if (!\str_starts_with($referenceId, "function.")) {
 			continue;
 		}
 
@@ -29,7 +29,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 		);
 
 		if (!$refname) {
-			$diagnostics->addWarning("refname is null for $refId");
+			$diagnostics->addWarning("refname is null for $referenceId");
 
 			continue;
 		}
@@ -54,7 +54,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 			$el = XML\selectFirstMatchingChild($refpurpose, $orSelector);
 
 			if (!$el) {
-				$diagnostics->addWarning("no <function> or <methodname> tag for $refId");
+				$diagnostics->addWarning("no <function> or <methodname> tag for $referenceId");
 
 				continue;
 			}
@@ -63,7 +63,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 				Factory\createFunctionAlias(
 					$metadata,
 					$ns,
-					$refId,
+					$referenceId,
 					$qualifier["localName"],
 					\trim($el->textContent)
 				)
@@ -77,7 +77,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 		);
 
 		if (!$methodsynopsis) {
-			$diagnostics->addWarning("methodsynopsis is null for $refId.");
+			$diagnostics->addWarning("methodsynopsis is null for $referenceId.");
 
 			continue;
 		}
@@ -87,7 +87,7 @@ function loadPHPFunctions(EVM\EVMContext $ctx): void {
 			$diagnostics,
 			$ctx,
 			$ns,
-			$refId,
+			$referenceId,
 			$qualifier["localName"],
 			$methodsynopsis
 		);
