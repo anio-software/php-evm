@@ -14,9 +14,9 @@ function loadPHPConstants(
 	);
 
 	foreach ($constants as $constant) {
-		$refId = $evmContext->manual->getRefIdAttribute($constant);
+		$referenceId = $evmContext->manual->getRefIdAttribute($constant);
 
-		if (!\str_starts_with($refId, "constant.")) {
+		if (!\str_starts_with($referenceId, "constant.")) {
 			continue;
 		}
 
@@ -25,11 +25,11 @@ function loadPHPConstants(
 		);
 
 		if (!$const) {
-			$diagnostics->addWarning("no <constant> tag for $refId");
+			$diagnostics->addWarning("no <constant> tag for $referenceId");
 
 			continue;
 		} else if ($const->hasAttribute("linkend")) {
-			$diagnostics->addWarning("constant with refId $refId is marked as linkend, ignoring");
+			$diagnostics->addWarning("constant with refId $referenceId is marked as linkend, ignoring");
 
 			continue;
 		}
@@ -43,7 +43,7 @@ function loadPHPConstants(
 		$inst = Factory\createConstant(
 			$metadata,
 			$ns,
-			$refId,
+			$referenceId,
 			$qualifier["localName"]
 		);
 

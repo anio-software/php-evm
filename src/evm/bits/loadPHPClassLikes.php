@@ -20,11 +20,11 @@ function loadPHPClassLikes(
 	);
 
 	foreach ($references as $reference) {
-		$refId = $evmContext->manual->getRefIdAttribute($reference);
+		$referenceId = $evmContext->manual->getRefIdAttribute($reference);
 
 		if (
-			!\str_starts_with($refId, "class.") &&
-			!\str_starts_with($refId, "enum.")
+			!\str_starts_with($referenceId, "class.") &&
+			!\str_starts_with($referenceId, "enum.")
 		) {
 			continue;
 		}
@@ -46,7 +46,7 @@ function loadPHPClassLikes(
 		$synopsis = XML\selectFirstMatchingDescendant($reference, $orSelector);
 
 		if (!$synopsis) {
-			$diagnostics->addWarning("no classsynopsis or enumsynopsis for $refId");
+			$diagnostics->addWarning("no classsynopsis or enumsynopsis for $referenceId");
 
 			continue;
 		}
@@ -54,7 +54,7 @@ function loadPHPClassLikes(
 		$firstElement = XML\selectFirstMatchingChild($synopsis, new XML\ElementSelector);
 
 		if (!$firstElement) {
-			$diagnostics->addWarning("no firstElement for $refId");
+			$diagnostics->addWarning("no firstElement for $referenceId");
 
 			continue;
 		}
@@ -69,7 +69,7 @@ function loadPHPClassLikes(
 		$kind = $firstElement->localName;
 
 		if (!\array_key_exists($kind, $map)) {
-			$diagnostics->addWarning("unmapped localName $kind for $refId");
+			$diagnostics->addWarning("unmapped localName $kind for $referenceId");
 
 			continue;
 		}
@@ -93,15 +93,15 @@ function loadPHPClassLikes(
 
 		$inst = match($class) {
 			PHP\PHPClass::class => Factory\createClass(
-				$metadata, $ns, $refId, $qualifier["localName"]
+				$metadata, $ns, $referenceId, $qualifier["localName"]
 			),
 
 			PHP\PHPInterface::class => Factory\createInterface(
-				$metadata, $ns, $refId, $qualifier["localName"]
+				$metadata, $ns, $referenceId, $qualifier["localName"]
 			),
 
 			PHP\PHPEnum::class => Factory\createEnum(
-				$metadata, $ns, $refId, $qualifier["localName"]
+				$metadata, $ns, $referenceId, $qualifier["localName"]
 			)
 		};
 
