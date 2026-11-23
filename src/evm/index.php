@@ -16,3 +16,5 @@ require_once __DIR__."/EVMLoader.php";
 require_once __DIR__."/EVMOptions.php";
 require_once __DIR__."/EVMTimingStatistics.php";
 require_once __DIR__."/EVMStatistics.php";
+
+require_once __DIR__."/loader/xmlv0/index.php";
