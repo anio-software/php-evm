@@ -93,21 +93,21 @@ function loadPHPClassLikes(
 			evmContext  : $evmContext,
 			diagnostics : $diagnostics,
 			metadata    : createPHPDefinitionMetadataFromDOMElement($evmContext, $reference),
-			namespace   : $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]),
+			namespace   : $evmContext->manual->getOrCreateNamespace($qualifier->namespace),
 			referenceId : $referenceId
 		);
 
 		$inst = match($class) {
 			PHP\PHPClass::class => Factory\createClass(
-				$factoryCtx, $qualifier["localName"]
+				$factoryCtx, $qualifier->localName
 			),
 
 			PHP\PHPInterface::class => Factory\createInterface(
-				$factoryCtx, $qualifier["localName"]
+				$factoryCtx, $qualifier->localName
 			),
 
 			PHP\PHPEnum::class => Factory\createEnum(
-				$factoryCtx, $qualifier["localName"]
+				$factoryCtx, $qualifier->localName
 			)
 		};
 

@@ -42,13 +42,13 @@ function loadPHPConstants(
 			evmContext  : $evmContext,
 			diagnostics : $diagnostics,
 			metadata    : createPHPDefinitionMetadataFromDOMElement($evmContext, $constant),
-			namespace   : $evmContext->manual->getOrCreateNamespace($qualifier["namespace"]),
+			namespace   : $evmContext->manual->getOrCreateNamespace($qualifier->namespace),
 			referenceId : $referenceId
 		);
 
 		$inst = Factory\createConstant(
 			$factoryCtx,
-			$qualifier["localName"]
+			$qualifier->localName
 		);
 
 		$factoryCtx->namespace->addDefinition($inst);

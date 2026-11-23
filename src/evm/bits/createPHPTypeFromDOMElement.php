@@ -13,8 +13,8 @@ function mapTypeStringInt(EVM\EVMContext $ctx, string $typeName): PHP\PHPType {
 	}
 
 	$qualifier = $ctx->manual->parseQualifiedName($typeName);
-	$typeName = $qualifier["localName"];
-	$namespace = $ctx->manual->getOrCreateNamespace($qualifier["namespace"]);
+	$typeName = $qualifier->localName;
+	$namespace = $ctx->manual->getOrCreateNamespace($qualifier->namespace);
 
 	if (\array_key_exists($typeName, $namespace->getClasses())) {
 		return new PHP\PHPNamedType($namespace, $typeName);

@@ -55,7 +55,7 @@ final class PHPManual implements PHPStructuredObject {
 		return $currentNamespace;
 	}
 
-	public function parseQualifiedName(string $name): array {
+	public function parseQualifiedName(string $name): PHPQualifiedName {
 		if (\str_starts_with($name, "\\")) {
 			$name = \substr($name, 1);
 		}
@@ -63,10 +63,10 @@ final class PHPManual implements PHPStructuredObject {
 		$parts = \explode("\\", $name);
 		$localName = \array_pop($parts);
 
-		return [
-			"localName" => $localName,
-			"namespace" => \implode("\\", $parts)
-		];
+		return new PHPQualifiedName(
+			localName : $localName,
+			namespace : \implode("\\", $parts)
+		);
 	}
 
 	public function elementSelectorFactory(string $tagName): XML\ElementSelector {
