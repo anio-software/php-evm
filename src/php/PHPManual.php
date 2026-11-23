@@ -2,25 +2,14 @@
 
 namespace AnioSoftware\EVM\PHP;
 
-use AnioSoftware\EVM\XML as XML;
-
 final class PHPManual implements PHPStructuredObject {
 	use PHPStructuredObjectBehavior;
 
-	private array $elementSelectorFactoryCache = [];
-	readonly private XML\AttributeSelector $refIdSelector;
 	private ?PHPManualIndex $index = NULL;
 
 	public function __construct(
-		readonly private PHPNamespace $globalNamespace,
-		readonly private string $xmlIdNamespace,
-		readonly private string $docBookNamespace
-	) {
-		$this->refIdSelector = new XML\AttributeSelector(
-			XML\NamespaceMatcher::specific($this->xmlIdNamespace),
-			"id"
-		);
-	}
+		readonly private PHPNamespace $globalNamespace
+	) {}
 
 	public function buildIndex(): PHPManualIndex {
 		$this->index = new PHPManualIndex($this);
@@ -67,59 +56,6 @@ final class PHPManual implements PHPStructuredObject {
 			localName : $localName,
 			namespace : \implode("\\", $parts)
 		);
-	}
-
-	public function elementSelectorFactory(string $tagName): XML\ElementSelector {
-		if (!\array_key_exists($tagName, $this->elementSelectorFactoryCache)) {
-			$this->elementSelectorFactoryCache[$tagName] = new XML\ElementSelector(
-				XML\NamespaceMatcher::specific($this->docBookNamespace),
-				$tagName
-			);
-		}
-
-		return $this->elementSelectorFactoryCache[$tagName];
-	}
-
-	public function refIdSelectorFactory(): XML\AttributeSelector {
-		return $this->refIdSelector;
-	}
-
-	public function getRefIdAttribute(\DOMElement $el): string {
-		return $el->getAttributeNS($this->xmlIdNamespace, "id");
-	}
-
-	public function getElementsWithReferenceIdAttribute(
-		\DOMDocument $doc,
-		string $docBookTagName
-	): array {
-//		// this is the initial implementation of this method
-//		// however, testing has shown this is a major bottleneck
-//		// so it's implemented differently.
-//
-//		return XML\select(
-//			$doc->documentElement,
-//			new XML\AndSelector(
-//				$this->elementSelectorFactory($docBookTagName),
-//				$this->refIdSelectorFactory()
-//			)
-//		);
-
-		// this is ~4.5 times faster
-		$elements = $doc->getElementsByTagNameNS(
-			$this->docBookNamespace, $docBookTagName
-		);
-
-		$arr = [];
-
-		foreach ($elements as $element) {
-			if (!$element->hasAttributeNS($this->xmlIdNamespace, "id")) {
-				continue;
-			}
-
-			$arr[] = $element;
-		}
-
-		return $arr;
 	}
 
 	public function getLogicalPropertySet(): PHPLogicalPropertySet {
