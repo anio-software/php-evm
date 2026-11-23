@@ -13,7 +13,6 @@ require_once __DIR__."/EVMDiagnostics.php";
 require_once __DIR__."/EVMOptions.php";
 require_once __DIR__."/EVMTimingStatistics.php";
 require_once __DIR__."/EVMStatistics.php";
-require_once __DIR__."/EVMContext.php";
 
 require_once __DIR__."/bits/factory/EVMBitsFactoryContext.php";
 require_once __DIR__."/bits/factory/createFunctionAlias.php";
@@ -34,5 +33,3 @@ require_once __DIR__."/bits/parsePHPFunctionParameterInitializer.php";
 require_once __DIR__."/bits/loadPHPClassLikes.php";
 require_once __DIR__."/bits/loadPHPConstants.php";
 require_once __DIR__."/bits/loadPHPFunctions.php";
-
-require_once __DIR__."/loadPHPManual.php";
