@@ -16,6 +16,7 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 
 		$globalNamespace = $options->globalNamespace ?? new EVM\PHP\PHPNamespace("", NULL);
 		$this->phpGlobalNamespace = $globalNamespace;
+
 		$this->phpManual = new EVM\PHP\PHPManual($this->phpGlobalNamespace);
 	}
 
