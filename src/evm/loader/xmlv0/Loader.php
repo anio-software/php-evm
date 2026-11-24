@@ -55,6 +55,6 @@ readonly class Loader extends EVM\EVMLoader {
 	public function createInstance(
 		EVM\EVMOptions $options
 	): EVM\EVMLoaderInstance {
-		return new LoaderInstance($this, $options);
+		return new LoaderInstance($this, self::XMLID_NS, self::DOCBOOK_NS, $options);
 	}
 }

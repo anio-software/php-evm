@@ -11,6 +11,8 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 
 	public function __construct(
 		readonly protected Loader $loader,
+		readonly public string $xmlIdNamespace,
+		readonly public string $docBookNamespace,
 		EVM\EVMOptions $options
 	) {
 		parent::__construct($options);
