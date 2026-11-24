@@ -6,7 +6,7 @@ use AnioSoftware\EVM as EVM;
 
 final class LoaderInstance extends EVM\EVMLoaderInstance {
 	public function __construct(
-		readonly protected Implementation $loader,
+		readonly protected Loader $loader,
 		EVM\EVMOptions $options
 	) {
 		parent::__construct($options);

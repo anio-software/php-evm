@@ -4,7 +4,7 @@ namespace AnioSoftware\EVM\Loader\XMLv0;
 
 use AnioSoftware\EVM as EVM;
 
-readonly class Implementation extends EVM\EVMLoader {
+readonly class Loader extends EVM\EVMLoader {
 	public function __construct(
 		public string $manualPath
 	) {}
