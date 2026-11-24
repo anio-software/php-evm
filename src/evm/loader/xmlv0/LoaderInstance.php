@@ -8,6 +8,7 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	readonly public EVM\PHP\PHPNamespace $phpGlobalNamespace;
 	readonly public EVM\PHP\PHPManual $phpManual;
 	readonly public \DOMDocument $domDocument;
+	readonly private EVM\XML\AttributeSelector $referenceIdSelector;
 	private ?EVM\PHP\PHPManualIndex $phpManualIndex = NULL;
 	private array $xmlElementsCache = [];
 	private array $elementSelectorFactoryCache = [];
@@ -39,6 +40,10 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		}
 
 		$this->domDocument = EVM\XML\loadDocument($loader->manualPath);
+		$this->referenceIdSelector = new EVM\XML\AttributeSelector(
+			EVM\XML\NamespaceMatcher::specific($this->xmlIdNamespace),
+			"id"
+		);
 	}
 
 	public function getPHPDefinitionXMLMappingForKind(
@@ -49,6 +54,10 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 
 	public function &getXMLElementsCacheForMapping(PHPDefinitionXMLMapping $mapping): ?array {
 		return $this->xmlElementsCache[$mapping->tagName][$mapping->referenceIdPrefix];
+	}
+
+	public function referenceIdSelectorFactory(): EVM\XML\AttributeSelector {
+		return $this->referenceIdSelector;
 	}
 
 	public function elementSelectorFactory(string $tagName): EVM\XML\ElementSelector {
