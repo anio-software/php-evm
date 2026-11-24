@@ -8,6 +8,7 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	readonly public EVM\PHP\PHPNamespace $phpGlobalNamespace;
 	readonly public EVM\PHP\PHPManual $phpManual;
 	private ?EVM\PHP\PHPManualIndex $phpManualIndex = NULL;
+	private array $xmlElementsCache = [];
 
 	public function __construct(
 		readonly protected Loader $loader,
@@ -21,6 +22,23 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		$this->phpGlobalNamespace = $globalNamespace;
 
 		$this->phpManual = new EVM\PHP\PHPManual($this->phpGlobalNamespace);
+		$this->xmlElementsCache = [];
+
+		foreach ($this->loader->getPHPDefinitionXMLMappings()->entries() as [, $value]) {
+			if (!\array_key_exists($value->tagName, $this->xmlElementsCache)) {
+				$this->xmlElementsCache[$value->tagName] = [];
+			}
+
+			$arr = &$this->xmlElementsCache[$value->tagName];
+
+			if (!\array_key_exists($value->referenceIdPrefix, $arr)) {
+				$arr[$value->referenceIdPrefix] = NULL;
+			}
+		}
+	}
+
+	public function &getXMLElementsCacheForMapping(PHPDefinitionXMLMapping $mapping): ?array {
+		return $this->xmlElementsCache[$mapping->tagName][$mapping->referenceIdPrefix];
 	}
 
 	public function updateIndex(): void {
