@@ -4,9 +4,11 @@ use AnioSoftware\EVM as EVM;
 
 require_once __DIR__."/../evm/index.php";
 
-$options = new EVM\EVMOptions("./example/manual.xml");
-$context = new EVM\EVMContext($options);
+$result = EVM\load(
+	new EVM\EVMOptions,
+	new EVM\Loader\XMLv0\Loader(
+		manualPath: "example/manual.xml"
+	)
+);
 
-$statistics = $context->loadPHPManual();
-
-\fwrite(\STDERR, $statistics->toString());
+\fwrite(\STDERR, $result->statistics->toString());
