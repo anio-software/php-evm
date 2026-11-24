@@ -15,16 +15,22 @@ final readonly class EVMStatistics {
 	) {}
 
 	public function toString(): string {
-		$elapsed    = (int)$this->timing->total;
-		$classLikes = (int)$this->timing->classLikes;
-		$constants  = (int)$this->timing->constants;
-		$functions  = (int)$this->timing->functions;
+		$elapsed         = (int)$this->timing->total;
+		$enums           = (int)$this->timing->enums;
+		$interfaces      = (int)$this->timing->interfaces;
+		$classes         = (int)$this->timing->classes;
+		$constants       = (int)$this->timing->constants;
+		$functions       = (int)$this->timing->functions;
+		$functionAliases = (int)$this->timing->functionAliases;
 
 		$str  = "Took {$elapsed}ms to fully load PHP manual:\n";
 
-		$str .= "Spent {$classLikes}ms for class likes\n";
+		$str .= "Spent {$enums}ms for enums\n";
+		$str .= "Spent {$interfaces}ms for interfaces\n";
+		$str .= "Spent {$classes}ms for classes\n";
 		$str .= "Spent {$constants}ms for constants\n";
 		$str .= "Spent {$functions}ms for functions\n";
+		$str .= "Spent {$functionAliases}ms for function aliases\n";
 
 		$str .= "Loaded ".$this->nLoadedNamespaces." namespaces\n";
 		$str .= "Loaded ".$this->nLoadedClasses." classes\n";

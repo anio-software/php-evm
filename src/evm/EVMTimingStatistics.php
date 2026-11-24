@@ -4,9 +4,12 @@ namespace AnioSoftware\EVM;
 
 final readonly class EVMTimingStatistics {
 	public function __construct(
-		public int|float $classLikes,
+		public int|float $enums,
+		public int|float $interfaces,
+		public int|float $classes,
 		public int|float $constants,
 		public int|float $functions,
+		public int|float $functionAliases,
 		public int|float $total
 	) {}
 
