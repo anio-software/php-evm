@@ -8,6 +8,9 @@ readonly class Loader extends EVM\EVMLoader {
 	// this is here because it doesn't change across loader instances
 	readonly private EVM\Utils\HashMap $phpDefinitionXMLMappings;
 
+	public const DOCBOOK_NS = "http://docbook.org/ns/docbook";
+	public const XMLID_NS   = "http://www.w3.org/XML/1998/namespace";
+
 	public function __construct(
 		public string $manualPath
 	) {
