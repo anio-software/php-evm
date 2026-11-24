@@ -10,7 +10,7 @@ function loadDefinitions(
 ): int {
 	return (int)EVM\EVMTimingStatistics::measure(
 		static function() use ($kind, $loaderInstance): void {
-
+			$loaderInstance->updateIndex();
 		}
 	);
 }

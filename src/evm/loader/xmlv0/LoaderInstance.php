@@ -7,6 +7,7 @@ use AnioSoftware\EVM as EVM;
 final class LoaderInstance extends EVM\EVMLoaderInstance {
 	readonly public EVM\PHP\PHPNamespace $phpGlobalNamespace;
 	readonly public EVM\PHP\PHPManual $phpManual;
+	private ?EVM\PHP\PHPManualIndex $phpManualIndex = NULL;
 
 	public function __construct(
 		readonly protected Loader $loader,
@@ -18,6 +19,10 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		$this->phpGlobalNamespace = $globalNamespace;
 
 		$this->phpManual = new EVM\PHP\PHPManual($this->phpGlobalNamespace);
+	}
+
+	public function updateIndex(): void {
+		$this->phpManualIndex = $this->phpManual->buildIndex();
 	}
 
 	public function load(): EVM\EVMLoadResult {
@@ -39,15 +44,17 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 			total           : $total
 		);
 
+		$index = $this->phpManualIndex;
+
 		$statistics = new EVM\EVMStatistics(
 			timing                 : $timing,
-			nLoadedNamespaces      : 0, // tbd
-			nLoadedEnums           : 0, // tbd
-			nLoadedInterfaces      : 0, // tbd
-			nLoadedClasses         : 0, // tbd
-			nLoadedConstants       : 0, // tbd
-			nLoadedFunctions       : 0, // tbd
-			nLoadedFunctionAliases : 0  // tbd
+			nLoadedNamespaces      : \count($index->getNamespaces()),
+			nLoadedEnums           : \count($index->getEnums()),
+			nLoadedInterfaces      : \count($index->getInterfaces()),
+			nLoadedClasses         : \count($index->getClasses()),
+			nLoadedConstants       : \count($index->getConstants()),
+			nLoadedFunctions       : \count($index->getFunctions()),
+			nLoadedFunctionAliases : \count($index->getFunctionAliases())
 		);
 
 		return new EVM\EVMLoadResult($statistics, $this->phpManual);
