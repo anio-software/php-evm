@@ -71,6 +71,39 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		return $this->elementSelectorFactoryCache[$tagName];
 	}
 
+	public function getElementsWithReferenceIdAttribute(
+		string $docBookTagName
+	): array {
+//		// this is the initial implementation of this method
+//		// however, testing has shown this is a major bottleneck
+//		// so it's implemented differently.
+
+//		return EVM\XML\select(
+//			$this->domDocument->documentElement,
+//			new EVM\XML\AndSelector(
+//				$this->elementSelectorFactory($docBookTagName),
+//				$this->referenceIdSelectorFactory()
+//			)
+//		);
+
+		// this is ~4.5 times faster
+		$elements = $this->domDocument->getElementsByTagNameNS(
+			$this->docBookNamespace, $docBookTagName
+		);
+
+		$arr = [];
+
+		foreach ($elements as $element) {
+			if (!$element->hasAttributeNS($this->xmlIdNamespace, "id")) {
+				continue;
+			}
+
+			$arr[] = $element;
+		}
+
+		return $arr;
+	}
+
 	public function updateIndex(): void {
 		$this->phpManualIndex = $this->phpManual->buildIndex();
 	}
