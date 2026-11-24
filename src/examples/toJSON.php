@@ -10,11 +10,15 @@ if (\sizeof($argv) !== 2) {
 	\exit(2);
 }
 
-$options = new EVM\EVMOptions($argv[1]);
-$context = new EVM\EVMContext($options);
+$result = EVM\load(
+	new EVM\EVMOptions,
+	new EVM\Loader\XMLv0\Loader(
+		manualPath: $argv[1]
+	)
+);
 
-$statistics = $context->loadPHPManual();
+\fwrite(\STDERR, $result->statistics->toString());
 
-\fwrite(\STDERR, $statistics->toString());
-
-echo \json_encode($context->manual, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)."\n";
+echo \json_encode(
+	$result->phpManual, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES
+)."\n";
