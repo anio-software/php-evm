@@ -15,10 +15,10 @@ final readonly class EVMStatistics {
 	) {}
 
 	public function toString(): string {
-		$elapsed    = (int)$this->timing->elapsedTimeMs;
-		$classLikes = (int)$this->timing->elapsedTimeMsClassLikes;
-		$constants  = (int)$this->timing->elapsedTimeMsConstants;
-		$functions  = (int)$this->timing->elapsedTimeMsFunctions;
+		$elapsed    = (int)$this->timing->total;
+		$classLikes = (int)$this->timing->classLikes;
+		$constants  = (int)$this->timing->constants;
+		$functions  = (int)$this->timing->functions;
 
 		$str  = "Took {$elapsed}ms to fully load PHP manual:\n";
 
