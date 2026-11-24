@@ -1,0 +1,10 @@
+<?php
+
+namespace AnioSoftware\EVM\Loader\XMLv0;
+
+final readonly class PHPDefinitionXMLMapping {
+	public function __construct(
+		public string $tagName,
+		public string $referenceIdPrefix
+	) {}
+}
