@@ -60,6 +60,10 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		return $this->referenceIdSelector;
 	}
 
+	public function getReferenceIdAttribute(\DOMElement $el): string {
+		return $el->getAttributeNS($this->xmlIdNamespace, "id");
+	}
+
 	public function elementSelectorFactory(string $tagName): EVM\XML\ElementSelector {
 		if (!\array_key_exists($tagName, $this->elementSelectorFactoryCache)) {
 			$this->elementSelectorFactoryCache[$tagName] = new EVM\XML\ElementSelector(
