@@ -7,6 +7,7 @@ use AnioSoftware\EVM as EVM;
 final class LoaderInstance extends EVM\EVMLoaderInstance {
 	readonly public EVM\PHP\PHPNamespace $phpGlobalNamespace;
 	readonly public EVM\PHP\PHPManual $phpManual;
+	readonly public \DOMDocument $domDocument;
 	private ?EVM\PHP\PHPManualIndex $phpManualIndex = NULL;
 	private array $xmlElementsCache = [];
 
@@ -35,6 +36,8 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 				$arr[$value->referenceIdPrefix] = NULL;
 			}
 		}
+
+		$this->domDocument = EVM\XML\loadDocument($loader->manualPath);
 	}
 
 	public function getPHPDefinitionXMLMappingForKind(
