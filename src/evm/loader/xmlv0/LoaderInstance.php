@@ -10,6 +10,7 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	readonly public \DOMDocument $domDocument;
 	private ?EVM\PHP\PHPManualIndex $phpManualIndex = NULL;
 	private array $xmlElementsCache = [];
+	private array $elementSelectorFactoryCache = [];
 
 	public function __construct(
 		readonly protected Loader $loader,
@@ -48,6 +49,17 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 
 	public function &getXMLElementsCacheForMapping(PHPDefinitionXMLMapping $mapping): ?array {
 		return $this->xmlElementsCache[$mapping->tagName][$mapping->referenceIdPrefix];
+	}
+
+	public function elementSelectorFactory(string $tagName): EVM\XML\ElementSelector {
+		if (!\array_key_exists($tagName, $this->elementSelectorFactoryCache)) {
+			$this->elementSelectorFactoryCache[$tagName] = new EVM\XML\ElementSelector(
+				EVM\XML\NamespaceMatcher::specific($this->docBookNamespace),
+				$tagName
+			);
+		}
+
+		return $this->elementSelectorFactoryCache[$tagName];
 	}
 
 	public function updateIndex(): void {
