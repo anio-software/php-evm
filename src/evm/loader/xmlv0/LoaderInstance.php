@@ -12,6 +12,7 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	private ?EVM\PHP\PHPManualIndex $phpManualIndex = NULL;
 	private array $xmlElementsCache = [];
 	private array $elementSelectorFactoryCache = [];
+	private array $pathSelectorFactoryCache = [];
 
 	public function __construct(
 		readonly protected Loader $loader,
@@ -62,6 +63,22 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 
 	public function getReferenceIdAttribute(\DOMElement $el): string {
 		return $el->getAttributeNS($this->xmlIdNamespace, "id");
+	}
+
+	public function pathSelectorFactory(\DOMElement $root, string $path): EVM\XML\DOMSelector {
+		if (!\array_key_exists($path, $this->pathSelectorFactoryCache)) {
+			$chain = [];
+
+			foreach (\explode("/", $path) as $tagName) {
+				$chain[] = $this->elementSelectorFactory($tagName);
+			}
+
+			$this->pathSelectorFactoryCache[$path] = $chain;
+		}
+
+		return new EVM\XML\ElementAncestrySelector(
+			$root, $this->pathSelectorFactoryCache[$path]
+		);
 	}
 
 	public function elementSelectorFactory(string $tagName): EVM\XML\ElementSelector {
