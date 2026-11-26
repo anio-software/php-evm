@@ -6,11 +6,11 @@ use AnioSoftware\EVM as EVM;
 
 function extractPHPXMLElementsData(
 	LoaderInstance $loaderInstance
-): EVM\Utils\HashMap {
-	$map = new EVM\Utils\HashMap;
+): array {
+	$map = [];
 
 	foreach ($loaderInstance->getPHPDefinitionXMLMappings()->entries() as [$kind]) {
-		$map->set($kind, []);
+		$map[$kind->value] = [];
 	}
 
 	return $map;
