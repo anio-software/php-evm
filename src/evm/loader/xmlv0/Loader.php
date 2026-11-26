@@ -20,7 +20,8 @@ readonly class Loader extends EVM\EVMLoader {
 				EVM\PHP\PHPDefinitionKind::kEnum,
 				new PHPDefinitionXMLMapping(
 					tagName           : "reference",
-					referenceIdPrefix : "enum."
+					referenceIdPrefix : "enum.",
+					synopsisTagName   : "enumsynopsis"
 				)
 			],
 			// interfaces
@@ -28,7 +29,8 @@ readonly class Loader extends EVM\EVMLoader {
 				EVM\PHP\PHPDefinitionKind::kInterface,
 				new PHPDefinitionXMLMapping(
 					tagName           : "reference",
-					referenceIdPrefix : "class."
+					referenceIdPrefix : "class.",
+					synopsisTagName   : "classsynopsis"
 				)
 			],
 			// classes
@@ -36,7 +38,8 @@ readonly class Loader extends EVM\EVMLoader {
 				EVM\PHP\PHPDefinitionKind::kClass,
 				new PHPDefinitionXMLMapping(
 					tagName           : "reference",
-					referenceIdPrefix : "class."
+					referenceIdPrefix : "class.",
+					synopsisTagName   : "classsynopsis"
 				)
 			],
 			// constants
@@ -44,7 +47,8 @@ readonly class Loader extends EVM\EVMLoader {
 				EVM\PHP\PHPDefinitionKind::kConstant,
 				new PHPDefinitionXMLMapping(
 					tagName           : "varlistentry",
-					referenceIdPrefix : "constant."
+					referenceIdPrefix : "constant.",
+					synopsisTagName   : NULL
 				)
 			],
 			// functions
@@ -52,7 +56,8 @@ readonly class Loader extends EVM\EVMLoader {
 				EVM\PHP\PHPDefinitionKind::kFunction,
 				new PHPDefinitionXMLMapping(
 					tagName           : "refentry",
-					referenceIdPrefix : "function."
+					referenceIdPrefix : "function.",
+					synopsisTagName   : "methodsynopsis"
 				)
 			],
 			// function aliases
@@ -60,7 +65,8 @@ readonly class Loader extends EVM\EVMLoader {
 				EVM\PHP\PHPDefinitionKind::kFunctionAlias,
 				new PHPDefinitionXMLMapping(
 					tagName           : "refentry",
-					referenceIdPrefix : "function."
+					referenceIdPrefix : "function.",
+					synopsisTagName   : NULL
 				)
 			]
 		]);
