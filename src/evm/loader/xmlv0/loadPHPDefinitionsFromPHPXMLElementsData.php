@@ -6,7 +6,8 @@ use AnioSoftware\EVM as EVM;
 
 function loadPHPDefinitionsFromPHPXMLElementsData(
 	EVM\PHP\PHPDefinitionKind $kind,
-	LoaderInstance $loaderInstance
+	LoaderInstance $loaderInstance,
+	array $elementsData
 ): void {
 
 }

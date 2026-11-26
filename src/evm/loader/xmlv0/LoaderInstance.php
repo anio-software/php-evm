@@ -134,9 +134,9 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 
 		foreach ($this->getPHPDefinitionXMLMappings()->entries() as [$kind]) {
 			$elapsedTime = (int)EVM\EVMTimingStatistics::measure(
-				function() use ($kind) {
+				function() use ($kind, $data) {
 					loadPHPDefinitionsFromPHPXMLElementsData(
-						$kind, $this
+						$kind, $this, $data->get($kind)
 					);
 
 					$this->updateIndex();
