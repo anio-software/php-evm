@@ -25,7 +25,6 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		$this->phpGlobalNamespace = $globalNamespace;
 
 		$this->phpManual = new EVM\PHP\PHPManual($this->phpGlobalNamespace);
-
 		$this->domDocument = EVM\XML\loadDocument($loader->manualPath);
 		$this->referenceIdSelector = new EVM\XML\AttributeSelector(
 			EVM\XML\NamespaceMatcher::specific($this->xmlIdNamespace),
