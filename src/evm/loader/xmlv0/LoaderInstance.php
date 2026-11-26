@@ -10,7 +10,6 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	readonly public \DOMDocument $domDocument;
 	readonly private EVM\XML\AttributeSelector $referenceIdSelector;
 	private ?EVM\PHP\PHPManualIndex $phpManualIndex = NULL;
-	private array $xmlElementsCache = [];
 	private array $elementSelectorFactoryCache = [];
 	private array $pathSelectorFactoryCache = [];
 
@@ -26,19 +25,6 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		$this->phpGlobalNamespace = $globalNamespace;
 
 		$this->phpManual = new EVM\PHP\PHPManual($this->phpGlobalNamespace);
-		$this->xmlElementsCache = [];
-
-		foreach ($this->loader->getPHPDefinitionXMLMappings()->entries() as [, $value]) {
-			if (!\array_key_exists($value->tagName, $this->xmlElementsCache)) {
-				$this->xmlElementsCache[$value->tagName] = [];
-			}
-
-			$arr = &$this->xmlElementsCache[$value->tagName];
-
-			if (!\array_key_exists($value->referenceIdPrefix, $arr)) {
-				$arr[$value->referenceIdPrefix] = NULL;
-			}
-		}
 
 		$this->domDocument = EVM\XML\loadDocument($loader->manualPath);
 		$this->referenceIdSelector = new EVM\XML\AttributeSelector(
@@ -49,10 +35,6 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 
 	public function getPHPDefinitionXMLMappings(): EVM\Utils\HashMap {
 		return $this->loader->getPHPDefinitionXMLMappings();
-	}
-
-	public function &getXMLElementsCacheForMapping(PHPDefinitionXMLMapping $mapping): ?array {
-		return $this->xmlElementsCache[$mapping->tagName][$mapping->referenceIdPrefix];
 	}
 
 	public function referenceIdSelectorFactory(): EVM\XML\AttributeSelector {
