@@ -7,10 +7,6 @@ use AnioSoftware\EVM as EVM;
 function loadPHPDefinitionsFromPHPXMLElementsData(
 	EVM\PHP\PHPDefinitionKind $kind,
 	LoaderInstance $loaderInstance
-): int {
-	return (int)EVM\EVMTimingStatistics::measure(
-		static function() use ($kind, $loaderInstance): void {
-			$loaderInstance->updateIndex();
-		}
-	);
+): void {
+
 }
