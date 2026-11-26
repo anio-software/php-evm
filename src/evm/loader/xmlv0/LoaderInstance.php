@@ -132,12 +132,12 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	public function load(): EVM\EVMLoadResult {
 		$data = extractPHPXMLElementsData($this);
 
-		$enums           = loadDefinitions(EVM\PHP\PHPDefinitionKind::kEnum, $this);
-		$interfaces      = loadDefinitions(EVM\PHP\PHPDefinitionKind::kInterface, $this);
-		$classes         = loadDefinitions(EVM\PHP\PHPDefinitionKind::kClass, $this);
-		$constants       = loadDefinitions(EVM\PHP\PHPDefinitionKind::kConstant, $this);
-		$functions       = loadDefinitions(EVM\PHP\PHPDefinitionKind::kFunction, $this);
-		$functionAliases = loadDefinitions(EVM\PHP\PHPDefinitionKind::kFunctionAlias, $this);
+		$enums           = loadPHPDefinitionsFromPHPXMLElementData(EVM\PHP\PHPDefinitionKind::kEnum, $this);
+		$interfaces      = loadPHPDefinitionsFromPHPXMLElementData(EVM\PHP\PHPDefinitionKind::kInterface, $this);
+		$classes         = loadPHPDefinitionsFromPHPXMLElementData(EVM\PHP\PHPDefinitionKind::kClass, $this);
+		$constants       = loadPHPDefinitionsFromPHPXMLElementData(EVM\PHP\PHPDefinitionKind::kConstant, $this);
+		$functions       = loadPHPDefinitionsFromPHPXMLElementData(EVM\PHP\PHPDefinitionKind::kFunction, $this);
+		$functionAliases = loadPHPDefinitionsFromPHPXMLElementData(EVM\PHP\PHPDefinitionKind::kFunctionAlias, $this);
 		$total = $enums + $interfaces + $classes + $constants + $functions + $functionAliases;
 
 		$timing = new EVM\EVMTimingStatistics(
