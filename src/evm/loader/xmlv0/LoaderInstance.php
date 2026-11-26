@@ -47,12 +47,6 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		);
 	}
 
-	public function getPHPDefinitionXMLMappingForKind(
-		EVM\PHP\PHPDefinitionKind $kind
-	): PHPDefinitionXMLMapping {
-		return $this->loader->getPHPDefinitionXMLMappings()->get($kind);
-	}
-
 	public function &getXMLElementsCacheForMapping(PHPDefinitionXMLMapping $mapping): ?array {
 		return $this->xmlElementsCache[$mapping->tagName][$mapping->referenceIdPrefix];
 	}
