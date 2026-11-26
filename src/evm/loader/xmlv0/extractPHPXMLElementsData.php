@@ -9,7 +9,7 @@ function extractPHPXMLElementsData(
 ): EVM\Utils\HashMap {
 	$map = new EVM\Utils\HashMap;
 
-	foreach ($loaderInstance->getPHPDefinitionXMLMappings()->keys() as $kind) {
+	foreach ($loaderInstance->getPHPDefinitionXMLMappings()->entries() as [$kind]) {
 		$map->set($kind, []);
 	}
 
