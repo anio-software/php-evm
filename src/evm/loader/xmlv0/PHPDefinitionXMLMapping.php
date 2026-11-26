@@ -8,4 +8,11 @@ final readonly class PHPDefinitionXMLMapping {
 		public string $referenceIdPrefix,
 		public ?string $synopsisTagName
 	) {}
+
+	public function getXMLMappingKey(): string {
+		return \serialize([
+			$this->tagName,
+			$this->referenceIdPrefix
+		]);
+	}
 }
