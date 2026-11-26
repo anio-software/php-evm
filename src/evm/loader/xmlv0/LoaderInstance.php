@@ -130,29 +130,26 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	public function load(): EVM\EVMLoadResult {
 		$data = extractPHPXMLElementsData($this);
 
-		$enums = loadPHPDefinitionsFromPHPXMLElementsData(
-			EVM\PHP\PHPDefinitionKind::kEnum, $this
-		);
+		$timing = new EVM\Utils\HashMap;
 
-		$interfaces = loadPHPDefinitionsFromPHPXMLElementsData(
-			EVM\PHP\PHPDefinitionKind::kInterface, $this
-		);
+		foreach ($this->getPHPDefinitionXMLMappings()->entries() as [$kind]) {
+			$elapsedTime = (int)EVM\EVMTimingStatistics::measure(
+				function() use ($kind) {
+					loadPHPDefinitionsFromPHPXMLElementsData(
+						$kind, $this
+					);
+				}
+			);
 
-		$classes = loadPHPDefinitionsFromPHPXMLElementsData(
-			EVM\PHP\PHPDefinitionKind::kClass, $this
-		);
+			$timing->set($kind, $elapsedTime);
+		}
 
-		$constants = loadPHPDefinitionsFromPHPXMLElementsData(
-			EVM\PHP\PHPDefinitionKind::kConstant, $this
-		);
-
-		$functions = loadPHPDefinitionsFromPHPXMLElementsData(
-			EVM\PHP\PHPDefinitionKind::kFunction, $this
-		);
-
-		$functionAliases = loadPHPDefinitionsFromPHPXMLElementsData(
-			EVM\PHP\PHPDefinitionKind::kFunctionAlias, $this
-		);
+		$enums           = $timing->get(EVM\PHP\PHPDefinitionKind::kEnum);
+		$interfaces      = $timing->get(EVM\PHP\PHPDefinitionKind::kInterface);
+		$classes         = $timing->get(EVM\PHP\PHPDefinitionKind::kClass);
+		$constants       = $timing->get(EVM\PHP\PHPDefinitionKind::kConstant);
+		$functions       = $timing->get(EVM\PHP\PHPDefinitionKind::kFunction);
+		$functionAliases = $timing->get(EVM\PHP\PHPDefinitionKind::kFunctionAlias);
 
 		$total = $enums + $interfaces + $classes + $constants + $functions + $functionAliases;
 
