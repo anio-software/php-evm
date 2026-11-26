@@ -47,6 +47,10 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		);
 	}
 
+	public function getPHPDefinitionXMLMappings(): EVM\Utils\HashMap {
+		return $this->loader->getPHPDefinitionXMLMappings();
+	}
+
 	public function &getXMLElementsCacheForMapping(PHPDefinitionXMLMapping $mapping): ?array {
 		return $this->xmlElementsCache[$mapping->tagName][$mapping->referenceIdPrefix];
 	}
