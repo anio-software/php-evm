@@ -130,6 +130,8 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	}
 
 	public function load(): EVM\EVMLoadResult {
+		$data = extractPHPXMLElementsData($this);
+
 		$enums           = loadDefinitions(EVM\PHP\PHPDefinitionKind::kEnum, $this);
 		$interfaces      = loadDefinitions(EVM\PHP\PHPDefinitionKind::kInterface, $this);
 		$classes         = loadDefinitions(EVM\PHP\PHPDefinitionKind::kClass, $this);
