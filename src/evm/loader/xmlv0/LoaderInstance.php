@@ -138,6 +138,8 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 					loadPHPDefinitionsFromPHPXMLElementsData(
 						$kind, $this
 					);
+
+					$this->updateIndex();
 				}
 			);
 
