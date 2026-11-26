@@ -19,48 +19,48 @@ readonly class Loader extends EVM\EVMLoader {
 			[
 				EVM\PHP\PHPDefinitionKind::kEnum,
 				new PHPDefinitionXMLMapping(
-					"reference",
-					"enum."
+					tagName           : "reference",
+					referenceIdPrefix : "enum."
 				)
 			],
 			// interfaces
 			[
 				EVM\PHP\PHPDefinitionKind::kInterface,
 				new PHPDefinitionXMLMapping(
-					"reference",
-					"class."
+					tagName           : "reference",
+					referenceIdPrefix : "class."
 				)
 			],
 			// classes
 			[
 				EVM\PHP\PHPDefinitionKind::kClass,
 				new PHPDefinitionXMLMapping(
-					"reference",
-					"class."
+					tagName           : "reference",
+					referenceIdPrefix : "class."
 				)
 			],
 			// constants
 			[
 				EVM\PHP\PHPDefinitionKind::kConstant,
 				new PHPDefinitionXMLMapping(
-					"varlistentry",
-					"constant."
+					tagName           : "varlistentry",
+					referenceIdPrefix : "constant."
 				)
 			],
 			// functions
 			[
 				EVM\PHP\PHPDefinitionKind::kFunction,
 				new PHPDefinitionXMLMapping(
-					"refentry",
-					"function."
+					tagName           : "refentry",
+					referenceIdPrefix : "function."
 				)
 			],
 			// function aliases
 			[
 				EVM\PHP\PHPDefinitionKind::kFunctionAlias,
 				new PHPDefinitionXMLMapping(
-					"refentry",
-					"function."
+					tagName           : "refentry",
+					referenceIdPrefix : "function."
 				)
 			]
 		]);
