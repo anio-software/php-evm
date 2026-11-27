@@ -109,7 +109,13 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 	}
 
 	public function load(): EVM\EVMLoadResult {
-		$data = extractPHPXMLElementsData($this);
+		$data = [];
+
+		$extraction = EVM\EVMTimingStatistics::measure(
+			function() use (&$data): void {
+				$data = extractPHPXMLElementsData($this);
+			}
+		);
 
 		$timing = new EVM\Utils\HashMap;
 
@@ -140,7 +146,10 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 			classes         : $classes,
 			constants       : $constants,
 			functions       : $functions,
-			functionAliases : $functionAliases
+			functionAliases : $functionAliases,
+			additional      : [
+				"extraction" => $extraction
+			]
 		);
 
 		$index = $this->phpManualIndex;
