@@ -19,11 +19,39 @@ function createFunction(FactoryContext $ctx): ?EVM\PHP\PHPFunction {
 		return NULL;
 	}
 
+	$parameters = [];
+
+	$methodParams = EVM\XML\select(
+		$ctx->elementData->dom->synopsis,
+		$ctx->loaderInstance->elementSelectorFactory("methodparam"),
+		0
+	);
+
+	foreach ($methodParams as $methodParam) {
+		$parameterElement = EVM\XML\selectFirstMatchingChild(
+			$methodParam,
+			$ctx->loaderInstance->elementSelectorFactory("parameter")
+		);
+
+		if ($parameterElement === NULL) {
+			return NULL;
+		}
+
+		$parameter = _createFunctionParameter($ctx, $methodParam, $parameterElement);
+
+		if ($parameter === NULL) {
+			return NULL;
+		}
+
+		$parameters[] = $parameter;
+	}
+
 	return EVM\PHP\PHPFunction::create(
 		$ctx->metadata,
 		$ctx->namespace,
 		$ctx->referenceId,
 		$ctx->localName,
-		XMLv0\extractPHPType($ctx->loaderInstance, $returnType)
+		XMLv0\extractPHPType($ctx->loaderInstance, $returnType),
+		$parameters
 	);
 }
