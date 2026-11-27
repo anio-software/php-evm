@@ -108,6 +108,14 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		$this->phpManualIndex = $this->phpManual->buildIndex();
 	}
 
+	public function getOrBuildIndex(): EVM\PHP\PHPManualIndex {
+		if ($this->phpManualIndex === NULL) {
+			$this->updateIndex();
+		}
+
+		return $this->phpManualIndex;
+	}
+
 	public function load(): EVM\EVMLoadResult {
 		$data = [];
 
