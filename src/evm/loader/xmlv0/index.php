@@ -8,6 +8,15 @@ require_once __DIR__."/getPHPDocAttribute.php";
 require_once __DIR__."/extractQualifiedName.php";
 require_once __DIR__."/extractPHPXMLElementData.php";
 require_once __DIR__."/extractPHPXMLElementsData.php";
+
+require_once __DIR__."/factory/FactoryContext.php";
+require_once __DIR__."/factory/createEnum.php";
+require_once __DIR__."/factory/createInterface.php";
+require_once __DIR__."/factory/createClass.php";
+require_once __DIR__."/factory/createConstant.php";
+require_once __DIR__."/factory/createFunction.php";
+require_once __DIR__."/factory/createFunctionAlias.php";
+
 require_once __DIR__."/loadPHPDefinitionsFromPHPXMLElementsData.php";
 require_once __DIR__."/PHPDefinitionXMLMapping.php";
 require_once __DIR__."/LoaderInstance.php";
