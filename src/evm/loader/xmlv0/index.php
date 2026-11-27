@@ -17,6 +17,7 @@ require_once __DIR__."/factory/createEnum.php";
 require_once __DIR__."/factory/createInterface.php";
 require_once __DIR__."/factory/createClass.php";
 require_once __DIR__."/factory/createConstant.php";
+require_once __DIR__."/factory/_createFunctionParameter.php";
 require_once __DIR__."/factory/createFunction.php";
 require_once __DIR__."/factory/createFunctionAlias.php";
 require_once __DIR__."/factory/createDefinition.php";
