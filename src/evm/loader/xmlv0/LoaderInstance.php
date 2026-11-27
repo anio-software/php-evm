@@ -44,7 +44,7 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		return $el->getAttributeNS($this->xmlIdNamespace, "id");
 	}
 
-	public function pathSelectorFactory(\DOMElement $root, string $path): EVM\XML\DOMSelector {
+	public function pathSelectorFactory(\DOMElement $root, string $path): EVM\XML\ElementAncestrySelector {
 		if (!\array_key_exists($path, $this->pathSelectorFactoryCache)) {
 			$chain = [];
 
