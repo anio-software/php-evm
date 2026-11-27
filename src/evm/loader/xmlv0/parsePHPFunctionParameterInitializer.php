@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\EVM\Bits;
+namespace AnioSoftware\EVM\Loader\XMLv0;
 
 use AnioSoftware\EVM\PHP as PHP;
 

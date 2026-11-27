@@ -1,6 +1,6 @@
 <?php
 
-namespace AnioSoftware\EVM\Bits;
+namespace AnioSoftware\EVM\Loader\XMLv0;
 
 function getPHPDocAttribute(
 	\DOMProcessingInstruction $instruction,
