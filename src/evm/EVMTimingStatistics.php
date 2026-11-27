@@ -11,7 +11,8 @@ final readonly class EVMTimingStatistics {
 		public int|float $classes,
 		public int|float $constants,
 		public int|float $functions,
-		public int|float $functionAliases
+		public int|float $functionAliases,
+		public array $additional = []
 	) {
 		$total  = 0;
 
@@ -21,6 +22,10 @@ final readonly class EVMTimingStatistics {
 		$total += $this->constants;
 		$total += $this->functions;
 		$total += $this->functionAliases;
+
+		foreach ($additional as $value) {
+			$total += $value;
+		}
 
 		$this->total = $total;
 	}
@@ -40,6 +45,13 @@ final readonly class EVMTimingStatistics {
 		$str .= "Spent {$constants}ms for constants\n";
 		$str .= "Spent {$functions}ms for functions\n";
 		$str .= "Spent {$functionAliases}ms for function aliases\n";
+
+		foreach ($this->additional as $category => $value) {
+			$value = (int)$value;
+
+			$str .= "Spent {$value}ms for {$category}\n";
+		}
+
 		$str .= "> Spent {$total}ms in total <\n";
 
 		return $str;
