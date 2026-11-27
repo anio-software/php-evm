@@ -328,7 +328,7 @@ Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is rep
                         "#fullyQualifiedName": "\\STR_PAD_RIGHT"
                     }
                 },
-                "#flags": 129
+                "#flags": 1
             }
         ],
         "#flags": 0,
