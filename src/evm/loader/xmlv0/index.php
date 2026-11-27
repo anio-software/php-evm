@@ -8,6 +8,7 @@ require_once __DIR__."/getPHPDocAttribute.php";
 require_once __DIR__."/extractQualifiedName.php";
 require_once __DIR__."/extractPHPXMLElementData.php";
 require_once __DIR__."/extractPHPXMLElementsData.php";
+require_once __DIR__."/mapStringToPHPType.php";
 
 require_once __DIR__."/factory/FactoryContext.php";
 require_once __DIR__."/factory/createEnum.php";
