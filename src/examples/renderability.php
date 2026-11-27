@@ -5,14 +5,17 @@ use AnioSoftware\EVM\PHP as PHP;
 
 require_once __DIR__."/../evm/index.php";
 
-$options = new EVM\EVMOptions("./example/manual.xml");
-$context = new EVM\EVMContext($options);
+// Load the PHP manual.
+$result = EVM\load(
+	EVM\EVMOptions::default(),
+	new EVM\Loader\XMLv0\Loader(
+		manualPath: "example/manual.xml"
+	)
+);
 
-$statistics = $context->loadPHPManual();
+\fwrite(\STDERR, $result->statistics->toString());
 
-\fwrite(\STDERR, $statistics->toString());
-
-foreach ($context->getPHPManualIndex()->getFunctions() as $fn) {
+foreach ($result->phpManual->getOrBuildIndex()->getFunctions() as $fn) {
 	$renderability = PHP\getRenderability($fn);
 
 	if ($renderability === PHP\Renderability::kRenderable) {

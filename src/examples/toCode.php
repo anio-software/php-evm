@@ -43,16 +43,19 @@ function handlePHPFunction(EVM\PHP\PHPFunction $fn, bool $last): void {
 	if ($kind === "base" && !$last) echo "\n";
 }
 
-$options = new EVM\EVMOptions($argv[1]);
-$context = new EVM\EVMContext($options);
-
-$context->loadPHPManual();
+// Load the PHP manual.
+$result = EVM\load(
+	EVM\EVMOptions::default(),
+	new EVM\Loader\XMLv0\Loader(
+		manualPath: $argv[1]
+	)
+);
 
 echo "<?php\n\n";
 
 echo ($kind === "iface" ? "interface X" : "class X")." {\n";
 
-$fns = $context->getPHPManualIndex()->getFunctions();
+$fns = $result->phpManual->getOrBuildIndex()->getFunctions();
 $fns = \array_filter($fns, static function(EVM\PHP\PHPFunction $fn) use ($filter) : bool {
 	return $filter($fn);
 });
