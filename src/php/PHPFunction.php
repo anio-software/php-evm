@@ -67,24 +67,12 @@ final readonly class PHPFunction extends PHPDefinition {
 	public function withFunctionParameter(
 		PHPFunctionParameter $param
 	): self {
-		$newParameters = [];
-
-		foreach ($this->parameters as $p) {
-			$newParameters[] = $p->withFlags(
-				$p->flags & ~(PHPFunctionParameter::FLAG_LAST)
-			);
-		}
-
-		$newParameters[] = $param->withFlags(
-			$param->flags | PHPFunctionParameter::FLAG_LAST
-		);
-
 		return new self(
 			$this->metadata,
 			$this->namespace,
 			$this->referenceId,
 			$this->name,
-			$newParameters,
+			[...$this->parameters, $param],
 			$this->flags,
 			$this->returnType
 		);
@@ -110,6 +98,16 @@ final readonly class PHPFunction extends PHPDefinition {
 		return $this->parameters;
 	}
 
+	public function isLastFunctionParameter(PHPFunctionParameter $param): bool {
+		$index = \array_search($param, $this->parameters, true);
+
+		if ($index === false) {
+			return false;
+		}
+
+		return ($index + 1) === \count($this->parameters);
+	}
+
 	public function renderParameters(
 		bool $references = false,
 		bool $types = false,
@@ -119,7 +117,7 @@ final readonly class PHPFunction extends PHPDefinition {
 
 		foreach ($this->getParameters() as $param) {
 			$ret .= $param->render($references, $types, $initializer);
-			$ret .= (!$param->isLast() ? ", " : "");
+			$ret .= (!$this->isLastFunctionParameter($param) ? ", " : "");
 		}
 
 		$ret .= ")";
