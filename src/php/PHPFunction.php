@@ -64,20 +64,6 @@ final readonly class PHPFunction extends PHPDefinition {
 		return \array_key_exists($name, $languageConstructs);
 	}
 
-	public function withFunctionParameter(
-		PHPFunctionParameter $param
-	): self {
-		return new self(
-			$this->metadata,
-			$this->namespace,
-			$this->referenceId,
-			$this->name,
-			[...$this->parameters, $param],
-			$this->flags,
-			$this->returnType
-		);
-	}
-
 	public function isVariadic(): bool {
 		return ($this->flags & self::FLAG_VARIADIC) !== 0;
 	}
@@ -153,15 +139,30 @@ final readonly class PHPFunction extends PHPDefinition {
 		PHPNamespace $namespace,
 		string $referenceId,
 		string $name,
-		PHPType $returnType
+		PHPType $returnType,
+		array $parameters = []
 	): self {
+		$flags = 0;
+
+		foreach ($parameters as $parameter) {
+			if (!($parameter instanceof PHPFunctionParameter)) {
+				throw new \InvalidArgumentException(
+					"Every parameter must be an instance of PHPFunctionParameter."
+				);
+			}
+
+			if ($parameter->isVariadic()) {
+				$flags |= self::FLAG_VARIADIC;
+			}
+		}
+
 		return new self(
 			$metadata,
 			$namespace,
 			$referenceId,
 			$name,
-			[],
-			0,
+			$parameters,
+			$flags,
 			$returnType
 		);
 	}
