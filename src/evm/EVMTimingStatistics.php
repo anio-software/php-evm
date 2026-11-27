@@ -3,15 +3,27 @@
 namespace AnioSoftware\EVM;
 
 final readonly class EVMTimingStatistics {
+	public int|float $total;
+
 	public function __construct(
 		public int|float $enums,
 		public int|float $interfaces,
 		public int|float $classes,
 		public int|float $constants,
 		public int|float $functions,
-		public int|float $functionAliases,
-		public int|float $total
-	) {}
+		public int|float $functionAliases
+	) {
+		$total  = 0;
+
+		$total += $this->enums;
+		$total += $this->interfaces;
+		$total += $this->classes;
+		$total += $this->constants;
+		$total += $this->functions;
+		$total += $this->functionAliases;
+
+		$this->total = $total;
+	}
 
 	public function __toString(): string {
 		$total           = (int)$this->total;

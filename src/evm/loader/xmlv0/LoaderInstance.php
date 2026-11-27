@@ -134,16 +134,13 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		$functions       = $timing->get(EVM\PHP\PHPDefinitionKind::kFunction);
 		$functionAliases = $timing->get(EVM\PHP\PHPDefinitionKind::kFunctionAlias);
 
-		$total = $enums + $interfaces + $classes + $constants + $functions + $functionAliases;
-
 		$timing = new EVM\EVMTimingStatistics(
 			enums           : $enums,
 			interfaces      : $interfaces,
 			classes         : $classes,
 			constants       : $constants,
 			functions       : $functions,
-			functionAliases : $functionAliases,
-			total           : $total
+			functionAliases : $functionAliases
 		);
 
 		$index = $this->phpManualIndex;
