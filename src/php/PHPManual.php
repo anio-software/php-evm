@@ -17,6 +17,10 @@ final class PHPManual implements PHPStructuredObject {
 		return $this->index;
 	}
 
+	public function getOrBuildIndex(): PHPManualIndex {
+		return $this->index ?? $this->buildIndex();
+	}
+
 	public function getGlobalNamespace(): PHPNamespace {
 		return $this->globalNamespace;
 	}
