@@ -19,22 +19,12 @@ function loadPHPDefinitionsFromPHPXMLElementsData(
 			$elementData->name->namespace
 		);
 
-		$ctx = new Factory\FactoryContext(
+		$definition = Factory\createDefinition($kind, new Factory\FactoryContext(
 			loaderInstance : $loaderInstance,
 			elementData    : $elementData,
 			metadata       : $metadata,
 			namespace      : $namespace
-		);
-
-		$definition = match($kind) {
-			EVM\PHP\PHPDefinitionKind::kEnum          => Factory\createEnum($ctx),
-			EVM\PHP\PHPDefinitionKind::kInterface     => Factory\createInterface($ctx),
-			EVM\PHP\PHPDefinitionKind::kClass         => Factory\createClass($ctx),
-			EVM\PHP\PHPDefinitionKind::kConstant      => Factory\createConstant($ctx),
-			EVM\PHP\PHPDefinitionKind::kFunction      => Factory\createFunction($ctx),
-			EVM\PHP\PHPDefinitionKind::kFunctionAlias => Factory\createFunctionAlias($ctx),
-			default                                   => NULL
-		};
+		));
 
 		if ($definition === NULL) {
 			continue;
