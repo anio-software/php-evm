@@ -215,30 +215,39 @@ use AnioSoftware\EVM as EVM;
 
 require_once __DIR__."/src/evm/index.php";
 
-$options = new EVM\EVMOptions(__DIR__."/example/manual.xml");
-$context = new EVM\EVMContext($options);
+$result = EVM\load(
+	new EVM\EVMOptions,
+	new EVM\Loader\XMLv0\Loader(
+		manualPath: __DIR__."/example/manual.xml"
+	)
+);
 
-$statistics = $context->loadPHPManual();
+\fwrite(\STDERR, $result->statistics->toString());
 
-\fwrite(\STDERR, $statistics->toString());
-
-echo \json_encode($context->manual, JSON_PRETTY_PRINT)."\n";
+echo \json_encode(
+	$result->phpManual, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES
+)."\n";
 ```
 
 Example output:
 
 ```
-Took 806ms to fully load PHP manual:
-Spent 517ms for class likes
-Spent 85ms for constants
-Spent 197ms for functions
+Spent 0ms for enums
+Spent 0ms for interfaces
+Spent 3ms for classes
+Spent 38ms for constants
+Spent 109ms for functions
+Spent 2ms for function aliases
+Spent 273ms for extraction
+Spent 9ms for index updates
+> Spent 435ms in total <
 Loaded 63 namespaces
-Loaded 767 classes
-Loaded 30 interfaces
 Loaded 8 enums
-Loaded 3399 functions
-Loaded 182 function aliases
+Loaded 30 interfaces
+Loaded 767 classes
 Loaded 4853 constants
+Loaded 3403 functions
+Loaded 180 function aliases
 ```
 
 Here's a snippet of how the function [`str_pad`](https://php.net/str_pad) is represented:
