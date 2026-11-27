@@ -118,6 +118,7 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 		);
 
 		$timing = new EVM\Utils\HashMap;
+		$updateIndexTiming = 0;
 
 		foreach ($this->getPHPDefinitionXMLMappings()->entries() as [$kind]) {
 			$elapsedTime = (int)EVM\EVMTimingStatistics::measure(
@@ -125,9 +126,11 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 					loadPHPDefinitionsFromPHPXMLElementsData(
 						$kind, $this, $data[$kind->value]
 					);
-
-					$this->updateIndex();
 				}
+			);
+
+			$updateIndexTiming += EVM\EVMTimingStatistics::measure(
+				fn() => $this->updateIndex()
 			);
 
 			$timing->set($kind, $elapsedTime);
@@ -148,7 +151,8 @@ final class LoaderInstance extends EVM\EVMLoaderInstance {
 			functions       : $functions,
 			functionAliases : $functionAliases,
 			additional      : [
-				"extraction" => $extraction
+				"extraction" => $extraction,
+				"index updates" => $updateIndexTiming
 			]
 		);
 
